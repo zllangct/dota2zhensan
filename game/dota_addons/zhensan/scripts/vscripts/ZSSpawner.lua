@@ -224,7 +224,10 @@ function ZSSpawner:DoSpawn(spawn_location, unit_name, initial_target, team, leve
         print('creature level up enabled, leveling')
         creep:CreatureLevelUp(level - 1)
     end
-    Morale_System:syn_ability(creep) 
+
+    -- 在士气系统注册这个小兵
+    MSys:DealWithCreep(creep)
+
     creep:SetMustReachEachGoalEntity(true)
     creep:SetInitialGoalEntity(initial_target)
 end

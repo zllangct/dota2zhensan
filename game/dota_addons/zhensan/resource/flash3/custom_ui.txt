@@ -17,8 +17,18 @@
     }
     "3"
     {
-        "File" "StatsCollection"
-        "Depth" "1"
+        "File" 		"StatsCollection"
+        "Depth" 	"1"
+    }
+    "4"
+    {
+    	"File"		"Morale"
+    	"Depth"		"50"
+    }
+    "5"
+    {
+    	"File"		"Lumber"
+    	"Depth"		"888"
     }
 }
 

@@ -21,4 +21,16 @@
     "stat_collection_send"
     {
     }
+    // Morale System
+    "morale_update"
+    {
+    	"MoraleShu"		"short"
+    	"MoraleWei"		"short"
+    }
+    // Lumber UI
+    "lumber_update"
+    {
+    	"PlayerID"		"short"
+    	"Lumber"		"long"
+    }
 }

@@ -15,7 +15,19 @@ require('items/ItemCore')
 require('items/Car')
 require('other/movement')
 require('utils/timers')
+require('utils/table')
 require('morale_system')
+
+-- 常量
+GOLD_PER_TICK = 1
+GOLD_TICK_TIME = 0.8
+function GameRules:GetGoldPerTick()
+    return GOLD_PER_TICK
+end
+function GameRules:GetGoldTickTime()
+    return GOLD_TICK_TIME
+end
+
 -- 初始化真三游戏模式
 if ZhensanGameMode == nil then
     ZhensanGameMode = class( { })
@@ -94,9 +106,9 @@ function Precache(context)
     PrecacheResource("particle", "particles/sunzibinfa/courier_trail_earth.vpcf",context)
     PrecacheResource("particle", "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_arcs.vpcf",context)
     PrecacheResource("particle", "particles/ranged_siege_bad.vpcf",context)
-     PrecacheResource("particle", "particles/units/heroes/hero_earthshaker/earthshaker_fissure_fire.vpcf",context)
-      PrecacheResource("particle", "particles/fengbaozhizhang/cyclone.vpcf",context)
-      PrecacheResource("particle", "particles/base_attacks/ranged_siege_good.vpcf",context)
+    PrecacheResource("particle", "particles/units/heroes/hero_earthshaker/earthshaker_fissure_fire.vpcf",context)
+    PrecacheResource("particle", "particles/fengbaozhizhang/cyclone.vpcf",context)
+    PrecacheResource("particle", "particles/base_attacks/ranged_siege_good.vpcf",context)
 end
 
 -- 当游戏载入的时候执行
@@ -122,7 +134,11 @@ function ZhensanGameMode:InitGameMode()
     --关闭偷塔保护
      GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(false)
     --禁止买活
-     GameRules:GetGameModeEntity():SetBuybackEnabled(false)
+    GameRules:GetGameModeEntity():SetBuybackEnabled(false)
+
+    -- 设置金钱
+    GameRules:SetGoldPerTick(GOLD_PER_TICK)
+    GameRules:SetGoldTickTime(GOLD_TICK_TIME)
 
     -- 监听游戏阶段变更事件
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(ZhensanGameMode, "OnGameRuleStateChanged"), self)
@@ -144,7 +160,7 @@ function ZhensanGameMode:InitGameMode()
     --野怪
     ZSSpawner:Start_wild_init()
     --士气系统
-    Morale_System:init()
+    MSys:Init()
     -- 设置力量平衡性常数19.12
     ParaAdjuster:SetStrToHealth(19.12)
     -- 设置智力提供魔法常数13.05

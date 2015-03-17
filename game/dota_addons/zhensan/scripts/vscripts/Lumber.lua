@@ -48,9 +48,9 @@ end
 function Lumber:UpdateLumberToHUD(player_id, val)
 
     -- 现在先用屏幕数字，之后改成图形界面
-    UTIL_ResetMessageText(player_id + 1)
-    UTIL_MessageText_WithContext(player_id + 1, "#Lumber_Data", 255, 255, 255, 125, { value = val })
+    -- UTIL_ResetMessageText(player_id + 1)
+    -- UTIL_MessageText_WithContext(player_id + 1, "#Lumber_Data", 255, 255, 255, 125, { value = val })
 
     -- HUD图形界面，待使用
-    -- FireGameEvent("update_player_lumber_data", {PlayerID = player_id, Lumbers =hero.__lumber_data})
+    FireGameEvent("lumber_update", {PlayerID = player_id, Lumber = val})
 end
