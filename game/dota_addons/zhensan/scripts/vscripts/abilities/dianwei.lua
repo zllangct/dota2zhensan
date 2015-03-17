@@ -4,16 +4,15 @@
     Author: XavierCHN@2015.3.18
 ]]
 function OnDianweiUpdateYexingzhanhun(keys)
-    print("PLAYER USING DIANWEI UPGRADE YEXINGZHANHUN")
+    -- 获取施法者和技能
     local caster = keys.caster
     local ability = keys.ability
-
+    -- 计算升级之后的基础生命恢复速度
     local health_bonus = ability:GetLevelSpecialValueFor("health_bonus", ability:GetLevel() - 1)
     local health_regen_base = caster:GetBaseHealthRegen()
     local health_regen_new = health_regen_base + 0.25 * (health_bonus / 100)
-
+    -- 赋予英雄新的基础生命恢复速度
     caster:SetBaseHealthRegen(health_regen_new)
-    print("DIANWEI YEXINGZHANHUN , BASE HEALTH REGEN UPDATE FROM", health_regen_base, "TO", health_regen_new)
 end
 
 --[[
@@ -21,9 +20,8 @@ function dianwei_yexingzhanhun_01(keys)
 	-- body
 	local caster=EntIndexToHScript(keys.caster_entindex)
     local i=0
-    Timers:CreateTimer(function()
-    -- GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("dianwei"),
-    	-- function ( )
+    GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("dianwei"),
+    	function ( )
     		-- body
     	
            if i ~= keys.ability:GetLevel() then 
