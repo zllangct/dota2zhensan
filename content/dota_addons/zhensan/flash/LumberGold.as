@@ -38,10 +38,9 @@
 		public function onGoldTickTimer(e:TimerEvent){
 			var playerID = globals.Players.GetLocalPlayer();
 			var gold:Number = globals.Players.GetGold(playerID)
-			if (gold == undefined){
-				gold = 0;
-			}
-			lumberGoldMovieClip.goldLabel.text = gold;
+			
+			lumberGoldMovieClip.goldLabel.text = toString(gold);
+					
 		}
 		public function onLumberUpdate(args:Object){
 			var Lumber:Number = args.Lumber;

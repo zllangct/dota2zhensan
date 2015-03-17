@@ -14,8 +14,8 @@
         public var globals:Object;
         public var elementName:String;
 		
-		public var MoraleWei:Number;
-		public var MoraleShu:Number;
+		public var MoraleWei:Number = 10;
+		public var MoraleShu:Number = 10;
 		
 		public var moraleClip:MovieClip;
 
@@ -26,17 +26,26 @@
 		public function onLoaded() : void {
 			trace("MORALE HUD LAODED!");
 			Globals.instance.resizeManager.AddListener(this);
-			gameAPI.SubscribeToGameEvent( "morale_update", onMoraleUpdate )
+			gameAPI.SubscribeToGameEvent( "morale_update", onMoraleUpdate );
+			moraleClip.tileGood.width = 300;
 		}
 		
 		public function onMoraleUpdate(args:Object){
 			trace("ON MORALE UPDATE CALLED");
+			
+			var ShuUp:Boolean = MoraleShu < args.MoraleShu;
+			
 			MoraleWei = args.MoraleWei;
 			MoraleShu = args.MoraleShu;
 			trace("MORALE WEI" + MoraleWei);
 			trace("MORALE SHU" + MoraleShu);
-			moraleClip.moraleLabelWei.text = MoraleWei;
-			moraleClip.moraleLabelShu.text = MoraleShu;
+			var goodWidth:Number = MoraleShu * 30;
+			if (goodWidth == 0){
+				goodWidth = 1;
+			}
+			moraleClip.tileGood.width = goodWidth;
+			// todo 上升下降的动画
+			
 		}
 
 		public function replaceWithValveComponent(mc:MovieClip, type:String, keepDimensions:Boolean = false, addAt:int = -1) : MovieClip {
@@ -89,8 +98,8 @@
 					
 			moraleClip.scaleX = correctedRatio / 2;
 			moraleClip.scaleY = correctedRatio / 2;
-			moraleClip.x = (re.ScreenWidth - 200 * correctedRatio);//re.ScreenWidth * .5;
-			moraleClip.y = (re.ScreenHeight / 2 - moraleClip.height / 2 + 200 * correctedRatio);//re.ScreenHeight * .25;
+			moraleClip.x = ( 30 * correctedRatio);//re.ScreenWidth * .5;//
+			moraleClip.y = ( 50 * correctedRatio);//re.ScreenHeight * .25;
 		}
     }
 }

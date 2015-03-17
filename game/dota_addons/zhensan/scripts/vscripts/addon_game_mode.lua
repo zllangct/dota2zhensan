@@ -135,6 +135,8 @@ function ZhensanGameMode:InitGameMode()
      GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(false)
     --禁止买活
     GameRules:GetGameModeEntity():SetBuybackEnabled(false)
+    --禁止默认的金钱显示
+    GameRules:GetGameModeEntity():SetHUDVisible(11, false)
 
     -- 设置金钱
     GameRules:SetGoldPerTick(GOLD_PER_TICK)
