@@ -16,7 +16,7 @@ local modules = {
 
     "utils.timers", -- 计时器类
     "utils.table", -- table 辅助函数
-    "utils.Precache" -- 预载入函数
+    "utils.Precache", -- 预载入函数
 
     "other.movement" -- 移动速度管理
 }
