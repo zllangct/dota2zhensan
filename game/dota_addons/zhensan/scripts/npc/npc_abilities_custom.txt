@@ -2103,6 +2103,16 @@
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "AbilityTextureName"        "dianwei_yexingzhanhun"   //技能图标  需修改
     
+    "OnUpgrade"
+    {
+    	"RunScript"
+    	{
+    		"ScriptFile" 	"scripts/vscripts/abilities/dianwei.lua"
+    		"Target"		"CASTER"
+    		"Function"		"OnDianweiUpdateYexingzhanhun"
+    	}
+    }
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "Modifiers"            
@@ -2114,20 +2124,8 @@
         "Properties"
         {
           "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
-       //   "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"    "%health_bonus"
         }
-         "OnCreated"
-         {
-         	
-           
-           "RunScript"
-           {
-        	   "ScriptFile" 	"scripts/vscripts/abilities/dianwei.lua"
-        	   "Target"		"CASTER"
-        	   "Function"		"dianwei_yexingzhanhun_01"
-           }
-         }
-       
+        
       }
     }
     "AbilitySpecial"
