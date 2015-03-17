@@ -28,7 +28,7 @@
     "5"
     {
     	"File"		"Lumber"
-    	"Depth"		"888"
+    	"Depth"		"249"
     }
 }
 

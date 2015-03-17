@@ -21,7 +21,7 @@ local modules = {
     "other.movement" -- 移动速度管理
 }
 
-for mod in pairs(modules)
+for _, mod in pairs(modules) do
     require(mod)
 end
 

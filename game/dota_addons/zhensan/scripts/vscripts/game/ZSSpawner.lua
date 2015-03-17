@@ -1,6 +1,4 @@
 -- 初始化刷怪器·真三
-require('utils/timers')
-require('morale_system')
 if ZSSpawner == nil then
     ZSSpawner = class( { })
 end
