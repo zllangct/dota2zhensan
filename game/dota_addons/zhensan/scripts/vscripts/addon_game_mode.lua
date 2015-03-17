@@ -2,25 +2,33 @@
 -- 作者：XavierCHN
 -- @2014.11.30
 
--- 载入刷怪器
-require("ZSSpawner")
--- 载入技能监听
-require('abilities/AbilityCore')
--- 载入木材系统
-require('Lumber')
--- 载入平衡性常数修正
-require('ParaAdjuster')
--- 载入物品核心
-require('items/ItemCore')
-require('items/Car')
-require('other/movement')
-require('utils/timers')
-require('utils/table')
-require('morale_system')
+-- 各系统
+local modules = {
+    "game.ZSSpawner", -- 刷怪器
+    "game.Morale", -- 士气系统
+    "game.Lumber", -- 木材[其实是不是可以改名成军功什么的：@无双]
+
+    "abilities.ParaAdjuster", -- 平衡性常数修正
+    "abilities.AbilityCore", -- 技能核心
+
+    "items.ItemCore", --物品核心
+    "items.Car", -- 投石车系统
+
+    "utils.timers", -- 计时器类
+    "utils.table", -- table 辅助函数
+    "utils.Precache" -- 预载入函数
+
+    "other.movement" -- 移动速度管理
+}
+
+for mod in pairs(modules)
+    require(mod)
+end
 
 -- 常量
 GOLD_PER_TICK = 1
 GOLD_TICK_TIME = 0.8
+
 function GameRules:GetGoldPerTick()
     return GOLD_PER_TICK
 end
@@ -37,37 +45,7 @@ require('lib.statcollection')
 statcollection.addStats({
     modID = '116a8b54ae8e398b3550c8b272d670aa' --GET THIS FROM http://getdotastats.com/#d2mods__my_mods
 })
--- 预载入KV里面定义的各种资源
-function PrecacheEveryThingFromKV(context)
-    local kv_files = { "scripts/npc/npc_units_custom.txt", "scripts/npc/npc_abilities_custom.txt", "scripts/npc/npc_heroes_custom.txt", "scripts/npc/npc_abilities_override.txt", "npc_items_custom.txt" }
-    for _, kv in pairs(kv_files) do
-        local kvs = LoadKeyValues(kv)
-        if kvs then
-            print("BEGIN TO PRECACHE RESOURCE FROM: ", kv)
-            PrecacheEverythingFromTable(context, kvs)
-        end
-    end
-end
-function PrecacheEverythingFromTable(context, kvtable)
-    for key, value in pairs(kvtable) do
-        if type(value) == "table" then
-            PrecacheEverythingFromTable(context, value)
-        else
-            if string.find(value, "vpcf") then
-                PrecacheResource("particle", value, context)
-                print("PRECACHE PARTICLE RESOURCE", value)
-            end
-            if string.find(value, "vmdl") then
-                PrecacheResource("model", value, context)
-                print("PRECACHE MODEL RESOURCE", value)
-            end
-            if string.find(value, "vsndevts") then
-                PrecacheResource("soundfile", value, context)
-                print("PRECACHE SOUND RESOURCE", value)
-            end
-        end
-    end
-end
+
 
 -- 预载入
 function Precache(context)
