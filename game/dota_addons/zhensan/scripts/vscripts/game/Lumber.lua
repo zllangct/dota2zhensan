@@ -10,26 +10,27 @@ function Lumber:AddLumber(keys)
     local entity_attacker = EntIndexToHScript(keys.entindex_attacker)
     if not(entity_killed and entity_attacker) then return end
     local team_attacker = entity_attacker:GetTeam()
-    local team_attacker = entity_attacker:GetTeam()
-
-          ---------------------------------------------------------------------------
-    if not(team_attacker == DOTA_TEAM_GOODGUYS or team_attacker == DOTA_TEAM_BADGUYS) then return end
+    if not(team_attacker == DOTA_TEAM_GOODGUYS or team_attacker == DOTA_TEAM_BADGUYS) then return end -- 确保攻击者是蜀国或者魏国的单位，中立单位击杀的不计算木头
 
     if not entity_attacker:GetOwner() then
-        if not entity_attacker:IsControllableByAnyPlayer() then return end
+        if not entity_attacker:IsControllableByAnyPlayer() then return end -- 确保击杀的单位是玩家控制的单位，被小兵击杀的也不计算木头
     end
-    if  entity_attacker:GetPlayerOwnerID() then 
-         player_id=entity_attacker:GetPlayerOwnerID()
+
+    if entity_attacker:GetPlayerOwnerID() then 
+        player_id = entity_attacker:GetPlayerOwnerID() -- 如果是玩家控制的英雄的其他单位，那么获取单位的所有者
     else
-        player_id = entity_attacker:GetPlayerID() 
-    end      
-    local player = PlayerResource:GetPlayer(player_id)
-    if not player then return end
+        player_id = entity_attacker:GetPlayerID() -- 如果是英雄直接获取玩家ID
+    end
+
+    local player = PlayerResource:GetPlayer(player_id) -- 通过玩家ID获取玩家实体
+    if not player then return end -- 确保玩家实体获取正确
+    
     local hero = player:GetAssignedHero()
-    if not hero then return end
+    if not hero then return end -- 确保英雄实体获取正确
+
     -- 一直到这里，所有的判定都是为了确认击杀者是一个玩家的单位
 
-    if hero.__lumber_data == nil then hero.__lumber_data = 0 end
+    if hero.__lumber_data == nil then hero.__lumber_data = 0 end -- 如果英雄还未获得任何，那么设置为0
 
     -- 如果击杀的是英雄，增加5木材
     if entity_killed:IsRealHero() then
@@ -46,11 +47,5 @@ function Lumber:AddLumber(keys)
 end
 
 function Lumber:UpdateLumberToHUD(player_id, val)
-
-    -- 现在先用屏幕数字，之后改成图形界面
-    -- UTIL_ResetMessageText(player_id + 1)
-    -- UTIL_MessageText_WithContext(player_id + 1, "#Lumber_Data", 255, 255, 255, 125, { value = val })
-
-    -- HUD图形界面，待使用
     FireGameEvent("lumber_update", {PlayerID = player_id, Lumber = val})
 end

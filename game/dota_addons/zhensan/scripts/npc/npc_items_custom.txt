@@ -1898,36 +1898,46 @@
 		"AbilityCooldown"    "90"
         "OnSpellStart"
         {
-            "RunScript"
-            {
-               "ScriptFile"   "scripts/vscripts/items/item_xuanwufu.lua"
-               "Target"       "CASTER"
-               "Function"    "xuanwufu_01"
-            }
             "ApplyModifier"
             {
-            	"Target"  "TARGET"
-            	"ModifierName"   "jishi_xuanwufu"
+            	"Target"  		"TARGET"
+            	"ModifierName"   "xuanwufu_buff"
             }
         }
         "Modifiers"
         {
-        	"jishi_xuanwufu"
-        	{
-        		"Duration"   "%duration"
-
-        	}
-            "wuanwufu_bonu"
+            "xuanwufu_buff"
             {
-            	"Passive"     "1"
-                "IsHidden"   "1"
-               "Attributes"  "MODIFIER_ATTRIBUTE_MULTIPLE"
+            	"Passive"     	"1"
+                "Duration"   	"%duration"
+               	"Attributes"  	"MODIFIER_ATTRIBUTE_MULTIPLE"
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  "12"
-                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	   "18"
+                    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"  		"%strength_bonus"
+                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	   	"%damage_bonus"
                 }
-                
+                "States"
+                {
+                	"MODIFIER_STATE_MAGIC_IMMUNE"				"MODIFIER_STATE_VALUE_ENABLED"
+                }
+                "OnCreated"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile" 	"scripts/vscripts/items/item_xuanwufu.lua"
+                		"Target"		"CASTER"
+                		"Function"		"OnPlayerUseXuanwufu"
+                	}
+                }
+                "OnDestroy"
+                {
+                	"RunScript"
+                	{
+                		"ScriptFile" 	"scripts/vscripts/items/item_xuanwufu.lua"
+                		"Target"		"CASTER"
+                		"Function"		"OnPlayerXuanwufuDisactivated"
+                	}
+                }
             }
         }
         "AbilitySpecial"
