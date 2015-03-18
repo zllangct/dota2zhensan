@@ -3,6 +3,7 @@
 function wanfumodi_big(keys)
     local caster=EntIndexToHScript(keys.caster_entindex)
     local i = 1
+    caster.__isBig = true
     Timers:CreateTimer(function()
         if i <= 25 then
             caster:SetModelScale(1 + i / 50)
@@ -12,7 +13,6 @@ function wanfumodi_big(keys)
             return nil
         end
     end)
-    caster.__isBig = true
 end
 
 -- 将英雄的单位变小

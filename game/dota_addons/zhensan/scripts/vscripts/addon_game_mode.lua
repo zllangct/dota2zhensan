@@ -14,6 +14,8 @@ local modules = {
     "items.ItemCore", --物品核心
     "items.Car", -- 投石车系统
 
+    "hud.HudGameEvents", -- HUD的游戏事件函数
+
     "utils.timers", -- 计时器类
     "utils.table", -- table 辅助函数
     "utils.Precache", -- 预载入函数

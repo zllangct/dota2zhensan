@@ -150,10 +150,8 @@ function MSys:MoraleDown(player, team)
     self.__morale[team] = self.__morale[team] - 1
     self.__morale[enemyTeam] = self.__morale[enemyTeam] + 1
     
-    FireGameEvent("morale_update",{
-        MoraleShu = self.__morale[DOTA_TEAM_GOODGUYS],
-        MoraleWei = self.__morale[DOTA_TEAM_BADGUYS]
-    })
+    -- 更新士气显示
+    UpdateMoraleData(self.__morale[DOTA_TEAM_GOODGUYS], self.__morale[DOTA_TEAM_BADGUYS])
 
     -- 处理小兵的士气等级技能
     -- 可能存在的BUG，npc_creeps不能设置技能和技能等级？

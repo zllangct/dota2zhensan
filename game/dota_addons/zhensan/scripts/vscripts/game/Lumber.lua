@@ -43,9 +43,5 @@ function Lumber:AddLumber(keys)
     end
 
     -- 刷新界面的木材信息.
-    self:UpdateLumberToHUD(player_id, hero.__lumber_data)
-end
-
-function Lumber:UpdateLumberToHUD(player_id, val)
-    FireGameEvent("lumber_update", {PlayerID = player_id, Lumber = val})
+    UpdateLumberDataForPlayer(player_id, hero.__lumber_data)
 end
