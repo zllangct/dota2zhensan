@@ -5,18 +5,6 @@
 -- 注释很详细，慢慢看即可
 
 -- [Comment]
--- 计算非连续Table里面的元素个数\
--- tbl: table 要计算的表单
---
-function tableCount(tbl)
-    count = 0
-    for _ in pairs(table) do
-        count = count + 1
-    end
-    return count
-end
-
--- [Comment]
 -- 判定单位是否拥有阿哈利姆神杖
 -- caster: 要判定的单位
 -- 返回 true: 有神杖 false:没有神杖
