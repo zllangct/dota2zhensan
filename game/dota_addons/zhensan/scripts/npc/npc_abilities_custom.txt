@@ -12,12 +12,12 @@
 			"dummy_unit"
 			{
 				"Passive"						"1"
-				"IsHidden"						"1"	
+				"IsHidden"						"1"
 				"States"
 				{
 					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"	   	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		 	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVISIBLE"			"MODIFIER_STATE_VALUE_ENABLED"
@@ -35,12 +35,12 @@
 			"dummy_unit"
 			{
 				"Passive"						"1"
-				"IsHidden"						"1"	
+				"IsHidden"						"1"
 				"States"
 				{
 					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"	   	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVISIBLE"			"MODIFIER_STATE_VALUE_ENABLED"
@@ -49,62 +49,56 @@
 			}
 		}
 	}
-	
 	//=================================================================================================================
 	// 士气系统
 	//=================================================================================================================
 	"morale_ability"
-    {
-	    "BaseClass"				"ability_datadriven"
-        "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-        "Modifiers"
-        {
-    	    "modifier_morale_buff"
-    	    {
-    		     //"IsHidden"   "1"
-    		    "Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE" 
-    		    "Properties"
-    		    {
-    		    	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
-    		    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%move_speed"
-    		    }
-    	    }
-        }
-        "AbilitySpecial"
-        {
-        	"01"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"attack_speed"			"0 5 10 15"
-        	}
-        	"02"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"move_speed"			"0 5 10 15"
-        	}
-        }
-    }
-	
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_morale_buff"
+			{
+				 //"IsHidden"	 "1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%move_speed"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"attack_speed"			"0 5 10 15"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"move_speed"			"0 5 10 15"
+			}
+		}
+	}
 	//=================================================================================================================
 	// 诸葛 暴雷雨
 	//=================================================================================================================
 	"Zhuge_Baoleiyu"
 	{
 		"AbilityTextureName"	"zhuge_leibaoyu"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_COLD_SNAP"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-
 		"AbilityCastRange"		"700"
 		"AbilityCastPoint"		"0.5"
 		"AbilityManaCost"		"100 115 130 178"
 		"AbilityCooldown"		"6.0"
-
 		"MaxLevel"				"4"
-		
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -112,8 +106,7 @@
 				"ScriptFile"	"scripts/vscripts/abilities/Zhuge.lua"
 				"Function"		"OnBaoleiyuStart"
 			}
-		}	
-
+		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -139,18 +132,15 @@
 	"Zhuge_Jidongningjie"
 	{
 		"AbilityTextureName"	"zhuge_jidonglingjie"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_COLD_SNAP"
-
 		"AbilityCastRange"		"520"
 		"AbilityCastPoint"		"0.5"
 		"AbilityManaCost"		"120 135 150 165"
 		"AbilityCooldown"		"20.0"
 		"AOERadius"				"150 170 200 220"
 		"MaxLevel"				"4"
-		
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -171,7 +161,6 @@
 			// 	"Duration"				"3"
 			// 	"UnitCount"				"1"
 			// }
-			
 			"SpawnUnit"
 			{
 				"UnitName"				"npc_zhuge_jidongningjie"
@@ -212,14 +201,12 @@
 			// 	"EffectAttachType"	"world_origin"
 			// }
 		}
-
 		"Modifiers"
 		{
 			"modifier_jidongningjie"
 			{
 				"OnCreated"
 				{
-					
 					"AttachEffect"
 					{
 						"EffectName"		"particles/heroes/zhuge/jakiro_ice_path_shards.vpcf"
@@ -232,10 +219,8 @@
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-
 			}
 		}
-
 		"AbilitySpecial"
 		{
 			"01"
@@ -261,7 +246,6 @@
 	"Zhuge_Jufeng"
 	{
 		"AbilityTextureName"	"zhuge_jufeng"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_COLD_SNAP"
@@ -270,7 +254,6 @@
 		"AbilityManaCost"		"100 125 145 165"
 		"AbilityCooldown"		"18.0"
 		"MaxLevel"				"4"
-
 		"OnSpellStart"
 		{
 			"SpawnUnit"
@@ -288,7 +271,6 @@
 					}
 				}
 			}
-			
 		}
 	}
 	//飓风马甲单位的技能
@@ -296,7 +278,6 @@
 	{
 		"BaseClass"		"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
 		"Modifiers"
 		{
 			"modifier_jufeng"
@@ -331,16 +312,13 @@
 	"Zhuge_Tianbian"
 	{
 		"AbilityTextureName"	"zhuge_tianbian"
-
 		"BaseClass"				"ability_datadriven"
-
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
 		"AbilityCastRange"		"0"
 		"AbilityCastPoint"		"0.0"
 		"AbilityManaCost"		"0"
 		"AbilityCooldown"		"200"
 		"MaxLevel"				"1"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -357,16 +335,13 @@
 	"Zhuge_Tianbian_Wu"
 	{
 		"AbilityTextureName"	"zhuge_tianbian_wu"
-
 		"BaseClass"				"ability_datadriven"
-
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityCastRange"		"0"
 		"AbilityCastPoint"		"0.0"
 		"AbilityManaCost"		"0"
 		"AbilityCooldown"		"145"
 		"MaxLevel"				"1"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -406,16 +381,13 @@
 	"Zhuge_Tianbian_Yu"
 	{
 		"AbilityTextureName"	"zhuge_tianbian_yu"
-
 		"BaseClass"				"ability_datadriven"
-
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityCastRange"		"0"
 		"AbilityCastPoint"		"0.0"
 		"AbilityManaCost"		"0"
 		"AbilityCooldown"		"145"
 		"MaxLevel"				"1"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -455,16 +427,13 @@
 	"Zhuge_Tianbian_Xue"
 	{
 		"AbilityTextureName"	"zhuge_tianbian_xue"
-
 		"BaseClass"				"ability_datadriven"
-
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityCastRange"		"0"
 		"AbilityCastPoint"		"0.0"
 		"AbilityManaCost"		"0"
 		"AbilityCooldown"		"145"
 		"MaxLevel"				"1"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -504,16 +473,13 @@
 	"Zhuge_Tianbian_Cancel"
 	{
 		"AbilityTextureName"	"cancel"
-
 		"BaseClass"				"ability_datadriven"
-
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityCastRange"		"0"
 		"AbilityCastPoint"		"0.0"
 		"AbilityManaCost"		"0"
 		"AbilityCooldown"		"0"
 		"MaxLevel"				"1"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -530,7 +496,6 @@
 	"Zhuge_Wolongguangxian"
 	{
 		"AbilityTextureName"	"zhuge_wolongguangxian"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -540,13 +505,11 @@
 		"AbilityManaCost"		"315 390 465"
 		"AbilityCooldown"		"150"
 		"MaxLevel"				"3"
-
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
-			"particle_folder"   "particles/heroes/zhuge"
+			"particle_folder"	 "particles/heroes/zhuge"
 		}
-      
 		"OnSpellStart"
 		{
 			"LinearProjectile"
@@ -564,8 +527,8 @@
 				"EffectName"				"particles/heroes/zhuge/batrider_flamebreak.vpcf"
 				"MoveSpeed"					"1200"
 				"StartRadius"				"90"
-				"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"    // You can use the constant snippets here...
-				"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"						
+				"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
+				"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 				"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 			}
 			"FireSound"
@@ -593,8 +556,8 @@
 						"EffectName"				"particles/heroes/zhuge/batrider_flamebreak.vpcf"
 						"MoveSpeed"					"1200"
 						"StartRadius"				"90"
-						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"    // You can use the constant snippets here...
-						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"						
+						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
+						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 						"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					}
 					"FireSound"
@@ -624,8 +587,8 @@
 						"EffectName"				"particles/heroes/zhuge/batrider_flamebreak.vpcf"
 						"MoveSpeed"					"1200"
 						"StartRadius"				"90"
-						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"    // You can use the constant snippets here...
-						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"						
+						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
+						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 						"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					}
 					"FireSound"
@@ -655,8 +618,8 @@
 						"EffectName"				"particles/heroes/zhuge/batrider_flamebreak.vpcf"
 						"MoveSpeed"					"1200"
 						"StartRadius"				"90"
-						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"    // You can use the constant snippets here...
-						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"						
+						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
+						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 						"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					}
 					"FireSound"
@@ -686,8 +649,8 @@
 						"EffectName"				"particles/heroes/zhuge/batrider_flamebreak.vpcf"
 						"MoveSpeed"					"1200"
 						"StartRadius"				"90"
-						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"    // You can use the constant snippets here...
-						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"						
+						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
+						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 						"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					}
 					"FireSound"
@@ -701,14 +664,12 @@
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"				"false"
-
 			"Damage"
 			{
 				"Target"				"TARGET"
 				"Type"					"DAMAGE_TYPE_MAGICAL"
 				"Damage"				"%damage"
 			}
-			
 		}
 		"AbilitySpecial"
 		{
@@ -725,7 +686,6 @@
 	"Zhuge_Wuyin"
 	{
 		"AbilityTextureName"	"zhuge_wuyin"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -735,7 +695,6 @@
 		"AbilityManaCost"		"315 390 465"
 		"AbilityCooldown"		"145"
 		"MaxLevel"				"3"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -752,7 +711,6 @@
 	"Zhuge_Leiting"
 	{
 		"AbilityTextureName"	"zhuge_leiting"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -778,7 +736,6 @@
 	"Zhuge_Bingxuebao"
 	{
 		"AbilityTextureName"	"zhuge_bingxuebao"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
@@ -858,14 +815,12 @@
 			}
 		}
 	}
-
 	//=================================================================================================================
 	// 司马懿 焰击波
 	//=================================================================================================================
 	"Simayi_Yanjibo"
 	{
 		"AbilityTextureName"	"sima_yanjibo"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
@@ -875,12 +830,10 @@
 		"AbilityCastRange"		"700"
 		"AbilityCooldown"		"13"
 		"MaxLevel"				"4"
-
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
 		}
-
 		"OnSpellStart"
 		{
 			"LinearProjectile"
@@ -892,7 +845,7 @@
 				"EndRadius"				"250 250 250 300"
 				"FixedDistance"			"600"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC  | DOTA_UNIT_TARGET_CREEP"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC	| DOTA_UNIT_TARGET_CREEP"
 				"HasFrontalCone"		"1"
 				"ProvidesVision"		"0"
 				"VisionRadius"			"0"
@@ -939,7 +892,6 @@
 	"Simayi_Huoyanyu"
 	{
 		"AbilityTextureName"	"sima_huoyanyu"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
@@ -948,10 +900,9 @@
 		"AbilityCastRange"		"650"
 		"AbilityCooldown"		"8.0"
 		"MaxLevel"				"4"
-		"RequiredLevel"         "1"
-		"LevelsBetweenUpgrades"  "1"
+		"RequiredLevel"		 "1"
+		"LevelsBetweenUpgrades"	"1"
 		"AOERadius"				"200"
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -960,7 +911,6 @@
 				"Target"			"POINT"
 				"Function"			"FireHuoyanyuParticle"
 			}
-					
 			"DelayedAction"
 			{
 				"Delay"			"0.5"
@@ -1067,13 +1017,11 @@
 	"Simayi_Yetaihuo"
 	{
 		"AbilityTextureName"	"sima_yetaihuo"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCooldown"		"0"
 		"MaxLevel"				"4"
-
 		"Modifiers"
 		{
 			"modifier_simayi_yetaihuo"
@@ -1127,25 +1075,22 @@
 	"Simayi_Xingluo"
 	{
 		"AbilityTextureName"	"sima_xingluo"
-
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityCastPoint"		"2.15"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
-		"RequiredLevel"           "6 11 16"
-		"LevelsBetweenUpgrades"  "5"
+		"RequiredLevel"			 "6 11 16"
+		"LevelsBetweenUpgrades"	"5"
 		"AbilityManaCost"		"350 450 550"
 		"AbilityCastRange"		"900"
 		"AOERadius"				"350"
 		"AbilityCooldown"		"160"
 		"MaxLevel"				"3"
-
 		"precache"
 		{
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
 		}
-
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1204,1867 +1149,1062 @@
 			}
 		}
 	}
-
-
-
-	// 平衡性常数技能
-	// 血量修正
-	"ability_health_modifier"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"						"ability_datadriven"
- 
-		"Modifiers"
-		{
-			"modifier_health_mod_1"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"1"
-				}
-			}
-			"modifier_health_mod_2"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"2"
-				}
-			}
-			"modifier_health_mod_4"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"4"
-				}
-			}
-			"modifier_health_mod_8"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"8"
-				}
-			}
-			"modifier_health_mod_16"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"16"
-				}
-			}
-			"modifier_health_mod_32"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"32"
-				}
-			}
-			"modifier_health_mod_64"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"64"
-				}
-			}
-			"modifier_health_mod_128"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"128"
-				}
-			}
-			"modifier_health_mod_256"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"256"
-				}
-			}
-			"modifier_health_mod_512"
-			{
-				"IsHidden"				"1"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"512"
-				}
-			}
-			"modifier_health_mod_neg_1"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-1"
-				}
-			}
-			"modifier_health_mod_neg_2"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-2"
-				}
-			}
-			"modifier_health_mod_neg_4"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-4"
-				}
-			}
-			"modifier_health_mod_neg_8"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-8"
-				}
-			}
-			"modifier_health_mod_neg_16"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-16"
-				}
-			}
-			"modifier_health_mod_neg_32"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-32"
-				}
-			}
-			"modifier_health_mod_neg_64"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-64"
-				}
-			}
-			"modifier_health_mod_neg_128"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-128"
-				}
-			}
-			"modifier_health_mod_neg_256"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-256"
-				}
-			}
-			"modifier_health_mod_neg_512"
-			{
-				"IsHidden"				"1"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-512"
-				}
-			}
-		}
-	}
-	//智力-魔法修正
-	"ability_mana_modifier"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"						"ability_datadriven"
- 
-		"Modifiers"
-		{
-			"modifier_mana_mod_1"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"1"
-				}
-			}
-			"modifier_mana_mod_2"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"2"
-				}
-			}
-			"modifier_mana_mod_4"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"4"
-				}
-			}
-			"modifier_mana_mod_8"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"8"
-				}
-			}
-			"modifier_mana_mod_16"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"16"
-				}
-			}
-			"modifier_mana_mod_32"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"32"
-				}
-			}
-			"modifier_mana_mod_64"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"64"
-				}
-			}
-			"modifier_mana_mod_128"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"128"
-				}
-			}
-			"modifier_mana_mod_256"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"256"
-				}
-			}
-			"modifier_mana_mod_512"
-			{
-				"IsHidden"				"1"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"512"
-				}
-			}
-			"modifier_mana_mod_neg_1"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-1"
-				}
-			}
-			"modifier_mana_mod_neg_2"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-2"
-				}
-			}
-			"modifier_mana_mod_neg_4"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-4"
-				}
-			}
-			"modifier_mana_mod_neg_8"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-8"
-				}
-			}
-			"modifier_mana_mod_neg_16"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-16"
-				}
-			}
-			"modifier_mana_mod_neg_32"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-32"
-				}
-			}
-			"modifier_mana_mod_neg_64"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-64"
-				}
-			}
-			"modifier_mana_mod_neg_128"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-128"
-				}
-			}
-			"modifier_mana_mod_neg_256"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-256"
-				}
-			}
-			"modifier_mana_mod_neg_512"
-			{
-				"IsHidden"				"1"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS"	"-512"
-				}
-			}
-		}
-	}
-	//敏捷 攻击速度修正
-	"ability_atkspeed_modifier"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"						"ability_datadriven"
- 
-		"Modifiers"
-		{
-			"modifier_atkspeed_mod_1"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
-				}
-			}
-			"modifier_atkspeed_mod_2"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"2"
-				}
-			}
-			"modifier_atkspeed_mod_4"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"4"
-				}
-			}
-			"modifier_atkspeed_mod_8"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"8"
-				}
-			}
-			"modifier_atkspeed_mod_16"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"16"
-				}
-			}
-			"modifier_atkspeed_mod_32"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"32"
-				}
-			}
-			"modifier_atkspeed_mod_64"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"64"
-				}
-			}
-			"modifier_atkspeed_mod_128"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"128"
-				}
-			}
-			"modifier_atkspeed_mod_256"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"256"
-				}
-			}
-			"modifier_atkspeed_mod_512"
-			{
-				"IsHidden"				"1"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"512"
-				}
-			}
-			"modifier_atkspeed_mod_neg_1"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-1"
-				}
-			}
-			"modifier_atkspeed_mod_neg_2"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-2"
-				}
-			}
-			"modifier_atkspeed_mod_neg_4"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-4"
-				}
-			}
-			"modifier_atkspeed_mod_neg_8"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-8"
-				}
-			}
-			"modifier_atkspeed_mod_neg_16"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-16"
-				}
-			}
-			"modifier_atkspeed_mod_neg_32"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-32"
-				}
-			}
-			"modifier_atkspeed_mod_neg_64"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-64"
-				}
-			}
-			"modifier_atkspeed_mod_neg_128"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-128"
-				}
-			}
-			"modifier_atkspeed_mod_neg_256"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-256"
-				}
-			}
-			"modifier_atkspeed_mod_neg_512"
-			{
-				"IsHidden"				"1"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-512"
-				}
-			}
-		}
-	}
-	//敏捷 攻击速度修正
-	"ability_armor_modifier"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"BaseClass"						"ability_datadriven"
- 
-		"Modifiers"
-		{
-			"modifier_armor_mod_1"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
-				}
-			}
-			"modifier_armor_mod_2"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"2"
-				}
-			}
-			"modifier_armor_mod_4"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"4"
-				}
-			}
-			"modifier_armor_mod_8"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"8"
-				}
-			}
-			"modifier_armor_mod_16"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"16"
-				}
-			}
-			"modifier_armor_mod_32"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"32"
-				}
-			}
-			"modifier_armor_mod_64"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"64"
-				}
-			}
-			"modifier_armor_mod_128"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"128"
-				}
-			}
-			"modifier_armor_mod_256"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"256"
-				}
-			}
-			"modifier_armor_mod_512"
-			{
-				"IsHidden"				"1"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"512"
-				}
-			}
-			"modifier_armor_mod_neg_1"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
-				}
-			}
-			"modifier_armor_mod_neg_2"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-2"
-				}
-			}
-			"modifier_armor_mod_neg_4"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-4"
-				}
-			}
-			"modifier_armor_mod_neg_8"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-8"
-				}
-			}
-			"modifier_armor_mod_neg_16"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-16"
-				}
-			}
-			"modifier_armor_mod_neg_32"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-32"
-				}
-			}
-			"modifier_armor_mod_neg_64"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-64"
-				}
-			}
-			"modifier_armor_mod_neg_128"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-128"
-				}
-			}
-			"modifier_armor_mod_neg_256"
-			{
-				"IsHidden"				"1"  
-				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-256"
-				}
-			}
-			"modifier_armor_mod_neg_512"
-			{
-				"IsHidden"				"1"  
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-512"
-				}
-			}
-		}
-	}
+	//=================================================================================================================
+	// 典韦 妖火
+	//=================================================================================================================
 	"dianwei_yaohuo"
-    {
-	// General
-	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				     "ability_datadriven"
-	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
-	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-	"FightRecapLevel"				"1"
-	"AbilityTextureName"			"dianwei_yaohuo"
-
-	// Precache
-	//-------------------------------------------------------------------------------------------------------------
-	"precache"
-	 {  
-	  "soundfile"   "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
-	  "particle"	"particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf"
-	  "particle"	"particles/status_fx/status_effect_slardar_amp_damage.vpcf"
-	  "particle"	"particles/dianweiyaohuo.vpcf"
-	 }
-	 // Casting
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "700"
-    "AbilityCastPoint"        "0.35 0.35 0.35"
-    
-    // Time   
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "30.0 30.0 30.0"
-
-    // Cost
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityManaCost"       "70 100 130"
-
-	// Stats
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityModifierSupportValue"	"6.0"	// Very valuable compared to cost.
-
-	
-	"AbilitySpecial"
 	{
-		"01"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					 	"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"dianwei_yaohuo"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		 {
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+			"particle"					"particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf"
+			"particle"					"particles/status_fx/status_effect_slardar_amp_damage.vpcf"
+			"particle"					"particles/dianweiyaohuo.vpcf"
+		 }
+		 // Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.35 0.35 0.35"
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"		 "30.0 30.0 30.0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"		 "70 100 130"
+		"AbilitySpecial"
 		{
-			"var_type"				"FIELD_INTEGER"
-			"armor_reduction"		"-5 -10 -15"
-		}
-		"02"
-		{
-			"var_type"				"FIELD_FLOAT"
-			"duration"				"20.0 20.0 20.0"
-		}
-	}
-	"OnSpellStart"
-	{
-		"ApplyModifier"
-		{
-			"Target"	"TARGET"
-			"ModifierName"	"modifier_amplify_damage_datadriven"
-		}
-
-		"FireSound"
-		{
-			"EffectName"	"Hero_Slardar.Amplify_Damage"
-			"Target"	"TARGET"
-		}
-	}
-	"Modifiers"
-	{
-		"modifier_amplify_damage_datadriven"
-		{
-			"Duration"	"%duration"
-			"isDebuff"	"1"			
-			"StatusEffectName"       "particles/dianweiyaohuo.vpcf" //particles/status_fx/status_effect_slardar_amp_damage.vpcf
-			"StatusEffectPriority"	"20"
-
-			"OnCreated"
+			"01"
 			{
-				"RunScript"
+				"var_type"				"FIELD_INTEGER"
+				"armor_reduction"		"-5 -10 -15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"20.0 20.0 20.0"
+			}
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"TARGET"
+				"ModifierName"	"modifier_amplify_damage_datadriven"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Slardar.Amplify_Damage"
+				"Target"	"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_amplify_damage_datadriven"
+			{
+				"Duration"	"%duration"
+				"isDebuff"	"1"
+				"StatusEffectName"		 "particles/dianweiyaohuo.vpcf" //particles/status_fx/status_effect_slardar_amp_damage.vpcf
+				"StatusEffectPriority"	"20"
+				"OnCreated"
 				{
-					"ScriptFile"	"scripts/vscripts/abilities/dianwei.lua"
-					"Function"		"AmplifyDamageParticle"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/dianwei.lua"
+						"Function"		"AmplifyDamageParticle"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/dianwei.lua"
+						"Function"		"EndAmplifyDamageParticle"
+					}
+				}
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_amplify_damage_reveal_datadriven"
+						"Target" 		"TARGET"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_amplify_damage_reveal_datadriven"
+						"Target" 		"TARGET"
+						"Duration"		"0.5"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-
-			"OnDestroy"
+			"modifier_amplify_damage_reveal_datadriven"
 			{
-				"RunScript"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"States"
 				{
-					"ScriptFile"	"scripts/vscripts/abilities/dianwei.lua"
-					"Function"		"EndAmplifyDamageParticle"
+					"MODIFIER_STATE_INVISIBLE" 			"MODIFIER_STATE_VALUE_DISABLED"
 				}
-			}
-
-			"ThinkInterval"  "0.5"
-			"OnIntervalThink"
-			{
-				"RemoveModifier"
-				{
-					"ModifierName"	"modifier_amplify_damage_reveal_datadriven"
-					"Target" 		"TARGET"
-				}
-
-				"ApplyModifier"
-				{
-					"ModifierName"	"modifier_amplify_damage_reveal_datadriven"
-					"Target" 		"TARGET"
-					"Duration"		"0.5"
-				}
-			}
-
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"				
-			}
-
-			"States"
-			{
-				"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
-			}
-		}
-
-		"modifier_amplify_damage_reveal_datadriven"
-		{
-			"IsHidden"		"1"
-			"IsPurgable"	"0"
-			"States"
-			{
-				"MODIFIER_STATE_INVISIBLE" 			"MODIFIER_STATE_VALUE_DISABLED"
 			}
 		}
 	}
-}
-  "dianwei_yexingzhanhun" //典韦：野性战魂   ok
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                "ability_datadriven"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "AbilityTextureName"        "dianwei_yexingzhanhun"   //技能图标  需修改
-    
-    "OnUpgrade"
-    {
-    	"RunScript"
-    	{
-    		"ScriptFile" 	"scripts/vscripts/abilities/dianwei.lua"
-    		"Target"		"CASTER"
-    		"Function"		"OnDianweiUpdateYexingzhanhun"
-    	}
-    }
-
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "Modifiers"            
-    {     
-      "movementspeed_bonus"     
-      {
-        "IsHidden"        "1"
-        "Passive"         "1"
-        "Properties"
-        {
-          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
-        }
-        
-      }
-    }
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"      "FIELD_INTEGER"        //移动速度加成（百分比）
-        "leap_speedbonus" "6 12 18 24"
-      }
-      "02"
-      {
-        "var_type"      "FIELD_INTEGER"        //生命回复速度加成（百分比）
-        "health_bonus"    "20 40 60 80"
-      }
-    }
-  }
-  "dianwei_zhongji"   //典韦：重击     ok
-  {
-    "BaseClass"                      "slardar_bash"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	//=================================================================================================================
+	// 典韦 野性战魂
+	//=================================================================================================================
+	"dianwei_yexingzhanhun"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"		"dianwei_yexingzhanhun"	 //技能图标	需修改
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/dianwei.lua"
+				"Target"		"CASTER"
+				"Function"		"OnDianweiUpdateYexingzhanhun"
+			}
+		}
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"movementspeed_bonus"
+			{
+				"IsHidden"		"1"
+				"Passive"		 "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
+					// TODO, 生命恢复速度百分比加成，可以直接用Modifier做
+				}
+				}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"		//移动速度加成（百分比）
+				"leap_speedbonus" "6 12 18 24"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"		//生命回复速度加成（百分比）
+				"health_bonus"	"20 40 60 80"
+			}
+		}
+	}
+	//=================================================================================================================
+	// 典韦 重击
+	//=================================================================================================================
+	"dianwei_zhongji"
+	{
+		"BaseClass"						"slardar_bash"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-    "AbilityTextureName"        "dianwei_zhongji"
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "chance"        "10 15 20 25"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"      "35 35 35 35"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "duration"        "1.0"
-      }
-      "04"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "duration_creep"    "1.0"
-      }
-    }
-
-  }
-  "dianwei_zhanzhengjianta"  //  典韦：战争践踏   ok
-  {
-    "BaseClass"                      "centaur_khan_war_stomp" 
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityTextureName"		"dianwei_zhongji"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"chance"		"10 15 20 25"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_damage"		"35 35 35 35"
+				}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"1.0"
+			}
+			"04"
+		 	{
+				"var_type"		"FIELD_FLOAT"
+				"duration_creep"	"1.0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// 典韦 战争践踏
+	//=================================================================================================================
+	"dianwei_zhanzhengjianta"
+	{
+		"BaseClass"						"centaur_khan_war_stomp"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "AbilityTextureName"        "dianwei_zhanzhengjianta"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.5"
-    "AbilityCooldown"       "15"
-    "AbilityDamage"         "75 100 125 150"
-    "AbilityManaCost"       "100"
-   
-     "precache"
-    {
-      "particle_folder"             "particles/units/heroes/hero_centaur/"    
-    }
-     "EffectName"                    "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "radius"              "250 300 350 350"
-      }
-      "02"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "non_hero_stun_duration"    "1.5 2 2.5 3"
-      }
-      "03"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "hero_stun_duration"      "3 4 5 5"
-      }
-    }
-  }
-  "ability_zhangfei_didongduo" //张飞第一技能：张飞-地动跺  需要修改参数   ok
-   {
-    
-    "BaseClass"                      "centaur_khan_war_stomp" 
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "AbilityTextureName"        "zhangfei_zhanzhengjianta"
-    "OverrideAnimation"	 "ACT_DOTA_VICTORY"
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0.5"
-    "AbilityCooldown"       "15"
-    "AbilityDamage"         "75 100 125 150"
-    "AbilityManaCost"       "100"
-    
-     "precache"
-    {
-      "particle_folder"             "particles/units/heroes/hero_centaur/"    
-    }
-    "EffectName"                    "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "radius"              "250 300 350 350"
-      }
-      "02"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "non_hero_stun_duration"    "1.5 2 2.5 3"
-      }
-      "03"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "hero_stun_duration"      "3 4 5 5"
-      }
-    }
-  }
-  "zhangfei_wanfumodi"  //张飞大技能：万夫莫敌  ok
-  {
-     "BaseClass"                 "ability_datadriven"
-     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-     "AbilityTextureName"        "zhangfei_tianshenxiafan"   //技能图标  需修改
-     "MaxLevel"                   "3"
-     "AbilityCooldown"           "170 170 170 "   //冷却时间
-     "AbilityManaCost"           "150 185 235"
-     "RequiredLevel"             "6 11 16"
-     "LevelsBetweenUpgrades"  "5"
-     "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-
-     "OnSpellStart"
-     {
-       "ApplyModifier"
-       {
-           "Target"        "CASTER"
-           "ModifierName"   "zhangfei_health_bonus"
-       }
-        "RunScript"
-        {
-          "ScriptFile"   "scripts/vscripts/abilities/zhangfei.lua"
-          "Target"       "CASTER"
-          "Function"    "zhangfei_wanfumodi_01"
-        }
-      }
-     "Modifiers"
-      {
-        "zhangfei_health_bonus"
-        {
-          "Duration"   "%duration"
-          
-          "Attributes"  "MODIFIER_ATTRIBUTE_MULTIPLE"
-          "Properties"
-          {
-            "MODIFIER_PROPERTY_HEALTH_BONUS"  "%maxhealth_bonus"
-            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"   "%damage_bonus"
-          }
-        }
-     }
-     "AbilitySpecial"   
-      {
-        
-        "01"
-        {
-          "var_type"    "FIELD_FLOAT"
-          "maxhealth_bonus"     "350 450 550"
-        }
-        "02"
-        {
-          "var_type"     "FIELD_FLOAT"
-           "duration"     "25 25 25"
-
-        }
-        "03"
-        {
-          "var_type"      "FIELD_FLOAT"
-          "damage_bonus"   "10 20 30"
-        }
-      }
-  }
-  "zhangfei_yinghan"   //张飞第三技能：硬汉   ok
-  {
-    "BaseClass"                "ability_datadriven"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"        "zhangfei_yinghan"   //技能图标  需修改
-    "Modifiers"
-    {
-      "modifier_yinghan"
-      {
-        "Passive"    "1" 
-        "IsHidden"    "1"
-        "OnCreated"
-        {
-          "RunScript"
-          {
-             "ScriptFile"   "scripts/vscripts/abilities/zhangfei.lua"
-             "Target"        "CASTER"
-             "Function"    "zhangfei_yinghan_01"
-          }
-        } 
-      }
-      "zhangfei_yinghan_buff"
-      {
-        "Properties"
-        {
-          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%armor"
-          
-        }
-      }
-    }
-    "AbilitySpecial"
-    {
-      "01"    
-      {
-        "var_type"      "FIELD_FLOAT"
-        "armor"          "5 8 11 15"
-      }
-     
-    }
-  }
-  "zhangfei_shenji"  //张飞第二技能：张飞——神技(狂战士)    ok
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                "ability_datadriven"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
-    "AbilityTextureName"        "zhangfei_kuangzhanshi"   //技能图标  需修改
-    
-    // Stats
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "35 35 35 35"
-    "AbilityManaCost"       "70 90 110 130"
-    "OnSpellStart"
-    {
-      "ApplyModifier"
-     {
-        "Target"           "CASTER"
-         "ModifierName"     "movementspeed_bonus"  
-      }
-      "RunScript"
-      {
-        "ScriptFile"   "scripts/vscripts/abilities/zhangfei.lua"
-        "Target"       "CASTER"
-        "Function"     "zhangfei_shenji_01"
-      }
-      "ApplyModifier"
-     {
-        "Target"           "CASTER"
-        "ModifierName"     "fx_heal_aura"  
-      }
-    }
-    "Modifiers"            
-    {     
-        
-      "fx_heal_aura"
-      {
-        "Duration"        "%ability_duration"
-        "IsHidden"        "1"
-        "OnCreated"
-        {
-          "AttachEffect"
-          {
-            "Target"            "CASTER"
-            "EffectName"        "particles/items_fx/aura_assault.vpcf"
-            "EffectAttachType"  "follow_origin"            
-          }
-        }
-      }    
-      "movementspeed_bonus"     
-      {
-        "Duration"    "%ability_duration"
-        "IsHidden"        "1"
-        "Properties"
-        {
-          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
-        }
-      }
-      "attackspeed_100"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
-        }
-      }
-      "attackspeed_200"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
-        }
-      }
-      "attackspeed_300"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
-        }
-      }
-      "attackspeed_400"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
-        }
-      }
-      "attackspeed_500"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
-        }
-      }
-      "attackspeed_600"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
-        }
-      }
-      "attackspeed_700"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
-        }
-      }
-      "attackspeed_800"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
-        }
-      }
-      "attackspeed_900"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
-        }
-      }
-      "attackspeed_10"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
-        }
-      }
-      "attackspeed_20"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
-        }
-      }
-      "attackspeed_30"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-        }
-      }
-      "attackspeed_40"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
-        }
-      }
-      "attackspeed_50"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
-        }
-      }
-      "attackspeed_60"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
-        }
-      }
-      "attackspeed_70"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
-        }
-      }
-      "attackspeed_80"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
-        }
-      }
-      "attackspeed_90"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
-        }
-      }
-      "attackspeed_1"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-        }
-      }
-      "attackspeed_2"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
-        }
-      }
-      "attackspeed_3"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
-        }
-      }
-      "attackspeed_4"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
-        }
-      }
-      "attackspeed_5"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
-        }
-      }
-      "attackspeed_6"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
-        }
-      }
-      "attackspeed_7"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
-        }
-      }
-      "attackspeed_8"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
-        }
-      }
-      "attackspeed_9"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "9"
-        }
-      }
-    }
-
-    // Special
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
-    {     
-      "01"
-      {
-        "var_type"           "FIELD_FLOAT"
-        "ability_duration"           "12 12 12 12"    //技能持续时间
-      }
-      "02"
-      {
-        "var_type"           "FIELD_FLOAT"
-        "amplify_damage"      "50 50 50 50"     //伤害加深百分比
-      }
-      
-      "03"
-      {
-        "var_type"      "FIELD_INTEGER"        //移动速度加成（百分比）
-        "leap_speedbonus" "20 30 40 50"
-      }
-      "04"
-      {
-        "var_type"      "FIELD_FLOAT"          //攻击速度加成（百分比）
-        "leap_speedbonus_as_one"   "50 80 110 140"
-      }
-    } 
-  }
-  //=================================================================================================================
+		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"		"dianwei_zhanzhengjianta"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"		"0.5"
+		"AbilityCooldown"		 "15"
+		"AbilityDamage"		 "75 100 125 150"
+		"AbilityManaCost"		 "100"
+		"precache"
+		{
+			"particle_folder"			 "particles/units/heroes/hero_centaur/"
+		}
+	 	// TODO 为何会有一个EffectName，待测试
+	 	"EffectName"					"particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"				"250 300 350 350"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"non_hero_stun_duration"	"1.5 2 2.5 3"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"hero_stun_duration"		"3 4 5 5"
+			}
+		}
+	}
+	//=================================================================================================================
+	// 张飞 地动跺
+	//=================================================================================================================
+	"ability_zhangfei_didongduo"
+	{
+		"BaseClass"						"centaur_khan_war_stomp"
+		"AbilityBehavior"			 	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"zhangfei_zhanzhengjianta"
+		"OverrideAnimation"	 			"ACT_DOTA_VICTORY"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"		"0.5"
+		"AbilityCooldown"		 "15"
+		"AbilityDamage"		 "75 100 125 150"
+		"AbilityManaCost"		 "100"
+		"precache"
+		{
+			"particle_folder"			 "particles/units/heroes/hero_centaur/"
+		}
+		// TODO 为何会有一个EffectName，待测试
+		"EffectName"					"particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"				"250 300 350 350"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"non_hero_stun_duration"	"1.5 2 2.5 3"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"hero_stun_duration"		"3 4 5 5"
+			}
+		}
+	}
+	//=================================================================================================================
+	// 张飞 万夫莫敌
+	//=================================================================================================================
+	"zhangfei_wanfumodi"
+	{
+		"BaseClass"				 "ability_datadriven"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"		"zhangfei_tianshenxiafan"	 //技能图标	需修改
+		"MaxLevel"					 "3"
+		"AbilityCooldown"			 "170 170 170 "	 //冷却时间
+		"AbilityManaCost"			 "150 185 235"
+		"RequiredLevel"			 "6 11 16"
+		"LevelsBetweenUpgrades"	"5"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	 "zhangfei_health_bonus"
+		 	}
+			"RunScript"
+			{
+				"ScriptFile"	 "scripts/vscripts/abilities/zhangfei.lua"
+				"Target"		 "CASTER"
+				"Function"	"zhangfei_wanfumodi_01"
+			}
+		}
+		"Modifiers"
+		{
+			"zhangfei_health_bonus"
+			{
+				"Duration"	 "%duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%maxhealth_bonus"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	 "%damage_bonus"
+				}
+			}
+	 	}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"maxhealth_bonus"	 "350 450 550"
+			}
+			"02"
+			{
+				"var_type"	 "FIELD_FLOAT"
+				 "duration"	 "25 25 25"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage_bonus"	 "10 20 30"
+			}
+		}
+	}
+	//=================================================================================================================
+	// 张飞 硬汉 张飞三技能
+	//=================================================================================================================
+	"zhangfei_yinghan"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"		"zhangfei_yinghan"	 //技能图标	需修改
+		"Modifiers"
+		{
+			"modifier_yinghan"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	 "scripts/vscripts/abilities/zhangfei.lua"
+						"Target"		"CASTER"
+						"Function"	"zhangfei_yinghan_01"
+					}
+				}
+			}
+			"zhangfei_yinghan_buff"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"armor"			"5 8 11 15"
+			}
+		}
+	}
+	//=================================================================================================================
+	// 张飞 神技(狂战士) 张飞二技能
+	//=================================================================================================================
+	"zhangfei_shenji"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"		"zhangfei_kuangzhanshi"	 //技能图标	需修改
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"		 "35 35 35 35"
+		"AbilityManaCost"		 "70 90 110 130"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"			 "CASTER"
+				"ModifierName"	 "movementspeed_bonus"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	 "scripts/vscripts/abilities/zhangfei.lua"
+				"Target"		 "CASTER"
+				"Function"	 "zhangfei_shenji_01"
+			}
+			"ApplyModifier"
+			{
+				"Target"			 "CASTER"
+				"ModifierName"	 "fx_heal_aura"
+			}
+		}
+		"Modifiers"
+		{
+			"fx_heal_aura"
+			{
+				"Duration"		"%ability_duration"
+				"IsHidden"		"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/items_fx/aura_assault.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			"movementspeed_bonus"
+			{
+				"Duration"	"%ability_duration"
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
+				}
+			}
+			"attackspeed_100"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
+				}
+			}
+			"attackspeed_200"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
+				}
+			}
+			"attackspeed_300"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
+				}
+			}
+			"attackspeed_400"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
+				}
+			}
+			"attackspeed_500"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
+				}
+			}
+			"attackspeed_600"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
+				}
+			}
+			"attackspeed_700"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
+				}
+			}
+			"attackspeed_800"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
+				}
+			}
+			"attackspeed_900"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
+				}
+			}
+			"attackspeed_10"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
+				}
+			}
+			"attackspeed_20"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
+				}
+			}
+			"attackspeed_30"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+				}
+			}
+			"attackspeed_40"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
+				}
+			}
+			"attackspeed_50"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
+				}
+			}
+			"attackspeed_60"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
+				}
+			}
+			"attackspeed_70"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
+				}
+			}
+			"attackspeed_80"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
+				}
+			}
+			"attackspeed_90"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
+				}
+			}
+			"attackspeed_1"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
+			"attackspeed_2"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
+				}
+			}
+			"attackspeed_3"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
+				}
+			}
+			"attackspeed_4"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
+				}
+			}
+			"attackspeed_5"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
+				}
+			}
+			"attackspeed_6"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
+				}
+			}
+			"attackspeed_7"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
+				}
+			}
+			"attackspeed_8"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
+				}
+			}
+			"attackspeed_9"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "9"
+				}
+			}
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			 "FIELD_FLOAT"
+				"ability_duration"			 "12 12 12 12"	//技能持续时间
+			}
+			"02"
+			{
+				"var_type"			 "FIELD_FLOAT"
+				"amplify_damage"		"50 50 50 50"	 //伤害加深百分比
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"		//移动速度加成（百分比）
+				"leap_speedbonus" "20 30 40 50"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"			//攻击速度加成（百分比）
+				"leap_speedbonus_as_one"	 "50 80 110 140"
+			}
+		}
+	}
+	//=================================================================================================================
 	// 寻 静止陷阱
 	//=================================================================================================================
-  "xun_jingzhixianjin"
-   {
-         //隐身modifier：modifier_riki_permanent_invisibility   modifier_persistent_invisibility
-         //"BaseClass"                 "juggernaut_healing_ward"    //主宰 资料守卫
-          "BaseClass"                   "ability_datadriven"
-          "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		  "SpellImmunityType"		    "SPELL_IMMUNITY_ENEMIES_NO"
-           "AbilityTextureName"         "xunyu_xianjing"  
-           "RequiredLevel"               "1 1 1 1"
-           "AbilityCastAnimation"       "ACT_DOTA_CAST_ABILITY_3"
+	"xun_jingzhixianjin"
+	{
+		"BaseClass"					 "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"		 "xunyu_xianjing"
+		"RequiredLevel"				 "1 1 1 1"
+		"AbilityCastAnimation"		 "ACT_DOTA_CAST_ABILITY_3"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.1"
-		
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"15.0 15.0 15.0 15.0"
-	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100 100 100 100"
 		"OnSpellStart"
 		{
-			
-               "SpawnUnit"
-			   {
-				   "UnitName"				"npc_xun_jingzhixianjin"
-				   "Target" 				"POINT"
-				   "Duration"				"%duration"
-				   "UnitCount"				"1"
-				   "OnSpawn"
-				   {
-					   "RunScript"
-					    {
-					   
-						   "ScriptFile" 	"scripts/vscripts/abilities/xun.lua"
-						   "Function"		"xun_jingzhixianjin_01"
-				   	    }
-				   	   
-				   }
-
-			    }
-        }
-        
+			"SpawnUnit"
+			{
+				"UnitName"				"npc_xun_jingzhixianjin"
+				"Target" 				"POINT"
+				"Duration"				"%duration"
+				"UnitCount"				"1"
+				"OnSpawn"
+				{
+					"RunScript"
+					{
+						"ScriptFile" 	"scripts/vscripts/abilities/xun.lua"
+						"Function"		"xun_jingzhixianjin_01"
+					}
+				}
+			}
+		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
-		{		
+		{
 			"01"
-          	{
-        		"var_type"    "FIELD_FLOAT"
-        		"duration"    "80 80 80 80"
-          	}
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"80 80 80 80"
+			}
 		}
-
-   }
-
-   "xun_jingzhixianjin_invisible"
-   {
-   	    "BaseClass"                 "ability_datadriven" 
-   	    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-   	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"     
-        "OnSpellStart"
-        {
-        	"DelayedAction"
+	}
+	"xun_jingzhixianjin_invisible"
+	{
+		"BaseClass"				 "ability_datadriven"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"	 "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"OnSpellStart"
+		{
+			"DelayedAction"
 			{
 				"Delay"			"%invisible_delay"
 				"Action"
 				{
-        	        "ApplyModifier"
-                    {
-            	        "Duration"  "%duration"
-           	            "Target"    "CASTER"
-           	            "ModifierName"    "modifier_persistent_invisibility"
-                    }
-                    "ApplyModifier"
-                    {
-           	            "Target"   "CASTER"
-           	            "ModifierName" "xun_thinker"
-                    }
-                }
-            }         
-        }
-        "Modifiers"
-        {
-        	"xun_thinker"
-        	{
-        		"Duration"              "%duration"
-        		"IsHidden"   "1"
-        		"ThinkInterval"			".02"
-			    "OnIntervalThink"
-			    {
-				    "RunScript"
-			       {
-				        "Target"
-				       {
-					       "Center"	"CASTER"
-					       "Radius"	"%radius"
-					       "Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				       }
-					    "ScriptFile" 	"scripts/vscripts/abilities/xun.lua"
-				        "Function"		"xun_jingzhixianjin_02"
-				   }
-				
-			    }
-        	}
-        	"unit_immune"
-        	{
-        		"IsHidden"  "1"
-        		"Passive"   "1"
-        		"States"
+					"ApplyModifier"
+					{
+						"Duration"	"%duration"
+			 			"Target"	"CASTER"
+			 			"ModifierName"	"modifier_persistent_invisibility"
+					}
+					"ApplyModifier"
+					{
+			 			"Target"	 "CASTER"
+			 			"ModifierName" "xun_thinker"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"xun_thinker"
+			{
+				"Duration"				"%duration"
+				"IsHidden"	 "1"
+				"ThinkInterval"			".02"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Radius"	"%radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						}
+						"ScriptFile" 	"scripts/vscripts/abilities/xun.lua"
+						"Function"		"xun_jingzhixianjin_02"
+					}
+				}
+			}
+			"unit_immune"
+			{
+				"IsHidden"	"1"
+				"Passive"	 "1"
+				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"	//无碰撞
 					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"		//隐藏小地图
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        	}
-        }
-
-        "AbilitySpecial"
-        {
-
-          	"01"
-        	{
-        		"var_type"    "FIELD_FLOAT"
-        		"radius"    "250 250 250 250"
-          	}
-          	"02"
-          	{
-        		"var_type"    "FIELD_FLOAT"
-        		"invisible_delay"    "6 6 6 6"
-          	}
-          	"03"
-          	{
-        		"var_type"    "FIELD_FLOAT"
-        		"duration"    "80 80 80 80"
-          	}
-        }
-
-   }
-   "xun_jingzhixianjin_stun"
-   {
-   	   "BaseClass"                  "ability_datadriven"
-   	   "AbilityName"               "xun_jingzhixianjin_stun"
-   	   "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-   	   "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-       "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-       
-   	   "precache" 
-       {
-          "particle_folder"             "particles/units/heroes/hero_centaur"    
-       }
-      
-         "OnSpellStart"
-         {
-         	"DelayedAction"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"250 250 250 250"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"invisible_delay"	"6 6 6 6"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"80 80 80 80"
+			}
+		}
+	}
+	"xun_jingzhixianjin_stun"
+	{
+		"BaseClass"					"ability_datadriven"
+	 	"AbilityName"				 "xun_jingzhixianjin_stun"
+	 	"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	 	"AbilityUnitTargetTeam"	 "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	 	"precache"
+		{
+			"particle_folder"			 "particles/units/heroes/hero_centaur"
+		}
+		"OnSpellStart"
+		{
+		 	"DelayedAction"
 			{
 				"Delay"			"%blast_delay"
 				"Action"
 				{
-         	        "ActOnTargets"
-			        {
-				        "Target"
-				        {
-					        "Center"	"CASTER"
-					        "Radius"	"%radius"
-					        "Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				        }
-				        "Action"
-				        {
-					        "Stun"
-					        {
-						        "Duration"		"%stun_duration"
-						        "Target"        "TARGET"
-					        }
-				        }
-			        }
-			    }
+		 			"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Radius"	"%radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						}
+						"Action"
+						{
+							"Stun"
+							{
+								"Duration"		"%stun_duration"
+								"Target"		"TARGET"
+							}
+						}
+					}
+				}
 			}
 			"ApplyModifier"
 			{
-				"Target"        "CASTER"
-                "ModifierName"   "visible_special"
+				"Target"		"CASTER"
+				"ModifierName"	 "visible_special"
 			}
-        }
-        "Modifiers"
-        {
-        	"visible_special"
-        	{    
-        		"AttachEffect"
+		}
+		"Modifiers"
+		{
+			"visible_special"
+			{
+				"AttachEffect"
 				{
 					"Target" 			"CASTER"
-					"EffectName"		"particles/units/heroes/hero_centaur/centaur_loadout.vpcf"					
+					"EffectName"		"particles/units/heroes/hero_centaur/centaur_loadout.vpcf"
 				}
-        	}
-        }
-        "AbilitySpecial"
-        {
-        	"01"
-        	{
-        		"var_type"    "FIELD_FLOAT"
-        		"stun_duration"    "3 4 5 6"
-          	}
-          	"02"
-        	{
-        		"var_type"    "FIELD_FLOAT"
-        		"radius"    "400 400 400 400"
-          	}
-          	"03"
-          	{
-        		"var_type"    "FIELD_FLOAT"
-        		"blast_delay"    "1 1 1 1"
-          	}
-        }
-    }
-    //=================================================================================================================
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"3 4 5 6"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"400 400 400 400"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"blast_delay"	"1 1 1 1"
+			}
+		}
+	}
+	//=================================================================================================================
 	// 寻 致命结界
 	//=================================================================================================================
-   "xun_zhimingjiejie"
-   {
-   	       "BaseClass"                  "ability_datadriven"
-           "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_AOE"
-		   "SpellImmunityType"		    "SPELL_IMMUNITY_ENEMIES_NO"
-		   "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		   "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-           "AbilityTextureName"         "xunyu_jiejie"  
-           "RequiredLevel"              "1 1 1 1"
-           "AbilityCastAnimation"       "ACT_DOTA_CAST_ABILITY_1"
+	"xun_zhimingjiejie"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_AOE"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+		"AbilityTextureName"		 "xunyu_jiejie"
+		"RequiredLevel"				"1 1 1 1"
+		"AbilityCastAnimation"		 "ACT_DOTA_CAST_ABILITY_1"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
-	   	"AbilityCastPoint"				"0.1"
-		
-		// Time		
+		"AbilityCastPoint"				"0.1"
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10.0 10.0 10.0 10.0"
-	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"90 100 110 120"
 		"OnSpellStart"
 		{
-			
-               "SpawnUnit"
-			   {
-				   "UnitName"				"npc_xun_zhimingjiejie"
-				   "Target" 				"POINT"
-				   "Duration"				"%duration"
-				   "UnitCount"				"1"				
-				   "OnSpawn"
-				   {
-					   "RunScript"
-					    {
-					   
-						   "ScriptFile" 	"scripts/vscripts/abilities/xun.lua"
-						   "Function"		"xun_zhimingjiejie_01"
-				   	    }
-				   	   
-				    }
-
-			    }
-        }
-        "Modifiers"
-        {
-           
-        }
-        
+			"SpawnUnit"
+			{
+				"UnitName"				"npc_xun_zhimingjiejie"
+				"Target" 				"POINT"
+				"Duration"				"%duration"
+				"UnitCount"				"1"
+				"OnSpawn"
+				{
+					"RunScript"
+					{
+						"ScriptFile" 	"scripts/vscripts/abilities/xun.lua"
+						"Function"		"xun_zhimingjiejie_01"
+					 }
+				}
+			}
+		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
-		{		
+		{
 			"01"
-          	{
-        		"var_type"    "FIELD_FLOAT"
-        		"duration"    "15 15 15 15"
-          	}
-          	"01"
-          	{
-        		"var_type"    "FIELD_FLOAT"
-        		"unit_health"    "200 300 400 500"
-          	}
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"15 15 15 15"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"unit_health"	"200 300 400 500"
+			}
 		}
-
-   }
-   "xun_zhimingjiejie_buff"
-   {
-       "BaseClass"                   "ability_datadriven"
-       "AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-       "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-       "RequiredLevel"    "1 1 1 1"
-      
-       
-       "OnSpellStart"
-       {					
-					"ApplyModifier"
-					{
-						"Target"  "CASTER"
-						
-						"ModifierName"		"damage_per"
-					}
-				
-       }
-       "Modifiers"  
-       {			
+	}
+	"xun_zhimingjiejie_buff"
+	{
+		"BaseClass"					 "ability_datadriven"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"RequiredLevel"	"1 1 1 1"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"		"damage_per"
+			}
+		}
+		"Modifiers"
+		{
 			"damage_per"
 			{
-
-				"ThinkInterval"				"1"				
+				"ThinkInterval"				"1"
 				"OnIntervalThink"
 				{
-                           "Damage"
-					        {
-						        "Type"			"DAMAGE_TYPE_MAGICAL"
-						        "Damage"		"%damage"
-						        "Target"
-				                {
-					                "Center"	"CASTER"
-					                "Radius"	"%radius"
-					                "Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				                }						
-					        }
-					       "AttachEffect"
-					        {
-						       "Target"
-						       {
-							         "Center"	"CASTER"
-							         "Radius"	"%radius"
-							        "Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"							        
-						        }
-						       "EffectName"		"particles/riki_backstab_hit_blood.vpcf"
-						       "EffectAttachType"	"follow_overhead"
-					        }
-
-			    }
+					"Damage"
+					{
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%damage"
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Radius"	"%radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						}
+					}
+					"AttachEffect"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Radius"	"%radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						}
+						"EffectName"		"particles/riki_backstab_hit_blood.vpcf"
+						"EffectAttachType"	"follow_overhead"
+					}
+				}
 			}
-			
 			"unit_immune"
-        	{
-        		"IsHidden"  "1"
-        		"Passive"   "1"
-        		"States"
+			{
+				"IsHidden"	"1"
+				"Passive"	 "1"
+				"States"
 				{
 					//"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"	//无碰撞
 					//"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"		//隐藏小地图
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-        		}
-        	}
-       }
-       "AbilitySpecial"
-       {
-         	"01"
-       	    {
-       		    "var_type"    "FIELD_FLOAT"
-       		    "damage"        "15 25 35 45"
-          	}
-         	"02"
-       	    {
-       		    "var_type"    "FIELD_FLOAT"
-       		    "radius"        "400 400 400 400"
-       	    }
-       }
-   }
-   //=================================================================================================================
+				}
+			}
+		 }
+		 "AbilitySpecial"
+		 {
+		 	"01"
+		 	{
+		 		"var_type"	"FIELD_FLOAT"
+		 		"damage"		"15 25 35 45"
+			}
+		 	"02"
+		 	{
+		 		"var_type"	"FIELD_FLOAT"
+		 		"radius"		"400 400 400 400"
+		 	}
+		}
+	 }
+	 //=================================================================================================================
 	// 寻 医疗波
 	//=================================================================================================================
-  "xun_yiliaobo"
-  {  		
+	"xun_yiliaobo"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"dazzle_shadow_wave"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"dazzle_shadow_wave"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"            "xunyu_yiliao"
-
+		"AbilityTextureName"			"xunyu_yiliao"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"20 20 20 20"
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"80 90 100 110"
-		
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDamage"					"100 120 140 160"
-			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"	
+		"AbilitySpecial"
 		{
 			"01"
 			{
@@ -3072,12 +2212,12 @@
 				"bounce_radius"		"500"
 			}
 			"02"
-			{	
+			{
 				"var_type"			"FIELD_INTEGER"
 				"damage_radius"		"185"
 			}
 			"03"
-			{	
+			{
 				"var_type"			"FIELD_INTEGER"
 				"max_targets"		"3 4 5 6"
 			}
@@ -3088,36 +2228,31 @@
 			}
 		}
 	}
-    //=================================================================================================================
+	//=================================================================================================================
 	// 寻 蛇形结界
 	//=================================================================================================================
-    
-    "xun_shexingjiejie"
+	"xun_shexingjiejie"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-	    "BaseClass"						"shadow_shaman_mass_serpent_ward"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"shadow_shaman_mass_serpent_ward"							// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"            "xunyu_shouwei"
-		"MaxLevel"   "3"
-		"RequiredLevel"    "6 11 16"
-
+		"AbilityTextureName"			"xunyu_shouwei"
+		"MaxLevel"	 "3"
+		"RequiredLevel"	"6 11 16"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0"
-		
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"130"
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200 250 300"
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -3167,15 +2302,14 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage_max_scepter"	"36 48 60"
 			}
-
 		}
 	}
-	 //=================================================================================================================
+	//=================================================================================================================
 	// 赵云 长枪突刺
 	//=================================================================================================================
-    "zhaoyun_zhangqiangtuci"
-    {
-    	// General
+	"zhaoyun_zhangqiangtuci"
+	{
+		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"BaseClass"						"ability_datadriven"
@@ -3183,7 +2317,6 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName" 			"zhaoyun_tuci"
 		//"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"165"
@@ -3193,16 +2326,13 @@
 		"precache"
 		{
 			"particle_folder" 			"particles/units/heroes/hero_sandking"
-			
 		}
 		"OnSpellStart"
 		{
-			
-		
 			"RunScript"
-		    {
-			   "ScriptFile" 	"scripts/vscripts/abilities/zhaoyun.lua"
-				"Target"        "TARGET"		
+			{
+				 "ScriptFile" 	"scripts/vscripts/abilities/zhaoyun.lua"
+				"Target"		"TARGET"
 				"Function"		"zhaoyun_changqiangtuci"
 			}
 			"ApplyModifier"
@@ -3217,17 +2347,17 @@
 			}
 			"Stun"
 			{
-				"Target"  "TARGET"
-				"Duration"  "%stun_duration"
+				"Target"	"TARGET"
+				"Duration"	"%stun_duration"
 			}
-		    "DelayedAction"
+			"DelayedAction"
 			{
 				"Delay"			"%knockback_duration"
 				"Action"
 				{
 					"ActOnTargets"
 					{
-						"Target"    "TARGET"
+						"Target"	"TARGET"
 						"Action"
 						{
 							"Damage"
@@ -3240,43 +2370,38 @@
 					}
 				}
 			}
-			
-			
 		}
 		"Modifiers"
 		{
 			"destroytrees"
 			{
-				"IsHidden"  "1"
-				"Duration"   "%knockback_duration"
-				"ThinkInterval"  "0.01"
+				"IsHidden"	"1"
+				"Duration"	 "%knockback_duration"
+				"ThinkInterval"	"0.01"
 				"OnIntervalThink"
 				{
 					"DestroyTrees"
-			        {
-				       "Target"     "TARGET"				
-				       "Radius"			"%area_destroy_tree"
-			        }
+					{
+						 "Target"	 "TARGET"
+						 "Radius"			"%area_destroy_tree"
+					}
 				}
 			}
 			"knockeffect"
-			{   
-				"IsHidden"   "1"
-
-				"Duration"    "1"
+			{
+				"IsHidden"	 "1"
+				"Duration"	"1"
 				"OnCreated"
 				{
 					"AttachEffect"
-    	            {   
-    		            "EffectName"  "particles/units/heroes/hero_sandking/sandking_sandstorm_low.vpcf"
-    		            "Target"    "TARGET"
-    		            "EffectAttachType"			"follow_origin"
-    	            }
+					{
+						"EffectName"	"particles/units/heroes/hero_sandking/sandking_sandstorm_low.vpcf"
+						"Target"	"TARGET"
+						"EffectAttachType"			"follow_origin"
+					}
 				}
-
 			}
 		}
-		
 		"AbilitySpecial"
 		{
 			"01"
@@ -3304,56 +2429,44 @@
 				"var_type"		"FIELD_FLOAT"
 				"damage"			"100 150 200 250"
 			}
-
 		}
-    }
-    //=================================================================================================================
+	}
+	//=================================================================================================================
 	// 赵云 横扫千军
 	//=================================================================================================================
-   "zhaoyun_hengsaoqianjun"
-   {
-       // General
+	"zhaoyun_hengsaoqianjun"
+	{
+		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName" 			"zhaoyun_hengsao"
 		//"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		
 		"Modifiers"
 		{
 			"hengsaoqianjun"
 			{
-				"Passive"  "1"
+				"Passive"	"1"
 				"OnAttackStart"
-				{											
-							"ApplyModifier"
-							{
-								"ModifierName" "cleave_buff"
-								"Target"	   "CASTER"	
-							}						
+				{
+					"ApplyModifier"
+					{
+						"ModifierName" "cleave_buff"
+						"Target"		 "CASTER"
+					}
 				}
-
 			}
-			"cleave_buff"	
+			"cleave_buff"
 			{
-				"IsHidden"  "1"
+				"IsHidden"	"1"
 				"OnAttackLanded"
 				{
-					//"FireEffect"
-					//{
-					//	"EffectName"		 "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-					//	"EffectAttachType"	 "follow_origin"
-					//	"Target"			 "TARGET"
-					//}	
 					"CleaveAttack"
 					{
 						"CleavePercent"		"%crit_cleave_damage"
-						"CleaveRadius"      "%crit_radius"
+						"CleaveRadius"		"%crit_radius"
 					}
-					//"RemoveModifier"
-					//{
-					//	"ModifierName"		"cleave_buff"
-					//	"Target"			"CASTER"	
-					//}
 				}
 			}
 		}
@@ -3374,369 +2487,363 @@
 	//=================================================================================================================
 	// 赵云 闪避
 	//=================================================================================================================
-    "zhaoyun_sanbi"	
-    {
-    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"zhaoyun_sanbi"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName" 			"zhaoyun_shanbi"
 		"Modifiers"
 		{
 			"sanbi"
 			{
-				"Passive"   "1"
+				"Passive"	 "1"
 				"Properties"
-			    {				
-				    "MODIFIER_PROPERTY_EVASION_CONSTANT"	"8 16 24 32"
-			    }
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"8 16 24 32"
+				}
 			}
-			
 		}
-    }
-    //=================================================================================================================
+	}
+	//=================================================================================================================
 	// 赵云 无双
 	//=================================================================================================================
-    "zhaoyun_wushuang"
-    {
-    	"BaseClass"                 "ability_datadriven"
-        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-        "AbilityTextureName"        "zhaoyun_wushuang"   //技能图标  需修改
-        "MaxLevel"                   "3"
-        "AbilityCooldown"           "90"   //冷却时间
-        "AbilityManaCost"           "150 180 210"
-        "RequiredLevel"             "6 11 16"
-        "OnSpellStart"
-        {        	
-        	"ApplyModifier"
-        	{
-        		"Target" 			"CASTER"
-        		"ModifierName"		"movementspeed_bonus"
-        	}
-        	"ApplyModifier"
-        	{
-        		"Target" 			"CASTER"
-        		"ModifierName"		"attackspeed_bonus"
-        	}
-        }
-        "Modifiers"
-        {
-        	"attackspeed_bonus"
-        	{
-        		"Duration"    "%ability_duration"
-        		"OnCreated"
-        		{
-        			"RunScript"
-        	        {
-        		        "ScriptFile" 	"scripts/vscripts/abilities/zhaoyun.lua"
-        		        "Target"		"CASTER"
-        		        "Function"		"zhaoyun_wushuang_01"
-        	        }
-        		}
-        	}
-        	"movementspeed_bonus"     
-             {
-                  "Duration"    "%ability_duration"
-                  "IsHidden"        "1"
-                  "Properties"
-                  {
-                       "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
-                  }
-             }
-        	"attackspeed_100"     
-       {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
-        }
-      }
-      "attackspeed_200"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
-        }
-      }
-      "attackspeed_300"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
-        }
-      }
-      "attackspeed_400"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
-        }
-      }
-      "attackspeed_500"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
-        }
-      }
-      "attackspeed_600"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
-        }
-      }
-      "attackspeed_700"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
-        }
-      }
-      "attackspeed_800"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
-        }
-      }
-      "attackspeed_900"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
-        }
-      }
-      "attackspeed_10"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
-        }
-      }
-      "attackspeed_20"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
-        }
-      }
-      "attackspeed_30"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-        }
-      }
-      "attackspeed_40"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
-        }
-      }
-      "attackspeed_50"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
-        }
-      }
-      "attackspeed_60"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
-        }
-      }
-      "attackspeed_70"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
-        }
-      }
-      "attackspeed_80"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
-        }
-      }
-      "attackspeed_90"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
-        }
-      }
-      "attackspeed_1"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-        }
-      }
-      "attackspeed_2"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
-        }
-      }
-      "attackspeed_3"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
-        }
-      }
-      "attackspeed_4"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
-        }
-      }
-      "attackspeed_5"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
-        }
-      }
-      "attackspeed_6"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
-        }
-      }
-      "attackspeed_7"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
-        }
-      }
-      "attackspeed_8"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
-        }
-      }
-      "attackspeed_9"     
-      {
-        "IsHidden"        "1"
-        "Properties"
-        {          
-          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "9"
-        }
-      }
-
-
-        }
-        "AbilitySpecial"
-        {
-        	
-        	"01"
-            {
-                "var_type"          "FIELD_INTEGER"        //移动速度加成（百分比）
-                "leap_speedbonus"   "50 65 80"
-            }
-            "02"
-            {
-                "var_type"      "FIELD_FLOAT"          //攻击速度加成（百分比）
-                "leap_speedbonus_as_one"   "100 130 160"
-            }
-             "03"
-            {
-                "var_type"      "FIELD_FLOAT"          
-                "ability_duration"   "30"
-            }
-        }
-    }
-     //=================================================================================================================
+	"zhaoyun_wushuang"
+	{
+		"BaseClass"				 "ability_datadriven"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"		"zhaoyun_wushuang"	 //技能图标	需修改
+		"MaxLevel"					 "3"
+		"AbilityCooldown"			 "90"	 //冷却时间
+		"AbilityManaCost"			 "150 180 210"
+		"RequiredLevel"			 "6 11 16"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"movementspeed_bonus"
+			}
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"attackspeed_bonus"
+			}
+		}
+		"Modifiers"
+		{
+			"attackspeed_bonus"
+			{
+				"Duration"	"%ability_duration"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile" 	"scripts/vscripts/abilities/zhaoyun.lua"
+						"Target"		"CASTER"
+						"Function"		"zhaoyun_wushuang_01"
+					}
+				}
+			}
+			"movementspeed_bonus"
+			 {
+					"Duration"	"%ability_duration"
+					"IsHidden"		"1"
+					"Properties"
+					{
+						 "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
+					}
+			 }
+			"attackspeed_100"
+		 {
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
+		}
+		}
+		"attackspeed_200"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
+		}
+		}
+		"attackspeed_300"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
+		}
+		}
+		"attackspeed_400"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
+		}
+		}
+		"attackspeed_500"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
+		}
+		}
+		"attackspeed_600"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
+		}
+		}
+		"attackspeed_700"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
+		}
+		}
+		"attackspeed_800"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
+		}
+		}
+		"attackspeed_900"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
+		}
+		}
+		"attackspeed_10"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
+		}
+		}
+		"attackspeed_20"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
+		}
+		}
+		"attackspeed_30"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+		}
+		}
+		"attackspeed_40"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
+		}
+		}
+		"attackspeed_50"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
+		}
+		}
+		"attackspeed_60"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
+		}
+		}
+		"attackspeed_70"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
+		}
+		}
+		"attackspeed_80"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
+		}
+		}
+		"attackspeed_90"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
+		}
+		}
+		"attackspeed_1"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+		}
+		}
+		"attackspeed_2"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
+		}
+		}
+		"attackspeed_3"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
+		}
+		}
+		"attackspeed_4"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
+		}
+		}
+		"attackspeed_5"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
+		}
+		}
+		"attackspeed_6"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
+		}
+		}
+		"attackspeed_7"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
+		}
+		}
+		"attackspeed_8"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
+		}
+		}
+		"attackspeed_9"
+		{
+		"IsHidden"		"1"
+		"Properties"
+		{
+			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "9"
+		}
+		}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"		//移动速度加成（百分比）
+				"leap_speedbonus"	 "50 65 80"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"			//攻击速度加成（百分比）
+				"leap_speedbonus_as_one"	 "100 130 160"
+			}
+			 "03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"ability_duration"	 "30"
+			}
+		}
+	}
+	//=================================================================================================================
 	// 郭嘉 寒冰爆
 	//=================================================================================================================
-    "guojia_hanbinbao"
-    {
-        "BaseClass"   "ability_datadriven"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityTextureName"        "guojia_shuangdong"   
-         "AbilityUnitDamageType"       "DAMAGE_TYPE_MAGICAL"
-         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-        "RequiredLevel"              "1"
-        "LevelsBetweenUpgrades"  "1"
-        "AbilityCooldown"           "10"   //冷却时间
-        "AbilityManaCost"           "110 120 130 150"
-        "AbilityCastRange"				"500"
+	"guojia_hanbinbao"
+	{
+		"BaseClass"	 "ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityTextureName"		"guojia_shuangdong"
+		 "AbilityUnitDamageType"		 "DAMAGE_TYPE_MAGICAL"
+		 "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				 "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+		"RequiredLevel"				"1"
+		"LevelsBetweenUpgrades"	"1"
+		"AbilityCooldown"			 "10"	 //冷却时间
+		"AbilityManaCost"			 "110 120 130 150"
+		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.3"
-       "precache"
-        {
-       	   "particle" 			"particles/courier_drodo_ambient_death.vpcf"    	
-        }
-        "OnSpellStart"
-        {
-        	"AttachEffect"
-        	{
-        		"EffectName"		"particles/courier_drodo_ambient_death.vpcf"
-        		"EffectAttachType"    "follow_overhead"
-        		"Target"              "TARGET"
-        	}
-        	
-           "Damage"
-           {
-        		  
-        		"Target"         "TARGET"
-        		"Type"			 "DAMAGE_TYPE_MAGICAL"
-        	    "Damage"		 "%damage"        		
-            }       		               	
-        	"ApplyModifier"
-        	{
-        		"Target"         "TARGET"
-        		"ModifierName"		"guojia_moderate_buff"
-        	}
-        }
-        "Modifiers"
-        {
-        	"guojia_moderate_buff"
-        	{
-        		"IsHidden"  "1"
-        		"Duration"   "%movement_duration"
-                "OnCreated"
-                {       
-                   "ApplyModifier"
-                    {
-                       	"Target" 			"TARGET"
-                      	"ModifierName"		"guojia_hanbinbao_jiansu_buff"
-                    }        	               
-        		   "ActOnTargets"
+		 "precache"
+		{
+		 		 "particle" 			"particles/courier_drodo_ambient_death.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"AttachEffect"
+			{
+				"EffectName"		"particles/courier_drodo_ambient_death.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Target"				"TARGET"
+			}
+			 "Damage"
+			 {
+				"Target"		 "TARGET"
+				"Type"			 "DAMAGE_TYPE_MAGICAL"
+				"Damage"		 "%damage"
+			}
+			"ApplyModifier"
+			{
+				"Target"		 "TARGET"
+				"ModifierName"		"guojia_moderate_buff"
+			}
+		}
+		"Modifiers"
+		{
+			"guojia_moderate_buff"
+			{
+				"IsHidden"	"1"
+				"Duration"	 "%movement_duration"
+				"OnCreated"
+				{
+					 "ApplyModifier"
+					{
+						 	"Target" 			"TARGET"
+							"ModifierName"		"guojia_hanbinbao_jiansu_buff"
+					}
+					 "ActOnTargets"
 					{
 						"Target"
 						{
@@ -3745,7 +2852,6 @@
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
 						}
-
 						"Action"
 						{
 							"Damage"
@@ -3756,208 +2862,198 @@
 							}
 						}
 					}
-                }
-        	}
-        	"guojia_hanbinbao_jiansu_buff"
-        	{
-        		"IsHidden"  "1"
-        		"Duration"   "%movement_duration"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
-        		}
-        	}
-        }
-        "AbilitySpecial"
-        {
-        	"01"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"damage"			"75 125 176 225"
-        	}
-        	"02"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"damage_radius"			"200"
-        	}
-        	"03"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"bonus_movement_speed"			"-50"
-        	}
-        	"04"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"movement_duration"			"2.5"
-        	}
-        	"05"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"damage_ice"			"100 125 150 175"
-        	}
-        	
-        }
-    }
-     //=================================================================================================================
+				}
+			}
+			"guojia_hanbinbao_jiansu_buff"
+			{
+				"IsHidden"	"1"
+				"Duration"	 "%movement_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage"			"75 125 176 225"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage_radius"			"200"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"bonus_movement_speed"			"-50"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"movement_duration"			"2.5"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage_ice"			"100 125 150 175"
+			}
+		}
+	}
+	//=================================================================================================================
 	// 郭嘉 霜冻护甲
 	//=================================================================================================================
-    "guojia_shuangdonghujia"
-    {
-        "BaseClass"           "ability_datadriven"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityTextureName"        "guojia_hujia"   
-         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-         "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-       // "RequiredLevel"              "1"
-      //  "LevelsBetweenUpgrades"  "1"
-        "AbilityCooldown"           "12"   //冷却时间
-        "AbilityManaCost"           "60"
-        "AbilityCastRange"				"800"
+	"guojia_shuangdonghujia"
+	{
+		"BaseClass"			 "ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityTextureName"		"guojia_hujia"
+		 "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		 "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		 // "RequiredLevel"				"1"
+		//	"LevelsBetweenUpgrades"	"1"
+		"AbilityCooldown"			 "12"	 //冷却时间
+		"AbilityManaCost"			 "60"
+		"AbilityCastRange"				"800"
 		//"AbilityCastPoint"				"0"
 		"precache"
 		{
 			"particle" 			"particles/bottle_ti4.vpcf"
-			"particle" 			"particles/teleport_end_tube_ti4.vpcf"			
+			"particle" 			"particles/teleport_end_tube_ti4.vpcf"
 		}
-        "OnSpellStart"
-        {
-        	"ApplyModifier"
-        	{
-        		"Target" 			"TARGET"
-        		"ModifierName"		"guojia_shuangdonghujia_buff"
-        	}
-        }
-        "Modifiers"
-        {
-        	"guojia_shuangdonghujia_buff"
-        	{
-        		"Duration"    "%duration"
-        		"Properties"
-        		{
-        			 "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
-        		}
-        		"OnCreated"
-        		{
-        			"AttachEffect"
-        	        { 
-        		        "EffectName"		     "particles/teleport_end_tube_ti4.vpcf"
-        		        "EffectAttachType"    "follow_origin"
-        		        "Target"              "TARGET"
-        		       
-        	        }
-        		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 			"TARGET"
+				"ModifierName"		"guojia_shuangdonghujia_buff"
+			}
+		}
+		"Modifiers"
+		{
+			"guojia_shuangdonghujia_buff"
+			{
+				"Duration"	"%duration"
+				"Properties"
+				{
+					 "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"			 "particles/teleport_end_tube_ti4.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"				"TARGET"
+					}
+				}
 				"OnIntervalThink"
 				{
-				   "AttachEffect"
-        	        { 
-        		        "EffectName"		     "particles/teleport_end_tube_ti4.vpcf"
-        		        "EffectAttachType"    "follow_origin"
-        		        "Target"              "TARGET"
-        		       
-        	        }
-		        }
-                "ThinkInterval"		"3.5"	
-                       		
-        		"OnAttacked"
-        		{
-                      "ApplyModifier"
-                      {
-                      	"Target" 			"ATTACKER"
-                      	"ModifierName"		"guojia_moderate_buff_01"
-                      }
-        		}
-
-        	}
-        	"guojia_moderate_buff_01"
-        	{
-        		"Duration"   "%movement_duration"
-        		"Properties"
-        		{
-        			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
-        		}
-        		"OnCreated"
-                {
-                	"AttachEffect"
-        	       { 
-        		       "EffectName"		     "particles/bottle_ti4.vpcf"
-        		       "EffectAttachType"    "follow_origin"
-        		       "Target"              "TARGET"
-        		       
-        	        }
-        	        
-        	        
-                }
-        	}   
-        }
-        "AbilitySpecial"
-        {
-        	"01"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"duration"			"30"
-        	}
-        	"02"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"bonus_armor"			"3 5 7 9"
-        	}
-        	"03"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"movement_duration"			"3"
-        	}
-        	"04"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"movement_duration"			"3"
-        	}
-        	"05"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"bonus_movement_speed"			"-100"
-        	}
-        	
-        }
-    }
-     //=================================================================================================================
+					 "AttachEffect"
+					{
+						"EffectName"			 "particles/teleport_end_tube_ti4.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"				"TARGET"
+					}
+				}
+				"ThinkInterval"		"3.5"
+				"OnAttacked"
+				{
+						"ApplyModifier"
+						{
+							"Target" 			"ATTACKER"
+							"ModifierName"		"guojia_moderate_buff_01"
+						}
+				}
+			}
+			"guojia_moderate_buff_01"
+			{
+				"Duration"	 "%movement_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					 {
+						 "EffectName"			 "particles/bottle_ti4.vpcf"
+						 "EffectAttachType"	"follow_origin"
+						 "Target"				"TARGET"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"30"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"bonus_armor"			"3 5 7 9"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"movement_duration"			"3"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"movement_duration"			"3"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"bonus_movement_speed"			"-100"
+			}
+		}
+	}
+	//=================================================================================================================
 	// 郭嘉 耀目法光
 	//=================================================================================================================
-    "guojia_yaomufaguang"
-    {
-        
-        "BaseClass"   "ability_datadriven"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityTextureName"        "guojia_guanghuan"
-        "RequiredLevel"              "1"
-        "LevelsBetweenUpgrades"  "1"
-        "precache"
-        {
-        	"particle" 			"particles/items_fx/aura_shivas.vpcf"
-        }
-        "Modifiers"
-        {
-        	"guojia_yaomufaguang_buff"
-        	{
-                 "Passive"   "1"
-                 "IsHidden"  "1"
-                 "OnCreated"
-                 {
-                 	"ApplyModifier"
-                 	{
-                 		"Target" 			"CASTER"
-                 		"ModifierName"		"guojia_yaomufaguang_thinker"
-                 	}
-                 	"ApplyModifier"
-                 	{
-                 		"Target" 			"CASTER"
-                 		"ModifierName"		"guojia_yaomufaguang_buff"
-                 	}
-                 }
-        	}
-        	"guojia_yaomufaguang_thinker"
-        	{
-        		"IsHidden"  "1"
-        		"Aura"					"guojia_yaomufaguang_aura"
+	"guojia_yaomufaguang"
+	{
+		"BaseClass"	 "ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"		"guojia_guanghuan"
+		"RequiredLevel"				"1"
+		"LevelsBetweenUpgrades"	"1"
+		"precache"
+		{
+			"particle" 			"particles/items_fx/aura_shivas.vpcf"
+		}
+		"Modifiers"
+		{
+			"guojia_yaomufaguang_buff"
+			{
+				 "Passive"	 "1"
+				 "IsHidden"	"1"
+				 "OnCreated"
+				 {
+				 	"ApplyModifier"
+				 	{
+				 		"Target" 			"CASTER"
+				 		"ModifierName"		"guojia_yaomufaguang_thinker"
+				 	}
+				 	"ApplyModifier"
+				 	{
+				 		"Target" 			"CASTER"
+				 		"ModifierName"		"guojia_yaomufaguang_buff"
+				 	}
+				 }
+			}
+			"guojia_yaomufaguang_thinker"
+			{
+				"IsHidden"	"1"
+				"Aura"					"guojia_yaomufaguang_aura"
 				"Aura_Radius"			"%radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"OnCreated"
@@ -3965,68 +3061,66 @@
 					"AttachEffect"
 					{
 						"EffectName"		"particles/items_fx/aura_shivas.vpcf"
-						"EffectAttachType"    "follow_origin"
-						"Target"    "CASTER"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"CASTER"
 					}
 				}
-        	}
-        	"guojia_yaomufaguang_aura"
-        	{
-        		//"IsHidden"   "1"
-        		"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+			"guojia_yaomufaguang_aura"
+			{
+				//"IsHidden"	 "1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"	"%mana_regen"
-
 				}
-        	}
-        	"guojia_yaomufaguang_buff"
-        	{
-        		//"IsHidden"   "1"
-        		"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+			"guojia_yaomufaguang_buff"
+			{
+				//"IsHidden"	 "1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"	"%mana_regen"
-
 				}
-        	}
-        }
-        "AbilitySpecial"
-        {
-        	"01"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"mana_regen"			"75 150 225 300"
-        	}
-        	"02"
-        	{
-        		"var_type"		"FIELD_FLOAT"
-        		"radius"			"450"
-        	}
-        }
-    }
-     //=================================================================================================================
-	// 郭嘉 冰河爆裂破  
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"mana_regen"			"75 150 225 300"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"450"
+			}
+		}
+	}
 	//=================================================================================================================
-    "guojia_binhebaoliepo"
-    {
-    	"BaseClass"          "ability_datadriven"
-        "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-        "AbilityTextureName"        "guojia_binghebaoliepo"   //技能图标  需修改
-        "AbilityUnitDamageType"      "DAMAGE_TYPE_MAGICAL"
-        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-        "MaxLevel"           "3"
-        "RequiredLevel"               "6 11 16"
-      //  "LevelsBetweenUpgrades"  "1"
-        "AbilityCooldown"           "150"   //冷却时间
-        "AbilityManaCost"           "300 380 460"
-       "AbilityCastRange"				"900"
+	// 郭嘉 冰河爆裂破
+	//=================================================================================================================
+	"guojia_binhebaoliepo"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"		"guojia_binghebaoliepo"	 //技能图标	需修改
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"MaxLevel"			 "3"
+		"RequiredLevel"				 "6 11 16"
+		//	"LevelsBetweenUpgrades"	"1"
+		"AbilityCooldown"			 "150"	 //冷却时间
+		"AbilityManaCost"			 "300 380 460"
+		 "AbilityCastRange"				"900"
 		//"AbilityCastPoint"				"0"
 		"precache"
 		{
 			"particle" 			"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/crystal_maiden_cowl_ambient.vpcf"
-			"particle"          "particles/heroes/zhuge/jakiro_ice_path_shards.vpcf"
+			"particle"			"particles/heroes/zhuge/jakiro_ice_path_shards.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -4040,7 +3134,7 @@
 				"FixedDistance"			"1400"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-				"TargetFlags"           "DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"TargetFlags"			 "DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"HasFrontalCone"		"1"
 				"ProvidesVision"		"0"
 				"VisionRadius"			"0"
@@ -4068,7 +3162,7 @@
 			}
 			"ApplyModifier"
 			{
-				"Target"             "TARGET"
+				"Target"			 "TARGET"
 				"ModifierName"		 "modifier_jidongningjie"
 			}
 		}
@@ -4077,7 +3171,7 @@
 			"modifier_jidongningjie"
 			{
 				"OnCreated"
-				{					
+				{
 					"AttachEffect"
 					{
 						"EffectName"		"particles/heroes/zhuge/jakiro_ice_path_shards.vpcf"
@@ -4090,7 +3184,6 @@
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-
 			}
 		}
 		"AbilitySpecial"
@@ -4101,243 +3194,40 @@
 				"duration"			"2.0 2,5 3.0"
 			}
 		}
-    }
-	//=================================================================================================================
-	// 投石车  
-	//=================================================================================================================
-    "toushiche_toushi_1"
-    {
-        "BaseClass"				        "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-	    "AbilityTextureName"			"viper_nethertoxin"  
-	    "MaxLevel"   "1"
-	    "Modifiers"
-	    {
-	    	"toushiche_toushi_auto_attack"
-	    	{
-	    		"IsHidden"  "1"
-	    		"Passive"    "1"
-	    		"OnAttackLanded"
-	    		{
-				                
-	    		    "FireSound"
-		            {
-			            "Target"				"CASTER"
-			            "EffectName"			"Hero_SkywrathMage.ArcaneBolt.Cast"
-		            }
-		            "RunScript"
-		            {
-		            	"ScriptFile" 	"scripts/vscripts/items/Car.lua"
-		            	"Target"		"TARGET"
-		            	"Function"		"on_dummy_spawn"
-		            }                  				   	   
-			    }			   
-            }
-		} 				    
 	}
-	"toushiche_toushi_2"
-    {
-        "BaseClass"				        "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	    "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-	    "AbilityTextureName"			"toushi"  
-	    "AbilityCooldown"               "3.5"
-	    "AOERadius"   "200"
-	    "MaxLevel"   "1"
-	    "AbilityCastRange"     "1200"
-	    "OnSpellStart"
-	    {
-	        "FireSound"
-		    {
-			    "Target"				"CASTER"
-			    "EffectName"			"Hero_SkywrathMage.ArcaneBolt.Cast"
-		    }
-		    "RunScript"
-		    {
-		        "ScriptFile" 	"scripts/vscripts/items/Car.lua"
-		         "Target"		"POINT"
-		         "Function"		"on_dummy_spawn_2"
-		    } 
-		    "CreateThinker"
-			{
-				"ModifierName"	"aoe_spike_thinker001"
-				"Target"		"POINT"
-			}         
-	    }              
-	    "Modifiers"
-		{
-			
-			
-			"aoe_spike_thinker001"
-			{
-				"Duration"					"%think_time + 0.5" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
-				"ThinkInterval"				"%think_time"
-				
-				"OnIntervalThink"
-				{
-					
-					"DestroyTrees"
-					{
-						"Target"			"TARGET"
-						"Radius"			"%impact_radius"
-					}
-					
-				}
-			}
-		}
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"impact_radius"			"210 220 230 240"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"think_time"			"1.0"
-			}
-		}		                    				   	   
-			   			   
-           
-						    
-	}
-	"toushiche_dummy_01"
-	{
-		"BaseClass"				       "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	    "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-	    //"AbilityTextureName"			"viper_nethertoxin" 
-	    "AbilityCooldown"   "1"
-	    "OnSpellStart"
-	    {
-	    	   
-	    	   "ActOnTargets"
-				{
-					"Target"
-					{
-						"Center"	"CASTER"
-						"Radius"	"50"
-						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					}
-
-					"Action"
-					{
-						"Damage"
-				         {
-					            "Target"	"TARGET"
-					            "Damage"	"80"
-					             "Type"		"DAMAGE_TYPE_PHYSICAL"
-				         } 
-				               
-					}
-				}   	
-	    }
-
-	}
-	"toushiche_dummy_02"
-	{
-		"BaseClass"				       "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	    "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-	    //"AbilityTextureName"			"viper_nethertoxin" 
-	    "AbilityCooldown"   "1"
-	    "OnSpellStart"
-	    {
-	    	
-	    	"ActOnTargets"
-			{
-					"Target"
-					{
-						"Center"	"CASTER"
-						"Radius"	"50"
-						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					}
-
-					"Action"
-					{
-						"Damage"
-				         {
-					            "Target"	"TARGET"
-					            "Damage"	"80"
-					             "Type"		"DAMAGE_TYPE_PHYSICAL"
-				         } 
-				       
-
-					}
-				} 
-				"ActOnTargets"
-				{
-					"Target"
-					{
-						"Center"	"CASTER"
-						"Radius"	"120"
-						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					}
-
-					"Action"
-					{
-						"Damage"
-				         {
-					            "Target"	"TARGET"
-					            "Damage"	"40"
-					             "Type"		"DAMAGE_TYPE_PHYSICAL"
-				         } 				               
-					}
-				} 
-
-	    }
-	   
-	   
-	}
+	
 	//=================================================================================================================
-	// 关羽 剑圣风暴 
+	// 关羽 剑圣风暴
 	//=================================================================================================================
-   
 	"guanyu_jianshengfengbao"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"			"juggernaut_blade_fury"											// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.	
+		"BaseClass"			"juggernaut_blade_fury"											// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5028"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"ID"					"5028"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityTextureName"             "guanyu_xuanfengzhan"
+		"AbilityTextureName"			 "guanyu_xuanfengzhan"
 		//"FightRecapLevel"				"5"
-		"RequiredLevel"                 "6 11 16"
-	    "MaxLevel"                      "3"
+		"RequiredLevel"				 "6 11 16"
+		"MaxLevel"						"3"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0 0 0 0"
-
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"130 130 130"
 		"AbilityDuration"				"7 7 7"
-
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDamage"					"180 250 380"
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 180 210"		
-
+		"AbilityManaCost"				"150 180 210"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -4353,27 +3243,27 @@
 				"blade_fury_radius"			"250"
 			}
 		}
-	
 	}
+	//=================================================================================================================
+	// 关羽 醉拳
+	//=================================================================================================================
 	"guanyu_zuiquan"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"		 	             "chaos_knight_chaos_strike"										// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-      	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-      	"AbilityTextureName"             "guanyu_zuiquan"
-      	
-	    "Modifiers"
+		"BaseClass"		 				 "chaos_knight_chaos_strike"										// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
+			"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+			"AbilityTextureName"			 "guanyu_zuiquan"
+		"Modifiers"
 		{
 			"guanyu_sanbi"
 			{
-				"Passive"   "1"
+				"Passive"	 "1"
 				"Properties"
-			    {				
-				    "MODIFIER_PROPERTY_EVASION_CONSTANT"	"7 10 13 16"
-			    }
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"7 10 13 16"
+				}
 			}
-			
 		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -4390,529 +3280,1428 @@
 				"crit_chance"				"5 8 11 14"
 			}
 		}
-	
 	}
+	//=================================================================================================================
+	// 关羽 X斩
+	//=================================================================================================================
 	"guanyu_xzhan"
 	{
-		"BaseClass"				        "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-	    "AbilityTextureName"            "guanyu_xzizhan"
-	    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-	    "AbilityCastPoint"              "0.2"
-	    "AbilityCooldown"               "14 14 14 14"
-	    "AbilityCastRange"                 "450"
-	    "AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_4"
-	    "precache"
-      	{
-      		"particle" 			"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf" // 开始
-            "particle"          "particles/ui_mouseactions/ping_danger.vpcf"
-            "soundfile"	       "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
-      		 "particle"                    "particles/items2_fx/skadi_projectile.vpcf"
-      	}
-	    "OnSpellStart"
-	    {
-	    	//"AttachEffect"
-	    //	{
-	    	//	"EffectName"		"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf"
-	    	//	"EffectAttachType"   "follow_origin"
-	    	//	"Target"      "CASTER"
-	    	//}
-	    	"FireSound"
-            {
-        	    "EffectName"		"Hero_Alchemist.UnstableConcoction.Throw"
-        	    "Target"			"CASTER"
-            }
-            "TrackingProjectile"
-            {
-                "Target"			"TARGET"
-                 "EffectName"        "particles/items2_fx/skadi_projectile.vpcf"
-                 "Dodgeable"         "0"
-                "ProvidesVision"    "1"
-                "VisionRadius"      "0"
-                "MoveSpeed"         "1500"
-                "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
-            }
-	    }
-	    "OnProjectileHitUnit"
-	    {
-		    "DeleteOnHit"	"1"
-
-		    "FireSound"
-		    {
-			   "EffectName"	"Hero_Alchemist.UnstableConcoction.Stun"
-			   "Target" 		"TARGET"
-		    }
-		    "AttachEffect"
-	    	{
-	    		"EffectName"		"particles/ui_mouseactions/ping_danger.vpcf"
-	    		"EffectAttachType"   "follow_overhead"
-	    		"Target"      "TARGET"
-	    	}
-	    	 "Damage"
-            {
-        	    "Type"		"DAMAGE_TYPE_MAGICAL"
-        	    "Damage"	"%damage"
-        	    "Target"	"TARGET"
-            }
-            "Stun"
-            {
-        	    "Duration"	"%stun"
-        	    "Target"	"TARGET"        	
-            }
-	    }
-	    "AbilitySpecial"
-	    {
-	    	"01"
-	    	{
-	    		"var_type"		"FIELD_FLOAT"
-	    		"stun"			"1.75"
-	    	}
-	    	"02"
-	    	{
-	    		"var_type"		"FIELD_FLOAT"
-	    		"damage"			"75 125 175 225"
-	    	}
-	    }
-
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+		"AbilityTextureName"			"guanyu_xzizhan"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				 "14 14 14 14"
+		"AbilityCastRange"				 "450"
+		"AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_4"
+		"precache"
+			{
+				"particle" 			"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf" // 开始
+			"particle"			"particles/ui_mouseactions/ping_danger.vpcf"
+			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+				 "particle"					"particles/items2_fx/skadi_projectile.vpcf"
+			}
+		"OnSpellStart"
+		{
+			//"AttachEffect"
+		//	{
+			//	"EffectName"		"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf"
+			//	"EffectAttachType"	 "follow_origin"
+			//	"Target"		"CASTER"
+			//}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Alchemist.UnstableConcoction.Throw"
+				"Target"			"CASTER"
+			}
+			"TrackingProjectile"
+			{
+				"Target"			"TARGET"
+				 "EffectName"		"particles/items2_fx/skadi_projectile.vpcf"
+				 "Dodgeable"		 "0"
+				"ProvidesVision"	"1"
+				"VisionRadius"		"0"
+				"MoveSpeed"		 "1500"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"FireSound"
+			{
+				 "EffectName"	"Hero_Alchemist.UnstableConcoction.Stun"
+				 "Target" 		"TARGET"
+			}
+			"AttachEffect"
+			{
+				"EffectName"		"particles/ui_mouseactions/ping_danger.vpcf"
+				"EffectAttachType"	 "follow_overhead"
+				"Target"		"TARGET"
+			}
+			 "Damage"
+			{
+				"Type"		"DAMAGE_TYPE_MAGICAL"
+				"Damage"	"%damage"
+				"Target"	"TARGET"
+			}
+			"Stun"
+			{
+				"Duration"	"%stun"
+				"Target"	"TARGET"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"stun"			"1.75"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage"			"75 125 175 225"
+			}
+		}
 	}
+	//=================================================================================================================
+	// 关羽 六月飞斩
+	//=================================================================================================================
 	"guanyu_liuyuefeizhan"
 	{
-		"BaseClass"				        "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-	    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_BUILDING"
-	    "AbilityTextureName"			"guanyu_wuyueyuzhan" 
-	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityManaCost"               "95 100 105 110"
-	    "AbilityCooldown"               "10 10 10 10"
-	    "AOERadius"   "300"
-	    "AbilityCastRange"     "1150"
-	    "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-	    "precache"
-	    {
-	    	"particle" 			"particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
-	    	"soundfile"	       "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
-	    }
-	    "OnSpellStart"
-	    {
-            "RunScript"
-            {
-            	"ScriptFile" 	"scripts/vscripts/abilities/guanyu.lua"
-            	"Target"		"POINT"
-            	"Function"		"guanyu_liuyuefeizhan_01"
-            }
-            "ApplyModifier"
-            {
-            	"Target" 			"CASTER"
-            	"ModifierName"		"guanyu_liuyuefeizhan_wudi"
-            }
-	    }
-	    "Modifiers"
-	    {
-	    	"guanyu_liuyuefeizhan_wudi"
-	    	{
-	    		//"IsHidden"   "1"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_DISABLE_AUTOATTACK"   "1"
-	    			
-	    		}
-	    		"States"
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityTextureName"			"guanyu_wuyueyuzhan"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityManaCost"				 "95 100 105 110"
+		"AbilityCooldown"				 "10 10 10 10"
+		"AOERadius"	 "300"
+		"AbilityCastRange"	 "1150"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"precache"
+		{
+			"particle" 			"particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
+			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/guanyu.lua"
+				"Target"		"POINT"
+				"Function"		"guanyu_liuyuefeizhan_01"
+			}
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"guanyu_liuyuefeizhan_wudi"
+			}
+		}
+		"Modifiers"
+		{
+			"guanyu_liuyuefeizhan_wudi"
+			{
+				//"IsHidden"	 "1"
+				"Properties"
 				{
-					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"		
+					"MODIFIER_PROPERTY_DISABLE_AUTOATTACK"	 "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_FROZEN"              "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_STUNNED"           "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"          "MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"			 "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnDestroy"
 				{
 					"FireSound"
-		            {
-			              "EffectName"	"Hero_Alchemist.UnstableConcoction.Stun"
-			               "Target" 		"CASTER"
-		            }
-		           // "AttachEffect"
-	    	       // {
-	    		    //   "EffectName"		"particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
-	    		     //  "EffectAttachType"   "follow_origin"
-	    		     //  "Target"      "CASTER"
-	    	       // }
+					{
+							"EffectName"	"Hero_Alchemist.UnstableConcoction.Stun"
+							 "Target" 		"CASTER"
+					}
+					 // "AttachEffect"
+					 // {
+					//	 "EffectName"		"particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
+					 //	"EffectAttachType"	 "follow_origin"
+					 //	"Target"		"CASTER"
+					 // }
 				}
-	    	}
-	    }
-	    "AbilitySpecial"
-	    {
-	    	"01"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"damage"			"200 250 300 350"
-	    	}
-	    	
-	    }
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"			"200 250 300 350"
+			}
+		}
 	}
 	//=================================================================================================================
-	// 曹仁 
+	// 曹仁 鬼身
 	//=================================================================================================================
-   "caoren_guishen"
-   {
-   	   "BaseClass"				        "ability_datadriven"
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	    "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-	    "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP "
-	    "AbilityTextureName"			"guanyu_wuyueyuzhan" 
-	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityManaCost"               "95 100 105 110"
-	    "AbilityCooldown"               "10 10 10 10"
-	    "AOERadius"   "300"
-	    "AbilityCastRange"     "1150"
-	    "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-	    "precache"
-	    {
-	    	"particle" 			"particles/batrider_firefly_head.vpcf"
-	    	 "particle"         "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-	    	"soundfile"	       "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
-	    }
-	    "OnSpellStart"
-	    {
-            "AttachEffect"
-            {
-            	"EffectName"		    "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-            	"EffectAttachType"      "follow_origin"
-            	"Target"                 "CASTER"
-            }
-            "AttachEffect"
-            {
-            	"EffectName"		    "particles/batrider_firefly_head.vpcf"
-            	"EffectAttachType"      "follow_origin"
-            	"Target"                 "CASTER"
-            }
-	    }
-   }
-   "lone_druid_true_form_druid_datadriven"
-  {
-	// General
-	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-	"AbilityTextureName"			"lone_druid_true_form_druid"
-
-	// Casting
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastPoint"				"0 0 0"
-
-	// Time		
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"				"0.0 0.0 0.0"
-	// Cost
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityManaCost"				"25 25 25"		
-
-	// Special
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilitySpecial"
+	"caoren_guishen"
 	{
-		"01"
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP "
+		"AbilityTextureName"			"guanyu_wuyueyuzhan"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityManaCost"				 "95 100 105 110"
+		"AbilityCooldown"				 "10 10 10 10"
+		"AOERadius"	 "300"
+		"AbilityCastRange"	 "1150"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"precache"
 		{
-			"var_type"					"FIELD_FLOAT"
-			"transformation_time"		"0.01"
+			"particle" 			"particles/batrider_firefly_head.vpcf"
+			"particle"		 "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 		}
-	}
-
-	"OnSpellStart"
-	{
-		"ApplyModifier"
+		"OnSpellStart"
 		{
-			"ModifierName"	"modifier_druid_transform"
-			"Target"		"CASTER"
-		}
-
-		"FireSound"
-		{
-			"EffectName"	"Hero_LoneDruid.TrueForm.Recast"
-			"Target"		"CASTER"
-		}
-
-		"FireEffect"
-		{
-			"Target"			"CASTER"
-			"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
-			"EffectAttachType"	"follow_origin"
-			"ControlPointEntities"
+			"AttachEffect"
 			{
-				"CASTER"		"attach_origin"
-				"CASTER"		"attach_origin"
-				"CASTER"		"attach_origin"
-				"CASTER"		"attach_origin"	 // CP3
+				"EffectName"			"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Target"				 "CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"			"particles/batrider_firefly_head.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Target"				 "CASTER"
 			}
 		}
 	}
-
-	"OnUpgrade"
+	//=================================================================================================================
+	// 曹仁 变身 TODO 需要重写
+	//=================================================================================================================
+	"lone_druid_true_form_druid_datadriven"
 	{
-		"RunScript"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"lone_druid_true_form_druid"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0 0 0"
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0 0.0 0.0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"25 25 25"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
 		{
-			"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
-			"Function"			"LevelUpAbility"
-			"ability_name"		"lone_druid_true_form_datadriven"
-		}
-	}
-
-	"Modifiers"
-	{
-		"modifier_druid_transform"
-		{
-			"Duration"		"%transformation_time"
-
-			"States"
+			"01"
 			{
-				"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				"var_type"					"FIELD_FLOAT"
+				"transformation_time"		"0.01"
 			}
-
-			"OnCreated"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
 			{
-				"ApplyModifier"
+				"ModifierName"	"modifier_druid_transform"
+				"Target"		"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_LoneDruid.TrueForm.Recast"
+				"Target"		"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ControlPointEntities"
 				{
-					"ModifierName"	"modifier_invulnerable"
-					"Target"		"CASTER"
-					"Duration"		"0.03"
+					"CASTER"		"attach_origin"
+					"CASTER"		"attach_origin"
+					"CASTER"		"attach_origin"
+					"CASTER"		"attach_origin"	 // CP3
 				}
 			}
-
-			"OnDestroy"
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
 			{
-				"RunScript"
+				"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
+				"Function"			"LevelUpAbility"
+				"ability_name"		"lone_druid_true_form_datadriven"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_druid_transform"
+			{
+				"Duration"		"%transformation_time"
+				"States"
 				{
-					"ScriptFile"			"scripts/vscripts/abilities/caoren.lua"
-					"Function"				"TrueFormEnd"
-					"main_ability_name"		"lone_druid_true_form_datadriven"
-					"remove_modifier_name"	"modifier_true_form"					
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-
-				"RunScript"
+				"OnCreated"
 				{
-					"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
-					"Function"			"ShowWearables"
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_invulnerable"
+						"Target"		"CASTER"
+						"Duration"		"0.03"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities/caoren.lua"
+						"Function"				"TrueFormEnd"
+						"main_ability_name"		"lone_druid_true_form_datadriven"
+						"remove_modifier_name"	"modifier_true_form"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
+						"Function"			"ShowWearables"
+					}
 				}
 			}
 		}
 	}
-  }
-  "lone_druid_true_form_datadriven"
-{
-	// General
-	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-	"AbilityTextureName"			"lone_druid_true_form"
-
-	// Time		
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"				"0.0 0.0 0.0"
-
-	// Casting
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastPoint"				"0 0 0"
-
-	// Cost
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityManaCost"				"25 25 25"		
-
-	// Special
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilitySpecial"
+	"lone_druid_true_form_datadriven"
 	{
-		"01"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"lone_druid_true_form"
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0 0.0 0.0"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0 0 0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"25 25 25"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
 		{
-			"var_type"					"FIELD_FLOAT"
-			"base_attack_time"			"1.5 1.5 1.5"
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"base_attack_time"			"1.5 1.5 1.5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_armor"				"4 6 8"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_hp"					"250 400 600"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_loss"				"0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"transformation_time"		"0.01"
+			}
 		}
-		"02"
+		"precache"
 		{
-			"var_type"					"FIELD_INTEGER"
-			"bonus_armor"				"4 6 8"
+			"particle"	"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
+			"particle" 			"particles/batrider_firefly_head.vpcf"
+			 "particle"		 "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
+			"model"		"models/heroes/lone_druid/true_form.vmdl"
 		}
-		"03"
+		"OnSpellStart"
 		{
-			"var_type"					"FIELD_INTEGER"
-			"bonus_hp"					"250 400 600"
-		}
-		"04"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"speed_loss"				"0"
-		}
-		"05"
-		{
-			"var_type"					"FIELD_FLOAT"
-			"transformation_time"		"0.01"
-		}
-	}
-
-	"precache"
-	{
-		"particle"	"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
-		"particle" 			"particles/batrider_firefly_head.vpcf"
-	     "particle"         "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
-		"model"		"models/heroes/lone_druid/true_form.vmdl"
-	}
-
-	"OnSpellStart"
-	{
-		"ApplyModifier"
-		{
-			"ModifierName" 	"modifier_true_form_transform"
-			"Target"		"CASTER"
-		}
-
-		"FireSound"
-		{
-			"EffectName"	"Hero_LoneDruid.TrueForm.Cast"
-			"Target"		"CASTER"
-		}
-
-        "AttachEffect"
-        {
-        	"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-        	"EffectAttachType"    "follow_origin"
-        	"Target"             "CASTER"
-        }
-        "AttachEffect"
-        {
-        	"EffectName"		"particles/batrider_firefly_head.vpcf"
-        	"EffectAttachType"    "follow_origin"
-        	"Target"             "CASTER"
-        }
-		//"FireEffect"
-		//{
-		//	"Target"			"CASTER"
-			//"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
-			//"EffectAttachType"	"follow_origin"
-			//"ControlPointEntities"
+			"ApplyModifier"
+			{
+				"ModifierName" 	"modifier_true_form_transform"
+				"Target"		"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_LoneDruid.TrueForm.Cast"
+				"Target"		"CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"			 "CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"		"particles/batrider_firefly_head.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"			 "CASTER"
+			}
+			//"FireEffect"
 			//{
-			//	"CASTER"		"attach_origin"
-			//	"CASTER"		"attach_origin"
-			//	"CASTER"		"attach_origin"
-			//	"CASTER"		"attach_origin"	//CP3
+			//	"Target"			"CASTER"
+				//"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
+				//"EffectAttachType"	"follow_origin"
+				//"ControlPointEntities"
+				//{
+				//	"CASTER"		"attach_origin"
+				//	"CASTER"		"attach_origin"
+				//	"CASTER"		"attach_origin"
+				//	"CASTER"		"attach_origin"	//CP3
+				//}
 			//}
-		//}
-	}
-
-	"OnUpgrade"
-	{
-		"RunScript"
-		{
-			"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
-			"Function"			"LevelUpAbility"
-			"ability_name"		"lone_druid_true_form_druid_datadriven"
 		}
-	}
-
-	"Modifiers"
-	{
-		"modifier_true_form_transform"
+		"OnUpgrade"
 		{
-			"IsHidden"	"1"
-			"Duration"	"%transformation_time"
-
-			"States"
+			"RunScript"
 			{
-				"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
+				"Function"			"LevelUpAbility"
+				"ability_name"		"lone_druid_true_form_druid_datadriven"
 			}
-
-			"OnDestroy"
+		}
+		"Modifiers"
+		{
+			"modifier_true_form_transform"
 			{
-				"ApplyModifier"
+				"IsHidden"	"1"
+				"Duration"	"%transformation_time"
+				"States"
 				{
-					"ModifierName" 	"modifier_true_form"
-					"Target"		"CASTER"
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName" 	"modifier_true_form"
+						"Target"		"CASTER"
+					}
+				}
+			}
+			"modifier_true_form"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"%base_attack_time"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_hp"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_loss"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities/caoren.lua"
+						"Function"				"TrueFormStart"
+						"model"					"models/creeps/neutral_creeps/n_creep_golem_a/neutral_creep_golem_a.vmdl"
+						"sub_ability_name"		"lone_druid_true_form_druid_datadriven"
+					}
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities/caoren.lua"
+						"Function"				"HideWearables"
+					}
 				}
 			}
 		}
-
-		"modifier_true_form"
+	}
+	"lone_druid_true_form_battle_cry_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_TYPE_ULTIMATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"3"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.5 0.5 0.5"
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30.0 30.0 30.0"
+		"AbilityDuration"				"50.0 50.0 50.0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 50 50"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
 		{
-			"IsHidden"	"0"
-
-			"Properties"
+			"01"
 			{
-				"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"%base_attack_time"
-				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-				"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_hp"
-				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_loss"
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage"		"20 40 60"
 			}
-
-			"OnCreated"
+			"02"
 			{
-				"RunScript"
-				{
-					"ScriptFile"			"scripts/vscripts/abilities/caoren.lua"
-					"Function"				"TrueFormStart"
-					"model"					"models/creeps/neutral_creeps/n_creep_golem_a/neutral_creep_golem_a.vmdl"
-					"sub_ability_name"		"lone_druid_true_form_druid_datadriven"
-				}
+				"var_type"			"FIELD_INTEGER"
+				"bonus_armor"		"2 4 6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cry_duration"		"8.0 8.0 8.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"range"				"1000"
+			}
+		}
+	}
 
-				"RunScript"
+	//=================================================================================================================
+	// 投石车
+	//=================================================================================================================
+	"toushiche_toushi_1"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"viper_nethertoxin"
+		"MaxLevel"	 "1"
+		"Modifiers"
+		{
+			"toushiche_toushi_auto_attack"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
 				{
-					"ScriptFile"			"scripts/vscripts/abilities/caoren.lua"
-					"Function"				"HideWearables"
+					"FireSound"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"Hero_SkywrathMage.ArcaneBolt.Cast"
+					}
+					"RunScript"
+					{
+						"ScriptFile" 	"scripts/vscripts/items/Car.lua"
+						"Target"		"TARGET"
+						"Function"		"on_dummy_spawn"
+					}
+				}
+			}
+		}
+	}
+	"toushiche_toushi_2"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"toushi"
+		"AbilityCooldown"				 "3.5"
+		"AOERadius"	 "200"
+		"MaxLevel"	 "1"
+		"AbilityCastRange"	 "1200"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Hero_SkywrathMage.ArcaneBolt.Cast"
+			}
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/items/Car.lua"
+				 "Target"		"POINT"
+				 "Function"		"on_dummy_spawn_2"
+			}
+			"CreateThinker"
+			{
+				"ModifierName"	"aoe_spike_thinker001"
+				"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"aoe_spike_thinker001"
+			{
+				"Duration"					"%think_time + 0.5" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"ThinkInterval"				"%think_time"
+				"OnIntervalThink"
+				{
+					"DestroyTrees"
+					{
+						"Target"			"TARGET"
+						"Radius"			"%impact_radius"
+					}
+				}
+			}
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_radius"			"210 220 230 240"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_time"			"1.0"
+			}
+		}
+	}
+	"toushiche_dummy_01"
+	{
+		"BaseClass"						 "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		//"AbilityTextureName"			"viper_nethertoxin"
+		"AbilityCooldown"	 "1"
+		"OnSpellStart"
+		{
+				 "ActOnTargets"
+				{
+					"Target"
+					{
+						"Center"	"CASTER"
+						"Radius"	"50"
+						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					}
+					"Action"
+					{
+						"Damage"
+						 {
+								"Target"	"TARGET"
+								"Damage"	"80"
+								 "Type"		"DAMAGE_TYPE_PHYSICAL"
+						 }
+					}
+				}
+		}
+	}
+	"toushiche_dummy_02"
+	{
+		"BaseClass"						 "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		//"AbilityTextureName"			"viper_nethertoxin"
+		"AbilityCooldown"	 "1"
+		"OnSpellStart"
+		{
+			"ActOnTargets"
+			{
+					"Target"
+					{
+						"Center"	"CASTER"
+						"Radius"	"50"
+						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					}
+					"Action"
+					{
+						"Damage"
+						 {
+								"Target"	"TARGET"
+								"Damage"	"80"
+								 "Type"		"DAMAGE_TYPE_PHYSICAL"
+						 }
+					}
+				}
+				"ActOnTargets"
+				{
+					"Target"
+					{
+						"Center"	"CASTER"
+						"Radius"	"120"
+						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					}
+					"Action"
+					{
+						"Damage"
+						 {
+								"Target"	"TARGET"
+								"Damage"	"40"
+								 "Type"		"DAMAGE_TYPE_PHYSICAL"
+						 }
+					}
+				}
+		}
+	}
+
+	// 平衡性常数技能
+	// 血量修正
+	"ability_health_modifier"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"Modifiers"
+		{
+			"modifier_health_mod_1"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"1"
+				}
+			}
+			"modifier_health_mod_2"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"2"
+				}
+			}
+			"modifier_health_mod_4"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"4"
+				}
+			}
+			"modifier_health_mod_8"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"8"
+				}
+			}
+			"modifier_health_mod_16"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"16"
+				}
+			}
+			"modifier_health_mod_32"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"32"
+				}
+			}
+			"modifier_health_mod_64"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"64"
+				}
+			}
+			"modifier_health_mod_128"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"128"
+				}
+			}
+			"modifier_health_mod_256"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"256"
+				}
+			}
+			"modifier_health_mod_512"
+			{
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"512"
+				}
+			}
+			"modifier_health_mod_neg_1"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-1"
+				}
+			}
+			"modifier_health_mod_neg_2"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-2"
+				}
+			}
+			"modifier_health_mod_neg_4"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-4"
+				}
+			}
+			"modifier_health_mod_neg_8"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-8"
+				}
+			}
+			"modifier_health_mod_neg_16"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-16"
+				}
+			}
+			"modifier_health_mod_neg_32"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-32"
+				}
+			}
+			"modifier_health_mod_neg_64"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-64"
+				}
+			}
+			"modifier_health_mod_neg_128"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-128"
+				}
+			}
+			"modifier_health_mod_neg_256"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-256"
+				}
+			}
+			"modifier_health_mod_neg_512"
+			{
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"-512"
+				}
+			}
+		}
+	}
+	//智力-魔法修正
+	"ability_mana_modifier"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"Modifiers"
+		{
+			"modifier_mana_mod_1"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"1"
+				}
+			}
+			"modifier_mana_mod_2"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"2"
+				}
+			}
+			"modifier_mana_mod_4"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"4"
+				}
+			}
+			"modifier_mana_mod_8"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"8"
+				}
+			}
+			"modifier_mana_mod_16"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"16"
+				}
+			}
+			"modifier_mana_mod_32"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"32"
+				}
+			}
+			"modifier_mana_mod_64"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"64"
+				}
+			}
+			"modifier_mana_mod_128"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"128"
+				}
+			}
+			"modifier_mana_mod_256"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"256"
+				}
+			}
+			"modifier_mana_mod_512"
+			{
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"512"
+				}
+			}
+			"modifier_mana_mod_neg_1"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-1"
+				}
+			}
+			"modifier_mana_mod_neg_2"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-2"
+				}
+			}
+			"modifier_mana_mod_neg_4"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-4"
+				}
+			}
+			"modifier_mana_mod_neg_8"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-8"
+				}
+			}
+			"modifier_mana_mod_neg_16"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-16"
+				}
+			}
+			"modifier_mana_mod_neg_32"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-32"
+				}
+			}
+			"modifier_mana_mod_neg_64"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-64"
+				}
+			}
+			"modifier_mana_mod_neg_128"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-128"
+				}
+			}
+			"modifier_mana_mod_neg_256"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-256"
+				}
+			}
+			"modifier_mana_mod_neg_512"
+			{
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"-512"
+				}
+			}
+		}
+	}
+	//敏捷 攻击速度修正
+	"ability_atkspeed_modifier"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"Modifiers"
+		{
+			"modifier_atkspeed_mod_1"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"1"
+				}
+			}
+			"modifier_atkspeed_mod_2"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"2"
+				}
+			}
+			"modifier_atkspeed_mod_4"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"4"
+				}
+			}
+			"modifier_atkspeed_mod_8"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"8"
+				}
+			}
+			"modifier_atkspeed_mod_16"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"16"
+				}
+			}
+			"modifier_atkspeed_mod_32"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"32"
+				}
+			}
+			"modifier_atkspeed_mod_64"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"64"
+				}
+			}
+			"modifier_atkspeed_mod_128"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"128"
+				}
+			}
+			"modifier_atkspeed_mod_256"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"256"
+				}
+			}
+			"modifier_atkspeed_mod_512"
+			{
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"512"
+				}
+			}
+			"modifier_atkspeed_mod_neg_1"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-1"
+				}
+			}
+			"modifier_atkspeed_mod_neg_2"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-2"
+				}
+			}
+			"modifier_atkspeed_mod_neg_4"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-4"
+				}
+			}
+			"modifier_atkspeed_mod_neg_8"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-8"
+				}
+			}
+			"modifier_atkspeed_mod_neg_16"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-16"
+				}
+			}
+			"modifier_atkspeed_mod_neg_32"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-32"
+				}
+			}
+			"modifier_atkspeed_mod_neg_64"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-64"
+				}
+			}
+			"modifier_atkspeed_mod_neg_128"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-128"
+				}
+			}
+			"modifier_atkspeed_mod_neg_256"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-256"
+				}
+			}
+			"modifier_atkspeed_mod_neg_512"
+			{
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-512"
+				}
+			}
+		}
+	}
+	//敏捷 护甲修正
+	"ability_armor_modifier"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"Modifiers"
+		{
+			"modifier_armor_mod_1"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"1"
+				}
+			}
+			"modifier_armor_mod_2"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"2"
+				}
+			}
+			"modifier_armor_mod_4"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"4"
+				}
+			}
+			"modifier_armor_mod_8"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"8"
+				}
+			}
+			"modifier_armor_mod_16"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"16"
+				}
+			}
+			"modifier_armor_mod_32"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"32"
+				}
+			}
+			"modifier_armor_mod_64"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"64"
+				}
+			}
+			"modifier_armor_mod_128"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"128"
+				}
+			}
+			"modifier_armor_mod_256"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"256"
+				}
+			}
+			"modifier_armor_mod_512"
+			{
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"512"
+				}
+			}
+			"modifier_armor_mod_neg_1"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+				}
+			}
+			"modifier_armor_mod_neg_2"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-2"
+				}
+			}
+			"modifier_armor_mod_neg_4"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-4"
+				}
+			}
+			"modifier_armor_mod_neg_8"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-8"
+				}
+			}
+			"modifier_armor_mod_neg_16"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-16"
+				}
+			}
+			"modifier_armor_mod_neg_32"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-32"
+				}
+			}
+			"modifier_armor_mod_neg_64"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-64"
+				}
+			}
+			"modifier_armor_mod_neg_128"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-128"
+				}
+			}
+			"modifier_armor_mod_neg_256"
+			{
+				"IsHidden"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-256"
+				}
+			}
+			"modifier_armor_mod_neg_512"
+			{
+				"IsHidden"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-512"
 				}
 			}
 		}
 	}
 }
-"lone_druid_true_form_battle_cry_datadriven"
-{
-	// General
-	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_TYPE_ULTIMATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-	"MaxLevel"						"3"
-	
-	// Casting
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastPoint"				"0.5 0.5 0.5"
-
-	// Time		
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"				"30.0 30.0 30.0"
-	"AbilityDuration"				"50.0 50.0 50.0"
-
-	// Cost
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityManaCost"				"50 50 50"
-
-	// Special
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilitySpecial"
-	{
-		"01"
-		{
-			"var_type"			"FIELD_INTEGER"
-			"bonus_damage"		"20 40 60"		
-		}
-		"02"
-		{
-			"var_type"			"FIELD_INTEGER"
-			"bonus_armor"		"2 4 6"
-		}
-		"03"
-		{
-			"var_type"			"FIELD_FLOAT"
-			"cry_duration"		"8.0 8.0 8.0"
-		}
-		"04"
-		{
-			"var_type"			"FIELD_FLOAT"
-			"range"		"1000"
-		}
-	}
-}
-}
-
