@@ -9,20 +9,20 @@
     {
     	"Model"						"models/heroes/earth_spirit/earth_spirit.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creep_neutral"
-		"Creature" 
-		{ 
-        	"AttachWearables"   // 附加饰品  写上刚才的数字  顺序没关系 但注意编号 
-            {
-            	"Wearable1"
-                {
-                	"ItemDef"           "481" 
-                }
-                "Wearable2"
-                {
-                    "ItemDef"           "482" 
-                }                 
-            }
-        }
+		"Creature" { 
+                     "AttachWearables"   // 附加饰品  写上刚才的数字  顺序没关系 但注意编号 
+                    {
+                        "Wearable1"
+                        {
+                           "ItemDef"           "481" 
+                        }
+                        "Wearable2"
+                        {
+                           "ItemDef"           "482" 
+                        }                 
+                    }
+                 }
+
     }
     
 	//=================================================================================	
