@@ -223,9 +223,6 @@ function ZSSpawner:DoSpawn(spawn_location, unit_name, initial_target, team, leve
         creep:CreatureLevelUp(level - 1)
     end
 
-    -- 在士气系统注册这个小兵
-    MSys:DealWithCreep(creep)
-
     creep:SetMustReachEachGoalEntity(true)
     creep:SetInitialGoalEntity(initial_target)
 end
