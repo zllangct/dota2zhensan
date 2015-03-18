@@ -16,6 +16,21 @@ local MORALE_BUILDINGS = {
     "npc_zs_bingying", -- 兵营
     "npc_zs_judian", -- 据点
 }
+
+local MORALE_BUFF = {
+    attackTimeBuff = {
+        [0] = 0,
+        [1] = 0.05,
+        [2] = 0.10,
+        [3] = 0.15
+    }
+    moveSpeedBuff = {
+        [0] = 0,
+        [1] = 0.05,
+        [2] = 0.10,
+        [3] = 0.15
+    }
+}
 -- 会停发工资的建筑
 local MORALE_BUILDING_GOLD = "npc_zs_gucang"
 
@@ -36,6 +51,10 @@ function MSys:Init()
     self.__morale = {}
     self.__morale[DOTA_TEAM_GOODGUYS] = 10
     self.__morale[DOTA_TEAM_BADGUYS] = 10
+    self.__moraleLevel = {}
+    self.__moraleLevel[DOTA_TEAM_GOODGUYS] = 0
+    self.__moraleLevel[DOTA_TEAM_BADGUYS] = 0
+
 
     -- 设置双方的金钱
     self.__goldTicking = {}
@@ -47,8 +66,6 @@ function MSys:Init()
     -- 注册小兵
     self.__allCreeps = {}
 end
-
-
 
 -- 士气系统：英雄被击杀的响应
 -- 当有英雄被击杀的事件响应
@@ -140,83 +157,87 @@ function MSys:MoraleDown(player, team)
 
     -- 处理小兵的士气等级技能
     -- 可能存在的BUG，npc_creeps不能设置技能和技能等级？
-
+    self:DealWithCreepsMorale(false)
 end
 
+-- 将新刷新的小兵注册进所有小兵的列表
+-- 如果这个队伍的士气等级>0
+-- 那么设置他的士气BUFF
 function MSys:DealWithCreep(creep)
     table.insert(self.__allCreeps, creep)
+    self:SetCreepMorale(creep)
+
+    -- DEBUG！
+    -- TODO!
+    if not self.__paraCatched then
+        print("#################################")
+        print("CAPTURING CREEP DATA FROM UNIT")
+        print(creep:GetBaseAttackTime())
+        print(creep:GetBaseMoveSpeed())
+        print("#################################")
+        self.__paraCatched = true
+    end
 end
 
+-- 当队伍的士气发生变更的时候
+-- 处理所有小兵的士气等级
+function MSys:DealWithCreepsMorale()
+    -- 获取士气较高的队伍的士气，和队伍名称
+    local largerMorale = self.__morale[DOTA_TEAM_GOODGUYS]
+    local largerMoraleTeam = DOTA_TEAM_GOODGUYS
+    if self.__morale[DOTA_TEAM_GOODGUYS] < self.__morale[DOTA_TEAM_BADGUYS] then
+        largerMorale = self.__morale[DOTA_TEAM_BADGUYS]
+        largerMoraleTeam = DOTA_TEAM_BADGUYS
+    end
+    local moraleLevel = math.floor((largerMorale - 10) / 3)
+    print("DEALING WITH MORALE. TEAM IN ADVANTAGE", largerMoraleTeam, "MORALE", largerMorale, "MORALE LEVEL", moraleLevel)
 
+    -- 如果士气较高的那个队伍的士气等级不等于上次的士气等级，那么才需要刷新小兵的士气BUFF
+    local creepsUpdateRequired = moraleLevel ~= self.__moraleLevel[largerMoraleTeam]
+
+    -- 将他们的士气数值存入表
+    self.__moraleLevel[largerMoraleTeam] = moraleLevel
+    self.__moraleLevel[self.__GetEnemyTeam(largerMoraleTeam)] = 0
+
+    -- 设置场上所有小兵的士气表
+    if creepsUpdateRequired then
+        for _, creep in pairs(self.__allCreeps) do
+            self:SetCreepMorale(creep)
+        end
+    end
+end
+
+function MSys:SetCreepMorale(creep)
+
+    local team = creep:GetTeam()
+    local moraleLevel = self.__moraleLevel[team]
+
+    local attackTimeBuff = MORALE_BUFF.attackTimeBuff[moraleLevel]
+    local moveSpeedBuff = MORALE_BUFF.moveSpeedBuff[moraleLevel]
+    local baseAttackTime = 1 -- creep:GetBaseAttackTime() -- TODO, 这个数值还需要再确认是否正确
+    local baseMoveSpeed = 300 -- creep:GetBaseMoveSpeed()
+
+    local attackTimeFixed = baseAttackTime / ( 1 + attackTimeBuff)
+    local moveSpeedFixed = math.floor(baseMoveSpeed / ( 1 + moveSpeedBuff))
+
+    creep:SetBaseAttackTime(attackTimeFixed)
+    creep:SetBaseMoveSpeed(moveSpeedFixed)    -- 返回类型: void
+        -- 参数说明: int a:基础跑速
+        -- 描述: 设置基础跑速。
+
+    if not self.__moraleMessagePrinted then
+        print("==============================================================================")
+        print("     DEAL WITH MORALE     ")
+        print("==============================================================================")
+        print("ATTACK TIME BUFF", attackTimeBuff, "BASE ATTACK TIME", baseAttackTime, "FIXED ATTACKTIME", attackTimeFixed)
+        print("ATTACK TIME BUFF", moveSpeedBuff, "BASE ATTACK TIME", baseMoveSpeed, "FIXED ATTACKTIME", moveSpeedFixed)
+        print("==============================================================================")
+        self.__moraleMessagePrinted = true
+    end
+
+end
 
 function MSys:__GetEnemyTeam(team)
     if team == DOTA_TEAM_GOODGUYS then return DOTA_TEAM_BADGUYS end
     if team == DOTA_TEAM_BADGUYS then return DOTA_TEAM_GOODGUYS end
 end
-
-
---[[
-------------------------------------------------------------------------
---士气系统
-------------------------------------------------------------------------
-if Morale_System == nil then Morale_System = class( { }) end
-Morale_System.Morale_shu = 10
-Morale_System.Morale_wei = 10
-
-
-function Morale_System:init()
-	-- 监听单位击杀事件
-    ListenToGameEvent("entity_killed", Dynamic_Wrap(Morale_System, "thinker"), self)
-    Morale_System.morale_ability_name ="morale_ability"
-end
-function Morale_System:thinker(keys)
-	local entity_killed = EntIndexToHScript(keys.entindex_killed)  --获取死亡者实体
-    if not(entity_killed and entity_attacker) then return end   --如果实体不存在，则退出士气系统
-    local killed_team = ntity_killed:GetTeam()   --获取死亡者队伍
-    local entity_attacker = EntIndexToHScript(keys.entindex_attacker)
-    local team_attacker = entity_attacker:GetTeam()
-    if entity_killed:IsHero() then 
-    	if killed_team == DOTA_TEAM_GOODGUYS then 
-            if self.Morale_shu>1 then
-    		    self.Morale_shu=self.Morale_shu-1
-    		    self.Morale_wei=self.Morale_wei+1
-                GameRules:SendCustomMessage("#morale_shu_down", team_attacker, 0)
-                GameRules:SendCustomMessage("#morale_shu_down", killed_team, 0)
-    		end
-    	elseif  killed_team == DOTA_TEAM_BADGUYS then 
-    		if Mself.Morale_wei>1 then
-    		    self.Morale_shu=self.Morale_shu+1
-    		    self.Morale_wei=self.Morale_wei-1
-                GameRules:SendCustomMessage("#morale_shu_up", killed_team, 0)
-                GameRules:SendCustomMessage("#tmorale_shu_up", team_attacker, 0)               
-        	end
-    	end 
-        UTIL_ResetMessageTextAll()
-        UTIL_MessageTextAll("#morale_message", 255, 255, 255, 125, { value1 = self.Morale_shu,value2 = self.Morale_wei })
-        
-    end
-   
-end
-function Morale_System:syn_ability(caster)  
-	-- body   
-    --local caster=EntIndexToHScript(keys.caster)
-    local lvl = 1
-    caster:SetContextThink( "wild_maxaway", function()
-    if caster:GetTeam() == DOTA_TEAM_GOODGUYS then 
-       if self.Morale_shu > 10 then 
-           lvl = math.ceil((self.Morale_shu-10)/3)
-       end
-    elseif caster:GetTeam()== DOTA_TEAM_BADGUYS then
-        if self.Morale_wei > 10 then 
-           lvl = math.ceil((self.Morale_shu-10)/3)
-        end
-    end
-    local morale_ability = caster:FindAbilityByName(self.morale_ability_name)
-    if not morale_ability then
-        caster:AddAbility(self.morale_ability_name)
-        morale_ability = caster:FindAbilityByName(self.morale_ability_name)
-        morale_ability:SetLevel(lvl)
-    end
-  end,1)
-end
-]]
