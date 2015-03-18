@@ -23,7 +23,7 @@ local MORALE_BUFF = {
         [1] = 0.05,
         [2] = 0.10,
         [3] = 0.15
-    }
+    },
     moveSpeedBuff = {
         [0] = 0,
         [1] = 0.05,
@@ -164,17 +164,6 @@ end
 function MSys:DealWithCreep(creep)
     table.insert(self.__allCreeps, creep)
     self:SetCreepMorale(creep)
-
-    -- DEBUG！
-    -- TODO!
-    if not self.__paraCatched then
-        print("#################################")
-        print("CAPTURING CREEP DATA FROM UNIT")
-        print(creep:GetBaseAttackTime())
-        print(creep:GetBaseMoveSpeed())
-        print("#################################")
-        self.__paraCatched = true
-    end
 end
 
 -- 当队伍的士气发生变更的时候
@@ -195,7 +184,7 @@ function MSys:DealWithCreepsMorale()
 
     -- 将他们的士气数值存入表
     self.__moraleLevel[largerMoraleTeam] = moraleLevel
-    self.__moraleLevel[self.__GetEnemyTeam(largerMoraleTeam)] = 0
+    self.__moraleLevel[self:__GetEnemyTeam(largerMoraleTeam)] = 0
 
     -- 设置场上所有小兵的士气表
     if creepsUpdateRequired then

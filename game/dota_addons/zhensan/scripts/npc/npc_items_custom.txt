@@ -1900,7 +1900,7 @@
         {
             "ApplyModifier"
             {
-            	"Target"  		"TARGET"
+            	"Target"  		"CASTER"
             	"ModifierName"   "xuanwufu_buff"
             }
         }
@@ -1908,7 +1908,7 @@
         {
             "xuanwufu_buff"
             {
-            	"Passive"     	"1"
+            	"Passive"     	"0"
                 "Duration"   	"%duration"
                	"Attributes"  	"MODIFIER_ATTRIBUTE_MULTIPLE"
                 "Properties"
