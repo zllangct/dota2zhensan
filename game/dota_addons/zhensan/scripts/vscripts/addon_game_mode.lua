@@ -137,8 +137,6 @@ function ZhensanGameMode:InitGameMode()
     ParaAdjuster:Init()
     -- 初始化物品核心
     ItemCore:Init()
-    --车
-    Car:Init()
     --野怪
     ZSSpawner:Start_wild_init()
     --士气系统

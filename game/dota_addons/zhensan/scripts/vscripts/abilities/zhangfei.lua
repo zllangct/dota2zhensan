@@ -1,7 +1,7 @@
 
 zhangfei={}
 zhangfei.isbig = false
-function wanfumodi_big(keys)
+function wanfumodi_big(keys)  --张飞 模型变大
     -- body
     local caster=EntIndexToHScript(keys.caster_entindex)
     local i = 1
@@ -9,7 +9,7 @@ function wanfumodi_big(keys)
         function( )
             -- body
             if i<= 25 then
-               caster:SetModelScale(1+i/50)
+               caster:SetModelScale(1+i/50)   --核心：通过设置模型大小完成
                i=i+1
                return 0.01
             else 
@@ -17,7 +17,7 @@ function wanfumodi_big(keys)
             end
         end,0)
 end
-function wanfumodi_small(keys)
+function wanfumodi_small(keys)   --张飞模型变小
     -- body
     local caster=EntIndexToHScript(keys.caster_entindex)
     local i = 1
@@ -25,34 +25,31 @@ function wanfumodi_small(keys)
         function( )
             -- body
             if i<= 25 then
-               caster:SetModelScale(1+(25-i)/50)
+               caster:SetModelScale(1+(25-i)/50)    --核心：通过设置模型大小完成
                i=i+1
                return 0.02
             else 
                return nil
             end
         end,0)
-end
-function zhangfei_wanfumodi_01(keys)
+end 
+function zhangfei_wanfumodi_01(keys)   --张飞  万夫莫敌   
     -- body
-    local caster=EntIndexToHScript(keys.caster_entindex)
+    local caster=EntIndexToHScript(keys.caster_entindex) 
     local k=keys.ability:GetLevel()
     local maxhealth_bonus=keys.ability:GetLevelSpecialValueFor("maxhealth_bonus",k-1)
     local _duration=keys.ability:GetLevelSpecialValueFor("duration",k-1)
     caster:AddNewModifier(caster, keys.ability, "modifier_brewmaster_earth_spell_immunity", {duration=_duration})
+    --当张飞用于魔法免疫效果时，模型变大，当失去魔法免疫效果时，模型变小
     GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("zhangfei_think"),
         function (  )
             -- body
             if caster:HasModifier("modifier_brewmaster_earth_spell_immunity") and zhangfei.isbig == false then             
-                wanfumodi_big(keys)
-
-              --  caster:SetMaxHealth(caster:GetMaxHealth()+maxhealth_bonus)
-              --  caster:SetHealth(caster:GetHealth()+maxhealth_bonus)
+                wanfumodi_big(keys)   --调用变大
                 zhangfei.isbig=true
                 return 0.01
             elseif not caster:HasModifier("modifier_brewmaster_earth_spell_immunity") and zhangfei.isbig == true then 
-                wanfumodi_small(keys)                
-               -- caster:SetMaxHealth(caster:GetMaxHealth()-maxhealth_bonus)
+                wanfumodi_small(keys)       --调用变小         
                 zhangfei.isbig = false
                 return nil 
             else  
@@ -61,9 +58,10 @@ function zhangfei_wanfumodi_01(keys)
 
         end,0)
 end
-function zhangfei_yinghan_01(keys)
+function zhangfei_yinghan_01(keys)   --张飞   硬汉 
     -- body
     local caster=EntIndexToHScript(keys.caster_entindex)
+    --当张飞血量小于百分之五十时添加硬汉buff
     GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("bonus_armor_zhangfei"),
         function (  )
             -- body
@@ -79,7 +77,7 @@ function zhangfei_yinghan_01(keys)
            end          
         end,0)
 end
-function zhangfei_shenji_01(keys)
+function zhangfei_shenji_01(keys)   --张飞  神技   移动、攻击加速，多承受50%伤害
 	-- body   
     local caster=EntIndexToHScript(keys.caster_entindex)
     local i=keys.ability:GetLevel()
@@ -91,6 +89,7 @@ function zhangfei_shenji_01(keys)
     local speed=caster:GetAttackSpeed()
     local speed1=caster:GetAttacksPerSecond()
     local str= leap_speedbonus_as_one*speed
+    --通过modifier按百分比修改攻击速度
     if str>=100 then 
         local x1=math.floor(str/100)*100
         keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x1), {duration=durationtime})
@@ -110,6 +109,7 @@ function zhangfei_shenji_01(keys)
            keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x3), {duration=durationtime}) 
         end
     end 
+    --修改移动速度
     local speed1=caster:GetAttacksPerSecond()
     speed=caster:GetAttackSpeed()
     GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("bonus_damage_zhangfei"), 
@@ -127,9 +127,9 @@ function zhangfei_shenji_01(keys)
 					    end
 					end		
 				end				
-                return 0.01
-            else 
-            	return nil 
+        return 0.01
+      else 
+        return nil 
 			end	
 
 		end,0)

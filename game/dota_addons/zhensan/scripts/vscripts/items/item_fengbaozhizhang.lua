@@ -1,6 +1,6 @@
 require("utils/utils_print")
 require('utils/timers')
-function fengbaozhizhang_01(keys)
+function fengbaozhizhang_01(keys)  --风暴之杖  无需修改
 	-- body
 	local height = 380
 	local caster=EntIndexToHScript(keys.caster_entindex)

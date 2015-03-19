@@ -1,5 +1,5 @@
 require("utils/utils_print")
-function zhaoyun_wushuang_01(keys)
+function zhaoyun_wushuang_01(keys)   --赵云  无双
   -- body
   local caster=EntIndexToHScript(keys.caster_entindex)
   local i=keys.ability:GetLevel()
@@ -8,6 +8,7 @@ function zhaoyun_wushuang_01(keys)
   local speed=caster:GetAttackSpeed()
     local speed1=caster:GetAttacksPerSecond()
   local str= leap_speedbonus_as_one*speed
+ --按比例修改攻击速度  
   if str>=100 then 
         local x1=math.floor(str/100)*100
         keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x1), {duration=durationtime})
@@ -28,7 +29,7 @@ function zhaoyun_wushuang_01(keys)
         end
     end 
 end
-function zhaoyun_changqiangtuci(keys)
+function zhaoyun_changqiangtuci(keys)  --赵云长枪突刺，无需修改
   -- body
   print("start")
   local caster=EntIndexToHScript(keys.caster_entindex)

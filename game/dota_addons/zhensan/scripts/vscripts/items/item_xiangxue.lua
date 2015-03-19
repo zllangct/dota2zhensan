@@ -1,4 +1,4 @@
-function item_blink_datadriven_on_spell_start(keys)
+function item_blink_datadriven_on_spell_start(keys)  --翔靴，无需修改
 	ProjectileManager:ProjectileDodge(keys.caster)  --Disjoints disjointable incoming projectiles.
 	
 	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, keys.caster)
