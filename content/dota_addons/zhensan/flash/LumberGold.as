@@ -36,8 +36,9 @@
 			goldTickTimer.start();
 		}
 		public function onGoldTickTimer(e:TimerEvent){
+			// TODO：这里有个BUG，会导致scaleform无限报错，需要再看看是什么原因
 			var playerID = globals.Players.GetLocalPlayer();
-			var gold:Number = globals.Players.GetGold(playerID)
+			var gold:Number = globals.Players.GetGold(playerID); // 本来少了分号，等回家重新编译一下看能否解决问题。
 			
 			lumberGoldMovieClip.goldLabel.text = toString(gold);
 					
