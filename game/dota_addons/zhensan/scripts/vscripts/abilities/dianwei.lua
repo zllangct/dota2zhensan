@@ -16,7 +16,7 @@ function OnDianweiUpdateYexingzhanhun(keys)
     caster:SetBaseHealthRegen(health_regen_new)
 end
 
-function AmplifyDamageParticle( event )
+function AmplifyDamageParticle( event )--典韦的特效
     local target = event.target
     local location = target:GetAbsOrigin()
     local particleName = "particles/dianweiyaohuo.vpcf"
@@ -25,12 +25,8 @@ function AmplifyDamageParticle( event )
     Timers:CreateTimer(0.01, function() 
         target.AmpDamageParticle = ParticleManager:CreateParticle(particleName, PATTACH_OVERHEAD_FOLLOW, target)
         ParticleManager:SetParticleControl(target.AmpDamageParticle, 0, target:GetAbsOrigin())
-        --ParticleManager:SetParticleControl(target.AmpDamageParticle, 1, target:GetAbsOrigin())
-        --ParticleManager:SetParticleControl(target.AmpDamageParticle, 2, target:GetAbsOrigin())
-
         ParticleManager:SetParticleControlEnt(target.AmpDamageParticle, 1, target, PATTACH_OVERHEAD_FOLLOW, "attach_overhead", target:GetAbsOrigin(), true)
-        --ParticleManager:SetParticleControlEnt(target.AmpDamageParticle, 2, target, PATTACH_OVERHEAD_FOLLOW, "attach_overhead""attach_hitloc", target:GetAbsOrigin(), true)
-    end)
+  end)
 end
 
 -- Destroys the particle when the modifier is destroyed
