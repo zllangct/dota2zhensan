@@ -1,0 +1,3 @@
+-- Barrel.lua
+-- 处理木桶BUFF
+-- XavierCHN@2015.03.20

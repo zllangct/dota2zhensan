@@ -10,8 +10,9 @@ function che_point(keys)  --当车子被购买的时候调用
     --判断玩家是否有足够的木材购买投石车，不足则退还220元，且提示木材不足
     local result = { }
        if caster.__lumber_data ~=nil and caster.__lumber_data >= 12 then 
-         caster.__lumber_data = caster.__lumber_data-12
-           Lumber:UpdateLumberToHUD(plyID, caster.__lumber_data) 
+        caster.__lumber_data = caster.__lumber_data-12
+            UpdateLumberDataForPlayer(plyID, caster.__lumber_data)
+            -- Lumber:UpdateLumberToHUD(plyID, caster.__lumber_data) 
             table.insert(result, point)      
         else 
             FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerID(), _error = "木材不足！！！" } )
