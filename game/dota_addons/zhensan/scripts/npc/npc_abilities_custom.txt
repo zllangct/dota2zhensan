@@ -49,6 +49,7 @@
 			}
 		}
 	}
+
 	//=================================================================================================================
 	// 士气系统
 	//=================================================================================================================
@@ -1380,10 +1381,19 @@
 		"AbilityManaCost"		 "100"
 		"precache"
 		{
-			"particle_folder"			 "particles/units/heroes/hero_centaur/"
+			"particle"			 "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
 		}
-	 	// TODO 为何会有一个EffectName，待测试
-	 	"EffectName"					"particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
+	 	
+	 	"OnSpellStart"
+	 	{
+	 		"AttachEffect"
+	 		{
+	 			"EffectName"					  "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
+	 			"EffectAttachType"                "follow_origin"
+	 			"Target"                          "CASTER"
+	 		}
+	 	}
+	 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -1423,13 +1433,21 @@
 		"AbilityCooldown"		 "15"
 		"AbilityDamage"		 "75 100 125 150"
 		"AbilityManaCost"		 "100"
-		"precache"
+	    "precache"
 		{
-			"particle_folder"			 "particles/units/heroes/hero_centaur/"
+			"particle"			 "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
 		}
-		// TODO 为何会有一个EffectName，待测试
-		"EffectName"					"particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
-		// Special
+	 	
+	 	"OnSpellStart"
+	 	{
+	 		"AttachEffect"
+	 		{
+	 			"EffectName"					  "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
+	 			"EffectAttachType"                "follow_origin"
+	 			"Target"                          "CASTER"
+	 		}
+	 	}
+	 	// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
@@ -2254,6 +2272,12 @@
 		"RequiredLevel"	"6 11 16"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"model"            "models/heroes/shadowshaman/shadowshaman_totem.vmdl"
+			"model"            "models/items/shadowshaman/serpent_ward/fiery_ward_of_eki_bukaw/fiery_ward_of_eki_bukaw.vmdl"
+			"model"             "models/items/shadowshaman/serpent_ward/tangki_serpent_ward/tangki_serpent_ward.vmdl"
+		}       
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0"
 		// Time
@@ -3455,283 +3479,211 @@
 		}
 	}
 	//=================================================================================================================
-	// 曹仁 鬼身
+	// 曹仁 鬼神 
 	//=================================================================================================================
+	"caoren_t"
+	{
+		"BaseClass"						"centaur_khan_war_stomp"
+		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"		"dianwei_zhanzhengjianta"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"		"0.5"
+		"AbilityCooldown"		 "10"
+		"AbilityDamage"		 "75 100 125 150"
+		"AbilityManaCost"		 "100"
+		"precache"
+		{
+			"particle"			 "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
+		}
+	 	
+	 	"OnSpellStart"
+	 	{
+	 		"AttachEffect"
+	 		{
+	 			"EffectName"					  "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
+	 			"EffectAttachType"                "follow_origin"
+	 			"Target"                          "CASTER"
+	 		}
+	 	}
+	 	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"				"350 350 350 350"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"non_hero_stun_duration"	"1.5 2 2.5 3"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"hero_stun_duration"		"3 4 5 5"
+			}
+		}
+	}
 	"caoren_guishen"
 	{
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP "
-		"AbilityTextureName"			"guanyu_wuyueyuzhan"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityManaCost"				 "95 100 105 110"
-		"AbilityCooldown"				 "10 10 10 10"
-		"AOERadius"	 "300"
-		"AbilityCastRange"	 "1150"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"precache"
+		"AbilityTextureName"			"caoren_guishenjianglin"
+		"AbilityCastPoint"				"0 0 0"
+		"LevelsBetweenUpgrades"	"5"
+		"AbilityCooldown"				"0.0 0.0 0.0"
+	    "AbilityManaCost"				"25 25 25"
+	    "MaxLevel"                      "3"
+	    "RequiredLevel"                 "6 11 16"
+	    "AOERadius"                      "250"
+	    "AbilityCastRange"              "800"
+
+	    "precache"
 		{
-			"particle" 			"particles/batrider_firefly_head.vpcf"
+			"particle" 		 "particles/batrider_firefly_head.vpcf"
 			"particle"		 "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+			"soundfile"	     "soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
+			"model"		     "models/creeps/neutral_creeps/n_creep_golem_a/neutral_creep_golem_a.vmdl"
+			"particle"       "particles/riki_backstab_hit_blood.vpcf"
+			"particle"       "particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
 		}
-		"OnSpellStart"
-		{
-			"AttachEffect"
+	    "AbilityCastRange"               "600"
+	    "OnSpellStart"
+	    {
+	    	"RunScript"
+	    	{
+	    		"ScriptFile" 	"scripts/vscripts/abilities/caoren.lua"
+	    		"Target"		"POINT"
+	    		"Function"		"point_01"
+	    	}
+	    	"ApplyModifier"        //添加火焰效果
 			{
-				"EffectName"			"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-				"EffectAttachType"		"follow_origin"
-				"Target"				 "CASTER"
+			   "Target" 			"CASTER"
+				"ModifierName"		"caoren_guishen_fire"
 			}
-			"AttachEffect"
+	    	"ApplyModifier"
 			{
-				"EffectName"			"particles/batrider_firefly_head.vpcf"
-				"EffectAttachType"		"follow_origin"
-				"Target"				 "CASTER"
-			}
-		}
-	}
-	//=================================================================================================================
-	// 曹仁 变身 TODO 需要重写
-	//=================================================================================================================
-	"lone_druid_true_form_druid_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityTextureName"			"lone_druid_true_form_druid"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0 0 0"
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.0 0.0 0.0"
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25 25 25"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"transformation_time"		"0.01"
-			}
-		}
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_druid_transform"
-				"Target"		"CASTER"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_LoneDruid.TrueForm.Recast"
-				"Target"		"CASTER"
-			}
-			"FireEffect"
-			{
-				"Target"			"CASTER"
-				"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"ControlPointEntities"
-				{
-					"CASTER"		"attach_origin"
-					"CASTER"		"attach_origin"
-					"CASTER"		"attach_origin"
-					"CASTER"		"attach_origin"	 // CP3
-				}
-			}
-		}
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
-				"Function"			"LevelUpAbility"
-				"ability_name"		"lone_druid_true_form_datadriven"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_druid_transform"
-			{
-				"Duration"		"%transformation_time"
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_invulnerable"
-						"Target"		"CASTER"
-						"Duration"		"0.03"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"scripts/vscripts/abilities/caoren.lua"
-						"Function"				"TrueFormEnd"
-						"main_ability_name"		"lone_druid_true_form_datadriven"
-						"remove_modifier_name"	"modifier_true_form"
-					}
-					"RunScript"
-					{
-						"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
-						"Function"			"ShowWearables"
-					}
-				}
-			}
-		}
-	}
-	"lone_druid_true_form_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityTextureName"			"lone_druid_true_form"
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.0 0.0 0.0"
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0 0 0"
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25 25 25"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"base_attack_time"			"1.5 1.5 1.5"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_armor"				"4 6 8"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_hp"					"250 400 600"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed_loss"				"0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"transformation_time"		"0.01"
-			}
-		}
-		"precache"
-		{
-			"particle"	"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
-			"particle" 			"particles/batrider_firefly_head.vpcf"
-			 "particle"		 "particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
-			"model"		"models/heroes/lone_druid/true_form.vmdl"
-		}
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName" 	"modifier_true_form_transform"
+				"ModifierName" 	"modifier_true_form"
 				"Target"		"CASTER"
 			}
 			"FireSound"
 			{
 				"EffectName"	"Hero_LoneDruid.TrueForm.Cast"
 				"Target"		"CASTER"
-			}
-			"AttachEffect"
-			{
-				"EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"			 "CASTER"
-			}
+			}			
 			"AttachEffect"
 			{
 				"EffectName"		"particles/batrider_firefly_head.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Target"			 "CASTER"
 			}
-			//"FireEffect"
-			//{
-			//	"Target"			"CASTER"
-				//"EffectName"		"particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
-				//"EffectAttachType"	"follow_origin"
-				//"ControlPointEntities"
-				//{
-				//	"CASTER"		"attach_origin"
-				//	"CASTER"		"attach_origin"
-				//	"CASTER"		"attach_origin"
-				//	"CASTER"		"attach_origin"	//CP3
-				//}
-			//}
-		}
-		"OnUpgrade"
+	    }
+	    "Modifiers"
 		{
-			"RunScript"
+			"caoren_guishen_fire"
 			{
-				"ScriptFile"		"scripts/vscripts/abilities/caoren.lua"
-				"Function"			"LevelUpAbility"
-				"ability_name"		"lone_druid_true_form_druid_datadriven"
+			   "IsHidden"   "1"
+			   "Duration"   "45"
+               "OnCreated"
+               {
+                 	"AttachEffect"
+			        {
+				        "EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+				        "EffectAttachType"	"follow_origin"
+				        "Target"			 "CASTER"
+			        }
+			        "ApplyModifier"       //添加每秒伤害buff
+					{
+						"Target" 			"CASTER"
+						"ModifierName"		"caoren_damage_per"
+					}
+			     
+               }
 			}
-		}
-		"Modifiers"
-		{
-			"modifier_true_form_transform"
+			"caoren_down_state"  //掉落时不可控modifier
 			{
-				"IsHidden"	"1"
-				"Duration"	"%transformation_time"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"OnDestroy"
+			}
+			"caoren_damage_per"  //每秒造成范围伤害
+			{
+				"IsHidden"                  "1"
+				"States"
 				{
-					"ApplyModifier"
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"ThinkInterval"				"1"
+				"OnIntervalThink"
+				{
+					"Damage"
 					{
-						"ModifierName" 	"modifier_true_form"
-						"Target"		"CASTER"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%damage"
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Radius"	"%radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						}
+					}
+					"AttachEffect"
+					{
+						"Target"
+						{
+							"Center"	"CASTER"
+							"Radius"	"%radius"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						}
+						"EffectName"		"particles/riki_backstab_hit_blood.vpcf"
+						"EffectAttachType"	"follow_overhead"
+					}
+					"AttachEffect"
+					{
+						"Target"            "CASTER"
+						"EffectName"		"particles/batrider_firefly_head.vpcf"
+						"EffectAttachType"	"follow_origin"
 					}
 				}
 			}
-			"modifier_true_form"
+			"modifier_true_form"   //变形
 			{
 				"IsHidden"	"0"
+				"Duration"   "%duration"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"%base_attack_time"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_hp"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_loss"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"1.35"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"10"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"1000"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"40"
+
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnCreated"
 				{
+					"ApplyModifier"        //添加不可控状态
+					{
+						"Target" 			"CASTER"
+						"ModifierName"		"caoren_down_state"
+					}
 					"RunScript"
 					{
 						"ScriptFile"			"scripts/vscripts/abilities/caoren.lua"
 						"Function"				"TrueFormStart"
 						"model"					"models/creeps/neutral_creeps/n_creep_golem_a/neutral_creep_golem_a.vmdl"
-						"sub_ability_name"		"lone_druid_true_form_druid_datadriven"
+					    "Target"                "POINT"
 					}
 					"RunScript"
 					{
@@ -3741,51 +3693,269 @@
 				}
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"45"     //技能持续时间
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage"			"40 50 60"     //光环伤害
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"350 400 450"     //伤害范围
+			}
+		}
+
 	}
-	"lone_druid_true_form_battle_cry_datadriven"
+	"caoren_cuimianshu"   //曹仁 催眠术
 	{
+        "BaseClass"						"ability_datadriven"
+	
 		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_TYPE_ULTIMATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"MaxLevel"						"3"
+		//-------------------------------------------------------------------------------------------------------------													// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET "
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
+		"AbilityTextureName"             "caoren_shuimian"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"4"
+		"RequiredLevel"   "1"
+		"FightRecapLevel"				"1"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5 0.5 0.5"
-		// Time
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0"
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30.0 30.0 30.0"
-		"AbilityDuration"				"50.0 50.0 50.0"
+		"AbilityCooldown"				"20 20 20 20"
+		"AbilityDuration"				"3 4 5 6"
+		// Cost
+	    "AbilityManaCost"				"100 110 120 130"	
+	    "precache"
+	    {
+	    	"particle" 			"particles/generic_gameplay/generic_sleep.vpcf"
+	    	//"soundfile"		"soundfile"
+	    }
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 			"TARGET"
+				"ModifierName"		"caoren_cuimianshu_debuff"
+			}
+		}
+		"Modifiers"
+		{
+			"caoren_cuimianshu_debuff"
+			{
+				"Duration"  "%duration"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"   ""MODIFIER_STATE_VALUE_ENABLED""
+				}
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target" 			"TARGET"
+						"ModifierName"		"caoren_suimian"
+					}
+					"ApplyModifier"
+					{
+						"Target" 			"TARGET"
+						"ModifierName"		"caoren_cuimian"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target" 			"TARGET"
+						"ModifierName"		"caoren_suimian"
+					}
+					"RemoveModifier"
+					{
+						"Target" 			"TARGET"
+						"ModifierName"		"caoren_cuimian"
+					}
+				}
+				"OnAttacked"
+				{
+					"RemoveModifier"
+					{
+						"Target" 			"TARGET"
+						"ModifierName"		"caoren_cuimianshu_debuff"
+					}
+				}
+			}
+			"caoren_suimian"
+			{
+				"IsHidden"   "1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/generic_gameplay/generic_sleep.vpcf"
+						"EffectAttachType" "follow_overhead"
+						"Target" "TARGET"
+					}
+				}
+			}
+			"caoren_cuimian"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"3 4 5 6"
+			}
+		}
+		
+		
+	}
+	"caoren_shifuqun"
+	{
+		"BaseClass"    "death_prophet_carrion_swarm"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+        "AbilityTextureName"             "caoren_fengqun"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18 18 18 18"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"125 175 225 300"
+
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 50 50"
+		"AbilityManaCost"				"130 130 130 130"		
+        "precache"
+        {
+        	"particle_folder" 			"particles/units/heroes/hero_death_prophet"
+        	//"soundfile"		"soundfile"
+        }
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_damage"		"20 40 60"
+				"var_type"					"FIELD_INTEGER"
+				"start_radius"				"100 100 100 100"
 			}
 			"02"
 			{
+				"var_type"					"FIELD_INTEGER"
+				"end_radius"				"300 300 300 300"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"range"						"650 650 650 650"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed"						"1100 1100 1100 1100"
+			}
+		}
+	}
+	"caoren_siyao"
+	{
+		"BaseClass"   "weaver_the_swarm"
+	
+		// General
+		//-------------------------------------------------------------------------------------------------------------														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityTextureName"             "caoren_siyao"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"500"
+		"AbilityCooldown"				"36.0 33.0 30.0 27.0"
+		"AbilityManaCost"				"80 85 90 95"
+        "precache"
+        {
+        	"model"   "models/heroes/weaver/weaver_bug.vmdl"
+        	"particle_folder"  "particles/units/heroes/hero_weaver"
+        }
+       
+		"AbilitySpecial"
+		{
+			"01"
+			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus_armor"		"2 4 6"
+				"damage"			"10 15 20 25"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_rate"		"1.35 1.35 1.35 1.35"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cry_duration"		"8.0 8.0 8.0"
+				"duration"			"15 15 15 15"
 			}
 			"04"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"range"				"1000"
+				"var_type"			"FIELD_INTEGER"
+				"count"				"4 8 12 16"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_reduction"	"1 1 1 1"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"destroy_attacks"	"8 8 8 8"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"50 50 50 50"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"600 600 600 600"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spawn_radius"		"30 30 30 30"
 			}
 		}
+	
 	}
-
 	//=================================================================================================================
 	// 投石车
 	//=================================================================================================================
@@ -3964,6 +4134,92 @@
 		}
 	}
 
+
+	//================================================================================================================
+	// 木桶系列技能
+	//================================================================================================================
+	"barrel_passive"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"modifier_barrel_passive"
+			{
+				"Passive"		"1"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
+						"Target"		"CASTER"
+						"Function"		"OnBarrelKilled"
+					}
+				}
+			}
+			"modifier_barrel_roubao_buff"
+	    	{
+	    		"Duration"		"0.1"
+	    		"OnCreated"
+	    		{
+	    			"Heal"
+	    			{
+	    				"Target" "CASTER"
+	    				"HealAmount"	"%heal_amount"
+	    			}
+	    		}
+	    	}
+			"modifeir_barrel_laojiu_buff"
+	    	{
+	    		"OnCreated"
+	    		{
+	    			"RunScript"
+	    			{
+	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
+	    				"Target"		"CASTER"
+	    				"mana_amount"	"%mana_amount"
+	    				"Function"		"OnLaojiuBuffCreated"
+	    			}
+	    		}
+	    	}
+	    	"modifier_barrel_mataitianxue_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeed_bonus"
+	    		}
+	    	}
+	    	"modifier_barrel_zhanshenkai_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+	    		}
+	    	}
+	    	"modifier_barrel_zhanshenfu_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"1"
+	    		}
+	    		"OnCreated"
+	    		{
+	    			"RunScript"
+	    			{
+	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
+	    				"Target"		"CASTER"
+	    				"Function"		"OnZhanshenfuBuffCreated"
+	    			}
+	    		}
+	    	}
+		}
+	}
 	// 平衡性常数技能
 	// 血量修正
 	"ability_health_modifier"

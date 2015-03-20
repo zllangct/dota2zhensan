@@ -1,64 +1,127 @@
---[[
-	Author: Noya
-	Date: 15.01.2015.
-	Swaps caster model and ability, gives a short period of invulnerability
-]]
-function TrueFormStart( event )
-	local caster = event.caster
-	local model = event.model
-	local ability = event.ability
 
-	-- Saves the original model and attack capability
-	if caster.caster_model == nil then 
+function TrueFormStart( event ) --鬼神开始变形调用
+	local caster = event.caster   
+	local model = event.model   --要变成的模型
+	local ability = event.ability   --变现技能
+	local point = event.caster.point   --对比point和caster的位置
+	local k=ability:GetLevel()
+    local duration=ability:GetLevelSpecialValueFor("duration",k-1)
+	local ability_all ={"caoren_cuimianshu",   --记录曹仁所有
+                        "caoren_shifuqun",
+                        "caoren_siyao",
+                        "caoren_guishen"
+                        }
+    local ability_all_lvl={}  --记录技能等级
+    local ability_all_has={}  --记录是否学习相关技能
+    if caster:FindAbilityByName("caoren_cuimianshu") then 
+        ability_all_lvl["caoren_cuimianshu"]=caster:FindAbilityByName("caoren_cuimianshu"):GetLevel()
+	end 
+    if caster:FindAbilityByName("caoren_shifuqun") then 
+        ability_all_lvl["caoren_shifuqun"]=caster:FindAbilityByName("caoren_shifuqun"):GetLevel()
+    end
+    if caster:FindAbilityByName("caoren_siyao") then 
+        ability_all_lvl["caoren_siyao"]=caster:FindAbilityByName("caoren_siyao"):GetLevel()
+    end
+    if caster:FindAbilityByName("caoren_guishen") then 
+        ability_all_lvl["caoren_guishen"]=caster:FindAbilityByName("caoren_guishen"):GetLevel()
+    end
+    --所有物品不可用
+    for i = 0, 11 do
+        local _item= caster:GetItemInSlot(i)
+        if _item then
+            _item:SetActivated(false)
+        end
+    end
+    if caster.caster_model == nil then 
 		caster.caster_model = caster:GetModelName()
 	end
-	caster.caster_attack = caster:GetAttackCapability()
-
-	-- Sets the new model
+	caster.caster_attack = caster:GetAttackCapability() 
+	caster:SetAbsOrigin(point+Vector(0,0,300))  --移动曹仁到AOE中心   
+   	--变身，改变模型，同时变大,从高处掉落。
 	caster:SetOriginalModel(model)
-    caster:SetModelScale(1.5)
-	-- Swap sub_ability
-	local sub_ability_name = event.sub_ability_name
-	local main_ability_name = ability:GetAbilityName()
-
-	caster:SwapAbilities(main_ability_name, sub_ability_name, false, true)
-	print("Swapped "..main_ability_name.." with " ..sub_ability_name)
-
+	local model_size = 0.3  --初始鬼神模型大小
+	local per_down = 50
+    local count = 0
+	GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("caoren_02"),function()        	          
+        if count >= 6 then
+            --释放落地特效特效
+            local p_end = 'particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf'
+            local p_index = ParticleManager:CreateParticle(p_end, PATTACH_CUSTOMORIGIN, caster)
+            ParticleManager:SetParticleControl(p_index, 0, caster:GetOrigin())
+            --移除不可控、无敌效果
+            if caster:HasModifier("caoren_down_state")  then 
+                caster:RemoveModifierByName("caoren_down_state")   --移除关羽移动过程中的无敌、不可控状态
+            end
+            --移除现有技能
+            for _,v in pairs(ability_all) do
+                if caster:HasAbility(v) then 
+                    ability_all_has[v]=1
+                    caster:RemoveAbility(v)
+                end 
+            end
+            --添加地动跺技能并释放
+            caster:AddAbility("caoren_t")
+            local spell = caster:FindAbilityByName("caoren_t")  --为陷阱添加隐形技能
+            if spell then  
+                spell:SetLevel(1)
+                caster:CastAbilityImmediately(spell, caster:GetPlayerOwnerID())   --释放
+            end
+            --防卡地形
+            FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)  
+            return nil 
+        else 
+            caster:SetModelScale(model_size)
+            local now_point = caster:GetAbsOrigin()
+            caster:SetAbsOrigin(now_point-Vector(0,0,per_down))
+            model_size=model_size+0.2
+            count = count + 1 
+            return 0.02
+        end 
+    end,0)
+    Timers:CreateTimer(duration,function()  --变身持续时间到时，变回原模型
+        --设置为原有模型
+        caster:SetModel(caster.caster_model)
+	    caster:SetOriginalModel(caster.caster_model)
+        caster:SetModelScale(1)  
+        --移除变身中的modifier  
+        if caster:HasModifier("caoren_damage_per")  then 
+           caster:RemoveModifierByName("caoren_damage_per")   
+        end
+        if caster:HasModifier("modifier_true_form")  then 
+           caster:RemoveModifierByName("modifier_true_form")   
+        end
+        if caster:HasModifier("caoren_guishen_fire")  then 
+           caster:RemoveModifierByName("caoren_guishen_fire")   
+        end
+        if caster:HasAbility("caoren_t") then 
+                    caster:RemoveAbility("caoren_t")
+                end 
+        --恢复原有技能
+        for _,v in pairs(ability_all) do
+            	if not caster:HasAbility(v) and ability_all_has[v] then 
+            		caster:AddAbility(v)
+                    if ability_all_lvl[v] then 
+                        caster:FindAbilityByName(v):SetLevel(ability_all_lvl[v])
+                    end
+                end 
+        end
+       --恢复物品可用
+        for i = 0, 11 do
+            local _item= caster:GetItemInSlot(i)
+            if _item then
+                _item:SetActivated(true)
+            end
+         end
+        --恢复饰品
+        ShowWearables( event )
+    end)
+    
 end
-
--- Reverts back to the original model and attack type, swaps abilities, removes modifier passed
-function TrueFormEnd( event )
-	local caster = event.caster
-	local ability = event.ability
-	local modifier = event.remove_modifier_name
-
-	caster:SetModel(caster.caster_model)
-	caster:SetOriginalModel(caster.caster_model)
-    caster:SetModelScale(1)
-	-- Swap the sub_ability back to normal
-	local main_ability_name = event.main_ability_name
-	local sub_ability_name = ability:GetAbilityName()
-
-	caster:SwapAbilities(sub_ability_name, main_ability_name, false, true)
-	print("Swapped "..sub_ability_name.." with " ..main_ability_name)
-
-	-- Remove modifier
-	caster:RemoveModifierByName(modifier)
-end
-
---[[
-	Author: Noya
-	Date: 10.01.2015.
-	Hides all wearables
-]]
-function HideWearables( event )
+function HideWearables( event )   --隐藏饰品
 	local hero = event.caster
 	local ability = event.ability
 	local duration = ability:GetLevelSpecialValueFor( "duration", ability:GetLevel() - 1 )
-	print("Hiding Wearables")
-	--hero:AddNoDraw() -- Doesn't work on classname dota_item_wearable
-
-	hero.wearableNames = {} -- In here we'll store the wearable names to revert the change
+    hero.wearableNames = {} -- In here we'll store the wearable names to revert the change
 	hero.hiddenWearables = {} -- Keep every wearable handle in a table, as its way better to iterate than in the MovePeer system
     local model = hero:FirstMoveChild()
     while model ~= nil do
@@ -67,57 +130,25 @@ function HideWearables( event )
             if string.find(modelName, "invisiblebox") == nil then
             	-- Add the original model name to revert later
             	table.insert(hero.wearableNames,modelName)
-            	print("Hidden "..modelName.."")
-
-            	-- Set model invisible
             	model:SetModel("models/development/invisiblebox.vmdl")
             	table.insert(hero.hiddenWearables,model)
             end
         end
         model = model:NextMovePeer()
-        if model ~= nil then
-        	print("Next Peer:" .. model:GetModelName())
-        end
     end
 end
-
---[[Author: Noya
-	Date: 10.01.2015.
-	Shows the hidden hero wearables
-]]
-function ShowWearables( event )
+function ShowWearables( event )  --显示饰品
 	local hero = event.caster
-	print("Showing Wearables on ".. hero:GetModelName())
-
-	-- Iterate on both tables to set each item back to their original modelName
 	for i,v in ipairs(hero.hiddenWearables) do
 		for index,modelName in ipairs(hero.wearableNames) do
 			if i==index then
-				print("Changed "..v:GetModelName().. " back to "..modelName)
 				v:SetModel(modelName)
 			end
 		end
 	end
 end
-
---[[
-	Author: Noya
-	Date: 16.01.2015.
-	Levels up the ability_name to the same level of the ability that runs this
-]]
-function LevelUpAbility( event )
-	local caster = event.caster
-	local this_ability = event.ability		
-	local this_abilityName = this_ability:GetAbilityName()
-	local this_abilityLevel = this_ability:GetLevel()
-
-	-- The ability to level up
-	local ability_name = event.ability_name
-	local ability_handle = caster:FindAbilityByName(ability_name)	
-	local ability_level = ability_handle:GetLevel()
-
-	-- Check to not enter a level up loop
-	if ability_level ~= this_abilityLevel then
-		ability_handle:SetLevel(this_abilityLevel)
-	end
+function point_01(keys)--直接传参不行，就间接传
+    -- body
+    local point = keys.target_points[1]   --对比point和caster的位置
+    keys.caster.point=point
 end

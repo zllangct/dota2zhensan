@@ -1531,7 +1531,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityTextureName"	"item_lieyu"
 
-		"ItemCost"			"700"
+		"ItemCost"			"1400"
 
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"3"
@@ -1584,7 +1584,7 @@
       "ID"                            "1033"
       "Model"                         "models/props_gameplay/recipe.mdl"
       "BaseClass"                     "item_recipe_arcane_boots"
-      "ItemCost"                      "0"  
+      "ItemCost"                      "1400"  
       "ItemShopTags"                  ""
       "ItemRecipe"                    "1"
       "ItemResult"                    "item_lieyu2"
@@ -1687,7 +1687,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityTextureName"	"item_lieyu"
 
-		"ItemCost"			"2100"
+		"ItemCost"			"1400"
 
 		"ItemBaseLevel"                 "3"
 		"MaxUpgradeLevel"				"3"
@@ -2738,57 +2738,304 @@
 	// ID  1083
 	//==================================================
 	"item_book_of_strength"
-   {
-    "ID"                "1083"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"//无目标技能
-    "BaseClass"         "item_datadriven"//datadriven类
-    "AbilityTextureName"        "item_warden_book_of_strength"//物品图标
-    "AbilityCastPoint"      "0.0"//无施法前摇
+   	{
+	    "ID"                "1083"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"//无目标技能
+	    "BaseClass"         "item_datadriven"//datadriven类
+	    "AbilityTextureName"        "item_warden_book_of_strength"//物品图标
+	    "AbilityCastPoint"      "0.0"//无施法前摇
 
-    "ItemKillable"          "0"//不可摧毁
-    "ItemCost"          "600"//价格
+	    "ItemKillable"          "0"//不可摧毁
+	    "ItemCost"          "600"//价格
 
-    "ItemPermanent"         "0"//使用后消失
-    "ItemInitialCharges"        "1"//只能使用一次
+	    "ItemPermanent"         "0"//使用后消失
+	    "ItemInitialCharges"        "1"//只能使用一次
 
-    "Modifiers"
-    {
-        "modifier_book_auto_applier"
-        {
-            "Passive"           "1"
-            "OnCreated"
-            {
-                "SpendCharge"
-                {}
-                "SpawnUnit"
-			    {
-				   "UnitName"				 "npc_che"   
-				   "Target"
-				   {
-					   "Center"			"POINT"
-					   "ScriptSelectPoints"
+	    "Modifiers"
+	    {
+	        "modifier_book_auto_applier"
+	        {
+	            "Passive"           "1"
+	            "OnCreated"
+	            {
+	                "SpendCharge"
+	                {}
+	                "SpawnUnit"
+				    {
+					   "UnitName"				 "npc_che"   
+					   "Target"
 					   {
-						   "ScriptFile"	    "scripts/vscripts/items/Car.lua"
-						   "Function"		"che_point"
-						   "Target"		    "CASTER"
+						   "Center"			"POINT"
+						   "ScriptSelectPoints"
+						   {
+							   "ScriptFile"	    "scripts/vscripts/items/Car.lua"
+							   "Function"		"che_point"
+							   "Target"		    "CASTER"
+						   }
 					   }
-				   }
-				   "UnitCount"				"1"
-			    }
-                
-                "RemoveModifier"
-                {
-                    "Target"        "CASTER"
-                    "ModifierName"      "modifier_book_auto_applier"
-                    //为保证安全，手动添加一个移除modifier
-                    //正常来说，当物品消失，这个modifier自然也就消失了、
-                }
-            }
-        }
-       
-    }
-    
-}
+					   "UnitCount"				"1"
+				    }
+	                
+	                "RemoveModifier"
+	                {
+	                    "Target"        "CASTER"
+	                    "ModifierName"      "modifier_book_auto_applier"
+	                    //为保证安全，手动添加一个移除modifier
+	                    //正常来说，当物品消失，这个modifier自然也就消失了、
+	                }
+	            }
+	        }
+	       
+	    }
+	}
+	//==================================================
+	// 木桶BUFF，物品 战神斧 ID 2000
+	//==================================================
+	"item_barrel_zhanshenfu"
+	{
+		"ID"                "2000"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
+	    "BaseClass"         "item_datadriven"//datadriven类
+	    "Model"				"models/heroes/axe/axe_weapon.vmdl"
+	    "ModelScale"		"0.3"
+	    "AbilityTextureName"        "item_barrel_zhanshenfu"//物品图标
+	    "AbilityCastPoint"      "0.0"//无施法前摇
+<<<<<<< HEAD
 
+	    "ItemKillable"          "0"//不可摧毁
+	    "ItemCost"          "9999999"//价格
 
+	    "ItemPermanent"         "0"//使用后消失
+	    "ItemInitialCharges"        "1"//只能使用一次
+
+=======
+
+	    "ItemKillable"          "0"//不可摧毁
+	    "ItemCost"          "9999999"//价格
+
+	    "ItemPermanent"         "0"//使用后消失
+	    "ItemInitialCharges"        "1"//只能使用一次
+
+>>>>>>> cc4e853b4eede877f59ad89a22bf9d1390649d05
+	    "Modifiers"
+	    {
+	    	"modifier_barrel_zhanshenfu_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"1"
+	    		}
+	    		"OnCreated"
+	    		{
+	    			"RunScript"
+	    			{
+	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
+	    				"Target"		"CASTER"
+	    				"Function"		"OnZhanshenfuBuffCreated"
+	    			}
+	    		}
+	    	}
+	    }
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"buff_duration"	"30"
+	    	}
+	    }
+	}
+	//==================================================
+	// 木桶BUFF，物品 战神铠 ID 2001
+	//==================================================
+	"item_barrel_zhanshenkai"
+	{
+		"ID"                "2001"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
+	    "BaseClass"         "item_datadriven"//datadriven类
+	    "Model"					"models/items/siren/treasureofthedeep_armor_s1/treasureofthedeep_armor_s1.vmdl"
+	    "ModelScale"			"0.3"
+	    "AbilityTextureName"        "item_barrel_zhanshenkai"//物品图标
+	    "AbilityCastPoint"      "0.0"//无施法前摇
+
+	    "ItemKillable"          "0"//不可摧毁
+	    "ItemCost"          "9999999"//价格
+
+	    "ItemPermanent"         "0"//使用后消失
+	    "ItemInitialCharges"        "1"//只能使用一次
+
+	    "Modifiers"
+	    {
+	    	"modifier_barrel_zhanshenkai_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+	    		}
+	    	}
+	    }
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"buff_duration"	"30"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"armor_bonus"	"30"
+	    	}
+	    }
+	}
+	//"item_barrel_mataitianxue",
+	//"item_barrel_roubao",
+	//"item_barrel_laojiu"
+	//==================================================
+	// 木桶BUFF，物品 马太天靴 ID 2002
+	//==================================================
+	"item_barrel_mataitianxue"
+	{
+		"ID"                "2002"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
+	    "BaseClass"         "item_datadriven"//datadriven类
+	    "Model"					"models/items/kunkka/boots_of_the_divine_anchor/boots_of_the_divine_anchor.vmdl"
+	    "ModelScale"			"0.3"
+	    "AbilityTextureName"        "item_barrel_mataitianxue"//物品图标
+	    "AbilityCastPoint"      "0.0"//无施法前摇
+
+	    "ItemKillable"          "0"//不可摧毁
+	    "ItemCost"          "9999999"//价格
+
+	    "ItemPermanent"         "0"//使用后消失
+	    "ItemInitialCharges"        "1"//只能使用一次
+
+	    "Modifiers"
+	    {
+	    	"modifier_barrel_mataitianxue_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeed_bonus"
+	    		}
+	    	}
+	    }
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"buff_duration"	"30"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"movespeed_bonus"	"100"
+	    	}
+	    }
+	}
+	//==================================================
+	// 木桶BUFF，物品 肉包 ID 2003
+	//==================================================
+	"item_barrel_roubao"
+	{
+		"ID"                "2003"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
+	    "BaseClass"         "item_datadriven"//datadriven类
+	    "Model"					"models/particle/white_dome.vmdl"
+	    "ModelScale"			"20"
+	    "AbilityTextureName"        "item_barrel_roubao"//物品图标
+	    "AbilityCastPoint"      "0.0"//无施法前摇
+
+	    "ItemKillable"          "0"//不可摧毁
+	    "ItemCost"          "9999999"//价格
+
+	    "ItemPermanent"         "0"//使用后消失
+	    "ItemInitialCharges"        "1"//只能使用一次
+
+	    "Modifiers"
+	    {
+	    	"modifier_barrel_roubao_buff"
+	    	{
+	    		"Duration"		"0.1"
+	    		"OnCreated"
+	    		{
+	    			"Heal"
+	    			{
+	    				"Target" "CASTER"
+	    				"HealAmount"	"%heal_amount"
+	    			}
+	    		}
+	    	}
+	    }
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"buff_duration"	"30"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"heal_amount"	"500"
+	    	}
+	    }
+	}
+	//==================================================
+	// 木桶BUFF，物品 老旧 ID 2004
+	//==================================================
+	"item_barrel_laojiu"
+	{
+		"ID"                "2004"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
+	    "BaseClass"         "item_datadriven"//datadriven类
+	    "Model"					"models/props_debris/glass_bottle001.vmdl"
+	    "ModelScale"			"1"
+	    "AbilityTextureName"        "item_barrel_laojiu"//物品图标
+	    "AbilityCastPoint"      "0.0"//无施法前摇
+
+	    "ItemKillable"          "0"//不可摧毁
+	    "ItemCost"          "9999999"//价格
+
+	    "ItemPermanent"         "0"//使用后消失
+	    "ItemInitialCharges"        "1"//只能使用一次
+
+	    "Modifiers"
+	    {
+	    	"modifeir_barrel_laojiu_buff"
+	    	{
+	    		"OnCreated"
+	    		{
+	    			"RunScript"
+	    			{
+	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
+	    				"Target"		"CASTER"
+	    				"mana_amount"	"%mana_amount"
+	    				"Function"		"OnLaojiuBuffCreated"
+	    			}
+	    		}
+	    	}
+	    }
+
+	    "AbilitySpecial"
+	    {
+	    	"01"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"buff_duration"	"30"
+	    	}
+	    	"02"
+	    	{
+	    		"var_type"		"FIELD_INTEGER"
+	    		"mana_amount"	"500"
+	    	}
+	    }
+	}
 }
