@@ -99,7 +99,7 @@ function MSys:OnEntityKilled(keys)
             local team = entityKilled:GetTeam()
             self:MoraleDown(entityKilled, team)
 
-            if entityKilled:GetUnitName() == MORALE_BUILDING_GOLD then
+            if entityKilled:GetUnitName() == MORALE_BUILDING_GOLD then -- 当谷仓被击杀的时候的效果，停止发工资
                 -- 禁止双方发工资
                 GameRules:SetGoldTickTime(0)
                 self.__goldTicking[team] = false
@@ -155,8 +155,50 @@ function MSys:MoraleDown(player, team)
 
     -- 处理小兵的士气等级技能
     -- 可能存在的BUG，npc_creeps不能设置技能和技能等级？
-    self:DealWithCreepsMorale(false)
+    -- self:DealWithCreepsMorale(false)
+
+
+    -- 士气系统的具体表现
+    -- ？ 建议
+    -- 优势一方增加 乘胜追击BUFF，劣势一方增加 背水一战BUFF
+    -- 乘胜追击1级：提升移动速度？
+    -- 背水一战1级：在生命值低于50%的时候，提升一定程度的普攻暴击。
+
+    -- 还有 2,3 级别的效果。
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- 将新刷新的小兵注册进所有小兵的列表
 -- 如果这个队伍的士气等级>0
