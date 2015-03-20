@@ -49,6 +49,7 @@
 			}
 		}
 	}
+
 	//=================================================================================================================
 	// 士气系统
 	//=================================================================================================================
@@ -3964,6 +3965,92 @@
 		}
 	}
 
+
+	//================================================================================================================
+	// 木桶系列技能
+	//================================================================================================================
+	"barrel_passive"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"modifier_barrel_passive"
+			{
+				"Passive"		"1"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
+						"Target"		"CASTER"
+						"Function"		"OnBarrelKilled"
+					}
+				}
+			}
+			"modifier_barrel_roubao_buff"
+	    	{
+	    		"Duration"		"0.1"
+	    		"OnCreated"
+	    		{
+	    			"Heal"
+	    			{
+	    				"Target" "CASTER"
+	    				"HealAmount"	"%heal_amount"
+	    			}
+	    		}
+	    	}
+			"modifeir_barrel_laojiu_buff"
+	    	{
+	    		"OnCreated"
+	    		{
+	    			"RunScript"
+	    			{
+	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
+	    				"Target"		"CASTER"
+	    				"mana_amount"	"%mana_amount"
+	    				"Function"		"OnLaojiuBuffCreated"
+	    			}
+	    		}
+	    	}
+	    	"modifier_barrel_mataitianxue_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeed_bonus"
+	    		}
+	    	}
+	    	"modifier_barrel_zhanshenkai_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
+	    		}
+	    	}
+	    	"modifier_barrel_zhanshenfu_buff"
+	    	{
+	    		"IsHidden"		"0"
+	    		"Duration"		"%buff_duration"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"1"
+	    		}
+	    		"OnCreated"
+	    		{
+	    			"RunScript"
+	    			{
+	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
+	    				"Target"		"CASTER"
+	    				"Function"		"OnZhanshenfuBuffCreated"
+	    			}
+	    		}
+	    	}
+		}
+	}
 	// 平衡性常数技能
 	// 血量修正
 	"ability_health_modifier"

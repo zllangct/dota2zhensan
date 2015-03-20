@@ -7,6 +7,7 @@ local modules = {
     "game.ZSSpawner", -- 刷怪器
     "game.Morale", -- 士气系统
     "game.Lumber", -- 木材[其实是不是可以改名成军功什么的：@无双]
+    "game.BarrelBuff", --木桶
 
     "abilities.ParaAdjuster", -- 平衡性常数修正
     "abilities.AbilityCore", -- 技能核心
@@ -137,6 +138,8 @@ function ZhensanGameMode:InitGameMode()
     ParaAdjuster:Init()
     -- 初始化物品核心
     ItemCore:Init()
+    -- 木桶系统
+    Barrel:Init()
     --野怪
     ZSSpawner:Start_wild_init()
     --士气系统
