@@ -8,6 +8,12 @@
 	
 	import flash.utils.getDefinitionByName;
 	
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
+	
+	import com.greensock.TweenLite;
+	import com.greensock.easing.*;
+	
 	public class Morale extends MovieClip {
 		// Game API related stuff
         public var gameAPI:Object;
@@ -18,7 +24,9 @@
 		public var MoraleShu:Number = 10;
 		
 		public var moraleClip:MovieClip;
-
+		public var moraleLabelClip:MovieClip;
+		public var correctedRatio:Number;
+		
 		public function Morale(){
 
 		}
@@ -27,7 +35,9 @@
 			trace("MORALE HUD LAODED!");
 			Globals.instance.resizeManager.AddListener(this);
 			gameAPI.SubscribeToGameEvent( "morale_update", onMoraleUpdate );
-			moraleClip.tileGood.width = 300;
+			moraleClip.moraleShuLabel.visible = false;
+			moraleClip.moraleWeiLabel.visible = false;
+			moraleClip.tileBad.width = 560;
 		}
 		
 		public function onMoraleUpdate(args:Object){
@@ -39,38 +49,38 @@
 			MoraleShu = args.MoraleShu;
 			trace("MORALE WEI" + MoraleWei);
 			trace("MORALE SHU" + MoraleShu);
-			var goodWidth:Number = MoraleShu * 30;
+			var goodWidth:Number = MoraleShu * 1120 / 20;
 			if (goodWidth == 0){
 				goodWidth = 1;
 			}
-			moraleClip.tileGood.width = goodWidth;
-			// todo 上升下降的动画
+			moraleClip.tileBad.width = goodWidth;
 			
-		}
-
-		public function replaceWithValveComponent(mc:MovieClip, type:String, keepDimensions:Boolean = false, addAt:int = -1) : MovieClip {
-			var parent = mc.parent;
-			var oldx = mc.x;
-			var oldy = mc.y;
-			var oldwidth = mc.width;
-			var oldheight = mc.height;
 			
-			var newObjectClass = getDefinitionByName(type);
-			var newObject = new newObjectClass();
-			newObject.x = oldx;
-			newObject.y = oldy;
-			if (keepDimensions) {
-				newObject.width = oldwidth;
-				newObject.height = oldheight;
+			// 上升下降的动画
+			
+			if (ShuUp){
+				moraleLabelClip = moraleClip.moraleShuLabel;
 			}
-			
-			parent.removeChild(mc);
-			if (addAt == -1)
-				parent.addChild(newObject);
-			else
-				parent.addChildAt(newObject, 0);
-			
-			return newObject;
+			else{
+				moraleLabelClip = moraleClip.moraleWeiLabel;
+			}
+			moraleLabelClip.visible = true;
+			moraleLabelClip.alpha = 0;
+			moraleLabelClip.y = 300;
+			TweenLite.to(
+    			moraleLabelClip,                     //movieclip to be tweened
+    			1.5,                             //duration
+    			{                                //start of parameter object
+        			y:100,                       //target Y
+       				alpha:1,                     //target alpha
+        			ease:Elastic.easeInOut,         //easing function
+        			onComplete:function(){       //onComplete callback
+            			trace('tweening done!'); //you could even add a new tween here!
+						moraleLabelClip.visible = false;
+						moraleLabelClip.y = 300;
+        			}
+    			}
+			);
 		}
 		
 		public function onResize(re:ResizeManager) : * {
@@ -94,12 +104,12 @@
 				divided = currentRatio * 10 / 16.0;
 			}
 							
-			var correctedRatio:Number =  re.ScreenHeight / originalHeight * divided;
+			correctedRatio =  re.ScreenHeight / originalHeight * divided;
 					
-			moraleClip.scaleX = correctedRatio / 2;
-			moraleClip.scaleY = correctedRatio / 2;
-			moraleClip.x = ( 30 * correctedRatio);//re.ScreenWidth * .5;//
-			moraleClip.y = ( 50 * correctedRatio);//re.ScreenHeight * .25;
+			moraleClip.scaleX = correctedRatio /1.5;
+			moraleClip.scaleY = correctedRatio /1.5;
+			moraleClip.x = ( 515 * correctedRatio);//re.ScreenWidth * .5;//
+			moraleClip.y = ( 30 * correctedRatio);//re.ScreenHeight * .25;
 		}
     }
 }
