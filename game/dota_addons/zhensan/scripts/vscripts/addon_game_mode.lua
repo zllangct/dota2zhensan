@@ -21,6 +21,8 @@ local modules = {
     "utils.table", -- table 辅助函数
     "utils.Precache", -- 预载入函数
 
+    "lib.popup",
+
     "other.movement" -- 移动速度管理
 }
 

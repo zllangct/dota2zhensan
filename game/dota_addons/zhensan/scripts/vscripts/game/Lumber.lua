@@ -1,4 +1,8 @@
 ﻿require("utils/utils_print")
+
+LUMBER_GAIN_HERO_KILL = 5
+LUMBER_GAIN_CREEP_KILL = 1
+
 -- 初始化木材系统
 if Lumber == nil then Lumber = class( { }) end
 function Lumber:Init()
@@ -34,11 +38,13 @@ function Lumber:AddLumber(keys)
 
     -- 如果击杀的是英雄，增加5木材
     if entity_killed:IsRealHero() then
-       hero.__lumber_data =hero.__lumber_data + 5
+       hero.__lumber_data =hero.__lumber_data + LUMBER_GAIN_HERO_KILL
+       PopupNumbers(entity_killed, "gold", Vector(0, 255, 0), 2.0, LUMBER_GAIN_HERO_KILL, POPUP_SYMBOL_PRE_PLUS, nil)
     else
     -- 如果击杀的是普通单位，且是敌人，增加1木材
         if entity_killed:GetTeam() ~= entity_attacker:GetTeam() then
-           hero.__lumber_data = hero.__lumber_data + 1
+           hero.__lumber_data = hero.__lumber_data + LUMBER_GAIN_CREEP_KILL
+           PopupNumbers(entity_killed, "gold", Vector(0, 255, 0), 2.0, LUMBER_GAIN_CREEP_KILL, POPUP_SYMBOL_PRE_PLUS, nil)
         end
     end
 
