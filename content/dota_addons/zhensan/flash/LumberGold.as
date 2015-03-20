@@ -40,7 +40,7 @@
 			var playerID = globals.Players.GetLocalPlayer();
 			var gold:Number = globals.Players.GetGold(playerID); // 本来少了分号，等回家重新编译一下看能否解决问题。
 			
-			lumberGoldMovieClip.goldLabel.text = toString(gold);
+			lumberGoldMovieClip.goldLabel.text = gold.toString();
 					
 		}
 		public function onLumberUpdate(args:Object){
@@ -50,31 +50,7 @@
 				lumberGoldMovieClip.lumberLabel.text = Lumber;
 			}
 		}
-		public function replaceWithValveComponent(mc:MovieClip, type:String, keepDimensions:Boolean = false, addAt:int = -1) : MovieClip {
-			var parent = mc.parent;
-			var oldx = mc.x;
-			var oldy = mc.y;
-			var oldwidth = mc.width;
-			var oldheight = mc.height;
-			
-			var newObjectClass = getDefinitionByName(type);
-			var newObject = new newObjectClass();
-			newObject.x = oldx;
-			newObject.y = oldy;
-			if (keepDimensions) {
-				newObject.width = oldwidth;
-				newObject.height = oldheight;
-			}
-			
-			parent.removeChild(mc);
-			if (addAt == -1)
-				parent.addChild(newObject);
-			else
-				parent.addChildAt(newObject, 0);
-			
-			return newObject;
-		}
-		
+				
 		public function onResize(re:ResizeManager) : * {
 			var rm = Globals.instance.resizeManager;
 			var currentRatio:Number =  re.ScreenWidth / re.ScreenHeight;
@@ -100,8 +76,8 @@
 					
 			lumberGoldMovieClip.scaleX = correctedRatio / 2;
 			lumberGoldMovieClip.scaleY = correctedRatio / 2;
-			lumberGoldMovieClip.x = 1450 * correctedRatio;//re.ScreenWidth * .5;
-			lumberGoldMovieClip.y = 10 * correctedRatio;//re.ScreenHeight * .25;
+			lumberGoldMovieClip.x = 1450 * correctedRatio;
+			lumberGoldMovieClip.y = 10 * correctedRatio;
 		}
     }
 }
