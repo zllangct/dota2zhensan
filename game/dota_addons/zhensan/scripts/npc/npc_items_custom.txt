@@ -1531,7 +1531,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityTextureName"	"item_lieyu"
 
-		"ItemCost"			"700"
+		"ItemCost"			"1400"
 
 		"ItemBaseLevel"                 "1"
 		"MaxUpgradeLevel"				"3"
@@ -1584,7 +1584,7 @@
       "ID"                            "1033"
       "Model"                         "models/props_gameplay/recipe.mdl"
       "BaseClass"                     "item_recipe_arcane_boots"
-      "ItemCost"                      "0"  
+      "ItemCost"                      "1400"  
       "ItemShopTags"                  ""
       "ItemRecipe"                    "1"
       "ItemResult"                    "item_lieyu2"
@@ -1687,7 +1687,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityTextureName"	"item_lieyu"
 
-		"ItemCost"			"2100"
+		"ItemCost"			"1400"
 
 		"ItemBaseLevel"                 "3"
 		"MaxUpgradeLevel"				"3"
@@ -2800,6 +2800,7 @@
 	    "ModelScale"		"0.3"
 	    "AbilityTextureName"        "item_barrel_zhanshenfu"//物品图标
 	    "AbilityCastPoint"      "0.0"//无施法前摇
+<<<<<<< HEAD
 
 	    "ItemKillable"          "0"//不可摧毁
 	    "ItemCost"          "9999999"//价格
@@ -2807,6 +2808,15 @@
 	    "ItemPermanent"         "0"//使用后消失
 	    "ItemInitialCharges"        "1"//只能使用一次
 
+=======
+
+	    "ItemKillable"          "0"//不可摧毁
+	    "ItemCost"          "9999999"//价格
+
+	    "ItemPermanent"         "0"//使用后消失
+	    "ItemInitialCharges"        "1"//只能使用一次
+
+>>>>>>> cc4e853b4eede877f59ad89a22bf9d1390649d05
 	    "Modifiers"
 	    {
 	    	"modifier_barrel_zhanshenfu_buff"
