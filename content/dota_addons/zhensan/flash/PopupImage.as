@@ -22,7 +22,7 @@ package  {
     import flash.utils.getDefinitionByName;
 
     import com.greensock.TweenLite;
-    import com.GreenSock.easing.*;
+    import com.greensock.easing.*;
 
     public class PopupImage extends MovieClip {
         // Game API related stuff
@@ -93,11 +93,11 @@ package  {
                 image_mc,
                 1,
                 {
-                    alpha: 0,
-					x:screenX + Math.random() * 50 - 25,
+                    x:screenX + Math.random() * 50 - 25,
                     y:screenY - 100,
                     scaleX:randomScale,
                     scaleY:randomScale,
+					ease:Elastic.easeInOut,         //easing function,
                     onComplete:function(){
                         // todo, dispose mc
                         removeChild(image_mc);

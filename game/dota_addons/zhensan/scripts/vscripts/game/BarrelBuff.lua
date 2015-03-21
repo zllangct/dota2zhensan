@@ -65,13 +65,22 @@ function Barrel:OnItemPickedUp(keys)
 	if string.find(itemName, "item_barrel_") then
 		print("AN BARREL ITEM WAS PICKED UP")
 
-		BUFF_NAME_ALIAS = {
+		local BUFF_NAME_ALIAS = {
 			["item_barrel_zhanshenkai"] = "modifier_barrel_zhanshenkai_buff",
 			["item_barrel_zhanshenfu"] = "modifier_barrel_zhanshenfu_buff",
 			["item_barrel_mataitianxue"] = "modifier_barrel_mataitianxue_buff",
 			["item_barrel_laojiu"] = "modifier_barrel_laojiu_buff",
 			["item_barrel_roubao"] = "modifier_barrel_roubao_buff"
 		}
+		local BUFF_POPUP_IMAGE_NAMES = {
+			["item_barrel_zhanshenkai"] = "images/popup/defx2.png",
+			["item_barrel_zhanshenfu"] = "images/popup/atkx2.png",
+			["item_barrel_mataitianxue"] = "images/popup/msmax.png",
+			["item_barrel_laojiu"] = "images/popup/health500.png",
+			["item_barrel_roubao"] = "images/popup/mana500.png"
+		}
+		PopupImageForPlayer(hero, BUFF_POPUP_IMAGE_NAMES[itemName], hero:GetPlayerID())
+
 		print("Attempt to apply modifier", BUFF_NAME_ALIAS[itemName], "to picker")
 		local abilityBuff = self.buffApplier:FindAbilityByName("barrel_passive")
 		abilityBuff:ApplyDataDrivenModifier(self.buffApplier, hero, BUFF_NAME_ALIAS[itemName], {})
