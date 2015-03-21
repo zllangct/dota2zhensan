@@ -23,6 +23,8 @@ local modules = {
 
     "lib.popup",
 
+    "sound.sounds",
+
     "other.movement" -- 移动速度管理
 }
 
@@ -92,6 +94,9 @@ function Precache(context)
     PrecacheResource("particle", "particles/units/heroes/hero_earthshaker/earthshaker_fissure_fire.vpcf",context)
     PrecacheResource("particle", "particles/fengbaozhizhang/cyclone.vpcf",context)
     PrecacheResource("particle", "particles/base_attacks/ranged_siege_good.vpcf",context)
+
+    -- 自定义背景音乐
+    PrecacheResource("sound", "soundevents/custom_sound_events.vsndevts", context)
 end
 
 -- 当游戏载入的时候执行
@@ -165,6 +170,8 @@ function ZhensanGameMode:OnGameRuleStateChanged(keys)
     -- 游戏进行到0秒，开始刷怪
     if newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         ZSSpawner:Start()
+        -- 开始播放背景音乐
+        SoundControllerStart()
     end
     -- 当英雄选择结束，告知作者信息
     if newState == DOTA_GAMERULES_STATE_PRE_GAME then
