@@ -2800,7 +2800,7 @@
 	    "ModelScale"		"0.3"
 	    "AbilityTextureName"        "item_barrel_zhanshenfu"//物品图标
 	    "AbilityCastPoint"      "0.0"//无施法前摇
-<<<<<<< HEAD
+
 
 	    "ItemKillable"          "0"//不可摧毁
 	    "ItemCost"          "9999999"//价格
@@ -2808,15 +2808,6 @@
 	    "ItemPermanent"         "0"//使用后消失
 	    "ItemInitialCharges"        "1"//只能使用一次
 
-=======
-
-	    "ItemKillable"          "0"//不可摧毁
-	    "ItemCost"          "9999999"//价格
-
-	    "ItemPermanent"         "0"//使用后消失
-	    "ItemInitialCharges"        "1"//只能使用一次
-
->>>>>>> cc4e853b4eede877f59ad89a22bf9d1390649d05
 	    "Modifiers"
 	    {
 	    	"modifier_barrel_zhanshenfu_buff"
