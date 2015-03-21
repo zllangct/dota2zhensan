@@ -39,7 +39,10 @@ package  {
 			Globals.instance.resizeManager.AddListener(this);
 			
 			gameAPI.SubscribeToGameEvent( "show_popup_image", onImagePopup);
-			
+			gameAPI.SubscribeToGameEvent( "show_popup_image_all", onImagePopupAll);
+			// 让这个MC不响应鼠标 todo 待测试
+			this.mouseEnable = false;
+			this.mouseChildren = false;
 		}
 		
 		public function onImagePopup(args:Object){
@@ -47,6 +50,14 @@ package  {
 			var playerID = args._playerID;
 			
 			if (globals.Players.GetLocalPlayer() != playerID){ return; }
+			createImagePopup(args);
+		}
+		
+		public function onImagePopupAll(args:Object){
+			createImagePopup(args);
+		}
+		
+		public function createImagePopup(args:Object){
 			
 			var loc_x = args._x;
 			var loc_y = args._y;
@@ -90,7 +101,6 @@ package  {
 			    }
 			)
 		}
-				
 		public function onResize(re:ResizeManager) : * {
 			var rm = Globals.instance.resizeManager;
 			var currentRatio:Number =  re.ScreenWidth / re.ScreenHeight;
