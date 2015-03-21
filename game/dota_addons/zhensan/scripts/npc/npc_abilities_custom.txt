@@ -109,6 +109,7 @@
 		"AbilityManaCost"		"100 115 130 178"
 		"AbilityCooldown"		"6.0"
 		"MaxLevel"				"4"
+		"FightRecapLevel"				"1"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -151,6 +152,7 @@
 		"AbilityCooldown"		"20.0"
 		"AOERadius"				"150 170 200 220"
 		"MaxLevel"				"4"
+		"FightRecapLevel"				"1"
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -264,6 +266,7 @@
 		"AbilityManaCost"		"100 125 145 165"
 		"AbilityCooldown"		"18.0"
 		"MaxLevel"				"4"
+		"FightRecapLevel"				"1"
 		"OnSpellStart"
 		{
 			"SpawnUnit"
@@ -515,6 +518,8 @@
 		"AbilityManaCost"		"315 390 465"
 		"AbilityCooldown"		"150"
 		"MaxLevel"				"3"
+		"RequiredLevel"   "6 11 16"
+		"FightRecapLevel"				"5"
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
@@ -840,6 +845,7 @@
 		"AbilityCastRange"		"700"
 		"AbilityCooldown"		"13"
 		"MaxLevel"				"4"
+		"FightRecapLevel"				"1"
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
@@ -1032,6 +1038,7 @@
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCooldown"		"0"
 		"MaxLevel"				"4"
+		"FightRecapLevel"				"1"
 		"Modifiers"
 		{
 			"modifier_simayi_yetaihuo"
@@ -1173,7 +1180,8 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"1"
+		"FightRecapLevel"				"5"
+		"RequiredLevel"                 "6 11 16"
 		"AbilityTextureName"			"dianwei_yaohuo"
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -1290,6 +1298,7 @@
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"		"dianwei_yexingzhanhun"	 //技能图标	需修改
+		"FightRecapLevel"				"1"
 		"OnUpgrade"
 		{
 			"RunScript"
@@ -1338,6 +1347,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"		"dianwei_zhongji"
+		"FightRecapLevel"				"1"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1373,6 +1383,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"		"dianwei_zhanzhengjianta"
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"		"0.5"
@@ -1536,6 +1547,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"		"zhangfei_yinghan"	 //技能图标	需修改
+		"FightRecapLevel"				"1"
 		"Modifiers"
 		{
 			"modifier_yinghan"
@@ -1580,6 +1592,7 @@
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"		"zhangfei_kuangzhanshi"	 //技能图标	需修改
+		"FightRecapLevel"				"1"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"		 "35 35 35 35"
@@ -1882,6 +1895,7 @@
 		"AbilityTextureName"		 "xunyu_xianjing"
 		"RequiredLevel"				 "1 1 1 1"
 		"AbilityCastAnimation"		 "ACT_DOTA_CAST_ABILITY_3"
+		"FightRecapLevel"				"1"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
@@ -2086,6 +2100,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"		 "xunyu_jiejie"
 		"RequiredLevel"				"1 1 1 1"
+		"FightRecapLevel"				"1"
 		"AbilityCastAnimation"		 "ACT_DOTA_CAST_ABILITY_1"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -2137,6 +2152,7 @@
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"RequiredLevel"	"1 1 1 1"
+		"FightRecapLevel"				"1"
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -2216,6 +2232,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"xunyu_yiliao"
+		"FightRecapLevel"				"1"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
@@ -2270,6 +2287,7 @@
 		"AbilityTextureName"			"xunyu_shouwei"
 		"MaxLevel"	 "3"
 		"RequiredLevel"	"6 11 16"
+		"FightRecapLevel"				"5"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -2353,6 +2371,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"165"
+		"FightRecapLevel"				"1"
 		 //"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"12.0"
 		"AbilityManaCost"				"140"
@@ -2475,6 +2494,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName" 			"zhaoyun_hengsao"
 		//"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"FightRecapLevel"				"1"
 		
 		"Modifiers"
 		{
@@ -2525,6 +2545,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName" 			"zhaoyun_shanbi"
+		"FightRecapLevel"				"1"
 		"Modifiers"
 		{
 			"sanbi"
@@ -2549,6 +2570,8 @@
 		"AbilityCooldown"			 "90"	 //冷却时间
 		"AbilityManaCost"			 "150 180 210"
 		"RequiredLevel"			 "6 11 16"
+		"FightRecapLevel"				"5"
+		"LevelsBetweenUpgrades"          "5"
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -2834,7 +2857,7 @@
 		 "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				 "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"RequiredLevel"				"1"
-		"LevelsBetweenUpgrades"	"1"
+		"FightRecapLevel"				"1"
 		"AbilityCooldown"			 "10"	 //冷却时间
 		"AbilityManaCost"			 "110 120 130 150"
 		"AbilityCastRange"				"500"
@@ -2951,6 +2974,7 @@
 		"AbilityCooldown"			 "12"	 //冷却时间
 		"AbilityManaCost"			 "60"
 		"AbilityCastRange"				"800"
+		"FightRecapLevel"				"1"
 		//"AbilityCastPoint"				"0"
 		"precache"
 		{
@@ -3058,7 +3082,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"		"guojia_guanghuan"
 		"RequiredLevel"				"1"
-		"LevelsBetweenUpgrades"	"1"
+		"FightRecapLevel"				"1"
 		"precache"
 		{
 			"particle" 			"particles/items_fx/aura_shivas.vpcf"
@@ -3144,8 +3168,9 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"MaxLevel"			 "3"
+		"FightRecapLevel"				"5"
 		"RequiredLevel"				 "6 11 16"
-		//	"LevelsBetweenUpgrades"	"1"
+			"LevelsBetweenUpgrades"	"5"
 		"AbilityCooldown"			 "150"	 //冷却时间
 		"AbilityManaCost"			 "300 380 460"
 		 "AbilityCastRange"				"900"
@@ -3244,7 +3269,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			 "guanyu_xuanfengzhan"
-		//"FightRecapLevel"				"5"
+		"FightRecapLevel"				"5"
+		"LevelsBetweenUpgrades"          "5"
 		"RequiredLevel"				 "6 11 16"
 		"MaxLevel"						"3"
 		// Casting
@@ -3328,6 +3354,7 @@
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				 "14 14 14 14"
 		"AbilityCastRange"				 "450"
+		"FightRecapLevel"				"1"
 		"AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_4"
 		"precache"
 			{
@@ -3414,6 +3441,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityManaCost"				 "95 100 105 110"
 		"AbilityCooldown"				 "10 10 10 10"
+		"FightRecapLevel"				"1"
 		"AOERadius"	 "300"
 		"AbilityCastRange"	 "1150"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
@@ -3542,6 +3570,7 @@
 	    "AbilityManaCost"				"25 25 25"
 	    "MaxLevel"                      "3"
 	    "RequiredLevel"                 "6 11 16"
+	    "FightRecapLevel"				"5"
 	    "AOERadius"                      "250"
 	    "AbilityCastRange"              "800"
 
