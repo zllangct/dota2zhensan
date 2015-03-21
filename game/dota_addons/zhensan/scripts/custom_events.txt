@@ -33,4 +33,20 @@
     	"PlayerID"		"short"
     	"Lumber"		"long"
     }
+    // Popup Image
+    "show_popup_image"
+    {
+        "_x"            "short"
+        "_y"            "short"
+        "_z"            "short"
+        "_playerID"     "short"
+        "_image_name"   "string"
+    }
+    "show_popup_image_all"
+    {
+        "_x"            "short"
+        "_y"            "short"
+        "_z"            "short"
+        "_image_name"   "string"
+    }
 }

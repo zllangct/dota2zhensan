@@ -68,14 +68,14 @@
 			moraleLabelClip.alpha = 0;
 			moraleLabelClip.y = 300;
 			TweenLite.to(
-    			moraleLabelClip,                     //movieclip to be tweened
-    			1.5,                             //duration
-    			{                                //start of parameter object
-        			y:100,                       //target Y
-       				alpha:1,                     //target alpha
+    			moraleLabelClip,                    //movieclip to be tweened
+    			1,                             		//duration
+    			{                                	//start of parameter object
+        			y:100,                       	//target Y
+       				alpha:1,                     	//target alpha
         			ease:Elastic.easeInOut,         //easing function
-        			onComplete:function(){       //onComplete callback
-            			trace('tweening done!'); //you could even add a new tween here!
+        			onComplete:function(){       	//onComplete callback
+            			trace('tweening done!'); 	//you could even add a new tween here!
 						moraleLabelClip.visible = false;
 						moraleLabelClip.y = 300;
         			}
