@@ -3,7 +3,8 @@
 -- XavierCHN@2015.03.20
 
 -- 木桶被击杀后，创建一个木桶物品在目标点所在位置
--- 木桶被击杀后160秒，刷新下一个木桶
+-- 木桶被击杀后160秒，刷新下一个木桶 -- DEBUG 刷新间隔为10秒
+-- @2015.3.21 尝试添加BUFF，看看是否能成功
 
 -- 木桶BUFF
 -- 战神斧 Attack x2 30sec 攻击力提高2倍，持续30秒
@@ -73,7 +74,7 @@ function Barrel:OnItemPickedUp(keys)
 		}
 		print("Attempt to apply modifier", BUFF_NAME_ALIAS[itemName], "to picker")
 		local abilityBuff = self.buffApplier:FindAbilityByName("barrel_passive")
-		abilityBuff:ApplyDataDrivenModifier(self.buffApplier, caster, BUFF_NAME_ALIAS[itemName], {})
+		abilityBuff:ApplyDataDrivenModifier(self.buffApplier, hero, BUFF_NAME_ALIAS[itemName], {})
 		item:RemoveSelf()
 
 		UTIL_MessageText(hero:GetPlayerID(),"hahaha",255,255,255,255)
