@@ -3894,6 +3894,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"             "caoren_siyao"
+        "FightRecapLevel"				"1"
+        
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"
@@ -3955,6 +3957,214 @@
 			}
 		}
 	
+	}
+	//=================================================================================================================
+	// 魏延
+	//=================================================================================================================
+	"weiyan_fenshen"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "chaos_knight_phantasm"													// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityTextureName"             "weiyan_fenshen"
+		"FightRecapLevel"				"5"
+		"MaxLevel"   "3"
+		"RequiredLevel"   "6 11 16"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.5 0.5 0.5"
+ 
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"130.0 130.0 130.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200 250 300"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_duration"			"34"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage"			"0 0 0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"incoming_damage"			"50 50 50"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"images_count"				"8 8 8"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"invuln_duration"		"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"400"
+			}
+		}
+	}
+	"weiyan_fengbaozhichui"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				        "sven_storm_bolt"										// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+        "AbilityTextureName"             "weiyan_chuizi"
+		"FightRecapLevel"				"1"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"100 175 225 300"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bolt_speed"			"1100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bolt_stun_duration"	"2.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bolt_aoe"			"20"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"vision_radius"		"225"
+			}
+		}
+	}
+	"weiyan_fangshouzhanshu"
+	{
+		
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"				"1"
+        "AbilityTextureName"             "weiyan_hujia"
+		
+		"Modifiers"
+		{
+			"weiyan_fangshouzhanshu_aura"
+			{
+
+				"Passive"		"1"
+				"Aura"					"weiyan_fangshouzhanshu_buff"
+				"Aura_Radius"			"500"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_OTHER |DOTA_UNIT_TARGET_BASIC"
+				
+			
+			}
+			"weiyan_fangshouzhanshu_buff"
+			{
+				"IsHidden"  "1"
+				"Properties"
+				{
+                   "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"   "%armor_bonus"
+				}
+			}
+			
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"armor_bonus"			"2 4 6 8"
+			}
+		}
+	}
+	"weiyan_hengsaoqianjun"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName" 			"weiyan_fenlie"
+		//"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"FightRecapLevel"				"1"
+		"Modifiers"
+		{
+			"hengsaoqianjun"
+			{
+				"Passive"	"1"
+				"IsHidden"  "1"
+				"OnAttackStart"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName" "cleave_buff"
+						"Target"		 "CASTER"
+					}
+				}
+			}
+			"cleave_buff"
+			{
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"CleaveAttack"
+					{
+						"CleavePercent"		"%crit_cleave_damage"
+						"CleaveRadius"		"%crit_radius"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"crit_cleave_damage"			"15 30 45 60"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"crit_radius"			"200"
+			}
+		}
 	}
 	//=================================================================================================================
 	// 投石车

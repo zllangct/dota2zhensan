@@ -1,7 +1,5 @@
 "CustomHeroList"
 {
-    "npc_dota_hero_lone_druid"      "1" //test    
-
     "npc_dota_hero_invoker"         "1" //诸葛
     "npc_dota_hero_skywrath_mage"	"1" //司马
     "npc_dota_hero_beastmaster"     "1" //典韦
@@ -11,4 +9,5 @@
     "npc_dota_hero_crystal_maiden"  "1" //郭嘉 
     "npc_dota_hero_juggernaut"      "1" //关羽 
     "npc_dota_hero_night_stalker"   "1" //曹仁
+    "npc_dota_hero_chaos_knight"    "1" //魏延
 }

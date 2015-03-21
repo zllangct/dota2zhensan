@@ -21,6 +21,59 @@
 		"AttackDamageMax"			   "0" 
 		"AttackAnimationPoint"		"0.2"
     }
+     //=================================================================================================================
+	// 魏延  
+	//=================================================================================================================
+    "zhensan_weiyan"
+    {
+    	"override_hero"            "npc_dota_hero_chaos_knight"
+    	// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"weiyan_fengbaozhichui"
+		"Ability2"					"weiyan_fangshouzhanshu"
+		"Ability3"					"weiyan_hengsaoqianjun"
+		"Ability4"					"weiyan_fenshen"
+		"Ability5"					"attribute_bonus"
+
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------
+		"ArmorPhysical"				"2"								// Physical protection.
+
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"25"									// Damage range min.
+		"AttackDamageMax"			"35"									// Damage range max.
+		"AttackRate"				"2.2"									// Speed of attack.
+		"AttackAnimationPoint"		"0.5"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"									// Range within a target can be acquired.
+		"AttackRange"				"100"									// Range within a target can be attacked.
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			"23"									// Base strength
+		"AttributeStrengthGain"			"2.65"									// Strength bonus per level.
+		"AttributeBaseAgility"			"17"									// Base agility
+		"AttributeAgilityGain"			"1.75"									// Agility bonus per level.
+		"AttributeBaseIntelligence"		"20"									// Base intelligence
+		"AttributeIntelligenceGain"		"1.50"									// Intelligence bonus per level.
+
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementSpeed"				"300"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		"HealthBarOffset"			"220"
+		
+		"ParticleFile"				"particles/units/heroes/hero_chaos_knight.pcf"
+		"StatusHealth"				"100"		// Base health.
+		"StatusHealthRegen"			"0.25"			// Health regeneration rate.
+		"StatusMana"				"0"		// Base mana.
+		"StatusManaRegen"			"0.01"		// Mana regeneration rate.
+		"VisionDaytimeRange"		"800"									// Range of vision during day light.
+		"VisionNighttimeRange"		"1800"	
+    }
     //=================================================================================================================
 	// 曹仁  
 	//=================================================================================================================
@@ -95,6 +148,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"   //DOTA_HULL_SIZE_HERO
 		"HealthBarOffset"			"185"
+
+		"StatusHealth"				"100"		// Base health.
+		"StatusHealthRegen"			"0.25"			// Health regeneration rate.
+		"StatusMana"				"0"		// Base mana.
+		"StatusManaRegen"			"0.01"		// Mana regeneration rate.
     }
    //=================================================================================================================
 	// 关羽  

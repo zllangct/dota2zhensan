@@ -109,7 +109,7 @@ function ZhensanGameMode:InitGameMode()
     -- 设定选择英雄之后时间为40秒
     GameRules:SetPreGameTime(40)
     -- 设置允许选择相同英雄
-    GameRules:SetSameHeroSelectionEnabled(true)
+    GameRules:SetSameHeroSelectionEnabled(false)
     -- 设置不允许使用储藏处 API貌似不可用
     --GameRules:SetStashPurchasingDisabled(true)
     --禁止推荐
