@@ -3647,10 +3647,6 @@
 			"caoren_damage_per"  //每秒造成范围伤害
 			{
 				"IsHidden"                  "1"
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
 				"ThinkInterval"				"1"
 				"OnIntervalThink"
 				{
