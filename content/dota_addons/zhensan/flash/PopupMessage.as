@@ -1,22 +1,34 @@
-﻿package  {
+/*
+	Event:
+	"show_popup_image"
+	{
+		"_playerID"	"short"
+		"_x"		"short"
+		"_y"		"short"
+		"_z"		"short"
+		"_image_name"	"string"
+	}
+
+*/
+
+
+package  {
 	
 	// Valve Libaries
-    import ValveLib.Globals;
-    import ValveLib.ResizeManager;
+    	import ValveLib.Globals;
+    	import ValveLib.ResizeManager;
 	
 	import flash.display.MovieClip;
 	import flash.utils.getDefinitionByName;
 
-    import com.GreenSock.TweenLite;
-    import com.GreenSock.easing.*;
+	 import com.GreenSock.TweenLite;
+    	import com.GreenSock.easing.*;
 
 	public class PopupMessage extends MovieClip {
 		// Game API related stuff
-        public var gameAPI:Object;
-        public var globals:Object;
-        public var elementName:String;
-		
-		public var msgClip:MovieClip;
+        	public var gameAPI:Object;
+        	public var globals:Object;
+        	public var elementName:String;
 		
 		public function LumberGold(){
 			trace("Popup message is now loaded!");
@@ -26,12 +38,12 @@
 			trace("onLoaded function of PopupMessage");
 			Globals.instance.resizeManager.AddListener(this);
 			
-			gameAPI.SubscribeToGameEvent( "show_popup_message", onMessagePopup);
+			gameAPI.SubscribeToGameEvent( "show_popup_image", onImagePopup);
 			
 		}
 		
-		public function onMessagePopup(args:Object){
-			
+		public function onImagePopup(args:Object){
+			trace("GAME event catched , trying to deal with message popup")
 			var playerID = args._playerID;
 			
 			if (globals.Players.GetLocalPlayer() != playerID){ return; }
@@ -46,21 +58,34 @@
 			if (screenX < 0 || screenY < 0){ return; }
 			if (screenY > this.stageY * 0.9){ return; }
 			
-			var msg:String = args._msg;
+			var image_name:String = args._image_name;
 			if (msg == undefined){ return; }
 			
-			var msgMC = new MessageClip(screenX, screenY, msg);
-			this.msgClip.addChild(msgMC);
+			trace("=========================================================")
+			trace("everything is ok");
+			trace("original position" + loc_x + " " + loc_y + " " + loc_z );
+			trace( "screen position" + screenX + "/" + screenY);
+			trace(", trying to load image" + imageName);
+			trace("=========================================================")
+			
+			var image_mc = new ImageClip(image_name);
+			addChild(image_mc);
+			
+			image_mc.x = screenX;
+			image_mc.y = screenY;
+			
 			TweenLite.to(
-			    msgMC,
+			    image_mc,
 			    1,
 			    {
 			        alpha: 0,
 			        y:loc_y - 100,
+			        scaleX:1.2,
+			        scaleY:1.2,
 			        onComplete = function()
 			        {
 			            // todo, dispose mc
-			            this.removeChild(msgMC);
+			            removeChild(msgMC);
 			        }
 			    }
 			)
@@ -91,7 +116,32 @@
 					
 			msgClip.scaleX = correctedRatio / 2;
 			msgClip.scaleY = correctedRatio / 2;
-		
 		}
-    }
+	}
 }
+/*
+package{
+	import flash.display.MovieClip;
+	import flash.event.Events;
+	import flash.net.URLRequest;
+	
+	public class ImageClip extends MovieClip{
+		private loader:Loader;
+		
+		public function ImageClip(imageName:String){
+			trace("ImageClip trying to load image from" + imageName);
+			this.loader = new Loader();
+			this.loader.contentLoaderInfo.addEventListener(Event.COMPLETE, this.onImageLoadComplete);
+			this.loader.load(new URLRequest(imageName));
+		}
+		
+		private function onImageLoadComplete(e:Event):void{
+			trace("image load finished");
+			var loaderInfo:LoaderInfo = e.target as LoaderInfo;
+			
+			this.bitMapData = new BitmapData(loaderInfo.width, loaderInfo.height);
+			this.bitMapData.draw(loaderInfo.content);
+		}
+	}
+}
+*/
