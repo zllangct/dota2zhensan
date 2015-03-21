@@ -96,7 +96,7 @@ function Precache(context)
     PrecacheResource("particle", "particles/base_attacks/ranged_siege_good.vpcf",context)
 
     -- 自定义背景音乐
-    PrecacheResource("sound", "soundevents/custom_sound_events.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/custom_sound_events.vsndevts", context)
 end
 
 -- 当游戏载入的时候执行

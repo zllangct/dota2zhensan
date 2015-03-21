@@ -861,7 +861,7 @@
 				"EndRadius"				"250 250 250 300"
 				"FixedDistance"			"600"
 				"TargetTeams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC	| DOTA_UNIT_TARGET_CREEP"
+				"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"HasFrontalCone"		"1"
 				"ProvidesVision"		"0"
 				"VisionRadius"			"0"

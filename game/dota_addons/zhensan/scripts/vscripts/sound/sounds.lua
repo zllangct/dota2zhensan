@@ -1,12 +1,12 @@
 local BGM_STRACKS = {
 	"Zhensan.Shu_Pre",
 	"Zhensan.Wei_Pre",
-	"Zhensan.Shu_Sad",
-	"Zhensan.Wei_Sad",
+	-- "Zhensan.Shu_Sad",
+	-- "Zhensan.Wei_Sad",
 	"Zhensan.Shu_Bravely",
-	"Zhensan.Wei_Bravely",
-	"Zhensan.Shu_Silent",
-	"Zhensan.Wei_Silent"
+	"Zhensan.Wei_Bravely"
+	-- "Zhensan.Shu_Silent",
+	-- "Zhensan.Wei_Silent"
 }
 
 local SOUND_LENGTH = {
