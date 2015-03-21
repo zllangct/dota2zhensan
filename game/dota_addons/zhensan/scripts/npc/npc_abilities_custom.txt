@@ -4033,7 +4033,11 @@
 		"FightRecapLevel"				"1"
         "AbilityTextureName"             "weiyan_chuizi"
 		"FightRecapLevel"				"1"
-		
+		"precache"
+		{
+			"particle_folder" 			"particles/units/heroes/hero_sven"
+			//"soundfile"		"soundfile"
+		}
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
