@@ -39,7 +39,7 @@ function AbilityCore:OnPlayerCastAbility(keys)
     local ability_name = keys.abilityname
     local ability = hero:FindAbilityByName(ability_name)
     if ability then
-        print("ABILITY IS VALID", ability:GetAbilityName())
+        -- print("ABILITY IS VALID", ability:GetAbilityName())
         local ability_target = ability:GetCursorTarget()
         local ability_position = ability:GetCursorPosition()
         local hero_name = hero:GetUnitName()
@@ -102,10 +102,10 @@ function AbilityCore:OnPlayerLearnedAbility(keys)
     local hero = player:GetAssignedHero()
     if hero then
         local hero_name = hero:GetUnitName()
-        print("LEARNED ABILITY HANDLER", hero_name)
+        -- print("LEARNED ABILITY HANDLER", hero_name)
         if self[hero_name] and self[hero_name].LearnAbilityHandler then
             -- 调用对应的接口
-            print("LEARNED ABILITY HANDLER CALLING HERO SCRIPT, hero:", hero:GetUnitName(), "ability:", keys.abilityname)
+            -- print("LEARNED ABILITY HANDLER CALLING HERO SCRIPT, hero:", hero:GetUnitName(), "ability:", keys.abilityname)
             self[hero_name]:LearnAbilityHandler(keys, hero, keys.abilityname)
         end
     end

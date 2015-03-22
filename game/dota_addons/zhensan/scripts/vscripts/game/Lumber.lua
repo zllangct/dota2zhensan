@@ -40,7 +40,6 @@ function Lumber:AddLumber(keys)
     if entity_killed:IsRealHero() then
        hero.__lumber_data =hero.__lumber_data + LUMBER_GAIN_HERO_KILL
        -- PopupNumbers(entity_killed, "gold", Vector(0, 255, 0), 2.0, LUMBER_GAIN_HERO_KILL, POPUP_SYMBOL_PRE_PLUS, nil)
-       print("attemp to create popup image")
        PopupImageForPlayer(entity_killed, "images/popup/5lumber.png", player_id) -- image for test purpose, todo
     else
     -- 如果击杀的是普通单位，且是敌人，增加1木材

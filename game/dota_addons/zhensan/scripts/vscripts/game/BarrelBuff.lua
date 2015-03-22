@@ -43,7 +43,7 @@ end
 function Barrel:OnStateChanged()
 	local newState = GameRules:State_Get()
 	if newState == DOTA_GAMERULES_STATE_PRE_GAME then
-		print("INITING BARRELS ON POSITIONS")
+		-- print("INITING BARRELS ON POSITIONS")
 		-- 在游戏开始阶段，刷新两个木桶
 		local barrel_1 = CreateUnitByName(BARREL_UNIT_NAME,BARREL_SPAWN_POSITIONS_1,false,nil,nil,DOTA_TEAM_NEUTRALS)
 		local ability_passive = barrel_1:FindAbilityByName("barrel_passive")

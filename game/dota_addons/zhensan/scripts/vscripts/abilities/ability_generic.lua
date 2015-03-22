@@ -13,7 +13,7 @@ function FindScepter(caster)
     for i = 0, 5 do
         local item = caster:GetItemInSlot(i)
         if item then
-            print(item:GetName())
+            -- print(item:GetName())
             if item:GetName() == "item_ultimate_scepter" then
                 return true
             end
@@ -93,7 +93,7 @@ function CreateDummyAndCastAbilityAtPosition(owner, ability_name, ability_level,
     local unit = CreateUnitByName("npc_dummy", owner:GetOrigin(), false, owner, owner, owner:GetTeam())
     -- local dummy = CreateUnitByNameAsync("npc_dummy", owner:GetOrigin(), false, owner, owner, owner:GetTeam(),
     -- function(unit)
-    print("unit created")
+    -- print("unit created")
     unit:AddAbility(ability_name)
     unit:SetForwardVector((position - owner:GetOrigin()):Normalized())
     unit:SetOwner(owner)
@@ -111,7 +111,9 @@ function CreateDummyAndCastAbilityAtPosition(owner, ability_name, ability_level,
         unit:CastAbilityOnPosition(position, ability, owner:GetPlayerID())
     end ,
     0)
-    unit:SetContextThink(DoUniqueString("Remove_Self"), function() print("removing dummy units", release_delay) unit:RemoveSelf() end, release_delay)
+    unit:SetContextThink(DoUniqueString("Remove_Self"), function()
+        -- print("removing dummy units", release_delay)
+        unit:RemoveSelf() end, release_delay)
 
     return unit
     -- end
@@ -150,8 +152,9 @@ function CreateDummyAndCastAbilityOnTarget(owner, ability_name, ability_level, t
         unit:CastAbilityOnTarget(target, ability, owner:GetPlayerID())
     end ,
     0)
-    unit:SetContextThink(DoUniqueString("Remove_Self"), function() print("removing dummy units", release_delay) unit:RemoveSelf() end, release_delay)
-
+    unit:SetContextThink(DoUniqueString("Remove_Self"), function()
+        -- print("removing dummy units", release_delay)
+        unit:RemoveSelf() end, release_delay)
     return unit
     -- end
     -- )
@@ -189,7 +192,9 @@ function CreateDummyAtPositionAndCastAbilityAtPosition(owner, ability_name, abil
         unit:CastAbilityOnPosition(position, ability, owner:GetPlayerID())
     end ,
     0)
-    unit:SetContextThink(DoUniqueString("Remove_Self"), function() print("removing dummy units", release_delay) unit:RemoveSelf() end, release_delay)
+    unit:SetContextThink(DoUniqueString("Remove_Self"), function()
+        -- print("removing dummy units", release_delay)
+        unit:RemoveSelf() end, release_delay)
 
     return unit
     -- end
@@ -229,7 +234,9 @@ function CreateDummyAtPositionAndCastAbilityOnTarget(owner, ability_name, abilit
         unit:CastAbilityOnTarget(target, ability, owner:GetPlayerID())
     end ,
     0)
-    unit:SetContextThink(DoUniqueString("Remove_Self"), function() print("removing dummy units", release_delay) unit:RemoveSelf() end, release_delay)
+    unit:SetContextThink(DoUniqueString("Remove_Self"), function()
+        -- print("removing dummy units", release_delay)
+        unit:RemoveSelf() end, release_delay)
 
     return unit
     -- end
@@ -267,7 +274,9 @@ function CreateDummyAtPositionAndCastAbilityNoTarget(owner, ability_name, abilit
         unit:CastAbilityNoTarget(ability, owner:GetPlayerID())
     end ,
     0)
-    unit:SetContextThink(DoUniqueString("Remove_Self"), function() print("removing dummy units", release_delay) unit:RemoveSelf() end, release_delay)
+    unit:SetContextThink(DoUniqueString("Remove_Self"), function()
+        -- print("removing dummy units", release_delay)
+        unit:RemoveSelf() end, release_delay)
 
     return unit
     -- end

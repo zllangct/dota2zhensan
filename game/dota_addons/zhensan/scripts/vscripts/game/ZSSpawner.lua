@@ -133,7 +133,7 @@ function ZSSpawner:Start()
 
 
             -- 循环刷近战和远程兵
-            print("DO SPAWN")
+            -- print("DO SPAWN")
             for i = 1, self.__melee_count do
                 self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
                 self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)

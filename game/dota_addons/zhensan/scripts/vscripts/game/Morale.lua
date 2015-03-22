@@ -62,10 +62,10 @@ function MSys:OnPlayerKilled(keys)
     local heroKilled = playerKilled:GetAssignedHero()
     if not heroKilled then return end -- 确保成功
 
-    print("[DOTA2ZS] a hero was killed, deal with morale system")
+    -- print("[DOTA2ZS] a hero was killed, deal with morale system")
 
     local heroKilledTeam = heroKilled:GetTeam()
-    print("player from", heroKilledTeam,"was killed")
+    -- print("player from", heroKilledTeam,"was killed")
 
     -- 提升被击杀队伍的士气，同时提升击杀方士气
     self:MoraleDown(playerKilled, heroKilledTeam)
@@ -80,7 +80,7 @@ function MSys:OnEntityKilled(keys)
     -- 如果有士气建筑被击杀，那么降低被击杀那方的士气
     for _, name in pairs(MORALE_BUILDINGS) do
         if entityKilled:GetUnitName() == name then
-            print("a morale building was killed, fixing morale data")
+            -- print("a morale building was killed, fixing morale data")
             local team = entityKilled:GetTeam()
             self:MoraleDown(entityKilled, team)
 
@@ -151,7 +151,7 @@ function MSys:DealWithCreepsMorale()
         largerMoraleTeam = DOTA_TEAM_BADGUYS
     end
     local moraleLevel = math.floor((largerMorale - 10) / 3)
-    print("DEALING WITH MORALE. TEAM IN ADVANTAGE", largerMoraleTeam, "MORALE", largerMorale, "MORALE LEVEL", moraleLevel)
+    -- print("DEALING WITH MORALE. TEAM IN ADVANTAGE", largerMoraleTeam, "MORALE", largerMorale, "MORALE LEVEL", moraleLevel)
 
     -- 如果士气较高的那个队伍的士气等级不等于上次的士气等级，那么才需要刷新小兵的士气BUFF
     local creepsUpdateRequired = moraleLevel ~= self.__moraleLevel[largerMoraleTeam]

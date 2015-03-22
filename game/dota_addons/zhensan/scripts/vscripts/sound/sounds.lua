@@ -28,7 +28,7 @@ function SoundControllerStart()
 	-- 游戏开始10秒之后开始播放BGM，同样的，每个BGM之间间隔5秒
 	Timers:CreateTimer(5,
 		function()
-			print("Attemp to start sound :", currentSound, "Sound Length: " , soundLength)
+			-- print("Attemp to start sound :", currentSound, "Sound Length: " , soundLength)
 			EmitGlobalSound(currentSound)
 			Timers:CreateTimer(soundLength, function()
 				-- 如果游戏已经结束，那么不播放下一首
