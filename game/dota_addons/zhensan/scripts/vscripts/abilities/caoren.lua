@@ -32,6 +32,9 @@ function TrueFormStart( event ) --鬼神开始变形调用
             _item:SetActivated(false)
         end
     end
+    --设置为满血
+    caster:SetHealth(caster:GetMaxHealth())
+    
     if caster.caster_model == nil then 
 		caster.caster_model = caster:GetModelName()
 	end

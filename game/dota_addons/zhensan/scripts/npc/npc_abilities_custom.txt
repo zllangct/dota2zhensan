@@ -3522,7 +3522,7 @@
 		"AbilityCastPoint"		"0.5"
 		"AbilityCooldown"		 "10"
 		"AbilityDamage"		 "75 100 125 150"
-		"AbilityManaCost"		 "100"
+		"AbilityManaCost"		 "0"
 		"precache"
 		{
 			"particle"			 "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
@@ -3566,8 +3566,8 @@
 		"AbilityTextureName"			"caoren_guishenjianglin"
 		"AbilityCastPoint"				"0 0 0"
 		"LevelsBetweenUpgrades"	"5"
-		"AbilityCooldown"				"0.0 0.0 0.0"
-	    "AbilityManaCost"				"25 25 25"
+		"AbilityCooldown"				"150 150 150"
+	    "AbilityManaCost"				"200 250 300"
 	    "MaxLevel"                      "3"
 	    "RequiredLevel"                 "6 11 16"
 	    "FightRecapLevel"				"5"
@@ -3647,10 +3647,6 @@
 			"caoren_damage_per"  //每秒造成范围伤害
 			{
 				"IsHidden"                  "1"
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
 				"ThinkInterval"				"1"
 				"OnIntervalThink"
 				{
@@ -3815,7 +3811,7 @@
 						"ModifierName"		"caoren_cuimian"
 					}
 				}
-				"OnAttacked"
+				"OnTakeDamage"
 				{
 					"RemoveModifier"
 					{
