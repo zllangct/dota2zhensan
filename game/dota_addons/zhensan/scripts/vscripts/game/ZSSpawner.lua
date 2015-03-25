@@ -100,6 +100,7 @@ function ZSSpawner:Start()
 
     -- 记录开始刷兵时间
     self.__spawn_start_time = GameRules:GetGameTime()
+    self.__last_spawn_time = GameRules:GetGameTime()
 
     -- 记录小兵升级
     self.__creature_levelup = 0
@@ -110,6 +111,59 @@ function ZSSpawner:Start()
     -- 刷第一波怪
     self:Spawn()
 
+    -- TODO，尝试改用SetContextThink()
+    GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("ZSSpawnerTimer"),function()
+        local now = GameRules:GetGameTime()
+
+        -- 如果当前时间距离上一次刷怪时间超过30秒，那么刷新下一波怪
+        if now - self.__last_spawn_time >= 30 then
+            self.__last_spawn_time = now -- 记录上次刷怪时间
+
+            -- 当游戏时间逝去1000秒，近战兵为4个
+            if now - self.__spawn_start_time >= 1000 and self.__melee_count <= 3 then
+                self.__melee_count = 4
+            end
+
+            -- 当游戏时间逝去1300秒，远程兵为2个
+            if now - self.__spawn_start_time >= 1300 and self.__range_count <= 1 then
+                self.__range_count = 2
+            end
+
+            -- 每550秒小兵等级增加1级，增加40血量和7攻击，550秒要加上英雄选择的12秒和出兵的48秒。
+            local upgrade_level = math.floor((now - self.__spawn_start_time + 60) / 550)
+            if upgrade_level > self.__creature_levelup then self.__creature_levelup = upgrade_level end
+
+            -- 循环刷近战和远程兵
+            -- print("DO SPAWN")
+            for i = 1, self.__melee_count do
+                self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["shu_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_top"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["shu_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_mid"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+            end
+            for i = 1, self.__range_count do
+                --                                                    确保远程兵刷在最后一个。-- 或者说是尽量刷在最后一个吧
+                self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + Vector(50, 0, 0), "npc_zs_creep_wei_range", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + Vector(30, 30, 0), "npc_zs_creep_wei_range", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + Vector(0, 50, 0), "npc_zs_creep_wei_range", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["shu_top"]:GetOrigin() + Vector(0, -50, 0), "npc_zs_creep_shu_range", self.__target["shu_top"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["shu_mid"]:GetOrigin() + Vector(-30, -30, 0), "npc_zs_creep_shu_range", self.__target["shu_mid"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + Vector(-50, 0, 0), "npc_zs_creep_shu_range", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+            end
+
+            -- 如果游戏正在进行中，则继续计时器
+            if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+                return 0.5
+            else
+                return nil
+            end
+        end
+
+    end,0.5)
+
+--[[
     -- 之后每30秒刷一波兵
     Timers:CreateTimer(30,function()
         -- 确保游戏正在进行中（游戏结束后在面板不再刷怪）
@@ -160,6 +214,7 @@ function ZSSpawner:Start()
         end
       end
     )
+]]
 end
 
 -- 刷怪函数
