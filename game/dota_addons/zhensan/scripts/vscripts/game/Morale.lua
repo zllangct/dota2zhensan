@@ -86,7 +86,8 @@ function MSys:OnEntityKilled(keys)
 
             if entityKilled:GetUnitName() == MORALE_BUILDING_GOLD then
                 -- 禁止双方发工资
-                GameRules:SetGoldTickTime(0)
+                GameRules:SetGoldPerTick(0)
+                -- GameRules:SetGoldTickTime(0)
                 self.__goldTicking[team] = false
                 -- 启动一个计时器为另一方发工资
                 if not self.__goldTickTimerStarted then
@@ -95,7 +96,7 @@ function MSys:OnEntityKilled(keys)
                     Timers:CreateTimer(GameRules:GetGoldTickTime(),function()
                         for i = -1,DOTA_MAX_PLAYERS do
                             local palyer = PlayerResource:GetPlayer(i)
-                            if player:GetTeam() == enemyTeam() then
+                            if player:GetTeam() == enemyTeam then
                                 PlayerResouce:ModifyGold(player:GetPlayerID(), GameRules:GetGoldPerTick(), false, 0)
                                 -- 如果双方都不发工资，那么停止计时器
                                 if self.__goldTicking[team] == false and self.__goldTicking[self:__GetEnemyTeam(team)] == false then
