@@ -105,20 +105,15 @@ function ZSSpawner:Start()
     -- 记录小兵升级
     self.__creature_levelup = 0
 
-    -- 寻找刷怪点
-    --self:CollectSpawners()
-
     -- 刷第一波怪
     self:Spawn()
-
+    
     -- TODO，尝试改用SetContextThink()
     GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("ZSSpawnerTimer"),function()
         local now = GameRules:GetGameTime()
-
         -- 如果当前时间距离上一次刷怪时间超过30秒，那么刷新下一波怪
         if now - self.__last_spawn_time >= 30 then
             self.__last_spawn_time = now -- 记录上次刷怪时间
-
             -- 当游戏时间逝去1000秒，近战兵为4个
             if now - self.__spawn_start_time >= 1000 and self.__melee_count <= 3 then
                 self.__melee_count = 4
@@ -144,7 +139,7 @@ function ZSSpawner:Start()
                 self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
             end
             for i = 1, self.__range_count do
-                --                                                    确保远程兵刷在最后一个。-- 或者说是尽量刷在最后一个吧
+                -- 确保远程兵刷在最后一个。-- 或者说是尽量刷在最后一个吧
                 self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + Vector(50, 0, 0), "npc_zs_creep_wei_range", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
                 self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + Vector(30, 30, 0), "npc_zs_creep_wei_range", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
                 self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + Vector(0, 50, 0), "npc_zs_creep_wei_range", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
@@ -154,14 +149,14 @@ function ZSSpawner:Start()
             end
 
             -- 如果游戏正在进行中，则继续计时器
-            if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-                return 0.5
-            else
-                return nil
-            end
+            --if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+            --    return 0.5
+            --else
+                --return nil
+           -- end
         end
-
-    end,0.5)
+             return 0.5
+    end,0)
 
 --[[
     -- 之后每30秒刷一波兵

@@ -1153,6 +1153,7 @@
 							"Radius"		"350"
 							"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+							"Flags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 						}
 						"Duration"			"2"
 					}
@@ -2903,7 +2904,7 @@
 					{
 						"Target"
 						{
-							"Center"	"CASTER"
+							"Center"	"TARGET"
 							"Radius"	"%damage_radius"
 							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
@@ -2916,6 +2917,11 @@
 								"Damage" "%damage_ice"
 								"Target" "TARGET"
 							}
+							 "ApplyModifier"
+					        {
+						 	   "Target" 			"TARGET"
+							   "ModifierName"		"guojia_hanbinbao_jiansu_buff"
+					        }
 						}
 					}
 				}
@@ -2940,7 +2946,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"damage_radius"			"200"
+				"damage_radius"			"250"
 			}
 			"03"
 			{
@@ -3079,7 +3085,7 @@
 	"guojia_yaomufaguang"
 	{
 		"BaseClass"	 "ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityTextureName"		"guojia_guanghuan"
 		"RequiredLevel"				"1"
 		"FightRecapLevel"				"1"
@@ -3089,56 +3095,33 @@
 		}
 		"Modifiers"
 		{
-			"guojia_yaomufaguang_buff"
-			{
-				 "Passive"	 "1"
-				 "IsHidden"	"1"
-				 "OnCreated"
-				 {
-				 	"ApplyModifier"
-				 	{
-				 		"Target" 			"CASTER"
-				 		"ModifierName"		"guojia_yaomufaguang_thinker"
-				 	}
-				 	"ApplyModifier"
-				 	{
-				 		"Target" 			"CASTER"
-				 		"ModifierName"		"guojia_yaomufaguang_buff"
-				 	}
-				 }
-			}
+			
 			"guojia_yaomufaguang_thinker"
 			{
-				"IsHidden"	"1"
+				"IsHidden"				"0"
+				"Passive"				"1"
+				
 				"Aura"					"guojia_yaomufaguang_aura"
-				"Aura_Radius"			"%radius"
+				"Aura_Radius"			"%health_radius"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+			}
+			"guojia_yaomufaguang_aura"
+			{
+				"IsHidden"	 "1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"	"%mana_regen"
+				}
 				"OnCreated"
 				{
 					"AttachEffect"
 					{
 						"EffectName"		"particles/items_fx/aura_shivas.vpcf"
 						"EffectAttachType"	"follow_origin"
-						"Target"	"CASTER"
+						"Target"	         "CASTER"
 					}
-				}
-			}
-			"guojia_yaomufaguang_aura"
-			{
-				//"IsHidden"	 "1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"	"%mana_regen"
-				}
-			}
-			"guojia_yaomufaguang_buff"
-			{
-				//"IsHidden"	 "1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"	"%mana_regen"
 				}
 			}
 		}
@@ -3147,7 +3130,7 @@
 			"01"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"mana_regen"			"75 150 225 300"
+				"mana_regen"			"75 100 125 150"
 			}
 			"02"
 			{
@@ -3351,26 +3334,29 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"			"guanyu_xzizhan"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastPoint"				"0.4"
 		"AbilityCooldown"				 "14 14 14 14"
 		"AbilityCastRange"				 "450"
 		"FightRecapLevel"				"1"
-		"AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastAnimation"			"@attack_crit"
 		"precache"
-			{
+		{
 				"particle" 			"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf" // 开始
-			"particle"			"particles/ui_mouseactions/ping_danger.vpcf"
-			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+			    "particle"			"particles/ping_danger.vpcf"
+			     "soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 				 "particle"					"particles/items2_fx/skadi_projectile.vpcf"
-			}
+	            "particle"         "particles/units/heroes/hero_terrorblade/terrorblade_loadout.vpcf"
+	              "particle"                        "particles/units/heroes/hero_techies/techies_taunt_compendium.vpcf"
+	           
+	    }
 		"OnSpellStart"
 		{
-			//"AttachEffect"
-		//	{
-			//	"EffectName"		"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf"
-			//	"EffectAttachType"	 "follow_origin"
-			//	"Target"		"CASTER"
-			//}
+			"AttachEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_terrorblade/terrorblade_loadout.vpcf"
+				"EffectAttachType"	 "follow_overhead"
+				"Target"		"CASTER"
+			}
 			"FireSound"
 			{
 				"EffectName"		"Hero_Alchemist.UnstableConcoction.Throw"
@@ -3397,8 +3383,14 @@
 			}
 			"AttachEffect"
 			{
-				"EffectName"		"particles/ui_mouseactions/ping_danger.vpcf"
-				"EffectAttachType"	 "follow_overhead"
+				"EffectName"		"particles/ping_danger.vpcf"
+				"EffectAttachType"	 "follow_origin"
+				"Target"		"TARGET"
+			}
+			"AttachEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_techies/techies_taunt_compendium.vpcf"
+				"EffectAttachType"	 "follow_origin"
 				"Target"		"TARGET"
 			}
 			 "Damage"
@@ -3443,12 +3435,15 @@
 		"AbilityCooldown"				 "10 10 10 10"
 		"FightRecapLevel"				"1"
 		"AOERadius"	 "300"
-		"AbilityCastRange"	 "1150"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastRange"	 "1000"
+		"AbilityCastAnimation"			"@attack_crit"
+		"AnimationPlaybackRate" "2"
 		"precache"
 		{
 			"particle" 			"particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
 			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+		     "particle"         "particles/econ/courier/courier_roshan_lava/courier_roshan_lava.vpcf"
+		    "particle"          "particles/units/heroes/hero_queenofpain/queen_shadow_strike_body.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -3477,9 +3472,23 @@
 				{
 					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_FROZEN"				"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_STUNNED"			 "MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_SILENCED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/econ/courier/courier_roshan_lava/courier_roshan_lava.vpcf"
+						"EffectAttachType" "follow_origin"
+						"Target" "CASTER"
+					}
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_queenofpain/queen_shadow_strike_body.vpcf"
+						"EffectAttachType" "follow_origin"
+						"Target" "CASTER"
+					}
 				}
 				"OnDestroy"
 				{
@@ -3686,10 +3695,10 @@
 				"Duration"   "%duration"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"1.35"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"2.1"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"10"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"1000"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"40"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"25"
 
 				}
 				"States"
@@ -3797,6 +3806,12 @@
 						"Target" 			"TARGET"
 						"ModifierName"		"caoren_cuimian"
 					}
+					"RunScript"
+				    {
+					   "ScriptFile" 	"scripts/vscripts/abilities/caoren.lua"
+					   "Target"		    "TARGET"
+					   "Function"		"cuimianshu"
+				    }
 				}
 				"OnDestroy"
 				{
@@ -3811,14 +3826,14 @@
 						"ModifierName"		"caoren_cuimian"
 					}
 				}
-				"OnTakeDamage"
-				{
-					"RemoveModifier"
-					{
-						"Target" 			"TARGET"
-						"ModifierName"		"caoren_cuimianshu_debuff"
-					}
-				}
+				//"OnAttacked"
+				//{
+					//"RemoveModifier"
+					//{
+					//	"Target" 			"TARGET"
+					//	"ModifierName"		"caoren_cuimianshu_debuff"
+					//}
+				//}
 			}
 			"caoren_suimian"
 			{

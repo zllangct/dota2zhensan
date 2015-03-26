@@ -155,3 +155,27 @@ function point_01(keys)--直接传参不行，就间接传
     local point = keys.target_points[1]   --对比point和caster的位置
     keys.caster.point=point
 end
+function cuimianshu(keys)
+    -- body
+    print("enter caoren!!!")
+    local target = keys.target
+    local ability = keys.ability   --变现技能
+    local k=ability:GetLevel()
+    local duration=ability:GetLevelSpecialValueFor("duration",k-1)
+    local dru = 0
+    local target_health = target:GetHealth()
+    GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("cuimianshu01"),function()
+        if target:GetHealth() < target_health then 
+            if target:HasModifier("caoren_cuimianshu_debuff") then 
+                    target:RemoveModifierByName("caoren_cuimianshu_debuff")
+            else 
+                return nil
+            end 
+        end
+        dru =dru + 0.02
+        if dru >= duration then 
+            return nil
+        end 
+        return 0.02
+    end,0)
+end
