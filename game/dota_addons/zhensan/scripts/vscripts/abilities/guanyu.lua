@@ -39,32 +39,13 @@ function guanyu_liuyuefeizhan_move(caster,point,distance,dir,damage,ability)   -
              ParticleManager:ReleaseParticleIndex(p_index)
              return nil
         else
+          if t>0.5 then 
+             ability:ApplyDataDrivenModifier(caster, caster, "guanyu_act_end", nil)
+          end 
           perdistance_v=v*0.02+1/2*3750*0.02*0.02
           v=v+3750*0.02
           caster:SetAbsOrigin(caster_ori-Vector(0,0,perdistance_v)-dir*perdistance_h)
         end
-          --不符合物理学运动规律，有待改正
-     --[[     caster_ori = caster:GetAbsOrigin() 
-            if cont < 20 then 
-                caster:SetAbsOrigin(caster_ori+Vector(0,0,perdistance_v))
-            else 
-                caster:SetAbsOrigin(caster_ori-Vector(0,0,2*perdistance_v))
-            end
-            if cont == 29 then 
-                  caster:SetAbsOrigin(GetGroundPosition(caster_ori-Vector(0,0,perdistance_v),caster))
-            end  
-          cont=cont+1
-          if cont == 30 then 
-            --在落地之时添加特效，且调用伤害函数
-           local p_end = 'particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf'
-                  local p_index = ParticleManager:CreateParticle(p_end, PATTACH_CUSTOMORIGIN, caster)
-                  ParticleManager:SetParticleControl(p_index, 0, caster:GetOrigin())
-                  
-             guanyu_liuyuefeizhan_damage(caster,damage,point,ability)
-             FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
-             ParticleManager:ReleaseParticleIndex(p_index)
-             return nil
-          end ]]
           t=t+0.02
           return 0.02
       end,0)

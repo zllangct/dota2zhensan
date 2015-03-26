@@ -1900,13 +1900,18 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.2"
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"15.0 15.0 15.0 15.0"
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100 100 100 100"
+		"precache"
+		{
+			//"particle_folder" 			particle_folder
+			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+		}
 		"OnSpellStart"
 		{
 			"SpawnUnit"
@@ -1923,6 +1928,11 @@
 						"Function"		"xun_jingzhixianjin_01"
 					}
 				}
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Alchemist.UnstableConcoction.Throw"
+				"Target"			"CASTER"
 			}
 		}
 		// Special
@@ -2100,13 +2110,18 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"		 "xunyu_jiejie"
-		"RequiredLevel"				"1 1 1 1"
+         "LevelsBetweenUpgrades"	"1"
 		"FightRecapLevel"				"1"
 		"AbilityCastAnimation"		 "ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			//"particle_folder" 			particle_folder
+			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+		}
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.2"
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10.0 10.0 10.0 10.0"
@@ -2129,6 +2144,11 @@
 						"Function"		"xun_zhimingjiejie_01"
 					 }
 				}
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Alchemist.UnstableConcoction.Throw"
+				"Target"			"CASTER"
 			}
 		}
 		// Special
@@ -2154,12 +2174,22 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"RequiredLevel"	"1 1 1 1"
 		"FightRecapLevel"				"1"
+		"precache"
+		{
+			"particle" 			"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf"
+			//"soundfile"		"soundfile"
+		}
 		"OnSpellStart"
 		{
 			"ApplyModifier"
 			{
 				"Target"	"CASTER"
 				"ModifierName"		"damage_per"
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Alchemist.UnstableConcoction.Throw"
+				"Target"			"CASTER"
 			}
 		}
 		"Modifiers"
@@ -2190,6 +2220,12 @@
 						}
 						"EffectName"		"particles/riki_backstab_hit_blood.vpcf"
 						"EffectAttachType"	"follow_overhead"
+					}
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf"
+						"EffectAttachType" "follow_origin"
+						"Target" "CASTER"
 					}
 				}
 			}
@@ -2234,6 +2270,11 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"xunyu_yiliao"
 		"FightRecapLevel"				"1"
+		"precache"
+		{
+			"particle_folder" 			"particles/units/heroes/hero_dazzle"
+			//"soundfile"		"soundfile"
+		}
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
@@ -2295,7 +2336,7 @@
 		{
 			"model"            "models/heroes/shadowshaman/shadowshaman_totem.vmdl"
 			"model"            "models/items/shadowshaman/serpent_ward/fiery_ward_of_eki_bukaw/fiery_ward_of_eki_bukaw.vmdl"
-			"model"             "models/items/shadowshaman/serpent_ward/tangki_serpent_ward/tangki_serpent_ward.vmdl"
+			"model"             "models/items/shadowshaman/serpent_ward/tangki_serpent_ward/tangki_serpent_ward.vmdl"          
 		}       
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0"
@@ -3334,7 +3375,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"			"guanyu_xzizhan"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				 "14 14 14 14"
 		"AbilityCastRange"				 "450"
 		"FightRecapLevel"				"1"
@@ -3345,7 +3386,7 @@
 			    "particle"			"particles/ping_danger.vpcf"
 			     "soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 				 "particle"					"particles/items2_fx/skadi_projectile.vpcf"
-	            "particle"         "particles/units/heroes/hero_terrorblade/terrorblade_loadout.vpcf"
+	            "particle"         "particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_recall_poof.vpcf"
 	              "particle"                        "particles/units/heroes/hero_techies/techies_taunt_compendium.vpcf"
 	           
 	    }
@@ -3353,8 +3394,8 @@
 		{
 			"AttachEffect"
 			{
-				"EffectName"		"particles/units/heroes/hero_terrorblade/terrorblade_loadout.vpcf"
-				"EffectAttachType"	 "follow_overhead"
+				"EffectName"		"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_recall_poof.vpcf"
+				"EffectAttachType"	 "follow_origin"
 				"Target"		"CASTER"
 			}
 			"FireSound"
@@ -3369,8 +3410,18 @@
 				 "Dodgeable"		 "0"
 				"ProvidesVision"	"1"
 				"VisionRadius"		"0"
-				"MoveSpeed"		 "1500"
+				"MoveSpeed"		 "1250"
 				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"guanyu_X_houyao"
+			}
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"guanyu_act_start"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -3403,6 +3454,24 @@
 			{
 				"Duration"	"%stun"
 				"Target"	"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"guanyu_act_start"
+			{
+				"IsHidden" "1"
+				"Duration"  "1"
+				"OverrideAnimation"  "run_chase"
+			}
+			"guanyu_X_houyao"  //关羽X斩后摇
+			{
+				"IsHidden"   "1"
+				"Duration"   "0.3"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"					
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -3444,6 +3513,7 @@
 			"soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 		     "particle"         "particles/econ/courier/courier_roshan_lava/courier_roshan_lava.vpcf"
 		    "particle"          "particles/units/heroes/hero_queenofpain/queen_shadow_strike_body.vpcf"
+		     "particle"            "particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -3458,6 +3528,7 @@
 				"Target" 			"CASTER"
 				"ModifierName"		"guanyu_liuyuefeizhan_wudi"
 			}
+			
 		}
 		"Modifiers"
 		{
@@ -3486,6 +3557,12 @@
 					"AttachEffect"
 					{
 						"EffectName"		"particles/units/heroes/hero_queenofpain/queen_shadow_strike_body.vpcf"
+						"EffectAttachType" "follow_origin"
+						"Target" "CASTER"
+					}
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf"
 						"EffectAttachType" "follow_origin"
 						"Target" "CASTER"
 					}
@@ -3532,6 +3609,7 @@
 		"AbilityCooldown"		 "10"
 		"AbilityDamage"		 "75 100 125 150"
 		"AbilityManaCost"		 "0"
+		"MaxLevel"  "1"
 		"precache"
 		{
 			"particle"			 "particles/units/heroes/hero_centaur/centaur_dust_hit_ring.vpcf"
@@ -3545,6 +3623,7 @@
 	 			"EffectAttachType"                "follow_origin"
 	 			"Target"                          "CASTER"
 	 		}
+
 	 	}
 	 	
 		// Special
@@ -3591,6 +3670,8 @@
 			"model"		     "models/creeps/neutral_creeps/n_creep_golem_a/neutral_creep_golem_a.vmdl"
 			"particle"       "particles/riki_backstab_hit_blood.vpcf"
 			"particle"       "particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
+		    "particle"         "particles/units/heroes/hero_brewmaster/brewmaster_fire_ambient.vpcf"
+		
 		}
 	    "AbilityCastRange"               "600"
 	    "OnSpellStart"
@@ -3634,6 +3715,12 @@
                  	"AttachEffect"
 			        {
 				        "EffectName"		"particles/units/heroes/hero_jakiro/jakiro_liquid_fire_debuff.vpcf"
+				        "EffectAttachType"	"follow_origin"
+				        "Target"			 "CASTER"
+			        }
+			        "AttachEffect"
+			        {
+				        "EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_fire_ambient.vpcf"
 				        "EffectAttachType"	"follow_origin"
 				        "Target"			 "CASTER"
 			        }
@@ -3939,7 +4026,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0"
-		"AbilityCastRange"				"500"
+		"AbilityCastRange"				"1500"
 		"AbilityCooldown"				"36.0 33.0 30.0 27.0"
 		"AbilityManaCost"				"80 85 90 95"
         "precache"
@@ -3958,7 +4045,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"attack_rate"		"1.35 1.35 1.35 1.35"
+				"attack_rate"		"1 1 1 1"
 			}
 			"03"
 			{
@@ -3993,7 +4080,7 @@
 			"09"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"spawn_radius"		"30 30 30 30"
+				"spawn_radius"		"50 50 50 50"
 			}
 		}
 	

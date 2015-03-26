@@ -23,6 +23,11 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
              if distance > 2000 then 
                 caster:SetMustReachEachGoalEntity(true)
                 caster:SetInitialGoalEntity(wild_origin)
+                --order={  UnitIndex=wild_spwaner:entindex() ,
+                        --TargetIndex=caster:entindex() ,
+                       -- OrderType=DOTA_UNIT_ORDER_ATTACK_TARGET,
+                   -- }
+                 --ExecuteOrderFromTable(order)
                 caster:MoveToPositionAggressive(wild_spwaner)
              end
           elseif wild_origin_name== "zs_bailang_1" or wild_origin_name== "zs_bailang_2" or wild_origin_name== "zs_bailangwang"  then 
