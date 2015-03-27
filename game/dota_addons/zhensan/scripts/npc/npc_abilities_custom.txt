@@ -911,6 +911,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_MECHANICAL"
 		"AbilityCastPoint"		"0.4"
 		"AbilityManaCost"		"100 115 130 145"
 		"AbilityCastRange"		"650"
@@ -1036,6 +1037,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"TargetTypes"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityCooldown"		"0"
 		"MaxLevel"				"4"
 		"FightRecapLevel"				"1"
@@ -1049,7 +1051,7 @@
 					"ApplyModifier"
 					{
 						"ModifierName"		"modifier_yetaihuo_debuff"
-						"Target"			"TARGET"
+						"Target"   "TARGET"						
 					}
 				}
 			}
@@ -3505,7 +3507,7 @@
 		"FightRecapLevel"				"1"
 		"AOERadius"	 "300"
 		"AbilityCastRange"	 "1000"
-		"AbilityCastAnimation"			"@attack_crit"
+		"AbilityCastAnimation"			"attack_crit"
 		"AnimationPlaybackRate" "2"
 		"precache"
 		{
@@ -3538,6 +3540,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DISABLE_AUTOATTACK"	 "1"
+					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION"    "1"
 				}
 				"States"
 				{
@@ -4475,7 +4478,26 @@
 		}
 	}
 
-
+	//================================================================================================================
+	// 野怪卡野触发技能
+	//================================================================================================================
+	"wild_trigger"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"wild_trigger_buff"
+			{
+				"IsHidden"  "1"
+				"Passive"    "1"
+ 				"Properties"
+ 				{
+ 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"   "-100"
+ 				}
+			}
+		}
+	}
 	//================================================================================================================
 	// 木桶系列技能
 	//================================================================================================================
