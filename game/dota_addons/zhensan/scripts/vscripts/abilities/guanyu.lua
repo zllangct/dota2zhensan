@@ -39,9 +39,6 @@ function guanyu_liuyuefeizhan_move(caster,point,distance,dir,damage,ability)   -
              ParticleManager:ReleaseParticleIndex(p_index)
              return nil
         else
-          if t>0.5 then 
-             ability:ApplyDataDrivenModifier(caster, caster, "guanyu_act_end", nil)
-          end 
           perdistance_v=v*0.02+1/2*3750*0.02*0.02
           v=v+3750*0.02
           caster:SetAbsOrigin(caster_ori-Vector(0,0,perdistance_v)-dir*perdistance_h)
