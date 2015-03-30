@@ -31,7 +31,6 @@ function zhaoyun_wushuang_01(keys)   --赵云  无双
 end
 function zhaoyun_changqiangtuci(keys)  --赵云长枪突刺，无需修改
   -- body
-  print("start")
   local caster=EntIndexToHScript(keys.caster_entindex)
   local i=keys.ability:GetLevel()
   local knockback_distance=keys.ability:GetLevelSpecialValueFor("knockback_distance",i-1)
@@ -49,6 +48,7 @@ function zhaoyun_changqiangtuci(keys)  --赵云长枪突刺，无需修改
   local nowtarget=vectarget
      GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("zhaoyun"),
         function ()
+          if not target:IsAlive() then return nil end
           if nowcount<=movecount then
             if isnearunit(target,nowtarget,perdeltavec) then return nil end 
             if not GridNav:IsNearbyTree(nowtarget+perdeltavec,30,true) then 
@@ -65,7 +65,7 @@ function zhaoyun_changqiangtuci(keys)  --赵云长枪突刺，无需修改
             return 0.05
           else
             return nil 
-          end 
+          end         
       end , 0)
 end
 function GetMinHeight(unit)
@@ -76,21 +76,19 @@ function isnearunit(target,nowtarget,perdeltavec)
   local teams = DOTA_UNIT_TARGET_TEAM_BOTH
   local types = DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_MECHANICAL
   local flags = DOTA_UNIT_TARGET_FLAG_NONE
-  local rad   = 30
-   
+  local rad   = 30 
      local group = FindUnitsInRadius(target:GetTeam(),nowtarget+perdeltavec,nil, rad, teams, types, flags, FIND_CLOSEST, true)
      if group == nil then 
-       return false
-    else 
-      for i,unit in pairs(group) do
-       if unit ~= nil then 
-        return true 
-       else
         return false
-       end  
-      end
-    end 
-  
+     else 
+       for i,unit in pairs(group) do
+        if unit ~= nil then 
+          return true 
+        else
+          return false
+        end  
+       end
+     end 
 end
 function zhaoyun_changqiangtuci_01(keys)
   -- body

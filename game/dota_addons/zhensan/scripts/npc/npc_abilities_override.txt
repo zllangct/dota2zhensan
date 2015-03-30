@@ -327,8 +327,8 @@
 				"item_dust""REMOVE"
 				"item_courier""REMOVE"
 				"item_flying_courier""REMOVE"
-			"item_ward_observer""REMOVE"
-			"item_ward_sentry""REMOVE"
+			//"item_ward_observer""REMOVE"
+			//"item_ward_sentry""REMOVE"
 			"item_bottle"							"REMOVE"
 
 

@@ -15,8 +15,8 @@
 		"item"		"item_yanyu"
 		"item"		"item_duyu"
 		"item"      "item_book_of_strengt"
-		"item"      "item_shaogangweishi"
-		
+		"item"      "item_ward_observer"
+		 "item"     "item_ward_sentry"
 	}
 
 	"attributes"

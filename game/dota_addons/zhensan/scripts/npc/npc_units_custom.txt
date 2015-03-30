@@ -727,7 +727,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1000"		// Base health.
-		"StatusHealthRegen"			"50"		// Health regeneration rate.
+		"StatusHealthRegen"			"100"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 
@@ -1422,8 +1422,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"81"		// Damage range min.
-		"AttackDamageMax"			"85"		// Damage range max.
+		"AttackDamageMin"			"100"		// Damage range min.
+		"AttackDamageMax"			"120"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -1463,7 +1463,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1200"		// Base health.
+		"StatusHealth"				"1000"		// Base health.
 		"StatusHealthRegen"			"0.1"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -1509,8 +1509,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"101"		// Damage range min.
-		"AttackDamageMax"			"120"		// Damage range max.
+		"AttackDamageMin"			"120"		// Damage range min.
+		"AttackDamageMax"			"140"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -1550,7 +1550,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1700"		// Base health.
+		"StatusHealth"				"1200"		// Base health.
 		"StatusHealthRegen"			"0.5"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -1596,8 +1596,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"121"		// Damage range min.
-		"AttackDamageMax"			"140"		// Damage range max.
+		"AttackDamageMin"			"140"		// Damage range min.
+		"AttackDamageMax"			"160"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -1637,7 +1637,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2200"		// Base health.
+		"StatusHealth"				"1500"		// Base health.
 		"StatusHealthRegen"			"0.2"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -1683,8 +1683,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"101"		// Damage range min.
-		"AttackDamageMax"			"120"		// Damage range max.
+		"AttackDamageMin"			"120"		// Damage range min.
+		"AttackDamageMax"			"140"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -1724,7 +1724,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1600"		// Base health.
+		"StatusHealth"				"1400"		// Base health.
 		"StatusHealthRegen"			"0.3"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -1770,8 +1770,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"121"		// Damage range min.
-		"AttackDamageMax"			"140"		// Damage range max.
+		"AttackDamageMin"			"140"		// Damage range min.
+		"AttackDamageMax"			"160"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1"			// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -1811,7 +1811,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"		// Base health.
+		"StatusHealth"				"1600"		// Base health.
 		"StatusHealthRegen"			"0.5"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -1857,8 +1857,8 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"151"		// Damage range min.
-		"AttackDamageMax"			"172"		// Damage range max.
+		"AttackDamageMin"			"180"		// Damage range min.
+		"AttackDamageMax"			"200"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"0.7"			// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
@@ -1898,7 +1898,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"3000"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"0.0"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -1917,11 +1917,40 @@
 	}
 
 
-
-
-
-
-	//技能马甲
+	//=================================================================================================================
+	// 技能马甲
+	//=================================================================================================================
+	"npc_dummy_qiang"  //加速墙、隐身墙等
+	  {
+	    "model"             "models/particle/earth_spirit_rockspike05.vmdl"
+	    //"model"           "models/courier/greevil/greevil.vmdl"
+	    "BaseClass"         "npc_dota_creature"
+	    "Ability1"          "ability_dummy_unit_qiang"
+	    "Ability2"          ""
+	    "AttackCapabilities""DOTA_UNIT_CAP_NO_ATTACK"
+	    "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE"
+	    "StatusMana"        "5000"
+	    "VisionDaytimeRange""0"
+	    "VisionNighttimeRange" "0"
+	    "HasInventory"      "1"
+	    "WakesNeutrals"     "0"
+	  }
+	  "npc_dummy_qiang1"  //加速墙、隐身墙等中间隐形单位马甲
+	  {
+	    "model"             "models/development/invisiblebox.vmdl"
+	    //"model"           "models/courier/greevil/greevil.vmdl"
+	    "BaseClass"         "npc_dota_creature"
+	    "Ability1"          ""
+	    "Ability2"          "ability_dummy_unit"
+	    "AttackCapabilities""DOTA_UNIT_CAP_NO_ATTACK"
+	    "MovementCapabilities" "DOTA_UNIT_CAP_MOVE_NONE"
+	    "StatusMana"        "5000"
+	    "VisionDaytimeRange""0"
+	    "VisionNighttimeRange" "0"
+	    "HasInventory"      "1"
+	    "WakesNeutrals"     "0"
+	    "BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+	  }
 	"npc_dummy"
 	  {
 	    "model"             "models/development/invisiblebox.vmdl"
@@ -2214,7 +2243,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"650"		// Base health.
+		"StatusHealth"				"450"		// Base health.
 		"StatusHealthRegen"			"0"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -2231,5 +2260,12 @@
 		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
 		
+	}
+	"zhansan_long"
+	{
+		"BaseClass"    "npc_dota_roshan"
+		"BountyXP"					"1789"		// Experience earn.
+		"BountyGoldMin"				"1000"		// Gold earned min.
+		"BountyGoldMax"				"1500"		// Gold earned max.
 	}
 }

@@ -23,11 +23,6 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
              if distance > 2000 then 
                 caster:SetMustReachEachGoalEntity(true)
                 caster:SetInitialGoalEntity(wild_origin)
-                --order={  UnitIndex=wild_spwaner:entindex() ,
-                        --TargetIndex=caster:entindex() ,
-                       -- OrderType=DOTA_UNIT_ORDER_ATTACK_TARGET,
-                   -- }
-                 --ExecuteOrderFromTable(order)
                 caster:MoveToPositionAggressive(wild_spwaner)
              end
           elseif wild_origin_name== "zs_bailang_1" or wild_origin_name== "zs_bailang_2" or wild_origin_name== "zs_bailangwang"  then 
@@ -61,13 +56,15 @@ function ZSSpawner:wild(keys)
         local _wild_name=entity_killed:GetContext("wild_name")
         local _spwaner_name = entity_killed:GetContext("spwaner_name")
         if _wild_name == "npc_zs_qiangdao" then 
-            Timers:CreateTimer(75,function()        
+            GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("ZSSpawnerTimer_11"),function()        
                 self:DoSpawn_wild(self._spawner_wild[_spwaner_name]:GetOrigin(),_wild_name,_spwaner_name)
-            end)
+                return nil
+            end,75)
         else 
-            Timers:CreateTimer(85,function()                
+            GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("ZSSpawnerTimer_22"),function()                
                 self:DoSpawn_wild(self._spawner_wild[_spwaner_name]:GetOrigin(),_wild_name,_spwaner_name)
-            end)
+                return nil
+            end,85)
         end
     end
 end
@@ -95,6 +92,29 @@ function ZSSpawner:Start_wild()
     self:DoSpawn_wild(self._spawner_wild["zs_pangxie_2"]:GetOrigin(),"npc_zs_pangxie","zs_pangxie_2")
     self:DoSpawn_wild(self._spawner_wild["zs_pangxie_1"]:GetOrigin(),"npc_zs_pangxie","zs_pangxie_1")
     self:DoSpawn_wild(self._spawner_wild["zs_aoxia"]:GetOrigin(),"npc_zs_aoxiao","zs_aoxia")
+
+end
+function ZSSpawner:bingying_alive_init()
+    -- body
+    -- 监听单位击杀事件
+    self.bingying_alive={}
+    self.bingying_alive["bingying_wei_shang"]=true
+    self.bingying_alive["bingying_wei_mid"]=true
+    self.bingying_alive["bingying_wei_xia"]=true
+    self.bingying_alive["bingying_shu_shang"]=true
+    self.bingying_alive["bingying_shu_mid"]=true
+    self.bingying_alive["bingying_shu_xia"]=true
+    ListenToGameEvent("entity_killed", Dynamic_Wrap(ZSSpawner, "spwaner_stop"), self)
+end
+function ZSSpawner:spwaner_stop(keys)
+    -- body
+local entity_killed = EntIndexToHScript(keys.entindex_killed)
+local killed_name = entity_killed:GetName()
+   for k,v in pairs(self.bingying_alive) do
+        if killed_name == k then 
+           self.bingying_alive[k] = false
+        end
+   end
 
 end
 function ZSSpawner:Start()
@@ -136,85 +156,50 @@ function ZSSpawner:Start()
             -- 循环刷近战和远程兵
             -- print("DO SPAWN")
             for i = 1, self.__melee_count do
-                self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_top"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_mid"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                if self.bingying_alive["bingying_wei_shang"]==true then
+                    self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_wei_mid"]==true then
+                    self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_wei_xia"]==true then
+                    self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_shu_shang"]==true then
+                    self:DoSpawn(self.__spawners["shu_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_top"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_shu_mid"]==true then
+                    self:DoSpawn(self.__spawners["shu_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_mid"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_shu_xia"]==true then
+                    self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                end
             end
             for i = 1, self.__range_count do
                 -- 确保远程兵刷在最后一个。-- 或者说是尽量刷在最后一个吧
-                self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + Vector(50, 0, 0), "npc_zs_creep_wei_range", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + Vector(30, 30, 0), "npc_zs_creep_wei_range", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + Vector(0, 50, 0), "npc_zs_creep_wei_range", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_top"]:GetOrigin() + Vector(0, -50, 0), "npc_zs_creep_shu_range", self.__target["shu_top"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_mid"]:GetOrigin() + Vector(-30, -30, 0), "npc_zs_creep_shu_range", self.__target["shu_mid"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + Vector(-50, 0, 0), "npc_zs_creep_shu_range", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                
+                if self.bingying_alive["bingying_wei_shang"]==true then
+                    self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + Vector(50, 0, 0), "npc_zs_creep_wei_range", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_wei_mid"]==true then
+                    self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + Vector(30, 30, 0), "npc_zs_creep_wei_range", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_wei_xia"]==true then
+                    self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + Vector(0, 50, 0), "npc_zs_creep_wei_range", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_shu_shang"]==true then
+                    self:DoSpawn(self.__spawners["shu_top"]:GetOrigin() + Vector(0, -50, 0), "npc_zs_creep_shu_range", self.__target["shu_top"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_shu_mid"]==true then
+                    self:DoSpawn(self.__spawners["shu_mid"]:GetOrigin() + Vector(-30, -30, 0), "npc_zs_creep_shu_range", self.__target["shu_mid"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                end
+                if self.bingying_alive["bingying_shu_xia"]==true then
+                    self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + Vector(-50, 0, 0), "npc_zs_creep_shu_range", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
+                end
             end
-
-            -- 如果游戏正在进行中，则继续计时器
-            --if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-            --    return 0.5
-            --else
-                --return nil
-           -- end
         end
              return 0.5
     end,0)
-
---[[
-    -- 之后每30秒刷一波兵
-    Timers:CreateTimer(30,function()
-        -- 确保游戏正在进行中（游戏结束后在面板不再刷怪）
-        if GameRules:State_Get() >= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-            -- 获取当前游戏事件，来判断是否需要增加小兵个数和对小兵进行升级
-            local now = GameRules:GetGameTime()
-
-            -- 当游戏时间逝去1000秒，近战兵为4个
-            if now - self.__spawn_start_time >= 1000 and self.__melee_count <= 3 then
-                self.__melee_count = 4
-            end
-
-            -- 当游戏时间逝去1300秒，远程兵为2个
-            if now - self.__spawn_start_time >= 1300 and self.__range_count <= 1 then
-                self.__range_count = 2
-            end
-
-            -- 每550秒小兵等级增加1级，增加40血量和7攻击，550秒要加上英雄选择的12秒和出兵的48秒。
-            local upgrade_level = math.floor((now - self.__spawn_start_time + 60) / 550)
-            if upgrade_level > self.__creature_levelup then self.__creature_levelup = upgrade_level end
-
-
-            -- 循环刷近战和远程兵
-            -- print("DO SPAWN")
-            for i = 1, self.__melee_count do
-                self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_wei_melee", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_top"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_top"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_mid"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_mid"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + RandomVector(30), "npc_zs_creep_shu_melee", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-            end
-            for i = 1, self.__range_count do
-                --                                                    确保远程兵刷在最后一个。-- 或者说是尽量刷在最后一个吧
-                self:DoSpawn(self.__spawners["wei_top"]:GetOrigin() + Vector(50, 0, 0), "npc_zs_creep_wei_range", self.__target["wei_top"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["wei_mid"]:GetOrigin() + Vector(30, 30, 0), "npc_zs_creep_wei_range", self.__target["wei_mid"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["wei_bot"]:GetOrigin() + Vector(0, 50, 0), "npc_zs_creep_wei_range", self.__target["wei_bot"], DOTA_TEAM_BADGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_top"]:GetOrigin() + Vector(0, -50, 0), "npc_zs_creep_shu_range", self.__target["shu_top"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_mid"]:GetOrigin() + Vector(-30, -30, 0), "npc_zs_creep_shu_range", self.__target["shu_mid"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-                self:DoSpawn(self.__spawners["shu_bot"]:GetOrigin() + Vector(-50, 0, 0), "npc_zs_creep_shu_range", self.__target["shu_bot"], DOTA_TEAM_GOODGUYS, self.__creature_levelup)
-            end
-            -- 如果游戏正在进行中，则继续30秒刷一波
-            if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-                return 30
-            else
-                return nil
-            end
-        end
-      end
-    )
-]]
 end
 
 -- 刷怪函数

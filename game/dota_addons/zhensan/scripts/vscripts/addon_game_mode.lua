@@ -94,7 +94,7 @@ function Precache(context)
     PrecacheResource("particle", "particles/units/heroes/hero_earthshaker/earthshaker_fissure_fire.vpcf",context)
     PrecacheResource("particle", "particles/fengbaozhizhang/cyclone.vpcf",context)
     PrecacheResource("particle", "particles/base_attacks/ranged_siege_good.vpcf",context)
-
+    PrecacheResource("particle", "particles/units/heroes/hero_mirana/mirana_base_attack.vpcf",context)
     -- 自定义背景音乐
     PrecacheResource("soundfile", "soundevents/custom_sound_events.vsndevts", context)
 end
@@ -149,6 +149,8 @@ function ZhensanGameMode:InitGameMode()
     Barrel:Init()
     --野怪
     ZSSpawner:Start_wild_init()
+    --兵营是否存在
+    ZSSpawner:bingying_alive_init()
     --士气系统
     MSys:Init()
     -- 设置力量平衡性常数19.12
