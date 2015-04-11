@@ -1,5 +1,5 @@
 "AddonInfo"
 {
-	maps			"v39d"
+	"maps"			"v39d"
 	"IsPlayable"	"1"
 }

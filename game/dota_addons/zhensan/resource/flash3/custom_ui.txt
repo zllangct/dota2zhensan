@@ -22,12 +22,13 @@
     }
     "4"
     {
+         
     	"File"		"Morale"
     	"Depth"		"50"
     }
     "5"
     {
-    	"File"		"Lumber"
+    	"File"		"LumberGold"
     	"Depth"		"249"
     }
     "6"

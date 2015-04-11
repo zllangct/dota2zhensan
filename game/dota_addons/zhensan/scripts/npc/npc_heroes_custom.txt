@@ -22,8 +22,65 @@
 		"AttackAnimationPoint"		"0.2"
     }
     //=================================================================================================================
+	// 张宝  风暴  
+	//=================================================================================================================
+    "zhensan_zhangbao"
+    {
+    	"override_hero"       "npc_dota_hero_storm_spirit"
+    	// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"zhangbao_suolianshandian"					// Ability 1
+		"Ability2"					"zhangbao_tianleiji"					// Ability 2
+		"Ability3"					"zhangbao_leidun"							// Ability 3
+		"Ability4"					"zhangbao_shandianqiu"					// Ability 4
+
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------
+		"ArmorPhysical"				"2"										// Physical protection.
+
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"12"									// Damage range min.
+		"AttackDamageMax"			"18"									// Damage range max.
+		"AttackRate"				"2.6"									// Speed of attack.
+		"AttackAnimationPoint"			"0.46"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"		"600"									// Range within a target can be acquired.
+		"AttackRange"				"600"									// Range within a target can be attacked.
+		//"ProjectileModel"			"stormspirit_base_attack"				// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"19"									// Base strength
+		"AttributeStrengthGain"			"1.9"									// Strength bonus per level.
+		"AttributeBaseIntelligence"		"24"									// Base intelligence
+		"AttributeIntelligenceGain"		"2.2"									// Intelligence bonus per level.
+		"AttributeBaseAgility"			"19"									// Base agility
+		"AttributeAgilityGain"			"1.9"									// Agility bonus per level.
+
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementSpeed"				"300"									// Speed.
+		"MovementTurnRate"			"0.5"									// Turning rate.
+		
+		// Bounds
+		//-------------------------------------------------------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"HealthBarOffset"			"170"
+
+		"StatusHealth"				"100"		// Base health.
+		"StatusHealthRegen"			"0.25"			// Health regeneration rate.
+		"StatusMana"				"0"		// Base mana.
+		"StatusManaRegen"			"0.01"
+		"VisionDaytimeRange"		"800"									// Range of vision during day light.
+		"VisionNighttimeRange"		"1800"	
+    }
+	 //=================================================================================================================
 	// 天云隐士  
 	//=================================================================================================================
+   
     "zhensan_tianyunyinshi"
     {
     	"override_hero"       "npc_dota_hero_necrolyte"
@@ -343,7 +400,7 @@
 	
 	"zhensan_guojia"
 	{
-		"override_hero"       "npc_dota_hero_crystal_maiden"
+		"override_hero"       "npc_dota_hero_oracle"
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"Ability1"				"guojia_hanbinbao"						// Ability 1
@@ -395,11 +452,6 @@
 		"StatusHealthRegen"			"0.25"			// Health regeneration rate.
 		"StatusMana"				"0"		// Base mana.
 		"StatusManaRegen"			"0.01"		// Mana regeneration rate.
-
-
-		"VoiceFile"				"scripts/voscripts/game_sounds_vo_crystalmaiden.txt"
-		"ParticleFile"			"particles/units/heroes/hero_crystalmaiden.pcf"	
-		"GameSoundsFile"		"scripts/game_sounds_heroes/game_sounds_crystalmaiden.txt"
 	}
 	//=================================================================================================================
 	// 赵云  
@@ -595,8 +647,8 @@
 	//=================================================================================================================
 	"npc_zs_hero_sima"
 	{
-		"override_hero"				"npc_dota_hero_skywrath_mage"    //npc_dota_hero_silencer
-		"Model"						"models/heroes/skywrath_mage/skywrath_mage.mdl"
+		"override_hero"				"npc_dota_hero_silencer"    //npc_dota_hero_silencer
+		"Model"						"models/heroes/silencer/silencer.mdl"
 		"Team"						"Bad"
 		"AbilityLayout"				"4"
 		"Ability1"					"Simayi_Yanjibo"   // Simayi_Yanjibo   toushiche_toushi

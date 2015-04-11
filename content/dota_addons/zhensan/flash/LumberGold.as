@@ -76,7 +76,8 @@
 					
 			lumberGoldMovieClip.scaleX = correctedRatio / 2;
 			lumberGoldMovieClip.scaleY = correctedRatio / 2;
-			lumberGoldMovieClip.x = 1450 * correctedRatio;
+			//lumberGoldMovieClip.x = 1450 * correctedRatio;
+			lumberGoldMovieClip.x = 230 * correctedRatio;
 			lumberGoldMovieClip.y = 10 * correctedRatio;
 		}
     }

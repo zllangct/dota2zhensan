@@ -136,7 +136,8 @@
 		"ItemCost"			"220"    //还需要12木
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
-		"ItemRequiresCharges"			"1"
+		"ItemRequiresCharges"			"1"	
+		"SideShop"						"1"
 		"Modifiers"
         {
         "modifier_book_auto_applier"
@@ -599,6 +600,7 @@
 		"AbilityTextureName"	"item_yueguangqiang"
 
 		"ItemCost"			"2300"
+		"SideShop"						"1"
 
 		"Modifiers"
 		{
@@ -835,7 +837,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"							"models/props_gameplay/salve.mdl"
-		"AbilityTextureName"		"item_yiliaoji"
+		"AbilityTextureName"		    "item_yiliaoji"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"100"
@@ -870,32 +872,62 @@
 	//=================================================================================================================
 	// 净化药水
 	//=================================================================================================================
-	"item_jinhuayaoshui"
+	"item_jinghuayaoshui"
 	{
-		"ID"			"1074"
-		
-		"BaseClass"               "item_clarity"
-		"AbilityTextureName"		"item_jinhuayaoshui"
+		//"ID"			"1074"
+		//"BaseClass"                     "item_datadriven"
+		//"BaseClass"                     "item_clarity"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"Model"							"models/props_gameplay/clarity.mdl"		
+		"AbilityTextureName"            "item_jinhuayaoshui"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"100"
 		"AbilityCastPoint"				"0.0"
-		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"jinghuayaoshui_01"
+			}
+		}
+		"Modifiers"
+		{
+			"jinghuayaoshui_01"
+			{
+				"IsHidden"   "1"
+				"Duration"   "%buff_duration"
+				"ThinkInterval" "1"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+			        {
+				        "Target" 			"CASTER"
+				       "ModifierName"		"jialan_01"
+			        }
+				}
+			}
+			"jialan_01"
+			{
+				"Duration"  "1"
+				"IsHidden"   "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"   "10"
+				}
+			}
+		}
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"45"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
-		"ItemAliases"					"clarity"
 		"ItemStackable"					"1"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
-		"SideShop"						"0"
-
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -1113,7 +1145,7 @@
 		"AbilityTextureName"	"item_dafu"
 
 		"ItemCost"			"3200"
-
+        "SideShop"						"1"
 		"Modifiers"
 		{
 			"dafu"
@@ -1148,7 +1180,7 @@
 		"AbilityTextureName"	"item_huangzhonggong"
 
 		"ItemCost"			"3600"
-
+        "SideShop"						"1"
 		"Modifiers"
 		{
 			"huangzhonggong"
@@ -1183,7 +1215,7 @@
 		"AbilityTextureName"	"item_shiji"
 
 		"ItemCost"			"2800"
-
+        "SideShop"						"1"
 		"Modifiers"
 		{
 			"shiji"
@@ -1541,7 +1573,7 @@
 			"lieyu_orb"
 			{
 				"Passive"				"1"
-				"IsHidden"				"0"
+				"IsHidden"				"1"
 				"Orb"
 				{
 					"Priority"			"DOTA_ORB_PRIORITY_ITEM"
@@ -1559,7 +1591,8 @@
 			}
 			"lieyu_armor_reduce"
 			{
-				"Properties"
+				"IsHidden"    "1"
+ 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_reduce"
 				}
@@ -1584,7 +1617,7 @@
       "ID"                            "1033"
       "Model"                         "models/props_gameplay/recipe.mdl"
       "BaseClass"                     "item_recipe_arcane_boots"
-      "ItemCost"                      "1400"  
+      "ItemCost"                      "0"  
       "ItemShopTags"                  ""
       "ItemRecipe"                    "1"
       "ItemResult"                    "item_lieyu2"
@@ -1616,7 +1649,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityTextureName"	"item_lieyu"
 
-		"ItemCost"			"1400"
+		"ItemCost"			"2800"
 
 		"ItemBaseLevel"                 "2"
 		"MaxUpgradeLevel"				"3"
@@ -1625,6 +1658,7 @@
 		{
 			"lieyu2"
 			{
+				"IsHidden"    "1"
 				"Passive"				"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
@@ -1635,7 +1669,7 @@
 			"lieyu_orb2"
 			{
 				"Passive"				"1"
-				"IsHidden"				"0"
+				"IsHidden"				"1"
 				"Orb"
 				{
 					"Priority"			"DOTA_ORB_PRIORITY_ITEM"
@@ -1653,6 +1687,7 @@
 			}
 			"lieyu_armor_reduce2"
 			{
+				"IsHidden"    "1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_reduce"
@@ -1687,7 +1722,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityTextureName"	"item_lieyu"
 
-		"ItemCost"			"1400"
+		"ItemCost"			"3200"
 
 		"ItemBaseLevel"                 "3"
 		"MaxUpgradeLevel"				"3"
@@ -1696,6 +1731,7 @@
 		{
 			"lieyu3"
 			{
+				"IsHidden"    "1"
 				"Passive"				"1"
 				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
@@ -1706,7 +1742,7 @@
 			"lieyu_orb3"
 			{
 				"Passive"				"1"
-				"IsHidden"				"0"
+				"IsHidden"				"1"
 				"Orb"
 				{
 					"Priority"			"DOTA_ORB_PRIORITY_ITEM"
@@ -1724,6 +1760,7 @@
 			}
 			"lieyu_armor_reduce3"
 			{
+				"IsHidden"    "1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_reduce"
@@ -2171,6 +2208,8 @@
         "AbilityManaCost"    "140"
 		"ItemCost"			 "2100"
 		"AbilityCooldown"    "60"			
+		"SideShop"						"1"		
+		"SideShop"						"1"
         "OnSpellStart"
         {
            "ApplyModifier"
@@ -2192,6 +2231,7 @@
         	{
         		"Duration"   "%duration"
         		"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+        		"IsPurgable"    "1"
         		"Properties"
         		{
         			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "50"
@@ -2676,7 +2716,7 @@
 		"AbilityTextureName"	 "item_yinjian"
 
 		"ItemCost"			"2600"
-
+        "SideShop"						"1"
 		"Modifiers"
 		{
 			"yinjian"
@@ -2725,7 +2765,7 @@
 		"Model"                         "models/props_gameplay/recipe.mdl"
 		"BaseClass"                     "item_recipe_arcane_boots"
 		
-		"ItemCost"                      "180"  
+		"ItemCost"                      "175"  
 		"ItemShopTags"                  ""
 		"ItemRecipe"                    "1"
 		"ItemResult"                    "item_lilianghuwan"
@@ -2789,14 +2829,1452 @@
 	    }
 	}
 	//==================================================
+	// 大地斧  ID 1084  1085
+	//==================================================
+	"item_dadifu"
+	{
+		"ID"     "1084"
+		"BaseClass"    "item_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "AbilityTextureName"	        "item_dadifu"
+		"Model"							"models/props_gameplay/sentry_ward_bundle.mdl"
+     	"ItemCost"						"999999"
+		"Modifiers"
+		{
+			"daifu_buff"
+			{
+				"IsHidden"   "1"
+				"Passive"     "1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%str_bonus"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%health_bonus"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen_con"
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"str_bonus"		"24"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"health_bonus"		"350"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"health_regen_con"		"10"
+			}
+		}
+	}
+	"item_recipe_dadifu"
+	{
+		"ID"                            "1085"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "1350"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_dadifu"
+		"ItemRequirements"
+		{
+			"01"                        "item_dafu;item_zhuqueyi" 
+		}
+	}
+	//==================================================
+	// 源氏铠甲  ID 1086  1087
+	//==================================================
+	"item_yuanshikaijia"
+	{
+        "ID"     "1086"
+		"BaseClass"    "item_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "AbilityTextureName"	        "item_yuanshikaijia"
+		"Model"							"models/heroes/wraith_king/wraith_king_chest.vmdl"
+     	"ItemCost"	                      "9999999"
+     	"Modifiers"
+     	{
+             "yuanshikaijia_buff"
+             {
+             	"Passive"  "1"
+             	"IsHidden"   "1"
+             	"Attributes"  "MODIFIER_ATTRIBUTE_MULTIPLE" 
+             	"Properties"
+             	{
+             		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"8"            		
+             	}
+             	"OnAttacked"
+             	{
+             		"Random"
+                    {
+                       "Chance"      "%chance"
+                       "PseudeoRandom"   "DOTA_PSEUDO_RANDOM_JUGG_CRIT"
+                       "OnSuccess"
+                        {
+                            "ApplyModifier"
+                            {
+                            	"Target" 			"CASTER"
+                            	"ModifierName"		"yuanshikaijia_buff_phy"
+                            }
+                         
+                        }
+                    }
+             	}
+             	"OnDestroy"
+             	{
+             		"RemoveModifier"
+             		{
+             			"Target" 			"CASTER"
+
+             			"ModifierName"		"yuanshikaijia_buff_phy"
+             		}
+             	}
+             	
+             }
+             "yuanshikaijia_buff_phy"
+             {
+             	"IsHidden"   "1"
+                "Properties"
+                {
+                	"MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK"	"60" //物理格挡
+
+                }
+                "OnAttacked"
+                {
+                	"RemoveModifier"
+                	{
+                		"Target" 			"CASTER"
+                		"ModifierName"		"yuanshikaijia_buff_phy"
+                	}
+                	"Random"
+                    {
+                       "Chance"      "%chance"
+                       "PseudeoRandom"   "DOTA_PSEUDO_RANDOM_JUGG_CRIT"
+                       "OnSuccess"
+                        {
+                            "ApplyModifier"
+                            {
+                            	"Target" 			"CASTER"
+                            	"ModifierName"		"yuanshikaijia_buff_phy"
+                            }
+                         
+                        }
+                    }
+                }
+             }
+            
+     	}
+     	"AbilitySpecial"
+     	{
+     		"01"
+     		{
+     			"var_type"		"FIELD_FLOAT"
+     			"chance"			"60"
+     		}
+     	}
+	}
+	"item_recipe_yuanshikaijia"
+	{
+		"ID"                            "1087"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "750"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_yuanshikaijia"
+		"ItemRequirements"
+		{
+			"01"                        "item_baicaowan;item_xuanwujia" 
+		}
+	}
+
+	//==================================================
+	// 狂战士之斧  ID 1088 1089
+	//==================================================
+	"item_recipe_kuangzhan"
+	{
+		"ID"                            "1089"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "1000"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_kuangzhan"
+		"ItemRequirements"
+		{
+			"01"                        "item_liliangzhifu" 
+		}
+	}
+	"item_kuangzhan"
+	{
+		"ID"							"1088"
+		"BaseClass"                     "item_datadriven"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+         "AbilityTextureName"           "item_kuangzhanshizhifu"
+         "Model"							"models/heroes/beastmaster/bmaxe.vmdl"
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"25.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		"ItemCost"						"6666666"
+		"ItemShopTags"					"unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"mom;mask of madness"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"			 "CASTER"
+				"ModifierName"	 "movementspeed_bonus"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	 "scripts/vscripts/items/kuangzhan.lua"
+				"Target"		 "CASTER"
+				"Function"	 "item_kuangzhan_01"
+			}
+			"ApplyModifier"
+			{
+				"Target"			 "CASTER"
+				"ModifierName"	 "fx_heal_aura"
+			}
+		}
+		"Modifiers"
+		{
+			"fx_heal_aura"
+			{
+				"Duration"		"%ability_duration"
+				//"IsHidden"		"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/items_fx/aura_assault.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			"movementspeed_bonus"
+			{
+				"Duration"	"%ability_duration"
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
+				}
+			}
+			"attackspeed_100"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
+				}
+			}
+			"attackspeed_200"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
+				}
+			}
+			"attackspeed_300"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
+				}
+			}
+			"attackspeed_400"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
+				}
+			}
+			"attackspeed_500"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
+				}
+			}
+			"attackspeed_600"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
+				}
+			}
+			"attackspeed_700"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
+				}
+			}
+			"attackspeed_800"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
+				}
+			}
+			"attackspeed_900"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
+				}
+			}
+			"attackspeed_10"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
+				}
+			}
+			"attackspeed_20"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
+				}
+			}
+			"attackspeed_30"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+				}
+			}
+			"attackspeed_40"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
+				}
+			}
+			"attackspeed_50"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
+				}
+			}
+			"attackspeed_60"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
+				}
+			}
+			"attackspeed_70"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
+				}
+			}
+			"attackspeed_80"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
+				}
+			}
+			"attackspeed_90"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
+				}
+			}
+			"attackspeed_1"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
+			"attackspeed_2"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
+				}
+			}
+			"attackspeed_3"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
+				}
+			}
+			"attackspeed_4"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
+				}
+			}
+			"attackspeed_5"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
+				}
+			}
+			"attackspeed_6"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
+				}
+			}
+			"attackspeed_7"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
+				}
+			}
+			"attackspeed_8"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
+				}
+			}
+			"attackspeed_9"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "9"
+				}
+			}
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			 "FIELD_FLOAT"
+				"ability_duration"			 "12 12 12 12"	//技能持续时间
+			}
+			"02"
+			{
+				"var_type"			 "FIELD_FLOAT"
+				"amplify_damage"		"30"	 //伤害加深百分比
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"		//移动速度加成（百分比）
+				"leap_speedbonus" "20"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"			//攻击速度加成（百分比）
+				"leap_speedbonus_as_one"	 "80"
+			}
+		}
+	}
+	//==================================================
+	// 月下美人  ID 1090 1091
+	//==================================================
+	"item_recipe_yuexiameiren"
+	{
+		"ID"                            "1091"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "1000"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_yuexiameiren"
+		"ItemRequirements"
+		{
+			"01"                        "item_zhuzaoyongchui;item_huangzhonggong" 
+		}
+	}
+	"item_yuexiameiren"
+	{
+		"ID"     "1090"
+		"BaseClass"    "item_datadriven"
+        "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "AbilityTextureName"	        "yuexiameiren"
+		"Model"							"models/heroes/wraith_king/wraith_king_chest.vmdl"
+     	"ItemCost"	                      "9999999"
+		"Modifiers"
+		{
+			"yuexiameiren_buff"
+			{
+				"IsHidden"		"1"
+				"Passive"       "1"
+				"Properties"
+				{
+				
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"      "25"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"25"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+			       {
+				       "ScriptFile"	 "scripts/vscripts/items/item_yuexiameiren.lua"
+				       "Target"		 "CASTER"
+				       "Function"	 "item_yuexiameiren_01"
+			        }
+					
+				}
+				"OnDestroy"
+				{
+                   "RunScript"
+			       {
+				       "ScriptFile"	 "scripts/vscripts/items/item_yuexiameiren.lua"
+				       "Target"		 "CASTER"
+				       "Function"	 "item_yuexiameiren_02"
+			        }
+				}
+			}
+		
+			"attackspeed_100"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
+				}
+			}
+			"attackspeed_200"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
+				}
+			}
+			"attackspeed_300"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
+				}
+			}
+			"attackspeed_400"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
+				}
+			}
+			"attackspeed_500"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
+				}
+			}
+			"attackspeed_600"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
+				}
+			}
+			"attackspeed_700"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
+				}
+			}
+			"attackspeed_800"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
+				}
+			}
+			"attackspeed_900"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
+				}
+			}
+			"attackspeed_10"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
+				}
+			}
+			"attackspeed_20"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
+				}
+			}
+			"attackspeed_30"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+				}
+			}
+			"attackspeed_40"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
+				}
+			}
+			"attackspeed_50"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
+				}
+			}
+			"attackspeed_60"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
+				}
+			}
+			"attackspeed_70"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
+				}
+			}
+			"attackspeed_80"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
+				}
+			}
+			"attackspeed_90"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
+				}
+			}
+			"attackspeed_1"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
+			"attackspeed_2"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
+				}
+			}
+			"attackspeed_3"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
+				}
+			}
+			"attackspeed_4"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
+				}
+			}
+			"attackspeed_5"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
+				}
+			}
+			"attackspeed_6"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
+				}
+			}
+			"attackspeed_7"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
+				}
+			}
+			"attackspeed_8"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
+				}
+			}
+			"attackspeed_9"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "9"
+				}
+			}
+		}
+		
+	}
+	//==================================================
+	// 护身符  ID1092  1093
+	//==================================================
+    "item_hushenfu"
+	{
+	     "ID"			   "1092"
+		"BaseClass"		   "item_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"item_hushenfu"
+         "Model"            "models/heroes/tuskarr/tuskarr_sigil.vmdl"
+		"ItemCost"			"666666"
+        
+		"Modifiers"
+		{
+			"lilianghuwan"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				 "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"6"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"3"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "3"
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"     "25"
+				}
+			}
+		}
+	}
+	"item_recipe_hushenfu"
+	{
+		"ID"                            "1093"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "175"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_hushenfu"
+		"ItemRequirements"
+		{
+			"01"                        "item_shihuan;item_zhilidoupeng" 
+		}
+	}
+	//==================================================
+	// 敏捷戒指  ID1094  1095
+	//==================================================
+    "item_minjiejiezhi"
+	{
+	     "ID"			   "1094"
+		"BaseClass"		   "item_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"item_minjiejiezhi"
+        
+		"ItemCost"			"666666"
+        
+		"Modifiers"
+		{
+			"lilianghuwan"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				 "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"3"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"6"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "3"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"     "12"
+				}
+			}
+		}
+	}
+	"item_recipe_minjiejiezhi"
+	{
+		"ID"                            "1095"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "225"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_minjiejiezhi"
+		"ItemRequirements"
+		{
+			"01"                        "item_shihuan;item_pixue" 
+		}
+	}
+	//==================================================
+	// 恶鬼锤  ID1096  1097
+	//==================================================
+    "item_eguichui"
+	{
+	     "ID"			   "1096"
+		"BaseClass"		   "item_basher"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"item_eguichui"
+         "Model"            "models/items/faceless_void/voidhammer/voidhammer.vmdl"
+		"ItemShopTags"					"damage;str;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"skull basher"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bash_chance_melee"		"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bash_chance_ranged"	"5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bash_duration"			"2"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bash_cooldown"			"2.0"
+			}
+		}
+		
+	}
+	"item_recipe_eguichui"
+	{
+		"ID"                            "1097"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "1250"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_eguichui"
+		"ItemRequirements"
+		{
+			"01"                        "item_gangtiezhichui;item_liliangshoutao" 
+		}
+	}
+	//==================================================
+	// 武士刀  ID1098  1099
+	//==================================================
+    "item_wushidao"
+	{
+	     "ID"			   "1098"
+		"BaseClass"		   "item_basher"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"item_wushidao"
+         "Model"            "models/items/dragon_knight/fire_tribunal_sword/fire_tribunal_sword.vmdl"
+		"ItemShopTags"					"damage;crit"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"daedalus"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"35"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"13"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_multiplier"		"200"
+			}
+		}
+		
+	}
+	"item_recipe_wushidao"
+	{
+		"ID"                            "1099"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "1500"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_wushidao"
+		"ItemRequirements"
+		{
+			"01"                        "item_bishou;item_tiejian" 
+		}
+	}
+	//==================================================
+	// 七星剑  ID2005  2006
+	//==================================================
+    "item_qixingjian"
+	{
+	    "ID"			   "2005"
+		"BaseClass"		   "item_sphere"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"FightRecapLevel"				"1"
+        "Model"            "models/items/sven/sword_freelancer.vmdl"
+		"AbilityTextureName"    "item_qixingjian"
+		"AbilityCastRange"				"700"
+		"AbilityCooldown"				"0"
+        "HomeShop"    "1"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"666666666"
+		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"ls;linken's sphere"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen"		"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"block_cooldown"		"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"		"60"
+			}
+		}
+		
+	}
+	"item_recipe_qixingjian"
+	{
+		"ID"                            "2006"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "1650"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_qixingjian"
+		"ItemRequirements"
+		{
+			"01"                        "item_yinjian;item_yemingzhu" 
+		}
+	}
+	//==================================================
+	// 神速符  ID2007  2008
+	//==================================================
+    "item_shensufu"
+	{
+	    "ID"			   "2007"
+		"BaseClass"		   "item_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"item_shensufu"
+         "Model"            "models/items/ogre_magi/goldenwalruswhacker/goldenwalruswhacker.vmdl"
+		"ItemCost"			"666666"
+        "Modifiers"
+   {
+    "speed_thinker"
+    {
+        "Passive"  "1"
+        "IsHidden"   "1"
+        "OnCreated"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/other/movement.lua"
+                "Target"        "TARGET"
+                "action"        "create"
+                "itemname"      "item_xiangxue" 
+                "Function"      "cast"
+            }
+            "RunScript"
+			       {
+				       "ScriptFile"	 "scripts/vscripts/items/item_yuexiameiren.lua"
+				       "Target"		 "CASTER"
+				       "Function"	 "item_yuexiameiren_01"
+			        }
+        }
+        "OnDestroy"
+        {
+             "RunScript"
+            {
+                "ScriptFile"    "scripts/vscripts/other/movement.lua"
+                "Target"        "TARGET"
+                "action"        "destroy"
+                "itemname"      "item_xiangxue"
+                "Function"      "cast"
+            }
+            "RunScript"
+			   {
+				       "ScriptFile"	 "scripts/vscripts/items/item_yuexiameiren.lua"
+				       "Target"		 "CASTER"
+				       "Function"	 "item_yuexiameiren_2"
+			   }
+        }
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"4"
+        } 
+    }
+    "independent_speed_bonus"
+    {
+        "IsHidden"      "1"
+        "Attributes"  "MODIFIER_ATTRIBUTE_MULTIPLE"
+        "Properties"
+        {
+            
+            "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"    "1"
+        }               
+    }
+    "attackspeed_100"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
+				}
+			}
+			"attackspeed_200"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
+				}
+			}
+			"attackspeed_300"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
+				}
+			}
+			"attackspeed_400"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
+				}
+			}
+			"attackspeed_500"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
+				}
+			}
+			"attackspeed_600"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
+				}
+			}
+			"attackspeed_700"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
+				}
+			}
+			"attackspeed_800"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
+				}
+			}
+			"attackspeed_900"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
+				}
+			}
+			"attackspeed_10"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
+				}
+			}
+			"attackspeed_20"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
+				}
+			}
+			"attackspeed_30"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
+				}
+			}
+			"attackspeed_40"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
+				}
+			}
+			"attackspeed_50"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
+				}
+			}
+			"attackspeed_60"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
+				}
+			}
+			"attackspeed_70"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
+				}
+			}
+			"attackspeed_80"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
+				}
+			}
+			"attackspeed_90"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
+				}
+			}
+			"attackspeed_1"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
+				}
+			}
+			"attackspeed_2"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
+				}
+			}
+			"attackspeed_3"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
+				}
+			}
+			"attackspeed_4"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
+				}
+			}
+			"attackspeed_5"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
+				}
+			}
+			"attackspeed_6"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
+				}
+			}
+			"attackspeed_7"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
+				}
+			}
+			"attackspeed_8"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
+				}
+			}
+			"attackspeed_9"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "9"
+				}
+			}
+}
+"AbilitySpecial"
+{
+    "01"
+    {
+        "var_type"                      "FIELD_INTEGER"
+        "independent_movement"              "50" 
+    }
+}
+		
+		
+		
+	}
+	"item_recipe_shensufu"
+	{
+		"ID"                            "2008"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "180"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_shensufu"
+		"ItemRequirements"
+		{
+			"01"                        "item_jiasushoutao;item_huifuzhihuan" 
+		}
+	}
+	//==================================================
+	// 倚天剑  ID2009  2010
+	//==================================================
+    "item_yitianjian"
+	{
+	     "ID"			   "2009"
+		"BaseClass"		   "item_satanic"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"item_yitianjian"
+        
+		"ItemCost"			"666666"
+        
+		"FightRecapLevel"				"2"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"6150"
+		"ItemShopTags"					"damage;str;armor;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"satanic"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lifesteal_percent"		"15"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"unholy_lifesteal_percent"	"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"unholy_duration"		"0"
+			}
+		}
+	}
+	"item_recipe_yitianjian"
+	{
+		"ID"                            "2010"
+		"Model"                         "models/props_gameplay/recipe.mdl"
+		"BaseClass"                     "item_recipe_arcane_boots"
+		
+		"ItemCost"                      "1650"  
+		"ItemShopTags"                  ""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_yitianjian"
+		"ItemRequirements"
+		{
+			"01"                        "item_yinjian;item_xixuebishou" 
+		}
+	}
+    //==================================================
 	// 假眼
 	//==================================================
+	
 	"item_shaogangweishi"
 	{
 	      "ID"                "42"
 	      "BaseClass"          "item_ward_observer"
 	      "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		  "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityTextureName"	        "item_yan"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"

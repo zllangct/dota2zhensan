@@ -151,6 +151,23 @@
 	//{
 	   // "ItemCost"						"99999"
 	//}
+     "item_clarity"
+     {
+        "ItemCost"						"45"
+        "AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"buff_duration"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_mana"			"100"
+			}
+		}
+     }
     
     
 	//========================================================
@@ -222,7 +239,7 @@
 	"item_maelstrom"			"REMOVE"
 	"item_desolator"			"REMOVE"
 	"item_yasha"			"REMOVE"
-	"item_mask_of_madness"			"REMOVE"
+	//"item_mask_of_madness"			"REMOVE"
 	"item_diffusal_blade"			"REMOVE"
 	"item_diffusal_blade_2"			"REMOVE"
 	"item_ethereal_blade"			"REMOVE"
@@ -319,7 +336,7 @@
 	// 移除所有的DOTA卷轴
 	//========================================================
 
-				"item_clarity""REMOVE"
+				//"item_clarity""REMOVE"
 				"item_tango""REMOVE"
 				"item_flask""REMOVE"
 				"item_smoke_of_deceit""REMOVE"
@@ -450,62 +467,62 @@
 					
 
 
- 				"item_helm_of_the_dominator"
- 			"item_mask_of_madness"
-				"item_sange"
- 			"item_yasha"
- 				"item_maelstrom"
- 				"item_diffusal_blade"			
+ 			"item_helm_of_the_dominator"   "REMOVE"
+ 			//"item_mask_of_madness""REMOVE"
+				"item_sange""REMOVE"
+ 			"item_yasha""REMOVE"
+ 				"item_maelstrom""REMOVE"
+ 				"item_diffusal_blade"	"REMOVE"		
  			"item_desolator"
- 				"item_heavens_halberd"
- 				"item_sange_and_yasha"
- 			"item_mjollnir"
- 			"item_skadi" 
- 			"item_satanic"		
+ 				"item_heavens_halberd""REMOVE"
+ 				"item_sange_and_yasha""REMOVE"
+ 			"item_mjollnir""REMOVE"
+ 			"item_skadi" "REMOVE"
+ 			"item_satanic"		"REMOVE"
 
 
 
-				"item_tpscroll"
-			"item_magic_stick"
-			"item_sobi_mask"
-				"item_ring_of_regen"
-			"item_orb_of_venom"
-				"item_boots"
-			"item_cloak"
-			"item_ring_of_health"
-			"item_lifesteal"
-				"item_helm_of_iron_will"
-				"item_energy_booster"
-			"item_talisman_of_evasion"
+				"item_tpscroll""REMOVE"
+			"item_magic_stick""REMOVE"
+			"item_sobi_mask""REMOVE"
+				"item_ring_of_regen""REMOVE"
+			"item_orb_of_venom""REMOVE"
+				"item_boots""REMOVE"
+			"item_cloak""REMOVE"
+			"item_ring_of_health""REMOVE"
+			"item_lifesteal""REMOVE"
+				"item_helm_of_iron_will""REMOVE"
+				"item_energy_booster""REMOVE"
+			"item_talisman_of_evasion""REMOVE"
 
 
 
-				"item_slippers"
-				"item_quelling_blade"
+				"item_slippers""REMOVE"
+				"item_quelling_blade""REMOVE"
 			"item_stout_shield"
-				"item_boots_of_elves"
-				"item_belt_of_strength"
-				"item_robe"
-				"item_blades_of_attack"
-			"item_gloves"
-				"item_chainmail"
-				"item_quarterstaff"
-			"item_ultimate_orb"
-				"item_blink"
+				"item_boots_of_elves""REMOVE"
+				"item_belt_of_strength""REMOVE"
+				"item_robe""REMOVE"
+				"item_blades_of_attack""REMOVE"
+			"item_gloves""REMOVE"
+				"item_chainmail""REMOVE"
+				"item_quarterstaff""REMOVE"
+			"item_ultimate_orb""REMOVE"
+				"item_blink""REMOVE"
 
 	
 							
-				"item_orb_of_venom"
-				"item_ring_of_health"
-			"item_void_stone"
-			"item_energy_booster"
-				"item_vitality_booster"
-				"item_point_booster"
-			"item_hyperstone"
-				"item_demon_edge"
-				"item_mystic_staff"
-			"item_reaver"
-				"item_eagle"
-				"item_relic"
+				"item_orb_of_venom""REMOVE"
+				"item_ring_of_health""REMOVE"
+			"item_void_stone""REMOVE"
+			"item_energy_booster""REMOVE"
+				"item_vitality_booster""REMOVE"
+				"item_point_booster""REMOVE"
+			"item_hyperstone""REMOVE"
+				"item_demon_edge""REMOVE"
+				"item_mystic_staff""REMOVE"
+			"item_reaver""REMOVE"
+				"item_eagle""REMOVE"
+				"item_relic""REMOVE"
 
 }

@@ -2,7 +2,7 @@
 {
 	"consumables"
 	{
-		"item"		"item_jinhuayaoshui"
+		"item"      "item_clarity"
 		"item"		"item_yiliaoji"
 		"item"		"item_zhuqueyi"
 		"item"		"item_qinglongdan"
@@ -11,13 +11,14 @@
 		//"item"		"item_chongche"
 		"item"		"item_bingyu"
 		"item"		"item_lieyu"
-		"item"		"item_leiyu"
+		//"item"		"item_leiyu"
 		"item"		"item_yanyu"
-		"item"		"item_duyu"
+		//"item"		"item_duyu"
 		"item"      "item_book_of_strengt"
 		"item"      "item_ward_observer"
 		 "item"     "item_ward_sentry"
-	}
+		 
+   	}
 
 	"attributes"
 	{
@@ -74,7 +75,8 @@
 	// Level 2 - Blue Recipes
 	"support"
 	{
-		
+		"item"    "item_minjiejiezhi"
+		"item"    "item_shensufu"
 	}
 	
 	"magics"
@@ -82,12 +84,14 @@
 		 "item"      "item_sunzibinfa"
 		 "item"      "item_fengbaozhizhang"
 		 "item"      "item_wushuzhizhang"
+		 "item"      "item_hushenfu"
 	}
 	
 	// Level 3 - Purple Recipes
 	"defense"
 	{
 		"item"     "item_lilianghuwan"
+         "item"     "item_yuanshikaijia"
 		
 	}
 	
@@ -97,7 +101,13 @@
 		"item"		"item_xuanwufu"
 		"item"       "item_tuimodao"
 		"item"       "item_xuefu"
-
+		"item"      "item_dadifu"
+		"item"       "item_kuangzhan"
+        "item"       "item_yuexiameiren"
+        "item"       "item_eguichui"
+        "item"       "item_wushidao"
+        "item"       "item_qixingjian"
+        "item"       "item_yitianjian"
 	}
 	
 	// Level 4 - Orange / Orb / Artifacts
@@ -108,7 +118,13 @@
 
 	"sideshop1"
 	{
-		
+		"item"    "item_sunzibinfa"
+		"iten"    "item_toushiche"
+		"item"     "item_yueguangqiang"
+		"item"     "item_dafu"
+		"item"      "item_huangzhonggong"
+		"item"      "item_shiji"
+		"item"      "item_yinjian"
 	}
 
 	"sideshop2"
@@ -118,6 +134,6 @@
 	
 	"secretshop"
 	{
-		"item"    "item_sunzibinfa"
+		
 	}
 }

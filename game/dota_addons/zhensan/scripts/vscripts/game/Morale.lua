@@ -93,20 +93,26 @@ function MSys:OnEntityKilled(keys)
                 if not self.__goldTickTimerStarted then
                     self.__goldTickTimerStarted = true
                     local enemyTeam = self:__GetEnemyTeam(team)
-                    Timers:CreateTimer(GameRules:GetGoldTickTime(),function()
+                    
+                    GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("moraleTimer_1"),function()
+                        if GameRules:State_Get() ~= DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then return GameRules:GetGoldTickTime() end
                         for i = -1,DOTA_MAX_PLAYERS do
-                            local palyer = PlayerResource:GetPlayer(i)
-                            if player:GetTeam() == enemyTeam then
-                                PlayerResouce:ModifyGold(player:GetPlayerID(), GameRules:GetGoldPerTick(), false, 0)
-                                -- 如果双方都不发工资，那么停止计时器
-                                if self.__goldTicking[team] == false and self.__goldTicking[self:__GetEnemyTeam(team)] == false then
-                                    return nil
-                                else
-                                    return GameRules:GetGoldTickTime()
+                            local player = PlayerResource:GetPlayer(i)                                       
+                            if player then
+                                local hero = player:GetAssignedHero() 
+                               if hero:GetTeam() == enemyTeam then
+                                   PlayerResource:ModifyGold(hero:GetPlayerID(), GameRules:GetGoldPerTick(), false, 0)
+                                   -- 如果双方都不发工资，那么停止计时器
+                                   if self.__goldTicking[team] == false and self.__goldTicking[self:__GetEnemyTeam(team)] == false then
+                                      return nil
+                                   else
+                                      return GameRules:GetGoldTickTime()
+                                   end
                                 end
                             end
                         end
-                    end)
+                    end,GameRules:GetGoldTickTime())
+               
                 end
             end
         end

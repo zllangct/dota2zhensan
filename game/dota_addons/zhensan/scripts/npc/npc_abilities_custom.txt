@@ -49,7 +49,7 @@
 			}
 		}
 	}
-	"ability_dummy_unit_qiang"    //墙马甲，加速墙等
+	"ability_dummy_unit_qiang"    //影身墙
 	{
 		"BaseClass" 					"ability_datadriven"
 		"AbilityTextureName"			"rubick_empty1"
@@ -70,7 +70,7 @@
 			}
 		}
 	}
-    "ability_dummy_unit_qiang"    //墙马甲，加速墙等中间隐形单位马甲
+    "ability_dummy_unit_qiang"    
 	{
 		"BaseClass" 					"ability_datadriven"
 		"AbilityTextureName"			"rubick_empty1"
@@ -137,7 +137,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 诸葛 暴雷雨
+	// 诸葛亮
 	//=================================================================================================================
 	"Zhuge_Baoleiyu"
 	{
@@ -181,7 +181,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 诸葛 急冻凝结
+	// 诸葛亮
 	//=================================================================================================================
 	"Zhuge_Jidongningjie"
 	{
@@ -194,6 +194,7 @@
 		"AbilityManaCost"		"120 135 150 165"
 		"AbilityCooldown"		"20.0"
 		"AOERadius"				"150 170 200 220"
+		"LevelsBetweenUpgrades"	 "2"
 		"MaxLevel"				"4"
 		"FightRecapLevel"				"1"
 		"OnSpellStart"
@@ -309,6 +310,7 @@
 		"AbilityManaCost"		"100 125 145 165"
 		"AbilityCooldown"		"18.0"
 		"MaxLevel"				"4"
+		"LevelsBetweenUpgrades"	 "2"
 		"FightRecapLevel"				"1"
 		"OnSpellStart"
 		{
@@ -329,7 +331,6 @@
 			}
 		}
 	}
-	//飓风马甲单位的技能
 	"Zhuge_Jufeng_Dummy"
 	{
 		"BaseClass"		"ability_datadriven"
@@ -363,7 +364,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 诸葛 天变
+	// 诸葛 变天
 	//=================================================================================================================
 	"Zhuge_Tianbian"
 	{
@@ -386,7 +387,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 诸葛 天变·雾
+	// 
 	//=================================================================================================================
 	"Zhuge_Tianbian_Wu"
 	{
@@ -432,7 +433,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 诸葛 天变·雨
+	// 
 	//=================================================================================================================
 	"Zhuge_Tianbian_Yu"
 	{
@@ -478,7 +479,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 诸葛 天变·雪
+	// 
 	//=================================================================================================================
 	"Zhuge_Tianbian_Xue"
 	{
@@ -524,7 +525,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 诸葛 天变·取消
+	// 诸葛 变天取消
 	//=================================================================================================================
 	"Zhuge_Tianbian_Cancel"
 	{
@@ -563,6 +564,7 @@
 		"MaxLevel"				"3"
 		"RequiredLevel"   "6 11 16"
 		"FightRecapLevel"				"5"
+		"LevelsBetweenUpgrades"	 "5"
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
@@ -791,7 +793,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 诸葛 冰雪爆
+	//
 	//=================================================================================================================
 	"Zhuge_Bingxuebao"
 	{
@@ -876,7 +878,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 司马懿 焰击波
+	// 司马懿 炎击波
 	//=================================================================================================================
 	"Simayi_Yanjibo"
 	{
@@ -891,6 +893,7 @@
 		"AbilityCooldown"		"13"
 		"MaxLevel"				"4"
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
@@ -963,7 +966,7 @@
 		"AbilityCooldown"		"8.0"
 		"MaxLevel"				"4"
 		"RequiredLevel"		 "1"
-		"LevelsBetweenUpgrades"	"1"
+		"LevelsBetweenUpgrades"	"2"
 		"AOERadius"				"200"
 		"OnSpellStart"
 		{
@@ -1025,6 +1028,7 @@
 		{
 			"modifier_huoyanyu"
 			{
+				"IsPurgable"			"1"
 				"IsDebuff"		"1"
 				"Duration"		"%duration"
 				"ThinkInterval"	"%interval"
@@ -1086,6 +1090,7 @@
 		"AbilityCooldown"		"0"
 		"MaxLevel"				"4"
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"Modifiers"
 		{
 			"modifier_simayi_yetaihuo"
@@ -1102,6 +1107,7 @@
 			}
 			"modifier_yetaihuo_debuff"
 			{
+				"IsPurgable"			"1"
 				"Duration"			"4"
 				"ThinkInterval"		"1"
 				"OnIntervalThink"
@@ -1228,8 +1234,8 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"5"
 		"RequiredLevel"                 "6 11 16"
+		"LevelsBetweenUpgrades"	 "5"
 		"AbilityTextureName"			"dianwei_yaohuo"
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -1345,8 +1351,9 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"		"dianwei_yexingzhanhun"	 //技能图标	需修改
+		"AbilityTextureName"		"dianwei_yexingzhanhun"	 //录录脛脺脥录卤锚	脨猫脨脼赂脛
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"OnUpgrade"
 		{
 			"RunScript"
@@ -1367,7 +1374,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
-					// TODO, 生命恢复速度百分比加成，可以直接用Modifier做
+					
 				}
 				}
 		}
@@ -1375,12 +1382,12 @@
 		{
 			"01"
 			{
-				"var_type"		"FIELD_INTEGER"		//移动速度加成（百分比）
+				"var_type"		"FIELD_INTEGER"		
 				"leap_speedbonus" "6 12 18 24"
 			}
 			"02"
 			{
-				"var_type"		"FIELD_INTEGER"		//生命回复速度加成（百分比）
+				"var_type"		"FIELD_INTEGER"		
 				"health_bonus"	"20 40 60 80"
 			}
 		}
@@ -1396,6 +1403,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"		"dianwei_zhongji"
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"AbilitySpecial"
 		{
 			"01"
@@ -1407,7 +1415,7 @@
 			{
 				"var_type"		"FIELD_INTEGER"
 				"bonus_damage"		"35 35 35 35"
-				}
+			}
 			"03"
 			{
 				"var_type"		"FIELD_FLOAT"
@@ -1431,6 +1439,8 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"		"dianwei_zhanzhengjianta"
+		"LevelsBetweenUpgrades"	 "2"
+		"OverrideAnimation"	 			"ACT_DOTA_VICTORY"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -1465,17 +1475,17 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"non_hero_stun_duration"	"1.5 1.75 2 2.5"
+				"non_hero_stun_duration"	"3 4 5 5"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hero_stun_duration"		"3 4 5 5"
+				"hero_stun_duration"		"2 2.5 2.75 3"
 			}
 		}
 	}
 	//=================================================================================================================
-	// 张飞 地动跺
+	// 张飞 地动躲
 	//=================================================================================================================
 	"ability_zhangfei_didongduo"
 	{
@@ -1485,7 +1495,8 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"zhangfei_zhanzhengjianta"
-		"OverrideAnimation"	 			"ACT_DOTA_VICTORY"
+		"LevelsBetweenUpgrades"	 "2"
+		"AbilityCastAnimation"	 			"ACT_DOTA_VICTORY"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"		"0.5"
@@ -1518,12 +1529,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"non_hero_stun_duration"	"1.5 1.75 2 2.5"
+				"non_hero_stun_duration"	"3 4 5 5"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"hero_stun_duration"		"3 4 5 5"
+				"hero_stun_duration"		"2 2.5 2.75 3"
 			}
 		}
 	}
@@ -1534,9 +1545,9 @@
 	{
 		"BaseClass"				 "ability_datadriven"
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"		"zhangfei_tianshenxiafan"	 //技能图标	需修改
+		"AbilityTextureName"		"zhangfei_tianshenxiafan"	 
 		"MaxLevel"					 "3"
-		"AbilityCooldown"			 "170 170 170 "	 //冷却时间
+		"AbilityCooldown"			 "170 170 170 "	 
 		"AbilityManaCost"			 "150 185 235"
 		"RequiredLevel"			 "6 11 16"
 		"LevelsBetweenUpgrades"	"5"
@@ -1588,14 +1599,15 @@
 		}
 	}
 	//=================================================================================================================
-	// 张飞 硬汉 张飞三技能
+	// 张飞 硬汉
 	//=================================================================================================================
 	"zhangfei_yinghan"
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"		"zhangfei_yinghan"	 //技能图标	需修改
+		"AbilityTextureName"		"zhangfei_yinghan"	 //录录脛脺脥录卤锚	脨猫脨脼赂脛
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"Modifiers"
 		{
 			"modifier_yinghan"
@@ -1630,7 +1642,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 张飞 神技(狂战士) 张飞二技能
+	// 张飞 神技
 	//=================================================================================================================
 	"zhangfei_shenji"
 	{
@@ -1639,8 +1651,9 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"	 "DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"		"zhangfei_kuangzhanshi"	 //技能图标	需修改
+		"AbilityTextureName"		"zhangfei_kuangzhanshi"	 //录录脛脺脥录卤锚	脨猫脨脼赂脛
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"		 "35 35 35 35"
@@ -1669,7 +1682,7 @@
 			"fx_heal_aura"
 			{
 				"Duration"		"%ability_duration"
-				"IsHidden"		"1"
+				//"IsHidden"		"1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -1913,27 +1926,27 @@
 			"01"
 			{
 				"var_type"			 "FIELD_FLOAT"
-				"ability_duration"			 "12 12 12 12"	//技能持续时间
+				"ability_duration"			 "12 12 12 12"	//录录脛脺鲁脰脨酶脢卤录盲
 			}
 			"02"
 			{
 				"var_type"			 "FIELD_FLOAT"
-				"amplify_damage"		"50 50 50 50"	 //伤害加深百分比
+				"amplify_damage"		"50 50 50 50"	 
 			}
 			"03"
 			{
-				"var_type"		"FIELD_INTEGER"		//移动速度加成（百分比）
+				"var_type"		"FIELD_INTEGER"		
 				"leap_speedbonus" "20 30 40 50"
 			}
 			"04"
 			{
-				"var_type"		"FIELD_FLOAT"			//攻击速度加成（百分比）
+				"var_type"		"FIELD_FLOAT"			
 				"leap_speedbonus_as_one"	 "50 80 110 140"
 			}
 		}
 	}
 	//=================================================================================================================
-	// 寻 静止陷阱
+	// 寻 静止陷进
 	//=================================================================================================================
 	"xun_jingzhixianjin"
 	{
@@ -1943,6 +1956,7 @@
 		"AbilityTextureName"		 "xunyu_xianjing"
 		"RequiredLevel"				 "1 1 1 1"
 		"AbilityCastAnimation"		 "ACT_DOTA_CAST_ABILITY_3"
+		"LevelsBetweenUpgrades"	 "2"
 		"FightRecapLevel"				"1"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -2048,8 +2062,8 @@
 				"Passive"	 "1"
 				"States"
 				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"	//无碰撞
-					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"		//隐藏小地图
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"	
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"		
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
@@ -2157,7 +2171,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"		 "xunyu_jiejie"
-         "LevelsBetweenUpgrades"	"1"
+         "LevelsBetweenUpgrades"	"2"
 		"FightRecapLevel"				"1"
 		"AbilityCastAnimation"		 "ACT_DOTA_CAST_ABILITY_1"
 		"precache"
@@ -2282,8 +2296,8 @@
 				"Passive"	 "1"
 				"States"
 				{
-					//"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"	//无碰撞
-					//"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"		//隐藏小地图
+					//"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"	//脦脼脜枚脳虏
+					//"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"		//脪镁虏脴脨隆碌脴脥录
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
@@ -2316,6 +2330,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"xunyu_yiliao"
+		"LevelsBetweenUpgrades"	 "2"
 		"FightRecapLevel"				"1"
 		"precache"
 		{
@@ -2357,7 +2372,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"75 125 175 225"
+				"damage"			"100 150 200 250"
 			}
 		}
 	}
@@ -2376,6 +2391,7 @@
 		"AbilityTextureName"			"xunyu_shouwei"
 		"MaxLevel"	 "3"
 		"RequiredLevel"	"6 11 16"
+		"LevelsBetweenUpgrades"	 "5"
 		"FightRecapLevel"				"5"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -2406,27 +2422,27 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"full_splash_radius"	"500 500 500"
+				"full_splash_radius"	"0 0 0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mid_splash_radius"		"500 500 500"
+				"mid_splash_radius"		"0 0 0"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"min_splash_radius"		"500 500 500"
+				"min_splash_radius"		"0 0 0"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_min"			"32 44 56"
+				"damage_min"			"36 48 60"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_max"			"36 48 60"
+				"damage_max"			"45 55 68"
 			}
 			"07"
 			{
@@ -2436,12 +2452,12 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_min_scepter"	"32 44 56"
+				"damage_min_scepter"	"36 48 60"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_max_scepter"	"36 48 60"
+				"damage_max_scepter"	"45 55 68"
 			}
 		}
 	}
@@ -2461,6 +2477,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"165"
+		"LevelsBetweenUpgrades"	 "2"
 		"FightRecapLevel"				"1"
 		 //"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"12.0"
@@ -2584,7 +2601,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName" 			"zhaoyun_hengsao"
 		//"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		
 		"Modifiers"
 		{
@@ -2635,7 +2652,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName" 			"zhaoyun_shanbi"
-		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"Modifiers"
 		{
 			"sanbi"
@@ -2655,12 +2672,11 @@
 	{
 		"BaseClass"				 "ability_datadriven"
 		"AbilityBehavior"			 "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"		"zhaoyun_wushuang"	 //技能图标	需修改
+		"AbilityTextureName"		"zhaoyun_wushuang"	 //录录脛脺脥录卤锚	脨猫脨脼赂脛
 		"MaxLevel"					 "3"
-		"AbilityCooldown"			 "90"	 //冷却时间
+		"AbilityCooldown"			 "90"	 //脌盲脠麓脢卤录盲
 		"AbilityManaCost"			 "150 180 210"
 		"RequiredLevel"			 "6 11 16"
-		"FightRecapLevel"				"5"
 		"LevelsBetweenUpgrades"          "5"
 		"OnSpellStart"
 		{
@@ -2672,13 +2688,14 @@
 			"ApplyModifier"
 			{
 				"Target" 			"CASTER"
-				"ModifierName"		"attackspeed_bonus"
+				"ModifierName"		"attackspeed_bonus_1"
 			}
 		}
 		"Modifiers"
 		{
-			"attackspeed_bonus"
+			"attackspeed_bonus_1"
 			{
+				"IsPurgable"			"1"
 				"Duration"	"%ability_duration"
 				"OnCreated"
 				{
@@ -2692,11 +2709,13 @@
 			}
 			"movementspeed_bonus"
 			 {
+			 	   "IsPurgable"			"1"
 					"Duration"	"%ability_duration"
 					"IsHidden"		"1"
 					"Properties"
 					{
 						 "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
+						 "MODIFIER_PROPERTY_EVASION_CONSTANT"      "30"
 					}
 			 }
 			"attackspeed_100"
@@ -2920,12 +2939,12 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"		//移动速度加成（百分比）
+				"var_type"			"FIELD_INTEGER"		
 				"leap_speedbonus"	 "50 65 80"
 			}
 			"02"
 			{
-				"var_type"		"FIELD_FLOAT"			//攻击速度加成（百分比）
+				"var_type"		"FIELD_FLOAT"			
 				"leap_speedbonus_as_one"	 "100 130 160"
 			}
 			 "03"
@@ -2946,9 +2965,8 @@
 		 "AbilityUnitDamageType"		 "DAMAGE_TYPE_MAGICAL"
 		 "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				 "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-		"RequiredLevel"				"1"
-		"FightRecapLevel"				"1"
-		"AbilityCooldown"			 "10"	 //冷却时间
+		"LevelsBetweenUpgrades"	 "2"
+		"AbilityCooldown"			 "10"	 
 		"AbilityManaCost"			 "110 120 130 150"
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.3"
@@ -2964,17 +2982,35 @@
 				"EffectAttachType"	"follow_overhead"
 				"Target"				"TARGET"
 			}
-			 "Damage"
-			 {
-				"Target"		 "TARGET"
-				"Type"			 "DAMAGE_TYPE_MAGICAL"
-				"Damage"		 "%damage"
-			}
-			"ApplyModifier"
+			"ActOnTargets"
 			{
-				"Target"		 "TARGET"
-				"ModifierName"		"guojia_moderate_buff"
-			}
+				"Target"
+				{
+					"Center"	"TARGET"
+					"Radius"	"%damage_radius"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_OTHER"
+				}
+				"Action"
+				{
+					 "Damage"
+				    {
+							"Type" "DAMAGE_TYPE_MAGICAL"
+							"Damage" "%damage"
+							"Target" "TARGET"
+				    }
+						 "ApplyModifier"
+					    {
+						 	 "Target" 			"TARGET"
+						      "ModifierName"		"guojia_hanbinbao_jiansu_buff"
+					    }
+			    }
+		   }
+			//"ApplyModifier"
+			//{
+				//"Target"		 "TARGET"
+				//"ModifierName"		"guojia_moderate_buff"
+			//}
 		}
 		"Modifiers"
 		{
@@ -3018,6 +3054,7 @@
 			"guojia_hanbinbao_jiansu_buff"
 			{
 				"IsHidden"	"1"
+				"IsPurgable"			"1"
 				"Duration"	 "%movement_duration"
 				"Properties"
 				{
@@ -3066,10 +3103,10 @@
 		 "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		 // "RequiredLevel"				"1"
 		//	"LevelsBetweenUpgrades"	"1"
-		"AbilityCooldown"			 "12"	 //冷却时间
+		"AbilityCooldown"			 "12"	 
 		"AbilityManaCost"			 "60"
 		"AbilityCastRange"				"800"
-		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		//"AbilityCastPoint"				"0"
 		"precache"
 		{
@@ -3123,6 +3160,7 @@
 			}
 			"guojia_moderate_buff_01"
 			{
+				"IsPurgable"			"1"
 				"Duration"	 "%movement_duration"
 				"Properties"
 				{
@@ -3177,7 +3215,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityTextureName"		"guojia_guanghuan"
 		"RequiredLevel"				"1"
-		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"precache"
 		{
 			"particle" 			"particles/items_fx/aura_shivas.vpcf"
@@ -3229,21 +3267,20 @@
 		}
 	}
 	//=================================================================================================================
-	// 郭嘉 冰河爆裂破
+	// 郭嘉 冰河暴裂破
 	//=================================================================================================================
 	"guojia_binhebaoliepo"
 	{
 		"BaseClass"			"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityTextureName"		"guojia_binghebaoliepo"	 //技能图标	需修改
+		"AbilityTextureName"		"guojia_binghebaoliepo"	 //录录脛脺脥录卤锚	脨猫脨脼赂脛
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"MaxLevel"			 "3"
-		"FightRecapLevel"				"5"
 		"RequiredLevel"				 "6 11 16"
 		"LevelsBetweenUpgrades"	"5"
-		"AbilityCooldown"			 "150"	 //冷却时间
+		"AbilityCooldown"			 "120"	 
 		"AbilityManaCost"			 "300 380 460"
 		 "AbilityCastRange"				"900"
 		//"AbilityCastPoint"				"0"
@@ -3300,6 +3337,7 @@
 		{
 			"modifier_jidongningjie"
 			{
+				"IsHidden"   "1"
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -3323,7 +3361,7 @@
 			"01"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"duration"			"2.0 2,5 3.0"
+				"duration"			"2.5 3 3.5"
 			}
 		}
 	}
@@ -3368,7 +3406,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"blade_fury_damage_tick"	"0.2"
+				"blade_fury_damage_tick"	"0.3"
 			}
 			"02"
 			{
@@ -3415,7 +3453,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 关羽 X斩
+	// 关羽 x斩
 	//=================================================================================================================
 	"guanyu_xzhan"
 	{
@@ -3430,10 +3468,11 @@
 		"AbilityCastRange"				 "450"
 		"AbilityManaCost"                 "100 105 110 115"
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"AbilityCastAnimation"			"attack_crit"
 		"precache"
 		{
-				"particle" 			"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf" // 开始
+				"particle" 			"particles/units/heroes/hero_juggernaut/juggernaut_ward_create.vpcf" // 驴陋脢录
 			    "particle"			"particles/ping_danger.vpcf"
 			     "soundfile"			 "soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
 				 "particle"					"particles/items2_fx/skadi_projectile.vpcf"
@@ -3457,8 +3496,8 @@
 			"TrackingProjectile"
 			{
 				"Target"			"TARGET"
-				 "EffectName"		"particles/items2_fx/skadi_projectile.vpcf"
-				 "Dodgeable"		 "0"
+				"EffectName"		"particles/items2_fx/skadi_projectile.vpcf"
+				"Dodgeable"		 "0"
 				"ProvidesVision"	"1"
 				"VisionRadius"		"0"
 				"MoveSpeed"		 "1250"
@@ -3515,7 +3554,7 @@
 				"Duration"  "1"
 				"OverrideAnimation"  "run_chase"
 			}
-			"guanyu_X_houyao"  //关羽X斩后摇
+			"guanyu_X_houyao"  
 			{
 				"IsHidden"   "1"
 				"Duration"   "0.3"
@@ -3557,7 +3596,7 @@
 		"AOERadius"	 "300"
 		"AbilityCastRange"	 "1000"
 		"AbilityCastAnimation"			"attack_crit"
-		"AnimationPlaybackRate" "2"
+		"LevelsBetweenUpgrades"	 "2"
 		"precache"
 		{
 			"particle" 			"particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
@@ -3585,7 +3624,7 @@
 		{
 			"guanyu_liuyuefeizhan_wudi"
 			{
-				//"IsHidden"	 "1"
+				"IsHidden"	 "1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DISABLE_AUTOATTACK"	 "1"
@@ -3648,7 +3687,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 曹仁 鬼神 
+	// 曹仁 鬼神
 	//=================================================================================================================
 	"caoren_t"
 	{
@@ -3662,7 +3701,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"		"0.5"
 		"AbilityCooldown"		 "10"
-		"AbilityDamage"		 "75 100 125 150"
+		"AbilityDamage"		 "150"
 		"AbilityManaCost"		 "0"
 		"MaxLevel"  "1"
 		"precache"
@@ -3713,7 +3752,6 @@
 	    "AbilityManaCost"				"200 250 300"
 	    "MaxLevel"                      "3"
 	    "RequiredLevel"                 "6 11 16"
-	    "FightRecapLevel"				"5"
 	    "AOERadius"                      "250"
 	    "AbilityCastRange"              "800"
 
@@ -3737,7 +3775,7 @@
 	    		"Target"		"POINT"
 	    		"Function"		"point_01"
 	    	}
-	    	"ApplyModifier"        //添加火焰效果
+	    	"ApplyModifier"        
 			{
 			   "Target" 			"CASTER"
 				"ModifierName"		"caoren_guishen_fire"
@@ -3780,7 +3818,7 @@
 				        "Target"			 "CASTER"
 			        }
 
-			        "ApplyModifier"       //添加每秒伤害buff
+			        "ApplyModifier"       
 					{
 						"Target" 			"CASTER"
 						"ModifierName"		"caoren_damage_per"
@@ -3788,7 +3826,7 @@
 			     
                }
 			}
-			"caoren_down_state"  //掉落时不可控modifier
+			"caoren_down_state"  
 			{
 				"States"
 				{
@@ -3796,7 +3834,7 @@
 					"MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"caoren_damage_per"  //每秒造成范围伤害
+			"caoren_damage_per"  
 			{
 				"IsHidden"                  "1"
 				"ThinkInterval"				"1"
@@ -3834,7 +3872,7 @@
 					}
 				}
 			}
-			"modifier_true_form"   //变形
+			"modifier_true_form"   
 			{
 				"IsHidden"	"0"
 				"Duration"   "%duration"
@@ -3842,7 +3880,7 @@
 				{
 					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"2.1"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"8"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"				"1000"
+					//"MODIFIER_PROPERTY_HEALTH_BONUS"				"1000"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"25"
 
 				}
@@ -3852,7 +3890,7 @@
 				}
 				"OnCreated"
 				{
-					"ApplyModifier"        //添加不可控状态
+					"ApplyModifier"        
 					{
 						"Target" 			"CASTER"
 						"ModifierName"		"caoren_down_state"
@@ -3877,22 +3915,22 @@
 			"01"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"duration"			"45"     //技能持续时间
+				"duration"			"45"     
 			}
 			"02"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"damage"			"40 50 60"     //光环伤害
+				"damage"			"40 50 60"     
 			}
 			"03"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"radius"			"350 400 450"     //伤害范围
+				"radius"			"350 400 450"     
 			}
 		}
 
 	}
-	"caoren_cuimianshu"   //曹仁 催眠术
+	"caoren_cuimianshu"   
 	{
         "BaseClass"						"ability_datadriven"
 	
@@ -3908,6 +3946,7 @@
 		"MaxLevel"	"4"
 		"RequiredLevel"   "1"
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
@@ -3934,6 +3973,7 @@
 		{
 			"caoren_cuimianshu_debuff"
 			{
+				"IsPurgable"			"1"
 				"Duration"  "%duration"
 				"States"
 				{
@@ -3995,6 +4035,8 @@
 			}
 			"caoren_cuimian"
 			{
+				"IsPurgable"			"1"
+				"IsHidden"   "1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -4022,6 +4064,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"             "caoren_fengqun"
+        "LevelsBetweenUpgrades"	 "2"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
@@ -4080,6 +4123,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityTextureName"             "caoren_siyao"
         "FightRecapLevel"				"1"
+        "LevelsBetweenUpgrades"	 "2"
         
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4157,6 +4201,7 @@
 		"FightRecapLevel"				"5"
 		"MaxLevel"   "3"
 		"RequiredLevel"   "6 11 16"
+		"LevelsBetweenUpgrades"	 "5"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.5 0.5 0.5"
@@ -4217,6 +4262,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"             "weiyan_chuizi"
+        "LevelsBetweenUpgrades"	 "2"
 		"FightRecapLevel"				"1"
 		"precache"
 		{
@@ -4273,7 +4319,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"FightRecapLevel"				"1"
         "AbilityTextureName"             "weiyan_hujia"
-		
+		"LevelsBetweenUpgrades"	 "2"
 		"Modifiers"
 		{
 			"weiyan_fangshouzhanshu_aura"
@@ -4313,6 +4359,7 @@
 		"AbilityTextureName" 			"weiyan_fenlie"
 		//"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"	 "2"
 		"Modifiers"
 		{
 			"hengsaoqianjun"
@@ -4362,14 +4409,12 @@
 	{
 		"BaseClass"          "ability_datadriven"
 		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_POINT"
-		"MaxLevel"   "4"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityManaCost"   "100 110 120 130"
 		"AbilityCastRange"    "500"
 		"AbilityCooldown"     "35 30 25 20"
 		"AbilityTextureName"   "jiasuqiang"
 		"LevelsBetweenUpgrades"	 "2"
-		"FightRecapLevel"				"1"
 		"precache"
 		{
 			"particle" 		"particles/neutral_fx/harpy_chain_lightning_head.vpcf"
@@ -4470,8 +4515,10 @@
 		"AbilityCastRange"    "500"
 		"AbilityCooldown"     "20 18 15 12"
 		"AbilityTextureName"   "yinshenqiang"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"RequiredLevel"   "1 3 5 7"
 		"LevelsBetweenUpgrades"	 "2"
-		"FightRecapLevel"				"1"
+		"FightRecapLevel"				"0"
 		"precache"
 		{
 			"particle" 			"particles/neutral_fx/harpy_chain_lightning_head.vpcf"
@@ -4573,7 +4620,7 @@
 		"MaxLevel"   "4"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityTextureName"   "yiyiguxing"
-		"LevelsBetweenUpgrades"	 "1"
+		"LevelsBetweenUpgrades"	 "2"
 		"Modifiers"
 		{
 			"yiyiguxing_thinker"
@@ -4630,7 +4677,6 @@
 		"AbilityCooldown"     "150 150 150"
 		"AbilityTextureName"   "lianzhan"
 		"LevelsBetweenUpgrades"	 "5"
-		"FightRecapLevel"				"5"
 		"precache"
 		{
 			"particle" 			"particles/dire_fx/barracks_bad_ranged_ambient.vpcf"
@@ -4654,17 +4700,7 @@
 				"ThinkInterval"				"1"
 				"OnIntervalThink"
 				{
-					"ApplyModifier"
-					{
-						"Target"
-						{
-							"Center"	"CASTER"
-							"Radius"	"%radius"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-							"ExcludeTypes"  "DOTA_UNIT_TARGET_BUILDING"
-						}
-						"ModifierName"		"lianzhan_thinker_1"
-					}
+					
 					"AttachEffect"
 					{
 						"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_primal_split.vpcf"
@@ -4680,36 +4716,32 @@
 				       "EffectAttachType"    "follow_origin"
 				       "Target"     "CASTER"
 			        }
-				}
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"			 "MODIFIER_STATE_VALUE_ENABLED"
-					
-				}
-			}
-			"lianzhan_thinker_1"
-			{
-				"Duration"   "%duration_thinker_1"
-				"OnAttackLanded"
-				{
-					"ApplyModifier"
+			        "ApplyModifier"
 					{
-						"Target"   "TARGET"
+						"Target"  "CASTER"
 						
+						"ModifierName"		"lianzhan_thinker_1"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target" 			"CASTER"
 						"ModifierName"		"lianzhan_buff"
 					}
 				}
+				
 			}
-            "lianzhan_buff"
-            {
-            	"Duration"   "%duration_attack"
-            	"IsHidden"  "1"
-            	"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
-            	"Properties"
-            	{
-            		"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"   "%damage_bonus"
-            	}
-            }
+			"lianzhan_buff"
+			{
+				"IsHidden"   "1"
+			    "MODIFIER_ATTRIBUTE_MULTIPLE"   "1"
+			   "Properties"
+			   {
+			   	   "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"   "%radius"
+			   }
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -4721,30 +4753,331 @@
 			"02"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"radius"			"800 1000 1200"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration_thinker_1"			"2.5 3 3.5"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration_attack"			"2.5 3 3.5"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage_bonus"			"10 12 15"
+				"radius"			"150 200 250"
 			}
 		}
 
 	}
 	//=================================================================================================================
-	// 猪儿虫隐士
+	// 张宝
 	//=================================================================================================================
-	
+	"zhangbao_suolianshandian"
+	{
+		"BaseClass"    "zuus_arc_lightning"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"  
+		"LevelsBetweenUpgrades"   "2"          
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.2"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"75 100 125 150"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.5 1.5 1.5 1.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 60 70 80"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500 500 500 500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_count"			"3 4 5 6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"jump_delay"			"0.25 0.25 0.25 0.25"
+			}
+		}
+ 	}
+ 	"zhangbao_tianleiji"
+ 	{
+ 		"BaseClass"    "zuus_lightning_bolt"
+ 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"LevelsBetweenUpgrades"   "2"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"75 150 225 300"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12 12 12 12"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 125 150 175"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.1"	// just a ministun
+        "OnSpellStart"
+        {
+        	"ApplyModifier"
+        	{
+        		"Target" 			"TARGET"
+        		"ModifierName"		"tianleiji_buff"
+        	}
+        }
+        "Modifiers"
+        {
+        	"tianleiji_buff"
+        	{
+        		"IsHidden"   "1"
+        		"IsPurgable"  "1"
+        		"Duration"	 "1.75"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
+				}
+        	}
+        }
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"true_sight_radius"		"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sight_radius_day"		"750"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sight_radius_night"	"750"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"sight_duration"		"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"spread_aoe"	"100"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"0 0 0 -50"
+			}
+		}
+ 	}
+ 	"zhangbao_leidun"
+ 	{
+ 		"BaseClass"    "ability_datadriven"
+ 		"AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityTextureName"    "zhangbao_leidun"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+        "LevelsBetweenUpgrades"   "2"
+      
+        "Modifiers"
+        {
+        	"leidun_buff"
+        	{
+        		"IsHidden"   "1"
+        		"Passive"    "1"
+        		"OnAttacked"        		
+        		{
+        			"RunScript"
+        			{
+        				"ScriptFile" 	"scripts/vscripts/abilities/zhangbao.lua"
+        				"Target"		"CASTER"
+        				"Function"		"leidun_01"
+        			}
+        			"Random"
+                    {
+                       "Chance"      "%chance"
+                       "PseudeoRandom"   "DOTA_PSEUDO_RANDOM_JUGG_CRIT"
+                       "OnSuccess"
+                        {
+                            "Stun"
+                            {
+                            	"Target"   "ATTACKER"
+						        "Duration"  "1.5"
+                            }
+                         
+                        }
+                    }
+        		}
+        	}
+        	
+        }
+        "AbilitySpecial"
+        {
+        	"01"
+        	{
+        		"var_type"		"FIELD_FLOAT"
+        		"per_manaregen"			"4 8 12 16"
+        	}
+        	"02"
+        	{
+        		"var_type"		"FIELD_FLOAT"
+        		"chance"			"4 6 8 10"
+        	}
+        }
+ 	}
+ 	"zhangbao_shandianqiu"
+ 	{
+ 		"BaseClass"    "ability_datadriven"
+ 		"AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+ 		"AbilityTextureName"   "zhangbao_shandianqiu"
+ 		"MaxLevel"   "3"
+ 		"RequiredLevel"   "6 11 16"
+ 		"LevelsBetweenUpgrades"   "5"
+  		 "AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+        "precache"
+        {
+        	"particle" 			"particles/econ/items/storm_spirit/storm_spirit_orchid_hat/stormspirit_orchid_ball_sphere.vpcf"
+        	"particle"          "particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+        }
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"75 150 225 300"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"160 160 160 160"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250 300 350"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/zhangbao.lua"
+				"Target"		"CASTER"
+				"Function"		"shandianqiu_01"
+			}
+			
+		}
+     
+ 	}
+ 	"zhangbao_shandianqiu_dummy_01"
+ 	{
+ 		"BaseClass"    "ability_datadriven"
+ 		"DOTA_ABILITY_BEHAVIOR"   "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+ 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "MaxLevel"   "3"
+        "Modifiers"
+        {
+        	"zhangbao_shandianqiu_dummy_01_buff"
+        	{
+        		"IsHidden"   "1"
+        		"Passive"     "1"
+        		"ThinkInterval"   "0.1"
+        		"OnIntervalThink"
+        		{
+        			"TrackingProjectile"
+			        {
+				       "Target"			
+				       {
+				       	     "Center"    "CASTER"
+				       	     "Radius"    "%radius"
+				       	     "Teams" 				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				       	     "Types"      "DOTA_UNIT_TARGET_HERO"
+                             "Flags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				       }
+				       "EffectName"		"particles/units/heroes/hero_stormspirit/stormspirit_base_attack.vpcf"
+				       "Dodgeable"		 "0"
+				       "ProvidesVision"	"1"
+				       "VisionRadius"		"0"
+				       "MoveSpeed"		 "1200"
+				       "SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			        }
+        		}
+        	}
+        	"zhangbao_shandianqiu_dummy_02_buff"
+        	{
+        		"IsHidden"   "1"
+        		"Duration"    "0.15"
+        		"ThinkInterval"   "0.1"
+        		"OnCreated"
+        		{
+        			"Damage"
+			        {
+				        "Target"			
+				        {
+				       	     "Center"    "TARGET"
+				       	     "Radius"    "%radius"
+				       	     "Teams" 				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				       	     "Types"      "DOTA_UNIT_TARGET_HERO"
+                             "Flags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				        }
+				        "Type"					"DAMAGE_TYPE_MAGICAL"
+				        "Damage"				"%damage"			        				       
+			        }
+        		}
+        	}
+        }
+        "OnProjectileHitUnit"
+		{
+			"DeleteOnHit"				"false"
+			"Damage"
+			{
+				"Target"				"TARGET"
+				"Type"					"DAMAGE_TYPE_MAGICAL"
+				"Damage"				"%damage"
+			}
+			"ApplyModifier"
+			{
+				"Target" 			"TARGET"
+				"ModifierName"		"zhangbao_shandianqiu_dummy_02_buff"
+			}
+		}
+     "AbilitySpecial"
+     {
+     	"01"
+     	{
+     		"var_type"		"FIELD_FLOAT"
+     		"radius"			"600 650 700"
+     	}
+     	"02"
+     	{
+     		"var_type"		"FIELD_FLOAT"
+     		"damage"			"50 80 110"
+     	}
+     }
+ 	}
 	//=================================================================================================================
 	// 投石车
 	//=================================================================================================================
@@ -4856,7 +5189,7 @@
 					"Target"
 					{
 						"Center"	"CASTER"
-						"Radius"	"50"
+						"Radius"	"100"
 						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					}
@@ -4865,7 +5198,7 @@
 						"Damage"
 						 {
 								"Target"	"TARGET"
-								"Damage"	"80"
+								"Damage"	"120"
 								 "Type"		"DAMAGE_TYPE_PHYSICAL"
 						 }
 					}
@@ -4887,7 +5220,7 @@
 					"Target"
 					{
 						"Center"	"CASTER"
-						"Radius"	"50"
+						"Radius"	"80"
 						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					}
@@ -4896,7 +5229,7 @@
 						"Damage"
 						 {
 								"Target"	"TARGET"
-								"Damage"	"80"
+								"Damage"	"120"
 								 "Type"		"DAMAGE_TYPE_PHYSICAL"
 						 }
 					}
@@ -4915,7 +5248,7 @@
 						"Damage"
 						 {
 								"Target"	"TARGET"
-								"Damage"	"40"
+								"Damage"	"80"
 								 "Type"		"DAMAGE_TYPE_PHYSICAL"
 						 }
 					}
@@ -4924,7 +5257,7 @@
 	}
 
 	//================================================================================================================
-	// 野怪卡野触发技能
+	// 野怪
 	//================================================================================================================
 	"wild_trigger"
 	{
@@ -4944,7 +5277,7 @@
 		}
 	}
 	//================================================================================================================
-	// 木桶系列技能
+	// 木桶系统
 	//================================================================================================================
 	"barrel_passive"
 	{
@@ -5028,8 +5361,8 @@
 	    	}
 		}
 	}
-	// 平衡性常数技能
-	// 血量修正
+	// 脝陆潞芒脨脭鲁拢脢媒录录脛脺
+	// 脩陋脕驴脨脼脮媒
 	"ability_health_modifier"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -5216,7 +5549,7 @@
 			}
 		}
 	}
-	//智力-魔法修正
+	
 	"ability_mana_modifier"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -5403,7 +5736,7 @@
 			}
 		}
 	}
-	//敏捷 攻击速度修正
+	//脙么陆脻 鹿楼禄梅脣脵露脠脨脼脮媒
 	"ability_atkspeed_modifier"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -5590,7 +5923,7 @@
 			}
 		}
 	}
-	//敏捷 护甲修正
+	//脙么陆脻 禄陇录脳脨脼脮媒
 	"ability_armor_modifier"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"

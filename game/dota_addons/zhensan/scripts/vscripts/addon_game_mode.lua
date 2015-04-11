@@ -146,7 +146,7 @@ function ZhensanGameMode:InitGameMode()
     -- 初始化物品核心
     ItemCore:Init()
     -- 木桶系统
-    Barrel:Init()
+    --Barrel:Init()
     --野怪
     ZSSpawner:Start_wild_init()
     --兵营是否存在

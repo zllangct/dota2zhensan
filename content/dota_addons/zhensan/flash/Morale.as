@@ -1,5 +1,4 @@
-﻿package  {
-	
+﻿package {
 	// Valve Libaries
     import ValveLib.Globals;
     import ValveLib.ResizeManager;
@@ -26,7 +25,7 @@
 		public var moraleClip:MovieClip;
 		public var moraleLabelClip:MovieClip;
 		public var correctedRatio:Number;
-		
+		public var shuwei:MovieClip;
 		public function Morale(){
 
 		}
@@ -37,7 +36,11 @@
 			gameAPI.SubscribeToGameEvent( "morale_update", onMoraleUpdate );
 			moraleClip.moraleShuLabel.visible = false;
 			moraleClip.moraleWeiLabel.visible = false;
-			moraleClip.tileBad.width = 560;
+			moraleClip.tileBad.visible = true;
+			moraleClip.tileGood.visible = true;
+			moraleClip.tileBad.width = 300;
+			shuwei.visible=true;
+			
 		}
 		
 		public function onMoraleUpdate(args:Object){
@@ -49,12 +52,12 @@
 			MoraleShu = args.MoraleShu;
 			trace("MORALE WEI" + MoraleWei);
 			trace("MORALE SHU" + MoraleShu);
-			var goodWidth:Number = MoraleShu * 1120 / 20;
+			var goodWidth:Number = MoraleShu * 600 / 20;
 			if (goodWidth == 0){
 				goodWidth = 1;
 			}
 			moraleClip.tileBad.width = goodWidth;
-			
+			moraleClip.tileBad.x=moraleClip.tileGood.x;
 			
 			// 上升下降的动画
 			
@@ -66,7 +69,7 @@
 			}
 			moraleLabelClip.visible = true;
 			moraleLabelClip.alpha = 0;
-			moraleLabelClip.y = 300;
+			moraleLabelClip.y = 800;
 			TweenLite.to(
     			moraleLabelClip,                    //movieclip to be tweened
     			1,                             		//duration
@@ -77,7 +80,7 @@
         			onComplete:function(){       	//onComplete callback
             			trace('tweening done!'); 	//you could even add a new tween here!
 						moraleLabelClip.visible = false;
-						moraleLabelClip.y = 300;
+						moraleLabelClip.y = 800;
         			}
     			}
 			);
@@ -108,8 +111,12 @@
 					
 			moraleClip.scaleX = correctedRatio /1.5;
 			moraleClip.scaleY = correctedRatio /1.5;
-			moraleClip.x = ( 515 * correctedRatio);//re.ScreenWidth * .5;//
-			moraleClip.y = ( 30 * correctedRatio);//re.ScreenHeight * .25;
+			moraleClip.x = ( 1450 * correctedRatio);//re.ScreenWidth * .5;//
+			moraleClip.y = ( 20 * correctedRatio);//re.ScreenHeight * .25;
+			shuwei.x=moraleClip.x-40;
+			shuwei.y=moraleClip.y+1;
+			moraleClip.tileGood.x= moraleClip.tileGood.x+10
+			moraleClip.tileBad.x = moraleClip.tileGood.x;
 		}
     }
 }
