@@ -34,3 +34,12 @@ function guojia_binhebaoliepo_01(keys) --国家特效，无其他内容
     end ,
     0.1)
 end
+function guojia_binhebaoliepo_02(keys)
+    local caster=keys.caster 
+    local target=keys.target
+    --for k,_target in pairs(target) do
+        if target:IsMagicImmune() then 
+            keys.ability:ApplyDataDrivenModifier(caster,target, "modifier_jidongningjie_1",nil)
+        end
+   -- end
+end

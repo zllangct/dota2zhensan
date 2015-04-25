@@ -21,6 +21,61 @@
 		"AttackDamageMax"			   "0" 
 		"AttackAnimationPoint"		"0.2"
     }
+     //=================================================================================================================
+	// 张辽  -createhero npc_dota_hero_dragon_knight enemy
+	//=================================================================================================================
+    "zhensan_zhangliao"
+    {
+    	"override_hero"       "npc_dota_hero_dragon_knight"
+    	// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"				"zhensan_test"				// Ability 1
+		"Ability2"				""					// Ability 2
+		"Ability3"				""				// Ability 3
+		"Ability4"				""			// Ability 4
+	
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------
+		"ArmorPhysical"				"2"									// Physical protection.
+
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"27"									// Damage range min.
+		"AttackDamageMax"			"37"									// Damage range max.
+		"AttackRate"				"1.7"									// Speed of attack.
+		"AttackAnimationPoint"		"0.433"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		"ProjectileModel"			""										// Particle system model for projectile.
+		"ProjectileSpeed"			"900"									// Speed of projectile.
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"22"									// Base strength
+		"AttributeStrengthGain"		"2.8"									// Strength bonus per level.
+		"AttributeBaseAgility"		"21"									// Base agility
+		"AttributeAgilityGain"		"1.7"									// Agility bonus per level.
+		"AttributeBaseIntelligence"	"17"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.7"									// Intelligence bonus per level.
+
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementSpeed"				"300"									// Speed.
+		"MovementTurnRate"			"0.6"									// Turning rate.
+		
+		// Bounds
+		//-------------------------------------------------------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"HealthBarOffset"			"170"
+		"StatusHealth"				"100"		// Base health.
+		"StatusHealthRegen"			"0.25"			// Health regeneration rate.
+		"StatusMana"				"0"		// Base mana.
+		"StatusManaRegen"			"0.01"
+		"VisionDaytimeRange"		"800"									// Range of vision during day light.
+		"VisionNighttimeRange"		"1800"
+    }
     //=================================================================================================================
 	// 张宝  风暴  
 	//=================================================================================================================
@@ -345,7 +400,7 @@
 		"Ability2"				"guanyu_liuyuefeizhan"					// Ability 2
 		"Ability3"				"guanyu_zuiquan"					// Ability 3
 		"Ability4"				"guanyu_jianshengfengbao"						// Ability 4
-
+        "Ability5"               "guanyu_jianshengfengbao_dummy"
 		// Armor
 		//-------------------------------------------------------------------------------------------------------------
 		"ArmorPhysical"			"1"											// Physical protection.
@@ -378,10 +433,10 @@
 
 		// Movement
 		//-------------------------------------------------------------------------------------------------------------
-		"MovementSpeed"				"320"									// Speed.
+		"MovementSpeed"				"300"									// Speed.
 		"MovementTurnRate"			"0.6"									// Turning rate.
 		"HasAggressiveStance"		"1"										// Plays alternate idle/run animation when near enemies
-		
+		//"vscripts"                  "scripts/vscripts/abilities/guanyu.lua"
 		// Bounds
 		//-------------------------------------------------------------------------------------------------------------
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"

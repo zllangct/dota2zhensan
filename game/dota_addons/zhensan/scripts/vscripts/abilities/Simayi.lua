@@ -63,9 +63,9 @@ function OnXingluo(keys)
     local caster = keys.caster
     local point = keys.target_points[1]
     
---    local p = ParticleManager:CreateParticle('particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start_meteor.vpcf', PATTACH_CUSTOMORIGIN, caster)
---    ParticleManager:SetParticleControl(p, 0, point)
---    ParticleManager:ReleaseParticleIndex(p)
+    local p = ParticleManager:CreateParticle('particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start_meteor.vpcf', PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(p, 0, point)
+   ParticleManager:ReleaseParticleIndex(p)
     -- 暂时先取消掉这个特效
 
 end
@@ -82,4 +82,16 @@ function OnXingluoEnd(keys)
     local p_index = ParticleManager:CreateParticle(p_end, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(p_index, 0, point)
     ParticleManager:ReleaseParticleIndex(p_index)
+end
+function Onstartstun(keys)
+    -- body
+    local caster = keys.caster
+    target=keys.target
+    if target then
+        for k,_target in pairs(target) do
+            if _target:IsMagicImmune() then 
+                 keys.ability:ApplyDataDrivenModifier(caster,_target, "sima_xingluo_stun_buff", {duration = 1.75})
+            end
+        end
+    end
 end

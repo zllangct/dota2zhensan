@@ -11,10 +11,10 @@ local modules = {
 
     "abilities.ParaAdjuster", -- 平衡性常数修正
     "abilities.AbilityCore", -- 技能核心
-
+    "abilities.guanyu",  --关羽
     "items.ItemCore", --物品核心
     "items.Car", -- 投石车系统
-
+   
     "hud.HudGameEvents", -- HUD的游戏事件函数
 
     "utils.timers", -- 计时器类
@@ -22,7 +22,7 @@ local modules = {
     "utils.Precache", -- 预载入函数
 
     "lib.popup",
-
+     "lib.statcollection",
     "sound.sounds",
 
     "other.movement" -- 移动速度管理
@@ -31,7 +31,6 @@ local modules = {
 for _, mod in pairs(modules) do
     require(mod)
 end
-
 -- 常量
 GOLD_PER_TICK = 1
 GOLD_TICK_TIME = 0.8
@@ -136,7 +135,31 @@ function ZhensanGameMode:InitGameMode()
     ListenToGameEvent("npc_spawned", Dynamic_Wrap(ZhensanGameMode, "OnNPCSpawned"), self)
     -- 监听玩家选择英雄事件
     ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(ZhensanGameMode, "OnPlayerPicked"), self)
-
+    --关羽大招
+    --------------技能代码----稍后移走----------------------
+    --------------------------------------------------------
+    function ZhensanGameMode:guanyu_jianrenfengbao1(keys)
+        PrintTable(keys)
+       local player_id = keys.PlayerID
+        -- 获取玩家实体
+        local player = PlayerResource:GetPlayer(player_id - 1)
+        if not player then print("INVALID PLAYER") return end
+        -- 获取玩家所使用的英雄
+        local hero = player:GetAssignedHero()
+        if not hero then print("INVALID HERO") return end
+        -- 从keys获取技能名称，再获取所释放的技能
+        local ability_name = keys.abilityname
+        local ability = hero:FindAbilityByName(ability_name)
+        local ability1 = hero:FindAbilityByName("guanyu_jianshengfengbao_dummy")
+           ability1:SetLevel(1)
+        if ability1 and ability_name=="guanyu_jianshengfengbao" then
+          ability1:ApplyDataDrivenModifier(hero, hero, "guanyu_jianshengfengbao_damagebuff",nil)
+        end
+    end
+    ------------------------------------------------------------
+    ------------------------------------------------------------
+    ListenToGameEvent("dota_player_used_ability", Dynamic_Wrap(ZhensanGameMode, "guanyu_jianrenfengbao1"), self)
+    
     -- 初始化技能监听
     AbilityCore:Init()
     -- 初始化木材系统监听

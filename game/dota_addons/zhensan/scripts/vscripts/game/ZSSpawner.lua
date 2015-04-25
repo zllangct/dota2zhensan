@@ -11,7 +11,9 @@ function ZSSpawner:Start_wild_init( )
 end
 function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原点
     -- body
-    
+     local maxtime=0
+     local lifetime=0
+     local health=caster:GetHealth()
      local wild_origin_name = caster:GetContext("spwaner_name")
      local wild_origin = Entities:FindByName(nil, wild_origin_name)
      caster:SetContextThink( "wild_maxaway", function()
@@ -31,6 +33,12 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
                 caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
              end
+          elseif wild_origin_name== "zs_long_1"  then 
+             if distance > 1600 then 
+                caster:SetMustReachEachGoalEntity(true)
+                caster:SetInitialGoalEntity(wild_origin)
+                caster:MoveToPositionAggressive(wild_spwaner)
+             end
           elseif wild_origin_name== "zs_pangxie_1" or wild_origin_name== "zs_pangxie_2" then 
              if distance > 1600 then 
                 caster:SetMustReachEachGoalEntity(true)
@@ -44,7 +52,46 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
                 caster:MoveToPositionAggressive(wild_spwaner)
              end
           end
-          return 0.5 
+          if maxtime>5 then
+                caster:MoveToPositionAggressive(wild_spwaner)
+                maxtime=0
+          end
+          if distance > 10 then 
+             local enemies = FindUnitsInRadius( caster:GetTeam(), caster:GetOrigin(), nil,1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+             if not enemies then 
+                caster:SetMustReachEachGoalEntity(true)
+                caster:SetInitialGoalEntity(wild_origin)
+                caster:MoveToPositionAggressive(wild_spwaner)
+             end
+          end
+           if wild_origin_name== "zs_long_1"  then
+               if health == caster:GetHealth() then                                    
+                        if caster:GetHealth() ~= caster:GetMaxHealth() then lifetime=lifetime+1 end
+                        if lifetime > 20 then 
+                          if caster:GetHealth() ~= caster:GetMaxHealth() then
+                            caster:SetHealth(caster:GetMaxHealth())  
+                            lifetime=0
+                          end                             
+                        end
+                else
+                   lifetime=0
+                end             
+                if wild_origin_name== "zs_long_1"  then
+                end
+          end
+          
+            if wild_origin_name== "zs_long_1"  then
+                if health ~= caster:GetHealth() then
+                   health = caster:GetHealth()
+                   lifitime=0
+                end             
+            end 
+          if distance > 10 then
+              maxtime=maxtime+1 
+              return 1
+          else 
+              return 1
+          end
      end,0)         
 end
 function ZSSpawner:wild(keys)
@@ -60,6 +107,11 @@ function ZSSpawner:wild(keys)
                 self:DoSpawn_wild(self._spawner_wild[_spwaner_name]:GetOrigin(),_wild_name,_spwaner_name)
                 return nil
             end,75)
+        elseif _wild_name=="npc_dota_long" then
+            GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("ZSSpawnerTimer_12"),function()        
+                self:DoSpawn_wild(self._spawner_wild[_spwaner_name]:GetOrigin(),_wild_name,_spwaner_name)
+                return nil
+            end,360)
         else 
             GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("ZSSpawnerTimer_22"),function()                
                 self:DoSpawn_wild(self._spawner_wild[_spwaner_name]:GetOrigin(),_wild_name,_spwaner_name)
@@ -92,7 +144,7 @@ function ZSSpawner:Start_wild()
     self:DoSpawn_wild(self._spawner_wild["zs_pangxie_2"]:GetOrigin(),"npc_zs_pangxie","zs_pangxie_2")
     self:DoSpawn_wild(self._spawner_wild["zs_pangxie_1"]:GetOrigin(),"npc_zs_pangxie","zs_pangxie_1")
     self:DoSpawn_wild(self._spawner_wild["zs_aoxia"]:GetOrigin(),"npc_zs_aoxiao","zs_aoxia")
-
+    self:DoSpawn_wild(self._spawner_wild["zs_long_1"]:GetOrigin(),"npc_dota_long","zs_long_1")
 end
 function ZSSpawner:bingying_alive_init()
     -- body
@@ -309,7 +361,12 @@ function ZSSpawner:CollectSpawners()
     local zs_pangxie_2 = Entities:FindByName(nil, 'zs_pangxie_2')
     local zs_pangxie_1 = Entities:FindByName(nil, 'zs_pangxie_1')
     local zs_aoxia = Entities:FindByName(nil, 'zs_aoxia')
-
+    local zs_long_1 =Entities:FindByName(nil, 'zs_long_1')
+    if zs_long_1 then
+        self._spawner_wild["zs_long_1"] = zs_long_1
+    else
+        print("SPAWNER WEI TOP NOT FOUND!!!!!!!!!!!!!")
+    end
     if zs_bailang_1 then
         self._spawner_wild["zs_bailang_1"] = zs_bailang_1
     else

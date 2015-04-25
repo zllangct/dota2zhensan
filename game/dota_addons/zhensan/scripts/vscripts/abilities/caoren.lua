@@ -81,7 +81,7 @@ function TrueFormStart( event ) --鬼神开始变形调用
             return 0.02
         end 
     end,0)
-    Timers:CreateTimer(duration,function()  --变身持续时间到时，变回原模型
+    GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("caoren_03"),function()  --变身持续时间到时，变回原模型
         --设置为原有模型
         caster:SetModel(caster.caster_model)
 	    caster:SetOriginalModel(caster.caster_model)
@@ -117,7 +117,7 @@ function TrueFormStart( event ) --鬼神开始变形调用
          end
         --恢复饰品
         ShowWearables( event )
-    end)
+    end,duration)
     
 end
 function HideWearables( event )   --隐藏饰品

@@ -50,7 +50,6 @@ end
 function guanyu_liuyuefeizhan_damage(caster,damage,point,ability) --关羽五月雨斩伤害函数
     -- body
     local target=FindUnitsInRadius(caster:GetTeam(), point, nil, 300, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
-    PrintTable(target)
     local caster_now=caster:GetAbsOrigin()     
     if target[1] then 
       for _,_target in pairs(target) do
@@ -72,3 +71,26 @@ function guanyu_liuyuefeizhan_damage(caster,damage,point,ability) --关羽五月
           caster:RemoveModifierByName("guanyu_liuyuefeizhan_wudi")   --移除关羽移动过程中的无敌、不可控状态
       end
 end
+function guanyu_liuyuefeizhan_02(keys)
+    local caster=keys.caster
+    local target=keys.target 
+    local ability = caster:FindAbilityByName("guanyu_jianshengfengbao")
+    local k=ability:GetLevel()
+    local damage=ability:GetLevelSpecialValueFor("damage",k-1)
+      local per_damage=damage*0.3
+      local teams = DOTA_UNIT_TARGET_TEAM_ENEMY
+      local types = DOTA_UNIT_TARGET_HERO
+      local flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+      local rad   = 250 
+      local group = FindUnitsInRadius(caster:GetTeam(),caster:GetOrigin(),nil, rad, teams, types, flags, FIND_CLOSEST, true)
+      if group ~= nil then 
+        for i,unit in pairs(group) do
+          if unit ~= nil then 
+            if unit:IsMagicImmune() then 
+                ApplyDamage({ victim = unit, attacker = caster, damage = per_damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+            end 
+          end
+        end
+      end    
+end
+

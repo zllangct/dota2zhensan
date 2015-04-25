@@ -1,8 +1,8 @@
 "CustomHeroList"
 {
     "npc_dota_hero_invoker"         "1" //诸葛
-    "npc_dota_hero_silencer"	"1" //司马
-    "npc_dota_hero_silencer"     "1" //典韦
+    "npc_dota_hero_silencer"	    "1" //司马
+    "npc_dota_hero_silencer"        "1" //典韦
     "npc_dota_hero_zuus"            "1" //寻
     "npc_dota_hero_phantom_lancer"  "1" //赵云
     "npc_dota_hero_axe"             "1" //张飞
@@ -12,5 +12,7 @@
     "npc_dota_hero_chaos_knight"    "1" //魏延
     //"npc_dota_hero_warlock"         "1" //隐士
     "npc_dota_hero_necrolyte"       "1" //天云隐士
-    "npc_dota_hero_storm_spirit"       "1"  //张宝  暴风
+    "npc_dota_hero_storm_spirit"    "1"  //张宝  暴风
+    //"npc_dota_hero_dragon_knight"   "1"//张辽
 }
+//-createhero npc_dota_hero_axe

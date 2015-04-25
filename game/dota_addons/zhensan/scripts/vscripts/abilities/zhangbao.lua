@@ -33,3 +33,12 @@ function shandianqiu_01(keys)
     	creep:RemoveSelf()
     end,20)
 end
+function shandianqiu_02(keys)
+    local caster=EntIndexToHScript(keys.caster_entindex)
+    local target=keys.target
+    local k=keys.ability:GetLevel()
+    local damage=keys.ability:GetLevelSpecialValueFor("damage",k-1)
+    if target:IsMagicImmune() then 
+            ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PHYSICAL})
+    end
+end

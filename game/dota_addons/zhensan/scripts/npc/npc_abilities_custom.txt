@@ -1150,6 +1150,8 @@
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityCastPoint"		"2.15"
 		"AbilityCastAnimation"	"ACT_DOTA_VICTORY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"RequiredLevel"			 "6 11 16"
 		"LevelsBetweenUpgrades"	"5"
 		"AbilityManaCost"		"350 450 550"
@@ -1213,9 +1215,34 @@
 					"RunScript"
 					{
 						"ScriptFile" 	"scripts/vscripts/abilities/Simayi.lua"
+						"Target"
+						{
+							"Center"		"POINT"
+							"Radius"		"350"
+							"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+							"Flags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
+						"Function"		"Onstartstun"
+					}
+					"RunScript"
+					{
+						"ScriptFile" 	"scripts/vscripts/abilities/Simayi.lua"
 						"Target"		"POINT"
 						"Function"		"OnXingluoEnd"
 					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"sima_xingluo_stun_buff"
+			{
+				"IsHidden"  "1"
+				"Duration"   "1.75"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"   "MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -3273,17 +3300,17 @@
 	{
 		"BaseClass"			"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityTextureName"		"guojia_binghebaoliepo"	 //录录脛脺脥录卤锚	脨猫脨脼赂脛
+		"AbilityTextureName"		"guojia_binghebaoliepo"	
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel"			 "3"
 		"RequiredLevel"				 "6 11 16"
 		"LevelsBetweenUpgrades"	"5"
 		"AbilityCooldown"			 "120"	 
 		"AbilityManaCost"			 "300 380 460"
 		 "AbilityCastRange"				"900"
-		//"AbilityCastPoint"				"0"
 		"precache"
 		{
 			"particle" 			"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/crystal_maiden_cowl_ambient.vpcf"
@@ -3324,18 +3351,26 @@
 			"Damage"
 			{
 				"Target"		 "TARGET"
+				//"Flags"			 "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Type"			 "DAMAGE_TYPE_MAGICAL"
 				"Damage"		 "350 450 550"
 			}
 			"ApplyModifier"
 			{
 				"Target"			 "TARGET"
-				"ModifierName"		 "modifier_jidongningjie"
+				//"Flags"			 "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"ModifierName"		 "modifier_jidongningjie_1"
+			}
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/guojia.lua"
+				"Target"		"TARGET"
+				"Function"		"guojia_binhebaoliepo_02"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_jidongningjie"
+			"modifier_jidongningjie_1"
 			{
 				"IsHidden"   "1"
 				"OnCreated"
@@ -3375,11 +3410,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"			"juggernaut_blade_fury"											// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
 		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5028"														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
+		//------------------------------------------------------------------------------------------------------------														// unique ID number for this ability.	Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			 "guanyu_xuanfengzhan"
 		"FightRecapLevel"				"5"
 		"LevelsBetweenUpgrades"          "5"
@@ -3401,6 +3436,36 @@
 		"AbilityManaCost"				"150 180 210"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
+		
+		"Modifiers"
+		{
+			"guanyu_jianshengfengbao_damagebuff"
+			{
+				//"Passive"   "1"
+				//"IsHidden"   "1"
+				"Duration"   "7"
+				"OnCreated"
+				{
+					"ThinkInterval" "0.3"
+				    "OnIntervalThink"
+				    {
+					    "RunScript"
+			            {
+				            "ScriptFile" 	"scripts/vscripts/abilities/guanyu.lua"
+				            "Target"
+			                {
+					           "Center"		"CASTER"
+					           "Radius"		"250"
+					           "Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					           "Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+					           "Flags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				            }
+				            "Function"		"guanyu_liuyuefeizhan_02"
+			            }
+				    }
+				}				
+			}
+		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -3413,6 +3478,66 @@
 				"var_type"					"FIELD_INTEGER"
 				"blade_fury_radius"			"250"
 			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage"			"180 250 380"
+			}
+
+		}
+	}
+	"guanyu_jianshengfengbao_dummy"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	    "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"Modifiers"
+		{
+			"guanyu_jianshengfengbao_damagebuff"
+			{
+				//"Passive"   "1"
+				//"IsHidden"   "1"
+				"Duration"   "7"
+
+					"ThinkInterval" "0.3"
+				    "OnIntervalThink"
+				    {
+					    "RunScript"
+			            {
+				            "ScriptFile" 	"scripts/vscripts/abilities/guanyu.lua"
+				            "Target"
+			                {
+					           "Center"		"CASTER"
+					           "Radius"		"250"
+					           "Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					           "Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+					           "Flags"         "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				            }
+				            "Function"		"guanyu_liuyuefeizhan_02"
+			            }
+				    }
+								
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"blade_fury_damage_tick"	"0.3"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"blade_fury_radius"			"250"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damge"			"180 250 380"
+			}
+
 		}
 	}
 	//=================================================================================================================
@@ -3534,7 +3659,7 @@
 				"EffectAttachType"	 "follow_origin"
 				"Target"		"TARGET"
 			}
-			 "Damage"
+			"Damage"
 			{
 				"Type"		"DAMAGE_TYPE_MAGICAL"
 				"Damage"	"%damage"
@@ -3560,7 +3685,7 @@
 				"Duration"   "0.3"
 				"States"
 				{
-					"MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"					
+					"MODIFIER_STATE_STUNNED"  "MODIFIER_STATE_VALUE_ENABLED"					
 				}
 			}
 		}
@@ -3668,12 +3793,20 @@
 							"EffectName"	"Hero_Alchemist.UnstableConcoction.Stun"
 							 "Target" 		"CASTER"
 					}
-					 // "AttachEffect"
-					 // {
-					//	 "EffectName"		"particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf"
-					 //	"EffectAttachType"	 "follow_origin"
-					 //	"Target"		"CASTER"
-					 // }
+					"ApplyModifier"
+					{
+						"Target" 			"CASTER"
+						"ModifierName"		"guanyu_liuyuefeizhan_houyao"
+					}
+				}
+			}
+			"guanyu_liuyuefeizhan_houyao"  
+			{
+				"IsHidden"   "1"
+				"Duration"   "0.3"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"  "MODIFIER_STATE_VALUE_ENABLED"					
 				}
 			}
 		}
@@ -3881,7 +4014,7 @@
 					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"2.1"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"8"
 					//"MODIFIER_PROPERTY_HEALTH_BONUS"				"1000"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"25"
+					//"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"25"
 
 				}
 				"States"
@@ -4652,14 +4785,9 @@
 			"01"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"duration"			"6 6 6 6"
+				"duration_attack"			"4 5 6 7"
 			}
 			"02"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration_attack"			"3.5 4 4.5 5"
-			}
-			"03"
 			{
 				"var_type"		"FIELD_FLOAT"
 				"damage_bonus"			"5 8 12 15"
@@ -4720,7 +4848,7 @@
 					{
 						"Target"  "CASTER"
 						
-						"ModifierName"		"lianzhan_thinker_1"
+						"ModifierName"		"lianzhan_buff"
 					}
 				}
 				"OnDestroy"
@@ -5004,7 +5132,7 @@
         	{
         		"IsHidden"   "1"
         		"Passive"     "1"
-        		"ThinkInterval"   "0.1"
+        		"ThinkInterval"   "0.2"
         		"OnIntervalThink"
         		{
         			"TrackingProjectile"
@@ -5055,13 +5183,19 @@
 			"Damage"
 			{
 				"Target"				"TARGET"
-				"Type"					"DAMAGE_TYPE_MAGICAL"
+				"Type"					"DAMAGE_TYPE_PHYSICAL"
 				"Damage"				"%damage"
 			}
 			"ApplyModifier"
 			{
 				"Target" 			"TARGET"
 				"ModifierName"		"zhangbao_shandianqiu_dummy_02_buff"
+			}
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/zhangbao.lua"
+				"Target"		"TARGET"
+				"Function"		"shandianqiu_02"
 			}
 		}
      "AbilitySpecial"
@@ -5078,6 +5212,25 @@
      	}
      }
  	}
+	//=================================================================================================================
+	//测试
+	//=================================================================================================================
+	"zhensan_test"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"test_buff"
+			{
+				"Passive"  "1"
+				"States"
+                {
+                	"MODIFIER_STATE_MAGIC_IMMUNE"				"MODIFIER_STATE_VALUE_ENABLED"
+                }
+			}
+		}
+	}
 	//=================================================================================================================
 	// 投石车
 	//=================================================================================================================
