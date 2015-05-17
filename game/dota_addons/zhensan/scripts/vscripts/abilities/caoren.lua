@@ -40,6 +40,9 @@ function TrueFormStart( event ) --鬼神开始变形调用
 	end
 	caster.caster_attack = caster:GetAttackCapability() 
 	caster:SetAbsOrigin(point+Vector(0,0,300))  --移动曹仁到AOE中心   
+    local p_end3 = 'particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start.vpcf'
+            local p_index3 = ParticleManager:CreateParticle(p_end3, PATTACH_CUSTOMORIGIN, caster)
+            ParticleManager:SetParticleControl(p_index3, 0,point)
    	--变身，改变模型，同时变大,从高处掉落。
 	caster:SetOriginalModel(model)
 	local model_size = 0.3  --初始鬼神模型大小
@@ -76,7 +79,7 @@ function TrueFormStart( event ) --鬼神开始变形调用
             caster:SetModelScale(model_size)
             local now_point = caster:GetAbsOrigin()
             caster:SetAbsOrigin(now_point-Vector(0,0,per_down))
-            model_size=model_size+0.2
+            model_size=model_size+0.22
             count = count + 1 
             return 0.02
         end 
@@ -130,6 +133,7 @@ function HideWearables( event )   --隐藏饰品
     while model ~= nil do
         if model:GetClassname() ~= "" and model:GetClassname() == "dota_item_wearable" then
             local modelName = model:GetModelName()
+            print("modelName:"..model:GetModelName())
             if string.find(modelName, "invisiblebox") == nil then
             	-- Add the original model name to revert later
             	table.insert(hero.wearableNames,modelName)

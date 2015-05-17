@@ -32,6 +32,7 @@
 		"item"		"item_zhuzaoyongchui"
 		"item"		"item_huwan"
 		"item"     "item_xuanwujia"
+		"item"     "item_qingnangshu"
 	}
 
 	"weapons_armor"
@@ -125,6 +126,7 @@
 		"item"      "item_huangzhonggong"
 		"item"      "item_shiji"
 		"item"      "item_yinjian"
+		"item"       "item_qingnangshu"
 	}
 
 	"sideshop2"
@@ -134,6 +136,8 @@
 	
 	"secretshop"
 	{
-		
+		//"item"      "item_baozi"
+		//"item"      "item_guojiu"
+		//"item"		"item_toushiche"
 	}
 }

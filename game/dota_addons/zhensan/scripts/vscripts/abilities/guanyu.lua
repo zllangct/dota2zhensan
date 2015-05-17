@@ -28,6 +28,10 @@ function guanyu_liuyuefeizhan_move(caster,point,distance,dir,damage,ability)   -
           perdistance_v=v*0.02-1/2*3750*0.02*0.02
           v=v-3750*0.02
           caster:SetAbsOrigin(caster_ori+Vector(0,0,perdistance_v)-dir*perdistance_h)
+        elseif t == 0.5 then
+            local p_endx = 'particles/econ/items/juggernaut/jugg_sword_fireborn_odachi/jugg_crit_blur_fb_odachi.vpcf'
+                  local p_indexx = ParticleManager:CreateParticle(p_endx, PATTACH_CUSTOMORIGIN, caster)
+                  ParticleManager:SetParticleControl(p_indexx, 0, caster:GetOrigin())
         elseif t>= 0.6 then
            --在落地之时添加特效，且调用伤害函数
            local p_end = 'particles/econ/items/brewmaster/brewmaster_offhand_elixir/brewmaster_thunder_clap_elixir.vpcf'
@@ -49,7 +53,7 @@ function guanyu_liuyuefeizhan_move(caster,point,distance,dir,damage,ability)   -
 end
 function guanyu_liuyuefeizhan_damage(caster,damage,point,ability) --关羽五月雨斩伤害函数
     -- body
-    local target=FindUnitsInRadius(caster:GetTeam(), point, nil, 300, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+    local target=FindUnitsInRadius(caster:GetTeam(), point, nil, 300, ability:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
     local caster_now=caster:GetAbsOrigin()     
     if target[1] then 
       for _,_target in pairs(target) do
@@ -79,7 +83,7 @@ function guanyu_liuyuefeizhan_02(keys)
     local damage=ability:GetLevelSpecialValueFor("damage",k-1)
       local per_damage=damage*0.3
       local teams = DOTA_UNIT_TARGET_TEAM_ENEMY
-      local types = DOTA_UNIT_TARGET_HERO
+      local types = DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_MECHANICAL+DOTA_UNIT_TARGET_OTHER
       local flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
       local rad   = 250 
       local group = FindUnitsInRadius(caster:GetTeam(),caster:GetOrigin(),nil, rad, teams, types, flags, FIND_CLOSEST, true)

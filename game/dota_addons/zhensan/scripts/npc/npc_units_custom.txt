@@ -24,12 +24,24 @@
             }
         }
     }
+    "npc_judian_granter"  //据点修车
+	{
+		"BaseClass"					"npc_dota_creature"
+		
+		"Model"						"models/development/invisiblebox.vmdl"
+		"Ability1"					"ability_judian_granter"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BountyXP"					"0"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"StatusHealth"				"5000"
+		"TeamName"					"DOTA_TEAM_NOTEAM"
+	}
     "npc_dota_long"
 	{
 		// General
 		//
 		"BaseClass"					"npc_dota_creep_neutral"	// Class of entity of link to.
-		"Model"						"models\creeps\roshan\roshan.mdl"	// Model.
+		"Model"						"models/creeps/nian/nian.vmdl"	// Model.
 		"SoundSet"					"Roshan"					// Name of sound set.
 		"ModelScale"				"1"
 		"Level"						"30"
@@ -175,6 +187,35 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}
 	//=================================================================================	
+	//张辽 大招
+	//=================================================================================
+	
+	"npc_zs_zhangliao_dummy"
+	{
+
+		"Model"						"models/items/rubick/forgotten_greatstaff/forgotten_greatstaff.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creep_neutral"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		"ModelScale" 					"1.2"
+		"IsNeutralUnitType"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"ability_dummy_unit_zhangliao"			// Ability 1
+		"Ability2"					"zhangliao_unit"			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+ 
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		
+		
+	}
+	//=================================================================================	
 	//野怪
 	//=================================================================================
 	"npc_zs_laohu_s"
@@ -190,7 +231,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"lycan_summon_wolves_critical_strike"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"ability_yeguai_buff"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
@@ -257,7 +298,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"lycan_summon_wolves_critical_strike"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"ability_yeguai_buff"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
@@ -323,7 +364,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					""			// Ability 1
+		"Ability1"					"ability_yeguai_buff"			// Ability 1
 		"Ability2"					""			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
@@ -393,7 +434,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					""			// Ability 1.
+		"Ability1"					"ability_yeguai_buff"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -477,14 +518,14 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					""			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability1"					"slardar_bash"			// Ability 1
+		"Ability2"					"ability_yeguai_buff"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// Physical protection.
+		"ArmorPhysical"				"7"			// Physical protection.
 
 		// Attack
 		//----------------------------------------------------------------
@@ -545,7 +586,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"slardar_bash"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"ability_yeguai_buff"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
@@ -613,7 +654,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"lycan_summon_wolves_critical_strike"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"ability_yeguai_buff"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
@@ -681,7 +722,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"lycan_summon_wolves_critical_strike"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"ability_yeguai_buff"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
@@ -750,7 +791,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					""			// Ability 1.
+		"Ability1"					"ability_yeguai_buff"			// Ability 1.
 		"Ability2"					""			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
@@ -922,7 +963,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"15"
+		"ArmorPhysical"				"12"
 
 		// Attack
 		//----------------------------------------------------------------
@@ -1114,13 +1155,141 @@
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	}
 	//=================================================================================	
+	// 援军
+	//=================================================================================	
+     "npc_zs_unit_yuanju_01"  //boss 01
+    {
+    	"BaseClass"    "npc_dota_creep_lane"
+    	//"BaseClass"    "npc_dota_creature"
+    	"Model"   "models/heroes/kunkka/kunkka.vmdl"
+    	"ModelScale" 				"0.8"
+		"Level"						"1"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		
+		"Ability1"					""			// Ability 1.
+		"Ability2"					""			// Ability 2.
+		"Ability3"					""			// Ability 3.
+		"Ability4"					""			// Ability 4.
+		"Ability5"					""			// Ability 5.
+		"Ability6"					""			// Ability 6 - Extra.
+		"Ability7"					""			// Ability 7 - Extra.
+		"Ability8"					""			// Ability 8 - Extra.
+		
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"2"			// Physical protection.
+		"MagicalResistance"		    "0"			// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"19"		// Damage range min.
+		"AttackDamageMax"			"23"		// Damage range max.
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"				"1"			// Speed of attack.
+		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
+		"AttackRange"				"90"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			""			// Speed of projectile.
+
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"0"			// Base strength
+		"AttributeStrengthGain"		"0"			// Strength bonus per level.
+		"AttributeBaseIntelligence"	"0"			// Base intelligence
+		"AttributeIntelligenceGain"	"0"			// Intelligence bonus per level.
+		"AttributeBaseAgility"		"0"			// Base agility
+		"AttributeAgilityGain"		"0"			// Agility bonus per level.
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"62"		// Experience earn.
+		"BountyGoldMin"				"35"		// Gold earned min.
+		"BountyGoldMax"				"47"		// Gold earned max.
+        
+        "HasAggressiveStance"         "0"
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"			// Hull type used for navigation/locomotion.
+		"RingRadius"				"45"
+		"HealthBarOffset"			"150"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+		"MovementSpeed"				"300"		// Speed
+		"MovementTurnRate"			"0.6"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"500"		// Base health.
+		"StatusHealthRegen"			"0.25"		// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_SOFT"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"HasAggressiveStance"         "1"
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"850"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+		"vscripts"					"ai/shibing_ai.lua"
+		//Inventory
+		"Creature" 
+		{ 
+                 "AttachWearables"   // 附加饰品  写上刚才的数字  顺序没关系 但注意编号 
+                {
+                    "Wearable1"
+                    {
+                        "ItemDef"           "5250" 
+                    }
+                    "Wearable2"
+                    {
+                        "ItemDef"           "5251" 
+                    }
+                    "Wearable3"
+                    {
+                        "ItemDef"           "5252" 
+                    }
+                    "Wearable4"
+                    {
+                       "ItemDef"           "5253" 
+                    }
+                    "Wearable5"
+                    {
+                        "ItemDef"           "5254" 
+                    }
+                    "Wearable6"
+                    {
+                        "ItemDef"           "5255" 
+                    }
+                    "Wearable7"
+                    {
+                        "ItemDef"           "5256" 
+                    }
+                }
+        }
+    }
+	//=================================================================================	
 	// 小兵
 	//=================================================================================	
 	"npc_zs_creep_shu_melee"
 	{
+		//"BaseClass"   "npc_dota_creature"
 		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
-		//"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl"	// Model.
-		"Model"	                    "models/creeps/lane_creeps/creep_good_melee/creep_good_melee.vmdl"
+		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl"	// Model.
+		//"Model"   "models/heroes/dragon_knight/dragon_knight.vmdl"
+		//"Model"	                    "models/creeps/lane_creeps/creep_good_melee/creep_good_melee.vmdl"
 		"SoundSet"					"Creep_Good_Melee"					// Name of sound set.
 		"ModelScale" 				"1"
 		"Level"						"1"
@@ -1171,7 +1340,8 @@
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"35"		// Gold earned min.
 		"BountyGoldMax"				"47"		// Gold earned max.
-
+        
+        "HasAggressiveStance"         "0"
 		// Bounds
 		//----------------------------------------------------------------
 		"BoundsHullName"			"DOTA_HULL_SIZE_REGULAR"			// Hull type used for navigation/locomotion.
@@ -1204,10 +1374,42 @@
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
 		
 		//Inventory
+		"Creature" 
+		{ 
+                 "AttachWearables"   // 附加饰品  写上刚才的数字  顺序没关系 但注意编号 
+                {
+                    "Wearable1"
+                    {
+                        "ItemDef"           "6787" 
+                    }
+                    "Wearable2"
+                    {
+                        "ItemDef"           "6788" 
+                    }
+                    "Wearable3"
+                    {
+                        "ItemDef"           "6789" 
+                    }
+                    "Wearable4"
+                    {
+                       "ItemDef"           "6790" 
+                    }
+                    "Wearable5"
+                    {
+                        //"ItemDef"           "6791" 
+                    }
+                    "Wearable6"
+                    {
+                        "ItemDef"           "6792" 
+                    }
+                }
+        }
 	}	
 	"npc_zs_creep_wei_melee"
 	{
+		//"BaseClass"   "npc_dota_creature"
 		"BaseClass"					"npc_dota_creep_lane"	// Class of entity of link to.
+		//"Model"   "models/heroes/dragon_knight/dragon_knight.vmdl"
 		"Model"						"models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee.vmdl"	// Model.
 		"SoundSet"					"Creep_Bad_Melee"					// Name of sound set.
 		"ModelScale" 				"1"
@@ -1289,8 +1491,38 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"850"		// Range of vision during day light.
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
-		
+		"HasAggressiveStance"         "1"
 		//Inventory
+		"Creature" 
+		{ 
+                 "AttachWearables"   // 附加饰品  写上刚才的数字  顺序没关系 但注意编号 
+                {
+                    "Wearable1"
+                    {
+                        "ItemDef"           "6787" 
+                    }
+                    "Wearable2"
+                    {
+                        "ItemDef"           "6788" 
+                    }
+                    "Wearable3"
+                    {
+                        //"ItemDef"           "6789" 
+                    }
+                    "Wearable4"
+                    {
+                       // "ItemDef"           "6790" 
+                    }
+                    "Wearable5"
+                    {
+                        //"ItemDef"           "6791" 
+                    }
+                    "Wearable6"
+                    {
+                        "ItemDef"           "6792" 
+                    }
+                }
+        }
 	}
 	"npc_zs_creep_shu_range"
 	{
@@ -1498,7 +1730,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"15"		// Physical protection.
+		"ArmorPhysical"				"12"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 
 		// Attack
@@ -1546,7 +1778,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1000"		// Base health.
-		"StatusHealthRegen"			"0.1"			// Health regeneration rate.
+		"StatusHealthRegen"			"0"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 
@@ -1585,7 +1817,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"15"		// Physical protection.
+		"ArmorPhysical"				"12"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 
 		// Attack
@@ -1633,7 +1865,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1200"		// Base health.
-		"StatusHealthRegen"			"0.5"			// Health regeneration rate.
+		"StatusHealthRegen"			"0.1"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 
@@ -1672,7 +1904,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"15"		// Physical protection.
+		"ArmorPhysical"				"12"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 
 		// Attack
@@ -1720,7 +1952,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1500"		// Base health.
-		"StatusHealthRegen"			"0.2"			// Health regeneration rate.
+		"StatusHealthRegen"			"0.1"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 
@@ -1759,7 +1991,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"15"		// Physical protection.
+		"ArmorPhysical"				"12"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 
 		// Attack
@@ -1807,7 +2039,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1400"		// Base health.
-		"StatusHealthRegen"			"0.3"			// Health regeneration rate.
+		"StatusHealthRegen"			"0.1"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 
@@ -1846,7 +2078,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"15"		// Physical protection.
+		"ArmorPhysical"				"12"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 
 		// Attack
@@ -1894,7 +2126,7 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1600"		// Base health.
-		"StatusHealthRegen"			"0.5"			// Health regeneration rate.
+		"StatusHealthRegen"			"0.2"			// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
 
@@ -1933,7 +2165,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"30"		// Physical protection.
+		"ArmorPhysical"				"25"		// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 
 		// Attack
@@ -2116,7 +2348,7 @@
 		//"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl"	// Model.
 		"Model"	                    "models/particle/snowball.vmdl"
 		"SoundSet"					"Hero_WitchDoctor_Ward"					// Name of sound set.
-         "ModelScale" 				"0.5"
+         "ModelScale" 				"0.3"
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"zhangbao_shandianqiu_dummy_01"			// Ability 1.
@@ -2331,7 +2563,7 @@
 	  "npc_che"   //车子
 	  {
 		// General
-		"BaseClass"					"npc_dota_base"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_creep_siege"	// Class of entity of link to.
 		"Model"						"models/creeps/lane_creeps/creep_bad_siege/creep_bad_siege.mdl"	// Model.
 		"SoundSet"					"Creep_Bad_Engine"					// Name of sound set.
 		"MinimapIcon"					"minimap_siege"
@@ -2353,7 +2585,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"4"			// Physical protection.
+		"ArmorPhysical"				"2"			// Physical protection.
 		"MagicalResistance"				"0"			// Magical protection.
 
 		// Attack
@@ -2417,11 +2649,5 @@
 		"VisionNighttimeRange"		"1200"		// Range of vision at night time.
 		
 	}
-	"zhansan_long"
-	{
-		"BaseClass"    "npc_dota_roshan"
-		"BountyXP"					"1789"		// Experience earn.
-		"BountyGoldMin"				"1000"		// Gold earned min.
-		"BountyGoldMax"				"1500"		// Gold earned max.
-	}
+	
 }

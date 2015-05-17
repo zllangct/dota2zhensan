@@ -8,15 +8,16 @@ local modules = {
     "game.Morale", -- 士气系统
     "game.Lumber", -- 木材[其实是不是可以改名成军功什么的：@无双]
     "game.BarrelBuff", --木桶
-
+    "game.policy",--策略系统
     "abilities.ParaAdjuster", -- 平衡性常数修正
     "abilities.AbilityCore", -- 技能核心
     "abilities.guanyu",  --关羽
+    "abilities.caopi", --曹丕
     "items.ItemCore", --物品核心
     "items.Car", -- 投石车系统
-   
+    
     "hud.HudGameEvents", -- HUD的游戏事件函数
-
+     "abilities.zhangliao",
     "utils.timers", -- 计时器类
     "utils.table", -- table 辅助函数
     "utils.Precache", -- 预载入函数
@@ -139,21 +140,22 @@ function ZhensanGameMode:InitGameMode()
     --------------技能代码----稍后移走----------------------
     --------------------------------------------------------
     function ZhensanGameMode:guanyu_jianrenfengbao1(keys)
-        PrintTable(keys)
-       local player_id = keys.PlayerID
-        -- 获取玩家实体
-        local player = PlayerResource:GetPlayer(player_id - 1)
-        if not player then print("INVALID PLAYER") return end
-        -- 获取玩家所使用的英雄
-        local hero = player:GetAssignedHero()
-        if not hero then print("INVALID HERO") return end
-        -- 从keys获取技能名称，再获取所释放的技能
-        local ability_name = keys.abilityname
-        local ability = hero:FindAbilityByName(ability_name)
-        local ability1 = hero:FindAbilityByName("guanyu_jianshengfengbao_dummy")
-           ability1:SetLevel(1)
-        if ability1 and ability_name=="guanyu_jianshengfengbao" then
-          ability1:ApplyDataDrivenModifier(hero, hero, "guanyu_jianshengfengbao_damagebuff",nil)
+        if keys.abilityname=="guanyu_jianshengfengbao" then
+           local player_id = keys.PlayerID
+            -- 获取玩家实体
+           local player = PlayerResource:GetPlayer(player_id - 1)
+           if not player then print("INVALID PLAYER") return end
+           -- 获取玩家所使用的英雄
+            local hero = player:GetAssignedHero()
+           if not hero then print("INVALID HERO") return end
+           -- 从keys获取技能名称，再获取所释放的技能
+           local ability_name = keys.abilityname
+           local ability = hero:FindAbilityByName(ability_name)
+           local ability1 = hero:FindAbilityByName("guanyu_jianshengfengbao_dummy")
+              ability1:SetLevel(1)
+           if  ability1 and ability_name=="guanyu_jianshengfengbao" then
+             ability1:ApplyDataDrivenModifier(hero, hero, "guanyu_jianshengfengbao_damagebuff",nil)
+           end
         end
     end
     ------------------------------------------------------------
@@ -171,6 +173,9 @@ function ZhensanGameMode:InitGameMode()
     -- 木桶系统
     --Barrel:Init()
     --野怪
+    --初始化策略系统
+    Policy:Int()
+
     ZSSpawner:Start_wild_init()
     --兵营是否存在
     ZSSpawner:bingying_alive_init()
@@ -184,6 +189,7 @@ function ZhensanGameMode:InitGameMode()
     ParaAdjuster:SetAgiToAtkSpd(0.02)
     -- 设置敏捷-护甲常数0.15
     ParaAdjuster:SetAgiToAmr(0.15)
+    
 
 end
 

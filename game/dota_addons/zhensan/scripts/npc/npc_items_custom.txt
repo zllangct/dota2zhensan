@@ -2837,7 +2837,7 @@
 		"BaseClass"    "item_datadriven"
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	    "AbilityTextureName"	        "item_dadifu"
-		"Model"							"models/props_gameplay/sentry_ward_bundle.mdl"
+		"Model"							"models/items/axe/axe_executioner.vmdl"
      	"ItemCost"						"999999"
 		"Modifiers"
 		{
@@ -4265,6 +4265,242 @@
 			"01"                        "item_yinjian;item_xixuebishou" 
 		}
 	}
+	//==================================================
+	// 青囊书  ID2011  2012
+	//==================================================
+   "item_qingnangshu"
+   {
+   	    "ID"			   "2011"
+		"BaseClass"		   "item_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"	"item_qingnangshu"
+        
+		"ItemCost"			"1100"
+        "AbilityCooldown"    "35"
+		"FightRecapLevel"				"2"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+        "SideShop"						"1"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemShopTags"					"damage;str;armor;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"satanic"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"precache"
+		{
+			"particle" 			"particles/items_fx/aura_endurance.vpcf"
+			//"soundfile"		"soundfile"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"
+			    {
+				    "Center"		"CASTER"
+				    "Radius"		"1000"
+					"Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				    "Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+				}
+				"ModifierName"		"qingnangshu_buff_01"
+			}
+			"ApplyModifier"
+			{
+				"Target"
+			    {
+				    "Center"		"CASTER"
+				    "Radius"		"1000"
+					"Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				    "Types"			"DOTA_UNIT_TARGET_MECHANICAL"
+				}
+				"ModifierName"		"qingnangshu_buff_02"
+			}
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"qingnangshu_effect"
+			}
+		}
+		"Modifiers"
+		{
+			"qingnangshu_buff"
+			{
+				"IsHidden"   "1"
+				"Passive"    "1"
+                "Properties"
+                {
+                	"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"4"
+                }
+			}
+			"qingnangshu_effect"
+			{
+				"Duration"   "10"
+				"IsHidden"    "1"
+				"OnCreated"
+				{
+					"AttachEffect"
+			        {
+				       "EffectName"		"particles/items_fx/aura_endurance.vpcf"
+				        "EffectAttachType"   "follow_origin"
+				        "Target"
+			           {
+				           "Center"		"CASTER"
+				           "Radius"		"1000"
+					       "Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				           "Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+				        }
+			        }
+				}
+			}
+            "qingnangshu_buff_01"  //英雄
+            {
+            	"IsHidden"  "1"
+            	"Duration"    "10"
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "2"
+            	}
+            	"OnCreated"
+            	{
+            		"RunScript"
+				   {
+					   "ScriptFile"			"scripts/vscripts/items/qingnangshu.lua"
+					   "Function"				"qingnangshu_01"
+					   "TotalHealthRegen"		"150"
+				   }
+            	}
+            	
+            }
+            "qingnangshu_buff_02"   // 车
+            {
+            	"IsHidden"  "1"
+            	"Duration"    "10"
+            	"Properties"
+            	{
+            		"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "2"
+            	}
+            	"OnCreated"
+            	{
+            		"RunScript"
+				   {
+					  "ScriptFile"			"scripts/vscripts/items/qingnangshu.lua"
+					   "Function"				"qingnangshu_01"
+					   "TotalHealthRegen"		"80"
+				   }
+            	}
+            }
+		}
+   }
+    //==================================================
+	// 包子
+	//==================================================
+	"item_baozi"
+	{
+        "ID"							"2013"
+		"BaseClass"						"item_datadriven"							// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"	        "item_baozi"
+		"ItemStockTime"    "60"
+         "OnSpellStart"
+         {
+         	"SpendCharge"{}
+         	"RunScript"
+		    {
+			    "ScriptFile"			"scripts/vscripts/items/qingnangshu.lua"
+			    "Function"				"qingnangshu_01"
+			    "TotalHealthRegen"		"100"
+		    }
+         	
+         }
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"SideShop"						"1"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+   
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"50"
+		"ItemShopTags"					"agi;int;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"diffusal blade 1"
+		"ItemBaseLevel"					"1"
+		
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		
+	}
+	//==================================================
+	// 果酒
+	//==================================================
+	"item_guojiu"
+	{
+        "ID"							"2014"
+		"BaseClass"						"item_datadriven"							// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"	        "item_guojiu"
+		"ItemStockTime"    "60"
+		"SideShop"						"1"
+         "OnSpellStart"
+         {
+         	"SpendCharge"{}
+         	"RunScript"
+		    {
+			    "ScriptFile"			"scripts/vscripts/items/guojiu.lua"
+			    "Function"				"guojiu_01"
+			    "TotalHealthRegen"		"100"
+		    }
+         	
+         }
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+   
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"50"
+		"ItemShopTags"					"agi;int;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"diffusal blade 1"
+		"ItemBaseLevel"					"1"
+		
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"MaxUpgradeLevel"				"1"
+		"ItemBaseLevel"					"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		
+	}
     //==================================================
 	// 假眼
 	//==================================================
@@ -4315,245 +4551,8 @@
 			}
 		}
 	}
-	//==================================================
-	// 木桶BUFF，物品 战神斧 ID 2000
-	//==================================================
-	"item_barrel_zhanshenfu"
-	{
-		"ID"                "2000"
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
-	    "BaseClass"         "item_datadriven"//datadriven类
-	    "Model"				"models/heroes/axe/axe_weapon.vmdl"
-	    "ModelScale"		"0.3"
-	    "AbilityTextureName"        "item_barrel_zhanshenfu"//物品图标
-	    "AbilityCastPoint"      "0.0"//无施法前摇
-
-
-	    "ItemKillable"          "0"//不可摧毁
-	    "ItemCost"          "9999999"//价格
-
-	    "ItemPermanent"         "0"//使用后消失
-	    "ItemInitialCharges"        "1"//只能使用一次
-
-	    "Modifiers"
-	    {
-	    	"modifier_barrel_zhanshenfu_buff"
-	    	{
-	    		"IsHidden"		"0"
-	    		"Duration"		"%buff_duration"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"1"
-	    		}
-	    		"OnCreated"
-	    		{
-	    			"RunScript"
-	    			{
-	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
-	    				"Target"		"CASTER"
-	    				"Function"		"OnZhanshenfuBuffCreated"
-	    			}
-	    		}
-	    	}
-	    }
-	    "AbilitySpecial"
-	    {
-	    	"01"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"buff_duration"	"30"
-	    	}
-	    }
-	}
-	//==================================================
-	// 木桶BUFF，物品 战神铠 ID 2001
-	//==================================================
-	"item_barrel_zhanshenkai"
-	{
-		"ID"                "2001"
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
-	    "BaseClass"         "item_datadriven"//datadriven类
-	    "Model"					"models/items/siren/treasureofthedeep_armor_s1/treasureofthedeep_armor_s1.vmdl"
-	    "ModelScale"			"0.3"
-	    "AbilityTextureName"        "item_barrel_zhanshenkai"//物品图标
-	    "AbilityCastPoint"      "0.0"//无施法前摇
-
-	    "ItemKillable"          "0"//不可摧毁
-	    "ItemCost"          "9999999"//价格
-
-	    "ItemPermanent"         "0"//使用后消失
-	    "ItemInitialCharges"        "1"//只能使用一次
-
-	    "Modifiers"
-	    {
-	    	"modifier_barrel_zhanshenkai_buff"
-	    	{
-	    		"IsHidden"		"0"
-	    		"Duration"		"%buff_duration"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
-	    		}
-	    	}
-	    }
-	    "AbilitySpecial"
-	    {
-	    	"01"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"buff_duration"	"30"
-	    	}
-	    	"02"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"armor_bonus"	"30"
-	    	}
-	    }
-	}
-	//"item_barrel_mataitianxue",
-	//"item_barrel_roubao",
-	//"item_barrel_laojiu"
-	//==================================================
-	// 木桶BUFF，物品 马太天靴 ID 2002
-	//==================================================
-	"item_barrel_mataitianxue"
-	{
-		"ID"                "2002"
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
-	    "BaseClass"         "item_datadriven"//datadriven类
-	    "Model"					"models/items/kunkka/boots_of_the_divine_anchor/boots_of_the_divine_anchor.vmdl"
-	    "ModelScale"			"0.3"
-	    "AbilityTextureName"        "item_barrel_mataitianxue"//物品图标
-	    "AbilityCastPoint"      "0.0"//无施法前摇
-
-	    "ItemKillable"          "0"//不可摧毁
-	    "ItemCost"          "9999999"//价格
-
-	    "ItemPermanent"         "0"//使用后消失
-	    "ItemInitialCharges"        "1"//只能使用一次
-
-	    "Modifiers"
-	    {
-	    	"modifier_barrel_mataitianxue_buff"
-	    	{
-	    		"IsHidden"		"0"
-	    		"Duration"		"%buff_duration"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeed_bonus"
-	    		}
-	    	}
-	    }
-	    "AbilitySpecial"
-	    {
-	    	"01"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"buff_duration"	"30"
-	    	}
-	    	"02"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"movespeed_bonus"	"100"
-	    	}
-	    }
-	}
-	//==================================================
-	// 木桶BUFF，物品 肉包 ID 2003
-	//==================================================
-	"item_barrel_roubao"
-	{
-		"ID"                "2003"
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
-	    "BaseClass"         "item_datadriven"//datadriven类
-	    "Model"					"models/particle/white_dome.vmdl"
-	    "ModelScale"			"20"
-	    "AbilityTextureName"        "item_barrel_roubao"//物品图标
-	    "AbilityCastPoint"      "0.0"//无施法前摇
-
-	    "ItemKillable"          "0"//不可摧毁
-	    "ItemCost"          "9999999"//价格
-
-	    "ItemPermanent"         "0"//使用后消失
-	    "ItemInitialCharges"        "1"//只能使用一次
-
-	    "Modifiers"
-	    {
-	    	"modifier_barrel_roubao_buff"
-	    	{
-	    		"Duration"		"0.1"
-	    		"OnCreated"
-	    		{
-	    			"Heal"
-	    			{
-	    				"Target" "CASTER"
-	    				"HealAmount"	"%heal_amount"
-	    			}
-	    		}
-	    	}
-	    }
-	    "AbilitySpecial"
-	    {
-	    	"01"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"buff_duration"	"30"
-	    	}
-	    	"02"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"heal_amount"	"500"
-	    	}
-	    }
-	}
-	//==================================================
-	// 木桶BUFF，物品 老旧 ID 2004
-	//==================================================
-	"item_barrel_laojiu"
-	{
-		"ID"                "2004"
-	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"//无目标技能
-	    "BaseClass"         "item_datadriven"//datadriven类
-	    "Model"					"models/props_debris/glass_bottle001.vmdl"
-	    "ModelScale"			"1"
-	    "AbilityTextureName"        "item_barrel_laojiu"//物品图标
-	    "AbilityCastPoint"      "0.0"//无施法前摇
-
-	    "ItemKillable"          "0"//不可摧毁
-	    "ItemCost"          "9999999"//价格
-
-	    "ItemPermanent"         "0"//使用后消失
-	    "ItemInitialCharges"        "1"//只能使用一次
-
-	    "Modifiers"
-	    {
-	    	"modifeir_barrel_laojiu_buff"
-	    	{
-	    		"OnCreated"
-	    		{
-	    			"RunScript"
-	    			{
-	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
-	    				"Target"		"CASTER"
-	    				"mana_amount"	"%mana_amount"
-	    				"Function"		"OnLaojiuBuffCreated"
-	    			}
-	    		}
-	    	}
-	    }
-
-	    "AbilitySpecial"
-	    {
-	    	"01"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"buff_duration"	"30"
-	    	}
-	    	"02"
-	    	{
-	    		"var_type"		"FIELD_INTEGER"
-	    		"mana_amount"	"500"
-	    	}
-	    }
-	}
+	
+	
+	
+	// 物品 ID 2007
 }

@@ -61,13 +61,16 @@ end
 function OnXingluo(keys)
     print("on xingluo")
     local caster = keys.caster
-    local point = keys.target_points[1]
-    
-    local p = ParticleManager:CreateParticle('particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start_meteor.vpcf', PATTACH_CUSTOMORIGIN, caster)
-    ParticleManager:SetParticleControl(p, 0, point)
-   ParticleManager:ReleaseParticleIndex(p)
+    local point = keys.target_points[1]   
     -- 暂时先取消掉这个特效
-
+    local p1 = ParticleManager:CreateParticle('particles/heroes/simayi/mirana_starfall_attack.vpcf', PATTACH_CUSTOMORIGIN, caster)
+    ParticleManager:SetParticleControl(p1, 0, point)
+   ParticleManager:ReleaseParticleIndex(p1)
+   GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("simayi_02"),function()
+        local p = ParticleManager:CreateParticle('particles/units/heroes/hero_undying/undying_loadout.vpcf', PATTACH_CUSTOMORIGIN, caster)
+        ParticleManager:SetParticleControl(p, 0, point)
+        ParticleManager:ReleaseParticleIndex(p)
+   end,0.5)
 end
 
 -- 星落的落地特效
@@ -78,7 +81,7 @@ function OnXingluoEnd(keys)
     local p_index = ParticleManager:CreateParticle(p_end, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(p_index, 0, point)
     ParticleManager:ReleaseParticleIndex(p_index)
-    local p_end = 'particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start.vpcf'
+    local p_end = 'particles/units/heroes/hero_undying/undying_loadout.vpcf'
     local p_index = ParticleManager:CreateParticle(p_end, PATTACH_CUSTOMORIGIN, caster)
     ParticleManager:SetParticleControl(p_index, 0, point)
     ParticleManager:ReleaseParticleIndex(p_index)

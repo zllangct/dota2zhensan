@@ -21,19 +21,79 @@
 		"AttackDamageMax"			   "0" 
 		"AttackAnimationPoint"		"0.2"
     }
-     //=================================================================================================================
+    //=================================================================================================================
+	// 曹丕  -createhero npc_dota_hero_dragon_knight enemy
+	//=================================================================================================================
+    "zhensan_caopi"
+	{																		
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"override_hero"     "npc_dota_hero_antimage"
+		"Team"						"Bad"
+		
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"caopi_touxi"					// Ability 1
+		"Ability2"					"caopi_beicixinde"						// Ability 2
+		"Ability3"					"caopi_mingxiang"					// Ability 3
+		"Ability4"					"caopi_zhongjiaoyi"					// Ability 4
+		"Ability7"                  "caopi_zhongjiaoyi"
+
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------
+		"ArmorPhysical"				"2"										// Physical protection.
+
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"27"									// Damage range min.
+		"AttackDamageMax"			"31"									// Damage range max.	
+		"AttackRate"				"1.45"									// Speed of attack.
+		"AttackAnimationPoint"		"0.3"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+		"ProjectileModel"			""										// Particle system model for projectile.
+		"ProjectileSpeed"			"0"										// Speed of projectile.
+
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"22"									// Base strength
+		"AttributeStrengthGain"		"1.2"									// Strength bonus per level.
+		"AttributeBaseIntelligence"	"15"									// Base intelligence
+		"AttributeIntelligenceGain"	"1.8"									// Intelligence bonus per level.
+		"AttributeBaseAgility"		"22"									// Base agility
+		"AttributeAgilityGain"		"2.8"									// Agility bonus per level.
+
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementSpeed"				"300"									// Speed.
+		"MovementTurnRate"			"0.5"									// Turning rate.
+		
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"HealthBarOffset"			"140"
+		"StatusHealth"				"100"		// Base health.
+		"StatusHealthRegen"			"0.25"			// Health regeneration rate.
+		"StatusMana"				"0"		// Base mana.
+		"StatusManaRegen"			"0.01"
+		"VisionDaytimeRange"		"800"									// Range of vision during day light.
+		"VisionNighttimeRange"		"1800"
+    }
+    //=================================================================================================================
 	// 张辽  -createhero npc_dota_hero_dragon_knight enemy
 	//=================================================================================================================
     "zhensan_zhangliao"
     {
     	"override_hero"       "npc_dota_hero_dragon_knight"
+    	"ModelScale" 				"1"
     	// Abilities
 		//-------------------------------------------------------------------------------------------------------------
-		"Ability1"				"zhensan_test"				// Ability 1
-		"Ability2"				""					// Ability 2
-		"Ability3"				""				// Ability 3
-		"Ability4"				""			// Ability 4
-	
+		"Ability1"				"zhangliao_dunji"				// Ability 1
+		"Ability2"				"zhangliao_chongjibo"					// Ability 2
+		"Ability3"				"zhangliao_zhenzuo"				// Ability 3
+		"Ability4"				"zhangliao_cizhenkuijia"
+		"Ability6"		        "attribute_bonus"
+	    //"Ability7"	            "zhangliao_cizhenkuijia_01"
 		// Armor
 		//-------------------------------------------------------------------------------------------------------------
 		"ArmorPhysical"				"2"									// Physical protection.
@@ -103,7 +163,7 @@
 		"AttackAcquisitionRange"		"600"									// Range within a target can be acquired.
 		"AttackRange"				"600"									// Range within a target can be attacked.
 		//"ProjectileModel"			"stormspirit_base_attack"				// Particle system model for projectile.
-		"ProjectileSpeed"			"900"									// Speed of projectile.
+		"ProjectileSpeed"			"1000"									// Speed of projectile.
 
 		// Attributes
 		//-------------------------------------------------------------------------------------------------------------
@@ -158,7 +218,7 @@
 		"AttackRate"				"1.7"									// Speed of attack.
 		"AttackAnimationPoint"			"0.53"									// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"		"800"									// Range within a target can be acquired.
-		"AttackRange"				"550"									// Range within a target can be attacked.
+		"AttackRange"				"600"									// Range within a target can be attacked.
 		//"ProjectileModel"			"necrolyte_base_attack"							// Particle system model for projectile.
 		"ProjectileSpeed"			"900"									// Speed of projectile.
 
@@ -190,7 +250,7 @@
 		"VisionNighttimeRange"		"1800"	
     }
     //=================================================================================================================
-	// 猪儿虫隐士 
+	// 隐士 
 	//=================================================================================================================
      "zhensan_zhuerchongyinshi"
      {
@@ -254,6 +314,7 @@
     "zhensan_weiyan"
     {
     	"override_hero"            "npc_dota_hero_chaos_knight"
+    	"ModelScale"			"1.0"
     	// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"Ability1"					"weiyan_fengbaozhichui"
@@ -399,8 +460,9 @@
 		"Ability1"				"guanyu_xzhan"						// Ability 1
 		"Ability2"				"guanyu_liuyuefeizhan"					// Ability 2
 		"Ability3"				"guanyu_zuiquan"					// Ability 3
-		"Ability4"				"guanyu_jianshengfengbao"						// Ability 4
-        "Ability5"               "guanyu_jianshengfengbao_dummy"
+		"Ability4"				"guanyu_jianshengfengbao"
+		"Ability6"					"attribute_bonus"						// Ability 4
+        "Ability8"               "guanyu_jianshengfengbao_dummy"
 		// Armor
 		//-------------------------------------------------------------------------------------------------------------
 		"ArmorPhysical"			"1"											// Physical protection.
@@ -419,7 +481,7 @@
 
 		// Attributes
 		//-------------------------------------------------------------------------------------------------------------
-		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"		"25"									// Base strength
 		"AttributeStrengthGain"		"2.4"									// Strength bonus per level.
 		"AttributeBaseIntelligence"	"15"									// Base intelligence
@@ -515,6 +577,7 @@
 	{
 		"override_hero"       "npc_dota_hero_phantom_lancer"
 		"Team"						"Good"
+		"ModelScale"			"1.0"
 		// Abilities
 		//-------------------------------------------------------------------------------------------------------------
 		"Ability1"				"zhaoyun_zhangqiangtuci"				// Ability 1
@@ -642,6 +705,7 @@
 		"override_hero"				"npc_dota_hero_invoker"
 		"Team"						"Good"
 		"AbilityLayout"				"5"
+		"ModelScale" 				"1"
 		"Ability1"					"Zhuge_Baoleiyu"		//暴雷雨
 		"Ability2"					"Zhuge_Jidongningjie"	//急冻凝结
 		"Ability3"					"Zhuge_Jufeng"			//飓风
@@ -706,6 +770,7 @@
 		"Model"						"models/heroes/silencer/silencer.mdl"
 		"Team"						"Bad"
 		"AbilityLayout"				"4"
+		"ModelScale" 				"1"
 		"Ability1"					"Simayi_Yanjibo"   // Simayi_Yanjibo   toushiche_toushi
 		"Ability2"					"Simayi_Huoyanyu"
 		"Ability3"					"Simayi_Yetaihuo"		
@@ -789,7 +854,7 @@
 		"Rolelevels"			"2,2,2"
 		"Team"						"Bad"
 		"HeroID"					"38"											// unique ID number for this hero.  Do not change this once established or it will invalidate collected stats.	
-		"ModelScale"					"0.77"
+		"ModelScale"			"1.0"
 		"HeroGlowColor" 			"215 174 81"
 		"PickSound"					"beastmaster_beas_spawn_01"
 		"BanSound"					"beastmaster_beas_anger_01"

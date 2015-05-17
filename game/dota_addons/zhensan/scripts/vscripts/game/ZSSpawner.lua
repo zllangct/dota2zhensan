@@ -13,9 +13,11 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
     -- body
      local maxtime=0
      local lifetime=0
+     local lifetime1=0
      local health=caster:GetHealth()
      local wild_origin_name = caster:GetContext("spwaner_name")
      local wild_origin = Entities:FindByName(nil, wild_origin_name)
+     local goback = false
      caster:SetContextThink( "wild_maxaway", function()
           if not caster:IsAlive() then return nil end 
           local caster_vec = caster:GetAbsOrigin()
@@ -26,34 +28,43 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
                 caster:SetMustReachEachGoalEntity(true)
                 caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
+                goback = true
              end
           elseif wild_origin_name== "zs_bailang_1" or wild_origin_name== "zs_bailang_2" or wild_origin_name== "zs_bailangwang"  then 
              if distance > 1200 then 
                 caster:SetMustReachEachGoalEntity(true)
                 caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
+                goback = true
              end
           elseif wild_origin_name== "zs_long_1"  then 
              if distance > 1600 then 
                 caster:SetMustReachEachGoalEntity(true)
                 caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
+                goback = true
              end
           elseif wild_origin_name== "zs_pangxie_1" or wild_origin_name== "zs_pangxie_2" then 
              if distance > 1600 then 
                 caster:SetMustReachEachGoalEntity(true)
                 caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
+                goback = true
              end
           else
              if distance > 1600 then 
                 caster:SetMustReachEachGoalEntity(true)
                 caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
+                goback = true
              end
           end
-          if maxtime>5 then
+          if maxtime>8 then
                 caster:MoveToPositionAggressive(wild_spwaner)
+                caster:AddAbility("ability_yeguai_buff")
+                local abi=caster:FindAbilityByName("ability_yeguai_buff")
+                abi:SetLevel(1)
+                goback = true
                 maxtime=0
           end
           if distance > 10 then 
@@ -62,9 +73,21 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
                 caster:SetMustReachEachGoalEntity(true)
                 caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
+                goback = true
              end
           end
-           if wild_origin_name== "zs_long_1"  then
+          if distance < 50 then
+            if caster:HasAbility("ability_yeguai_buff") then
+               caster:RemoveAbility("ability_yeguai_buff")
+               goback = false
+            end
+            if caster:HasModifier("yeguai_buff_001") then 
+                 caster:RemoveModifierByName("yeguai_buff_001")
+                 goback = false
+            end
+            
+          end
+          if wild_origin_name== "zs_long_1"  then
                if health == caster:GetHealth() then                                    
                         if caster:GetHealth() ~= caster:GetMaxHealth() then lifetime=lifetime+1 end
                         if lifetime > 20 then 
@@ -76,16 +99,17 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
                 else
                    lifetime=0
                 end             
-                if wild_origin_name== "zs_long_1"  then
-                end
           end
-          
+          if goback == true then 
+            caster:MoveToPositionAggressive(wild_spwaner)
+          end
             if wild_origin_name== "zs_long_1"  then
                 if health ~= caster:GetHealth() then
                    health = caster:GetHealth()
                    lifitime=0
                 end             
             end 
+
           if distance > 10 then
               maxtime=maxtime+1 
               return 1

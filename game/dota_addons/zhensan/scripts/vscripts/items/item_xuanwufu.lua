@@ -60,6 +60,9 @@ function OnPlayerXuanwufuDisactivated(keys)
                 i = i + 1
                 return 0.01
             else
+                --if caster:GetName() == "npc_zs_hero_zhuge" then
+                 -- caster:SetModelScale(0.74)
+               -- end
                 return nil
             end
         end)

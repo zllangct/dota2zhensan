@@ -34,12 +34,12 @@
 			trace("MORALE HUD LAODED!");
 			Globals.instance.resizeManager.AddListener(this);
 			gameAPI.SubscribeToGameEvent( "morale_update", onMoraleUpdate );
-			moraleClip.moraleShuLabel.visible = false;
-			moraleClip.moraleWeiLabel.visible = false;
+			this.moraleShuLabel.visible = false;
+			this.moraleWeiLabel.visible = false;
 			moraleClip.tileBad.visible = true;
 			moraleClip.tileGood.visible = true;
 			moraleClip.tileBad.width = 300;
-			shuwei.visible=true;
+			//shuwei.visible=true;
 			
 		}
 		
@@ -62,10 +62,10 @@
 			// 上升下降的动画
 			
 			if (ShuUp){
-				moraleLabelClip = moraleClip.moraleShuLabel;
+				moraleLabelClip = this.moraleShuLabel;
 			}
 			else{
-				moraleLabelClip = moraleClip.moraleWeiLabel;
+				moraleLabelClip = this.moraleWeiLabel;
 			}
 			moraleLabelClip.visible = true;
 			moraleLabelClip.alpha = 0;
@@ -98,25 +98,29 @@
 			{
 				// 4:3
 				divided = currentRatio * 3 / 4.0;
+				correctedRatio =  re.ScreenHeight / originalHeight * divided;
+				this.scaleX = correctedRatio;
+			    this.scaleY = correctedRatio;
+				this.moraleClip.x = re.ScreenWidth * 1.1;
+				this.moraleClip.y = re.ScreenHeight*0.08;
 			}
 			else if(re.Is16by9()){
 				// 16:9
 				divided = currentRatio * 9 / 16.0;
+				correctedRatio =  re.ScreenHeight / originalHeight * divided;
+				this.scaleX = correctedRatio;
+			    this.scaleY = correctedRatio;
+				
 			} else {
 				// 16:10
 				divided = currentRatio * 10 / 16.0;
+				correctedRatio =  re.ScreenHeight / originalHeight * divided;
+				this.moraleClip.x=this.moraleClip.x * 0.9;
+				this.scaleX = correctedRatio;
+			    this.scaleY = correctedRatio;
+				
 			}
-							
-			correctedRatio =  re.ScreenHeight / originalHeight * divided;
-					
-			moraleClip.scaleX = correctedRatio /1.5;
-			moraleClip.scaleY = correctedRatio /1.5;
-			moraleClip.x = ( 1450 * correctedRatio);//re.ScreenWidth * .5;//
-			moraleClip.y = ( 20 * correctedRatio);//re.ScreenHeight * .25;
-			shuwei.x=moraleClip.x-40;
-			shuwei.y=moraleClip.y+1;
-			moraleClip.tileGood.x= moraleClip.tileGood.x+10
-			moraleClip.tileBad.x = moraleClip.tileGood.x;
+			
 		}
     }
 }

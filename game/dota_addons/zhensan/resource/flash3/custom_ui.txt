@@ -33,11 +33,16 @@
     }
     "6"
     {
-        "File"      "PopupImage"
-        "Depth"     "999"
+        "File"      "zhensan"
+        "Depth"     "150"
     }
+    //"7"
+    //{
+       // "File"      "zhensantest"
+        //"Depth"     "301"
+    //}
 }
-
+//
 // =============================================
 // Depths of base Dota UI elements
 // =============================================

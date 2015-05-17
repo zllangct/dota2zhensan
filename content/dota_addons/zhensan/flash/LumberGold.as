@@ -21,8 +21,8 @@
 		
 		public var goldTickTimer:Timer;
 		
-		public var lumberGoldMovieClip:MovieClip;
-
+		//public var lumberGoldMovieClip:MovieClip;
+        public var correctedRatio:Number;
 		public function LumberGold(){
 			trace("LUMBER GOLD HUD constructor!");
 		}
@@ -47,7 +47,7 @@
 			var Lumber:Number = args.Lumber;
 			var playerID = globals.Players.GetLocalPlayer();
 			if (playerID == args.PlayerID){
-				lumberGoldMovieClip.lumberLabel.text = Lumber;
+				lumberGoldMovieClip.lumberLabel.text = Lumber.toString();
 			}
 		}
 				
@@ -63,22 +63,35 @@
 			{
 				// 4:3
 				divided = currentRatio * 3 / 4.0;
+				correctedRatio =  re.ScreenHeight / originalHeight * divided;
+				this.lumberGoldMovieClip.scaleX = correctedRatio/2;
+			    this.lumberGoldMovieClip.scaleY = correctedRatio/2;
+				this.lumberGoldMovieClip.x = 25;
+				this.lumberGoldMovieClip.y =  re.ScreenHeight*0.06+4;
 			}
 			else if(re.Is16by9()){
 				// 16:9
 				divided = currentRatio * 9 / 16.0;
+				correctedRatio =  re.ScreenHeight / originalHeight * divided;
+				this.scaleX = correctedRatio;
+			    this.scaleY = correctedRatio;
+				this.lumberGoldMovieClip.x = 25+re.ScreenWidth*0.14;
+				this.lumberGoldMovieClip.y =  re.ScreenHeight*0.02+4;
 			} else {
 				// 16:10
 				divided = currentRatio * 10 / 16.0;
+				correctedRatio =  re.ScreenHeight / originalHeight * divided;
+				this.scaleX = correctedRatio;
+			    this.scaleY = correctedRatio;
+				this.lumberGoldMovieClip.x = re.ScreenWidth*0.1/correctedRatio;
+				this.lumberGoldMovieClip.y =  re.ScreenHeight*0.02/correctedRatio+2;
 			}
 							
-			var correctedRatio:Number =  re.ScreenHeight / originalHeight * divided;
-					
-			lumberGoldMovieClip.scaleX = correctedRatio / 2;
-			lumberGoldMovieClip.scaleY = correctedRatio / 2;
-			//lumberGoldMovieClip.x = 1450 * correctedRatio;
-			lumberGoldMovieClip.x = 230 * correctedRatio;
-			lumberGoldMovieClip.y = 10 * correctedRatio;
+			
+			
+				
+			
+			
 		}
     }
 }

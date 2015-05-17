@@ -115,7 +115,7 @@ CParticleSystemDefinition CParticleSystemDefinition_0
 
 C_OP_BasicMovement C_OP_BasicMovement_0
 {
-	float(3) m_Gravity = ( 0.000000, 0.000000, -200.000000 )
+	float(3) m_Gravity = ( 0.000000, 0.000000, -50.000000 )
 	float m_fDrag = -1.000000
 	int m_nMaxConstraintPasses = 10
 	bool m_bLockULCorner = false
@@ -145,10 +145,10 @@ C_OP_BasicMovement C_OP_BasicMovement_0
 C_OP_FadeAndKill C_OP_FadeAndKill_1
 {
 	float m_flStartFadeInTime = 0.000000
-	float m_flEndFadeInTime = 0.500000
-	float m_flStartFadeOutTime = 0.500000
-	float m_flEndFadeOutTime = 1.000000
-	float m_flStartAlpha = 1.000000
+	float m_flEndFadeInTime = 0.000000
+	float m_flStartFadeOutTime = 0.000000
+	float m_flEndFadeOutTime = 0.200000
+	float m_flStartAlpha = 0.200000
 	float m_flEndAlpha = 0.000000
 	float m_flOpStartFadeInTime = 0.000000
 	float m_flOpEndFadeInTime = 0.000000
@@ -447,9 +447,9 @@ C_INIT_CreateWithinSphere C_INIT_CreateWithinSphere_8
 
 C_INIT_RandomLifeTime C_INIT_RandomLifeTime_9
 {
-	float m_fLifetimeMin = 1.500000
-	float m_fLifetimeMax = 1.500000
-	float m_fLifetimeRandExponent = 1.000000
+	float m_fLifetimeMin = 0.200000
+	float m_fLifetimeMax = 0.200000
+	float m_fLifetimeRandExponent = 0.500000
 	bool m_bRunForParentApplyKillList = true
 	float m_flOpStartFadeInTime = 0.000000
 	float m_flOpEndFadeInTime = 0.000000

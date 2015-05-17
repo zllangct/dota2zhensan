@@ -5,6 +5,7 @@ function fengbaozhizhang_01(keys)  --风暴之杖  无需修改
 	local height = 380
 	local caster=EntIndexToHScript(keys.caster_entindex)
 	local target=keys.target
+	target:Purge(true,true,true,false,true)
 	local target_point =target:GetOrigin()
 	local ptc1 = ParticleManager:CreateParticle("particles/fengbaozhizhang/cyclone.vpcf", PATTACH_CUSTOMORIGIN, hIceEffect) 	
 	    ParticleManager:SetParticleControl(ptc1, 0,target_point)

@@ -13,6 +13,7 @@
     //"npc_dota_hero_warlock"         "1" //隐士
     "npc_dota_hero_necrolyte"       "1" //天云隐士
     "npc_dota_hero_storm_spirit"    "1"  //张宝  暴风
-    //"npc_dota_hero_dragon_knight"   "1"//张辽
+    "npc_dota_hero_dragon_knight"   "1"//张辽
+    "npc_dota_hero_antimage"        "1" //曹丕
 }
 //-createhero npc_dota_hero_axe
