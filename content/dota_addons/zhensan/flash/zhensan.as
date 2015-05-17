@@ -62,13 +62,13 @@
 	    //援军
 		public function yuanjun_butten_click(dd:MouseEvent):void
 		{
-			this.gameAPI.SendServerCommand("LeftWalking");
+			this.gameAPI.SendServerCommand("YuanJun");
 	    }
 		//投石车 
 		public function toushi_butten_click(dd:MouseEvent):void
 		{
 			this.gameAPI.SendServerCommand("BuyTouShiChe");
-			trace("toushiche success !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+			
 	    }
 		//果酒 
 		public function guojiu_butten_click(dd:MouseEvent):void

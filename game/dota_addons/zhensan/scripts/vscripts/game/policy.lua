@@ -28,7 +28,7 @@ function Policy:Int()
            local caster_origin = caster:GetOrigin()
            local plyID=caster:GetPlayerID()
            if caster.__lumber_data == nil then caster.__lumber_data = 0 end
-           caster.__lumber_data = caster.__lumber_data+100
+           caster.__lumber_data = caster.__lumber_data+1000
            UpdateLumberDataForPlayer(plyID, caster.__lumber_data)
         end
     end,"use baozi",0)
@@ -42,10 +42,14 @@ function Policy:Int()
            caster:ModifyGold(1000,false,0)
         end
     end,"use baozi",0)
-    -------------------------------------
+    ------------------------------------------
     Convars:RegisterCommand( "UseBaoZi",function( )
         -- body
         self:UseBaoZi()
+    end,"use baozi",0)
+    Convars:RegisterCommand( "YuanJun",function( )
+        -- body
+        self:YuanJun()
     end,"use baozi",0)
     Convars:RegisterCommand( "UseGuoJiu",function()
         -- body
@@ -77,6 +81,44 @@ function Policy:Int()
     --紧急征召点
     --self:supply._spawner=ZSSpawner.__spawners
     --self:supply._target =ZSSpawner.__target
+end 
+function Policy:YuanJun()
+    local cmdPlayer = Convars:GetCommandClient()   
+    if cmdPlayer then
+        local caster=cmdPlayer:GetAssignedHero()
+        local caster_origin = caster:GetOrigin()
+        local plyID=caster:GetPlayerID()
+        if caster.__lumber_data ~=nil and caster.__lumber_data >= 80 then 
+            caster.__lumber_data = caster.__lumber_data-80
+            UpdateLumberDataForPlayer(plyID, caster.__lumber_data)                                   
+        else 
+            FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerID(), _error = "木材不足！！！" } )                   
+            return nil
+        end   
+        --判断玩家是否有足够的金币
+        if caster:GetGold() < 1800 then 
+            FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerID(), _error = "金币不足！！！" } )                   
+            return nil 
+        else 
+            caster:SpendGold(1800,0)
+        end  
+         
+        local team =caster:GetTeam()
+        local boss
+        if team == DOTA_TEAM_GOODGUYS then
+            boss = CreateUnitByName("npc_dota_creature_boss_pudge", self.supply.shu.point_yuanjun:GetOrigin(), true, nil, nil, team)
+            boss:SetTeam(team)
+            boss:SetMustReachEachGoalEntity(false)
+            boss:SetInitialGoalEntity(self.supply.shu.point_yuanjun)
+        elseif team == DOTA_TEAM_BADGUYS then
+            boss = CreateUnitByName("npc_dota_creature_boss_pudge", self.supply.wei.point_yuanjun:GetOrigin(), true, nil, nil, team)
+            boss:SetTeam(team)
+            boss:SetMustReachEachGoalEntity(false)
+            boss:SetInitialGoalEntity(self.supply.wei.point_yuanjun)
+        end
+
+    end 
+
 end 
 function Policy:UseBaoZi()  --使用包子时调用，当英雄在据点800范围内时，使用有效。
 	-- body

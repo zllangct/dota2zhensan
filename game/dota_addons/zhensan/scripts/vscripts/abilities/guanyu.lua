@@ -53,13 +53,13 @@ function guanyu_liuyuefeizhan_move(caster,point,distance,dir,damage,ability)   -
 end
 function guanyu_liuyuefeizhan_damage(caster,damage,point,ability) --关羽五月雨斩伤害函数
     -- body
-    local target=FindUnitsInRadius(caster:GetTeam(), point, nil, 300, ability:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+    local target=FindUnitsInRadius(caster:GetTeam(), point, nil, 300, ability:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
     local caster_now=caster:GetAbsOrigin()     
     if target[1] then 
       for _,_target in pairs(target) do
      local target_now =_target:GetAbsOrigin()
      local _distance = (caster_now-target_now):Length() 
-     local _damage = (damage-100)*(_distance/300)+100    --距离AOE中心距离越近伤害越高
+     local _damage = damage*(1-_distance/300)   --距离AOE中心距离越近伤害越高
            ApplyDamage(
                                                 { victim = _target, 
                                                     attacker = caster, 

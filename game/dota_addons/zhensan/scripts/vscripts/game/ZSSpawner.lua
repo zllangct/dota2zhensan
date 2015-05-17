@@ -8,6 +8,12 @@ function ZSSpawner:Start_wild_init( )
     -- body
     -- 监听单位击杀事件
     ListenToGameEvent("entity_killed", Dynamic_Wrap(ZSSpawner, "wild"), self)
+    Convars:RegisterCommand( "testwild",function( )
+        -- body
+        self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_10"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_10")
+        self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_11"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_11")
+        self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_12"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_12")
+    end,"",0)
 end
 function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原点
     -- body
@@ -23,41 +29,11 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
           local caster_vec = caster:GetAbsOrigin()
           local wild_spwaner = wild_origin:GetAbsOrigin()
           local distance = (wild_spwaner-caster_vec):Length()
-          if wild_origin_name== "zs_qiangdao_6" or wild_origin_name== "zs_qiangdao_5" or wild_origin_name== "zs_qiangdao_4" then
-             if distance > 2000 then 
-                caster:SetMustReachEachGoalEntity(true)
-                caster:SetInitialGoalEntity(wild_origin)
-                caster:MoveToPositionAggressive(wild_spwaner)
-                goback = true
-             end
-          elseif wild_origin_name== "zs_bailang_1" or wild_origin_name== "zs_bailang_2" or wild_origin_name== "zs_bailangwang"  then 
-             if distance > 1200 then 
-                caster:SetMustReachEachGoalEntity(true)
-                caster:SetInitialGoalEntity(wild_origin)
-                caster:MoveToPositionAggressive(wild_spwaner)
-                goback = true
-             end
-          elseif wild_origin_name== "zs_long_1"  then 
+          if wild_origin_name== "zs_long_1"  then 
              if distance > 1600 then 
-                caster:SetMustReachEachGoalEntity(true)
-                caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
                 goback = true
-             end
-          elseif wild_origin_name== "zs_pangxie_1" or wild_origin_name== "zs_pangxie_2" then 
-             if distance > 1600 then 
-                caster:SetMustReachEachGoalEntity(true)
-                caster:SetInitialGoalEntity(wild_origin)
-                caster:MoveToPositionAggressive(wild_spwaner)
-                goback = true
-             end
-          else
-             if distance > 1600 then 
-                caster:SetMustReachEachGoalEntity(true)
-                caster:SetInitialGoalEntity(wild_origin)
-                caster:MoveToPositionAggressive(wild_spwaner)
-                goback = true
-             end
+             end             
           end
           if maxtime>8 then
                 caster:MoveToPositionAggressive(wild_spwaner)
@@ -70,8 +46,6 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
           if distance > 10 then 
              local enemies = FindUnitsInRadius( caster:GetTeam(), caster:GetOrigin(), nil,1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
              if not enemies then 
-                caster:SetMustReachEachGoalEntity(true)
-                caster:SetInitialGoalEntity(wild_origin)
                 caster:MoveToPositionAggressive(wild_spwaner)
                 goback = true
              end
@@ -162,6 +136,9 @@ function ZSSpawner:Start_wild()
     self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_7"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_7")
     self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_8"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_8")
     self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_9"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_9")
+    self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_10"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_10")
+    self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_11"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_11")
+    self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_12"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_12")
     self:DoSpawn_wild(self._spawner_wild["zs_laohu_da"]:GetOrigin(),"npc_zs_laohu_b","zs_laohu_da")  --target
     self:DoSpawn_wild(self._spawner_wild["zs_laohu_xiao_1"]:GetOrigin(),"npc_zs_laohu_s","zs_laohu_xiao_1")  --target
     self:DoSpawn_wild(self._spawner_wild["zs_laohu_xiao_2"]:GetOrigin(),"npc_zs_laohu_s","zs_laohu_xiao_2")   --target
@@ -339,7 +316,7 @@ function ZSSpawner:DoSpawn(spawn_location, unit_name, initial_target, team, leve
         creep:CreatureLevelUp(level - 1)
     end
 
-    creep:SetMustReachEachGoalEntity(true)
+    creep:SetMustReachEachGoalEntity(false)
     creep:SetInitialGoalEntity(initial_target)
 end
 function ZSSpawner:DoSpawn_wild(spawn_location, unit_name,spwaner_name)
@@ -379,6 +356,9 @@ function ZSSpawner:CollectSpawners()
     local zs_qiangdao_7 = Entities:FindByName(nil, 'zs_qiangdao_7')
     local zs_qiangdao_8 = Entities:FindByName(nil, 'zs_qiangdao_8')
     local zs_qiangdao_9 = Entities:FindByName(nil, 'zs_qiangdao_9')
+    local zs_qiangdao_10 = Entities:FindByName(nil, 'zs_qiangdao_10')
+    local zs_qiangdao_11 = Entities:FindByName(nil, 'zs_qiangdao_11')
+    local zs_qiangdao_12 = Entities:FindByName(nil, 'zs_qiangdao_12')
     local zs_laohu_da = Entities:FindByName(nil, 'zs_laohu_da')
     local zs_laohu_xiao_2 = Entities:FindByName(nil, 'zs_laohu_xiao_2')
     local zs_laohu_xiao_1 = Entities:FindByName(nil, 'zs_laohu_xiao_1')
@@ -453,6 +433,21 @@ function ZSSpawner:CollectSpawners()
     end
     if zs_qiangdao_9 then
         self._spawner_wild["zs_qiangdao_9"] = zs_qiangdao_9
+    else
+        print("SPAWNER WEI TOP NOT FOUND!!!!!!!!!!!!!")
+    end
+    if zs_qiangdao_10 then
+        self._spawner_wild["zs_qiangdao_10"] = zs_qiangdao_10
+    else
+        print("SPAWNER WEI TOP NOT FOUND!!!!!!!!!!!!!")
+    end
+    if zs_qiangdao_11 then
+        self._spawner_wild["zs_qiangdao_11"] = zs_qiangdao_11
+    else
+        print("SPAWNER WEI TOP NOT FOUND!!!!!!!!!!!!!")
+    end
+    if zs_qiangdao_12 then
+        self._spawner_wild["zs_qiangdao_12"] = zs_qiangdao_12
     else
         print("SPAWNER WEI TOP NOT FOUND!!!!!!!!!!!!!")
     end
