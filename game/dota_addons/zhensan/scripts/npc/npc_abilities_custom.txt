@@ -189,20 +189,13 @@
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		
+		"MaxLevel"   "11"
 		"Modifiers"
 		{
-			"modifier_morale_buff"
-			{
-				"Passive"		"1"
-				"Aura"					"creep_morale_aura"
-				"Aura_Radius"			"999999"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			}
+			
 			"creep_morale_aura"
 			{
+				"Passive"  "1"
 				"IsPurgable"		"0"
 				"Properties"
 				{
@@ -216,12 +209,12 @@
 			"01"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"attack_speed"			"0 5 10 15"
+				"attack_speed"			"0 3 6 9 12 15 18 21 24 27 30"
 			}
 			"02"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"move_speed"			"0 5 10 15"
+				"move_speed"			"0 1.5 3 4.5 6 7.5 9 10.5 12 13.5 15"
 			}
 		}
 	}
@@ -2948,7 +2941,7 @@
 						 "MODIFIER_PROPERTY_EVASION_CONSTANT"      "30"
 					}
 			 }
-			"attackspeed_100"
+		"zhaoyun_attackspeed_100"
 		 {
 		"IsHidden"		"1"
 		"Properties"
@@ -2956,7 +2949,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
 		}
 		}
-		"attackspeed_200"
+		"zhaoyun_attackspeed_200"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -2964,7 +2957,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
 		}
 		}
-		"attackspeed_300"
+		"zhaoyun_attackspeed_300"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -2972,7 +2965,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
 		}
 		}
-		"attackspeed_400"
+		"zhaoyun_attackspeed_400"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -2980,7 +2973,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
 		}
 		}
-		"attackspeed_500"
+		"zhaoyun_attackspeed_500"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -2988,7 +2981,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
 		}
 		}
-		"attackspeed_600"
+		"zhaoyun_attackspeed_600"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -2996,7 +2989,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
 		}
 		}
-		"attackspeed_700"
+		"zhaoyun_attackspeed_700"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3004,7 +2997,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
 		}
 		}
-		"attackspeed_800"
+		"zhaoyun_attackspeed_800"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3012,7 +3005,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
 		}
 		}
-		"attackspeed_900"
+		"zhaoyun_attackspeed_900"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3020,7 +3013,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
 		}
 		}
-		"attackspeed_10"
+		"zhaoyun_attackspeed_10"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3028,7 +3021,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
 		}
 		}
-		"attackspeed_20"
+		"zhaoyun_attackspeed_20"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3036,7 +3029,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
 		}
 		}
-		"attackspeed_30"
+		"zhaoyun_attackspeed_30"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3044,7 +3037,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
 		}
 		}
-		"attackspeed_40"
+		"zhaoyun_attackspeed_40"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3052,7 +3045,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
 		}
 		}
-		"attackspeed_50"
+		"zhaoyun_attackspeed_50"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3060,7 +3053,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
 		}
 		}
-		"attackspeed_60"
+		"zhaoyun_attackspeed_60"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3068,7 +3061,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
 		}
 		}
-		"attackspeed_70"
+		"zhaoyun_attackspeed_70"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3076,7 +3069,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
 		}
 		}
-		"attackspeed_80"
+		"zhaoyun_attackspeed_80"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3084,7 +3077,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
 		}
 		}
-		"attackspeed_90"
+		"zhaoyun_attackspeed_90"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3092,7 +3085,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
 		}
 		}
-		"attackspeed_1"
+		"zhaoyun_attackspeed_1"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3100,7 +3093,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
 		}
 		}
-		"attackspeed_2"
+		"zhaoyun_attackspeed_2"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3108,7 +3101,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
 		}
 		}
-		"attackspeed_3"
+		"zhaoyun_attackspeed_3"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3116,7 +3109,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
 		}
 		}
-		"attackspeed_4"
+		"zhaoyun_attackspeed_4"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3124,7 +3117,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
 		}
 		}
-		"attackspeed_5"
+		"zhaoyun_attackspeed_5"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3132,7 +3125,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
 		}
 		}
-		"attackspeed_6"
+		"zhaoyun_attackspeed_6"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3140,7 +3133,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
 		}
 		}
-		"attackspeed_7"
+		"zhaoyun_attackspeed_7"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3148,7 +3141,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
 		}
 		}
-		"attackspeed_8"
+		"zhaoyun_attackspeed_8"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -3156,7 +3149,7 @@
 			"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
 		}
 		}
-		"attackspeed_9"
+		"zhaoyun_attackspeed_9"
 		{
 		"IsHidden"		"1"
 		"Properties"
@@ -6216,7 +6209,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hook_speed"			"1000.0"
+				"hook_speed"			"800"
 			}
 			"02"
 			{
@@ -6684,6 +6677,32 @@
 	//================================================================================================================
 	// 野怪
 	//================================================================================================================
+	"wild_morale"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"wild_morale_buff"
+			{
+				"Passive"  "1"
+				"IsHidden"  "1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile" 	"scripts/vscripts/***.lua"
+						"Target"		"TargetKey"
+						"Function"		"FunctionName"
+					}
+				}
+			}
+			"wild_morale_buff_01"
+			{
+				
+			}
+		}
+	}
 	"wild_trigger"
 	{
 		"BaseClass"					"ability_datadriven"
@@ -6701,93 +6720,7 @@
 			}
 		}
 	}
-	//================================================================================================================
-	// 木桶系统
-	//================================================================================================================
-	"barrel_passive"
-	{
-		"BaseClass"					"ability_datadriven"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Modifiers"
-		{
-			"modifier_barrel_passive"
-			{
-				"Passive"		"1"
-				"OnAttacked"
-				{
-					"RunScript"
-					{
-						"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
-						"Target"		"CASTER"
-						"Function"		"OnBarrelKilled"
-					}
-				}
-			}
-			"modifier_barrel_roubao_buff"
-	    	{
-	    		"Duration"		"0.1"
-	    		"OnCreated"
-	    		{
-	    			"Heal"
-	    			{
-	    				"Target" "CASTER"
-	    				"HealAmount"	"%heal_amount"
-	    			}
-	    		}
-	    	}
-			"modifeir_barrel_laojiu_buff"
-	    	{
-	    		"OnCreated"
-	    		{
-	    			"RunScript"
-	    			{
-	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
-	    				"Target"		"CASTER"
-	    				"mana_amount"	"%mana_amount"
-	    				"Function"		"OnLaojiuBuffCreated"
-	    			}
-	    		}
-	    	}
-	    	"modifier_barrel_mataitianxue_buff"
-	    	{
-	    		"IsHidden"		"0"
-	    		"Duration"		"%buff_duration"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeed_bonus"
-	    		}
-	    	}
-	    	"modifier_barrel_zhanshenkai_buff"
-	    	{
-	    		"IsHidden"		"0"
-	    		"Duration"		"%buff_duration"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%armor_bonus"
-	    		}
-	    	}
-	    	"modifier_barrel_zhanshenfu_buff"
-	    	{
-	    		"IsHidden"		"0"
-	    		"Duration"		"%buff_duration"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"1"
-	    		}
-	    		"OnCreated"
-	    		{
-	    			"RunScript"
-	    			{
-	    				"ScriptFile" 	"scripts/vscripts/game/Barrel.lua"
-	    				"Target"		"CASTER"
-	    				"Function"		"OnZhanshenfuBuffCreated"
-	    			}
-	    		}
-	    	}
-		}
-	}
-	// 脝陆潞芒脨脭鲁拢脢媒录录脛脺
-	// 脩陋脕驴脨脼脮媒
+
 	"ability_health_modifier"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -7348,7 +7281,6 @@
 			}
 		}
 	}
-	//脙么陆脻 禄陇录脳脨脼脮媒
 	"ability_armor_modifier"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"

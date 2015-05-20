@@ -11,21 +11,21 @@ function zhaoyun_wushuang_01(keys)   --赵云  无双
  --按比例修改攻击速度  
   if str>=100 then 
         local x1=math.floor(str/100)*100
-        keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x1), {duration=durationtime})
+        keys.ability:ApplyDataDrivenModifier(caster, caster, "zhaoyun_attackspeed_"..tostring(x1), {duration=durationtime})
         local x2=math.floor((str-x1)/10)*10 
-        keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x2), {duration=durationtime})       
+        keys.ability:ApplyDataDrivenModifier(caster, caster, "zhaoyun_attackspeed_"..tostring(x2), {duration=durationtime})       
         local x3=math.floor(str-x1-x2)
-        keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x3), {duration=durationtime})
+        keys.ability:ApplyDataDrivenModifier(caster, caster, "zhaoyun_attackspeed_"..tostring(x3), {duration=durationtime})
     else 
         if str>=10 then 
            local x2=math.floor(str/10)*10 
-           keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x2), {duration=durationtime})
+           keys.ability:ApplyDataDrivenModifier(caster, caster, "zhaoyun_attackspeed_"..tostring(x2), {duration=durationtime})
          -- keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_100", {duration=durationtime}) 
            local x3=math.floor(str-x2)
-           keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x3), {duration=durationtime})
+           keys.ability:ApplyDataDrivenModifier(caster, caster, "zhaoyun_attackspeed_"..tostring(x3), {duration=durationtime})
         else 
            local x3=math.floor(str)
-           keys.ability:ApplyDataDrivenModifier(caster, caster, "attackspeed_"..tostring(x3), {duration=durationtime}) 
+           keys.ability:ApplyDataDrivenModifier(caster, caster, "zhaoyun_attackspeed_"..tostring(x3), {duration=durationtime}) 
         end
     end 
 end

@@ -27,6 +27,7 @@ local modules = {
     "sound.sounds",
 
     "other.movement" -- 移动速度管理
+    
 }
 
 for _, mod in pairs(modules) do
@@ -238,6 +239,7 @@ end
 function ZhensanGameMode:OnNPCSpawned(keys)
     local unit = EntIndexToHScript(keys.entindex)
     local unit_name = unit:GetUnitName()
+
     if self.__NpcSpawnedHandler[unit_name] then
         self.__NpcSpawnedHandler[unit_name]:Handle(unit)
     end
@@ -248,8 +250,11 @@ function ZhensanGameMode:OnPlayerPicked(event)
     print('on player picked')
     local unit = EntIndexToHScript(event.heroindex)
     local unit_name = unit:GetUnitName()
+    table.insert(ZSSpawner.hero,unit_name)
+    ZSSpawner.hero[unit_name]=unit
+    print("player picked:"..ZSSpawner.hero[unit_name]:GetUnitName())
     if self.__NpcSpawnedHandler[unit_name] then
-        print('on player picked')
+        
         self.__NpcSpawnedHandler[unit_name]:Handle(unit)
     end
 end

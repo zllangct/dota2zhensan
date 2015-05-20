@@ -51,7 +51,41 @@ function MSys:Init()
     self.__allCreeps = {}
 
 end
+--士兵士气技能入口
+--------------------------------------------
+function MSys:shibing_morale()
+   local shibing=ZSSpawner.shibing
+   PrintTable(shibing)
+   if shibing[1] then 
+      self:shibing_morales_set(shibing)
+   end 
 
+end
+function MSys:shibing_morale_set(target)
+     local team = target:GetTeam()
+     local ability=target:FindAbilityByName("morale_ability")
+     if ability then 
+        if self.__morale[team]>10  then 
+            ability:SetLevel(self.__morale[team]-9)
+        elseif self.__morale[team]<= 10 then 
+            ability:SetLevel(1)
+        end
+     end 
+end 
+function MSys:shibing_morales_set(target)
+    for _,target in pairs(target) do
+        local team = target:GetTeam()
+        local ability=target:FindAbilityByName("morale_ability")
+        if ability then 
+            if self.__morale[team]>10  then 
+                ability:SetLevel(self.__morale[team]-9)
+            elseif self.__morale[team]<= 10 then 
+                ability:SetLevel(1)
+            end
+        end 
+    end
+     
+end 
 -- 士气系统：英雄被击杀的响应
 -- 当有英雄被击杀的事件响应
 -- 
@@ -70,6 +104,7 @@ function MSys:OnPlayerKilled(keys)
     -- 提升被击杀队伍的士气，同时提升击杀方士气
     self:MoraleDown(playerKilled, heroKilledTeam)
 
+       self:shibing_morale()
 end
 
 -- 士气系统：单位被击杀的响应

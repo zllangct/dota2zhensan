@@ -3079,7 +3079,7 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%leap_speedbonus"
 				}
 			}
-			"attackspeed_100"
+			"yuexia_attackspeed_100"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3087,7 +3087,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
 				}
 			}
-			"attackspeed_200"
+			"yuexia_attackspeed_200"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3095,7 +3095,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
 				}
 			}
-			"attackspeed_300"
+			"yuexia_attackspeed_300"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3103,7 +3103,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
 				}
 			}
-			"attackspeed_400"
+			"yuexia_attackspeed_400"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3111,7 +3111,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
 				}
 			}
-			"attackspeed_500"
+			"yuexia_attackspeed_500"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3119,7 +3119,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
 				}
 			}
-			"attackspeed_600"
+			"yuexia_attackspeed_600"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3127,7 +3127,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
 				}
 			}
-			"attackspeed_700"
+			"yuexia_attackspeed_700"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3135,7 +3135,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
 				}
 			}
-			"attackspeed_800"
+			"yuexia_attackspeed_800"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3143,7 +3143,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
 				}
 			}
-			"attackspeed_900"
+			"yuexia_attackspeed_900"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3151,7 +3151,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
 				}
 			}
-			"attackspeed_10"
+			"yuexia_attackspeed_10"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3159,7 +3159,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
 				}
 			}
-			"attackspeed_20"
+			"yuexia_attackspeed_20"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3167,7 +3167,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
 				}
 			}
-			"attackspeed_30"
+			"yuexia_attackspeed_30"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3175,7 +3175,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
 				}
 			}
-			"attackspeed_40"
+			"yuexia_attackspeed_40"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3183,7 +3183,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
 				}
 			}
-			"attackspeed_50"
+			"yuexia_attackspeed_50"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3191,7 +3191,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
 				}
 			}
-			"attackspeed_60"
+			"yuexia_attackspeed_60"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3199,7 +3199,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
 				}
 			}
-			"attackspeed_70"
+			"yuexia_attackspeed_70"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3207,7 +3207,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
 				}
 			}
-			"attackspeed_80"
+			"yuexia_attackspeed_80"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3215,7 +3215,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
 				}
 			}
-			"attackspeed_90"
+			"yuexia_attackspeed_90"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3223,7 +3223,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
 				}
 			}
-			"attackspeed_1"
+			"yuexia_attackspeed_1"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3231,7 +3231,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
 				}
 			}
-			"attackspeed_2"
+			"yuexia_attackspeed_2"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3239,7 +3239,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
 				}
 			}
-			"attackspeed_3"
+			"yuexia_attackspeed_3"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3247,7 +3247,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
 				}
 			}
-			"attackspeed_4"
+			"yuexia_attackspeed_4"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3255,7 +3255,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
 				}
 			}
-			"attackspeed_5"
+			"yuexia_attackspeed_5"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3263,7 +3263,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
 				}
 			}
-			"attackspeed_6"
+			"yuexia_attackspeed_6"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3271,7 +3271,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
 				}
 			}
-			"attackspeed_7"
+			"yuexia_attackspeed_7"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3279,7 +3279,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
 				}
 			}
-			"attackspeed_8"
+			"yuexia_attackspeed_8"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3287,7 +3287,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
 				}
 			}
-			"attackspeed_9"
+			"yuexia_attackspeed_9"
 			{
 				"IsHidden"		"1"
 				"Properties"
@@ -3359,6 +3359,7 @@
 				
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"      "25"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"25"
+
 				}
 				"OnCreated"
 				{
@@ -3890,50 +3891,19 @@
          "Model"            "models/items/ogre_magi/goldenwalruswhacker/goldenwalruswhacker.vmdl"
 		"ItemCost"			"666666"
         "Modifiers"
-   {
-    "speed_thinker"
-    {
-        "Passive"  "1"
-        "IsHidden"   "1"
-        "OnCreated"
         {
-            "RunScript"
+            "speed_thinker"
             {
-                "ScriptFile"    "scripts/vscripts/other/movement.lua"
-                "Target"        "TARGET"
-                "action"        "create"
-                "itemname"      "item_xiangxue" 
-                "Function"      "cast"
+                "Passive"  "1"
+                "IsHidden"   "1"
+       
+                 "Properties"
+                {
+                     "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"4"
+                     "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"    "51"
+           
+                 } 
             }
-            "RunScript"
-			       {
-				       "ScriptFile"	 "scripts/vscripts/items/item_yuexiameiren.lua"
-				       "Target"		 "CASTER"
-				       "Function"	 "item_yuexiameiren_01"
-			        }
-        }
-        "OnDestroy"
-        {
-             "RunScript"
-            {
-                "ScriptFile"    "scripts/vscripts/other/movement.lua"
-                "Target"        "TARGET"
-                "action"        "destroy"
-                "itemname"      "item_xiangxue"
-                "Function"      "cast"
-            }
-            "RunScript"
-			   {
-				       "ScriptFile"	 "scripts/vscripts/items/item_yuexiameiren.lua"
-				       "Target"		 "CASTER"
-				       "Function"	 "item_yuexiameiren_2"
-			   }
-        }
-        "Properties"
-        {
-            "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"4"
-        } 
-    }
     "independent_speed_bonus"
     {
         "IsHidden"      "1"
@@ -3944,231 +3914,16 @@
             "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"    "1"
         }               
     }
-    "attackspeed_100"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100"
-				}
-			}
-			"attackspeed_200"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200"
-				}
-			}
-			"attackspeed_300"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "300"
-				}
-			}
-			"attackspeed_400"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "400"
-				}
-			}
-			"attackspeed_500"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "500"
-				}
-			}
-			"attackspeed_600"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "600"
-				}
-			}
-			"attackspeed_700"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "700"
-				}
-			}
-			"attackspeed_800"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "800"
-				}
-			}
-			"attackspeed_900"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "900"
-				}
-			}
-			"attackspeed_10"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10"
-				}
-			}
-			"attackspeed_20"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20"
-				}
-			}
-			"attackspeed_30"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30"
-				}
-			}
-			"attackspeed_40"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40"
-				}
-			}
-			"attackspeed_50"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
-				}
-			}
-			"attackspeed_60"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60"
-				}
-			}
-			"attackspeed_70"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70"
-				}
-			}
-			"attackspeed_80"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "80"
-				}
-			}
-			"attackspeed_90"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "90"
-				}
-			}
-			"attackspeed_1"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1"
-				}
-			}
-			"attackspeed_2"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "2"
-				}
-			}
-			"attackspeed_3"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "3"
-				}
-			}
-			"attackspeed_4"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "4"
-				}
-			}
-			"attackspeed_5"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "5"
-				}
-			}
-			"attackspeed_6"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "6"
-				}
-			}
-			"attackspeed_7"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "7"
-				}
-			}
-			"attackspeed_8"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "8"
-				}
-			}
-			"attackspeed_9"
-			{
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "9"
-				}
-			}
-}
-"AbilitySpecial"
-{
-    "01"
-    {
-        "var_type"                      "FIELD_INTEGER"
-        "independent_movement"              "50" 
+    
     }
-}
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                      "FIELD_INTEGER"
+            "independent_movement"              "50" 
+        }
+    }
 		
 		
 		

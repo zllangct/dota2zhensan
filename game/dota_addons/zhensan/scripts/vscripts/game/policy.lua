@@ -82,25 +82,28 @@ function Policy:Int()
     --self:supply._spawner=ZSSpawner.__spawners
     --self:supply._target =ZSSpawner.__target
 end 
+function Policy:ShiQi()
+    -- body
+end
 function Policy:YuanJun()
     local cmdPlayer = Convars:GetCommandClient()   
     if cmdPlayer then
         local caster=cmdPlayer:GetAssignedHero()
         local caster_origin = caster:GetOrigin()
         local plyID=caster:GetPlayerID()
-        if caster.__lumber_data ~=nil and caster.__lumber_data >= 80 then 
-            caster.__lumber_data = caster.__lumber_data-80
+        if caster.__lumber_data ~=nil and caster.__lumber_data >= 60 then 
+            caster.__lumber_data = caster.__lumber_data-60
             UpdateLumberDataForPlayer(plyID, caster.__lumber_data)                                   
         else 
             FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerID(), _error = "木材不足！！！" } )                   
             return nil
         end   
         --判断玩家是否有足够的金币
-        if caster:GetGold() < 1800 then 
+        if caster:GetGold() < 800 then 
             FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerID(), _error = "金币不足！！！" } )                   
             return nil 
         else 
-            caster:SpendGold(1800,0)
+            caster:SpendGold(800,0)
         end  
          
         local team =caster:GetTeam()

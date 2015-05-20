@@ -2,18 +2,13 @@
 if ZSSpawner == nil then
     ZSSpawner = class( { })
 end
-
+ZSSpawner.shibing={}
+ZSSpawner.hero={}
 -- API ： 开始刷怪
 function ZSSpawner:Start_wild_init( )
     -- body
     -- 监听单位击杀事件
     ListenToGameEvent("entity_killed", Dynamic_Wrap(ZSSpawner, "wild"), self)
-    Convars:RegisterCommand( "testwild",function( )
-        -- body
-        self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_10"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_10")
-        self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_11"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_11")
-        self:DoSpawn_wild(self._spawner_wild["zs_qiangdao_12"]:GetOrigin(),"npc_zs_qiangdao","zs_qiangdao_12")
-    end,"",0)
 end
 function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原点
     -- body
@@ -92,11 +87,27 @@ function ZSSpawner:wild_maxaway(caster) --当野怪的离开距离时返回原�
           end
      end,0)         
 end
+function table.removeItem(list, item, removeAll)
+    local rmCount = 0
+    for i = 1, #list do
+      if list[i - rmCount] == item then
+          table.remove(list, i - rmCount)
+          if removeAll then
+              rmCount = rmCount + 1
+          else
+              break
+          end
+      end
+   end
+end
 function ZSSpawner:wild(keys)
     -- body
     local entity_killed = EntIndexToHScript(keys.entindex_killed)
     local entity_attacker = EntIndexToHScript(keys.entindex_attacker)
     if not(entity_killed and entity_attacker) then return end
+    if entity_killed:GetContext("isshibing")==1 then
+        table.removeItem(self.shibing,entity_killed,nil)
+    end 
     if entity_killed:GetContext("iswild")==1 then 
         local _wild_name=entity_killed:GetContext("wild_name")
         local _spwaner_name = entity_killed:GetContext("spwaner_name")
@@ -305,7 +316,8 @@ end
 -- level: 等级，要升级为几级，就设置为几级
 function ZSSpawner:DoSpawn(spawn_location, unit_name, initial_target, team, level)
     local creep = CreateUnitByName(unit_name, spawn_location, true, nil, nil, team)
-
+    creep:SetContextNum("isshibing",1,0)
+    table.insert(self.shibing,creep)
     -- 如果是兵线上的小兵，为其设置等级
     if creep:GetClassname() == 'npc_dota_creep_lane' then
         self:CreepLevelUp(creep, level)
@@ -315,7 +327,7 @@ function ZSSpawner:DoSpawn(spawn_location, unit_name, initial_target, team, leve
         print('creature level up enabled, leveling')
         creep:CreatureLevelUp(level - 1)
     end
-
+    MSys:shibing_morale_set(creep)
     creep:SetMustReachEachGoalEntity(false)
     creep:SetInitialGoalEntity(initial_target)
 end
