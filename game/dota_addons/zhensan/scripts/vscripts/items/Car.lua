@@ -31,6 +31,7 @@ function on_dummy_spawn(keys)   --投石车普通攻击时调用
     local team = keys.caster:GetTeam()       
     local result = { }
     local unit_name = "npc_dummy_1"
+    EmitSoundOn("Hero_Bane.Attack", creep)
     --创建马甲
     local creep = CreateUnitByName(unit_name,point, false,caster:GetOwner(),caster:GetOwner(), team)
     creep:SetOwner(caster:GetOwner())
@@ -64,6 +65,7 @@ function on_dummy_spawn(keys)   --投石车普通攻击时调用
         function()
             --当特效到达马甲时，释放马甲范围伤害技能
           creep:CastAbilityImmediately(spell, creep:GetOwner():GetPlayerOwnerID())
+          EmitSoundOn("Hero_Bane.ProjectileImpact", creep)
         end,_time)
     --定时移除马甲单位
     GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("chezi_01"),
@@ -79,6 +81,7 @@ local spell = target:FindAbilityByName("toushiche_toushi_1")  --添加普通攻�
            if spell then  
                 spell:SetLevel(1)
            end 
+           target:AddAbility("toushiche_toushi_2")
 local spell2 = target:FindAbilityByName("toushiche_toushi_2")  --添加攻击地面技能
 if spell2 then  
              spell2:SetLevel(1)
@@ -91,8 +94,10 @@ function on_dummy_spawn_2(keys)  --当攻击地面技能使用时调用，与普
     local team = keys.caster:GetTeam()
     local result = { }
     local unit_name = "npc_dummy_2"
+
     local creep = CreateUnitByName(unit_name,point, false, caster:GetOwner(), caster:GetOwner(), team)
-          creep:SetOwner(caster:GetOwner())    
+          creep:SetOwner(caster:GetOwner())   
+          EmitSoundOn("Hero_Bane.Attack", creep) 
     local distance = (keys.caster:GetAbsOrigin()-creep:GetAbsOrigin()):Length()
     local _time=distance/800
     local spell = creep:FindAbilityByName("toushiche_dummy_02")
@@ -120,6 +125,7 @@ function on_dummy_spawn_2(keys)  --当攻击地面技能使用时调用，与普
             -- body 释放技能
              
             creep:CastAbilityImmediately(spell, creep:GetPlayerOwnerID())
+            EmitSoundOn("Hero_Bane.ProjectileImpact", creep)
         end,_time)
     GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("chezi_01"),
         function()

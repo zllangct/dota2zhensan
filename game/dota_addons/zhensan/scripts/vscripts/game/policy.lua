@@ -444,11 +444,10 @@ function Policy:BuyTouShiChe() --购买投石车时调用
         if spell then  
               spell:SetLevel(1)
         end 
+        car:AddAbility("toushiche_toushi_2")
         local spell2 = car:FindAbilityByName("toushiche_toushi_2")  --添加攻击地面技能
         if spell2 then  
-            spell2:SetLevel(1)
+              spell2:SetLevel(1)
         end
-        
-
     end
 end

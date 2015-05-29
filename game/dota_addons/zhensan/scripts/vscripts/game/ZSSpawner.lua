@@ -328,6 +328,9 @@ function ZSSpawner:DoSpawn(spawn_location, unit_name, initial_target, team, leve
         creep:CreatureLevelUp(level - 1)
     end
     MSys:shibing_morale_set(creep)
+    creep:SetHullRadius(40)
+    FindClearSpaceForUnit(creep,creep:GetAbsOrigin(), false)
+   
     creep:SetMustReachEachGoalEntity(false)
     creep:SetInitialGoalEntity(initial_target)
 end

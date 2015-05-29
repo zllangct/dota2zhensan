@@ -5,7 +5,7 @@ function guojia_binhebaoliepo_01(keys) --国家特效，无其他内容
     local caster_origin = caster:GetOrigin()
     local direction =(point - caster_origin):Normalized()
     local particle ={}
-    local effect_count = 0
+    local effect_count = 1
     local p_time = 0
     caster:SetContextThink(DoUniqueString("fireeffect"),
     function()
@@ -18,7 +18,7 @@ function guojia_binhebaoliepo_01(keys) --国家特效，无其他内容
         if effect_count >= 6 then 
             
             if p_time >= 1.5 then
-                for i=0,6 do
+                for i=1,6 do
                     local k = particle[i]
                     ParticleManager:DestroyParticle(k,true)  
                 end

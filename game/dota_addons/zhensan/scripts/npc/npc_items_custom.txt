@@ -860,7 +860,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"10"
+				"buff_duration"			"15"
 			}
 			"02"
 			{
@@ -935,7 +935,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"10"
+				"buff_duration"			"15"
 			}
 			"02"
 			{

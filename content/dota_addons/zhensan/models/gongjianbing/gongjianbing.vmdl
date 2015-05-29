@@ -1,0 +1,1155 @@
+<!-- schema text {7e125a45-3d83-4043-b292-9e24f8ef27b4} generic {198980d8-3a93-4919-b4c6-dd1fb07a3a4b} -->
+CVModel CVModel_0
+{
+	CVmeshList m_meshList = CVmeshList
+	{
+		CVmesh[] m_meshList = 
+		[
+			CVmesh
+			{
+				string m_meshName = "gongjianbing"
+				string m_meshFile = "models/gongjianbing/gongjianbing.smd"
+				string m_materialSearchPath = "materials/models/gongjianbing"
+				bool m_bSkinParentedObjects = true
+				bool m_bExpensiveTangents = false
+				bool m_bExpensiveVertices = false
+				CVmorphInfo* m_pMorphInfo = NULL
+			}
+		]
+	}
+	CVClothProxyMeshList m_clothProxyMeshList = CVClothProxyMeshList
+	{
+		CVClothProxyMesh[] m_clothProxyMeshList = 
+		[
+			
+		]
+		float m_flClothEnableThreshold = 0.050000
+		bool m_bCreateStaticBone = false
+		int m_nMaxBonesPerVertex = 4
+		bool m_bRemoveUnusedBonesEnabled = false
+		bool m_bUseOnlyRealMeshBones = false
+		float m_flMatchProxiesToMeshes = 1.000000
+		float m_flReservedFloat = 0.000000
+		int m_nReservedInt = 0
+		bool m_bReservedBool1 = false
+		bool m_bReservedBool2 = false
+		bool m_bReservedBool3 = false
+		bool m_bReservedBool4 = false
+	}
+	CVphysicsMeshList m_physicsMeshList = CVphysicsMeshList
+	{
+		CVphysicsMesh[] m_meshList = 
+		[
+			CVphysicsMesh
+			{
+				string m_meshName = "gongjianbing"
+				string m_meshFile = "models/gongjianbing/gongjianbing.smd"
+				bool m_bConvexify = true
+				bool m_bMultiplePieces = false
+				symbol m_collisionType = STATIC
+				bool m_bUseExactGeometry = false
+				bool m_bAutoMass = true
+				float m_flMassOverride = 100.000000
+				bool m_bOneConvexPiece = true
+				bool m_bConcavePerJoint = false
+				bool m_bSelfCollisions = false
+				bool m_bForceKinematic = false
+				bool m_bIgnoreScale = false
+				bool m_bIgnoreSkeleton = false
+			}
+		]
+	}
+	CVmodelInfo* m_pModelInfo = NULL
+	CVBoneFlagListReference m_pBoneFlagList = CVBoneFlagListReference
+	{
+		CVBoneFlagList* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVhitBoxSetListReference[] m_pHitBoxSetLists = 
+	[
+		CVhitBoxSetListReference
+		{
+			CVhitBoxSetList* m_pObject = &CVhitBoxSetList_0
+			string m_sFileName = ""
+		}
+	]
+	CVattachmentListReference[] m_pAttachmentLists = 
+	[
+		CVattachmentListReference
+		{
+			CVattachmentList* m_pObject = &CVattachmentList_0
+			string m_sFileName = ""
+		}
+	]
+	CVanimGroupReference[] m_pAnimGroups = 
+	[
+		CVanimGroupReference
+		{
+			CVanimGroup* m_pObject = &CVanimGroup_0
+			string m_sFileName = ""
+		}
+	]
+	CVNodeMaterialGroupListReference m_pMaterialGroupList = CVNodeMaterialGroupListReference
+	{
+		NodeMaterialGroupList_t* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVMeshGroupListReference m_pMeshGroupList = CVMeshGroupListReference
+	{
+		MeshGroupList_t* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVLODGroupListReference m_pLodGroupList = CVLODGroupListReference
+	{
+		LODGroupList_t* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVpropBreakableListReference m_pPropBreakableList = CVpropBreakableListReference
+	{
+		CVpropBreakableList* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVpropDataListReference m_pPropDataList = CVpropDataListReference
+	{
+		CVpropDataList* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVConstraintListReference[] m_pConstraintLists = 
+	[
+		
+	]
+	string m_collision = ""
+	string m_sMDLFilename = ""
+	string[] m_scriptFiles = 
+	[
+		
+	]
+	CVMaterialRemapList* m_pMaterialRemapList = NULL
+	float m_flFbxScale = 1.000000
+	float m_flQCScale = 1.000000
+	CVPsf* m_pvPsf = NULL
+	string m_keyValueText = ""
+	bool m_bStaticProp = false
+	bool m_bEnableClothProcessing = true
+	float m_flClothEnableThreshold = 0.050000
+	int m_nMaxClothVertsPerMesh = 2048
+}
+
+CVhitBoxSetList CVhitBoxSetList_0
+{
+	CVhitBoxSet[] m_HitBoxSets = 
+	[
+		CVhitBoxSet
+		{
+			string m_name = "default"
+			CVhitBox[] m_HitBoxes = 
+			[
+				CVhitBox
+				{
+					string m_name = "Bip01-Pelvis"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-Pelvis"
+					float(3) m_vMinBounds = ( -6.681763, -5.791443, -7.344172 )
+					float(3) m_vMaxBounds = ( 6.410038, 7.644393, 7.297855 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-Spine"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-Spine"
+					float(3) m_vMinBounds = ( -1.003952, -5.461614, -7.462011 )
+					float(3) m_vMaxBounds = ( 8.240780, 6.091551, 7.395605 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-Spine1"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-Spine1"
+					float(3) m_vMinBounds = ( -1.549465, -6.033726, -7.380488 )
+					float(3) m_vMaxBounds = ( 6.841080, 6.510407, 7.473041 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-Spine2"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-Spine2"
+					float(3) m_vMinBounds = ( -1.969070, -6.236082, -8.453382 )
+					float(3) m_vMaxBounds = ( 10.646095, 6.765280, 8.590944 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-Neck"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-Neck"
+					float(3) m_vMinBounds = ( 2.082474, 1.855370, -0.840385 )
+					float(3) m_vMaxBounds = ( 2.268524, 2.360088, 1.182235 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Clavicle"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Clavicle"
+					float(3) m_vMinBounds = ( 1.041820, -5.203989, -4.020107 )
+					float(3) m_vMaxBounds = ( 7.524666, 4.423067, 5.658222 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Clavicle"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Clavicle"
+					float(3) m_vMinBounds = ( 1.312464, -5.244244, -5.649609 )
+					float(3) m_vMaxBounds = ( 7.708487, 4.952785, 4.020134 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-UpperArm"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-UpperArm"
+					float(3) m_vMinBounds = ( -1.196169, -2.865458, -3.321148 )
+					float(3) m_vMaxBounds = ( 13.157593, 3.207976, 2.833206 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-UpperArm"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-UpperArm"
+					float(3) m_vMinBounds = ( -1.376280, -2.483541, -2.833138 )
+					float(3) m_vMaxBounds = ( 13.576664, 2.874334, 3.321198 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Forearm"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Forearm"
+					float(3) m_vMinBounds = ( -2.519156, -2.560463, -3.214397 )
+					float(3) m_vMaxBounds = ( 6.001764, 3.494245, 2.833202 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Forearm"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Forearm"
+					float(3) m_vMinBounds = ( -2.566628, -2.096841, -2.833160 )
+					float(3) m_vMaxBounds = ( 6.001726, 3.058449, 3.214424 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Hand"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Hand"
+					float(3) m_vMinBounds = ( -0.362812, -1.393730, -2.783897 )
+					float(3) m_vMaxBounds = ( 5.440132, 1.222599, 2.256095 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Hand"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Hand"
+					float(3) m_vMinBounds = ( -0.422506, -1.393784, -2.256149 )
+					float(3) m_vMaxBounds = ( 5.440115, 1.222595, 2.783815 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Thigh"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Thigh"
+					float(3) m_vMinBounds = ( -1.468542, -8.441125, -4.974694 )
+					float(3) m_vMaxBounds = ( 19.550972, 6.365660, 6.301966 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Thigh"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Thigh"
+					float(3) m_vMinBounds = ( -0.935917, -5.675612, -5.278849 )
+					float(3) m_vMaxBounds = ( 21.434191, 6.859202, 4.974634 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger0"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger0"
+					float(3) m_vMinBounds = ( -0.149168, -0.538369, -1.192375 )
+					float(3) m_vMaxBounds = ( 1.859529, 1.205816, 0.808830 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger1"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger1"
+					float(3) m_vMinBounds = ( 1.293507, -0.322092, -0.537901 )
+					float(3) m_vMaxBounds = ( 1.614826, 0.253445, 0.442675 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger2"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger2"
+					float(3) m_vMinBounds = ( 1.520908, -0.309233, -0.543996 )
+					float(3) m_vMaxBounds = ( 2.036713, 0.249937, 0.417352 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger3"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger3"
+					float(3) m_vMinBounds = ( 1.343365, -0.190966, -0.438077 )
+					float(3) m_vMaxBounds = ( 1.815067, 0.236895, 0.447224 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger4"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger4"
+					float(3) m_vMinBounds = ( 0.942978, -0.228987, -0.471531 )
+					float(3) m_vMaxBounds = ( 1.450947, 0.190182, 0.447830 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger0"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger0"
+					float(3) m_vMinBounds = ( -0.149173, -0.538263, -0.808784 )
+					float(3) m_vMaxBounds = ( 1.766021, 1.205899, 1.192390 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger1"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger1"
+					float(3) m_vMinBounds = ( 1.409426, -0.384399, -0.442738 )
+					float(3) m_vMaxBounds = ( 1.439877, 0.376717, 0.537775 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger2"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger2"
+					float(3) m_vMinBounds = ( 1.665296, -0.319897, -0.417414 )
+					float(3) m_vMaxBounds = ( 1.862208, 0.537296, 0.543827 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger3"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger3"
+					float(3) m_vMinBounds = ( 1.470553, -0.293205, -0.447248 )
+					float(3) m_vMaxBounds = ( 1.704751, 0.390450, 0.438002 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger4"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger4"
+					float(3) m_vMinBounds = ( 1.052770, -0.348709, -0.448025 )
+					float(3) m_vMaxBounds = ( 1.324759, 0.353260, 0.471449 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Calf"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Calf"
+					float(3) m_vMinBounds = ( -2.952505, -5.684948, -4.870327 )
+					float(3) m_vMaxBounds = ( 19.589960, 4.854769, 5.093763 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Calf"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Calf"
+					float(3) m_vMinBounds = ( -4.233898, -4.989529, -5.086425 )
+					float(3) m_vMaxBounds = ( 20.709587, 4.724585, 4.870300 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-Head"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-Head"
+					float(3) m_vMinBounds = ( -1.446720, -6.031116, -3.649306 )
+					float(3) m_vMaxBounds = ( 12.839321, 5.010428, 3.649277 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger01"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger01"
+					float(3) m_vMinBounds = ( -0.247524, -0.460678, -0.828316 )
+					float(3) m_vMaxBounds = ( 1.274290, 0.956128, 0.497112 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger11"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger11"
+					float(3) m_vMinBounds = ( -0.253719, -0.308254, -0.537900 )
+					float(3) m_vMaxBounds = ( 1.333080, 0.295708, 0.442675 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger21"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger21"
+					float(3) m_vMinBounds = ( -0.284798, -0.301989, -0.543998 )
+					float(3) m_vMaxBounds = ( 1.341663, 0.552608, 0.417350 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger31"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger31"
+					float(3) m_vMinBounds = ( -0.154339, -0.227425, -0.438073 )
+					float(3) m_vMaxBounds = ( 1.309010, 0.348301, 0.447227 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger41"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger41"
+					float(3) m_vMinBounds = ( -0.159641, -0.290545, -0.471528 )
+					float(3) m_vMaxBounds = ( 1.342718, 0.332525, 0.447833 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-Prop1"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-Prop1"
+					float(3) m_vMinBounds = ( -30.324707, -0.827808, -0.878869 )
+					float(3) m_vMaxBounds = ( 30.324772, 0.827820, 6.571132 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger01"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger01"
+					float(3) m_vMinBounds = ( -0.275696, -0.499709, -0.497086 )
+					float(3) m_vMaxBounds = ( 1.223973, 0.937821, 0.828339 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger11"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger11"
+					float(3) m_vMinBounds = ( -0.129421, -0.372383, -0.442747 )
+					float(3) m_vMaxBounds = ( 1.239659, 0.381996, 0.537766 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger21"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger21"
+					float(3) m_vMinBounds = ( -0.283346, -0.286419, -0.417418 )
+					float(3) m_vMaxBounds = ( 1.278140, 0.591381, 0.543823 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger31"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger31"
+					float(3) m_vMinBounds = ( -0.082901, -0.300678, -0.447258 )
+					float(3) m_vMaxBounds = ( 1.249806, 0.416676, 0.437992 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger41"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger41"
+					float(3) m_vMinBounds = ( -0.119821, -0.359421, -0.448032 )
+					float(3) m_vMaxBounds = ( 1.282756, 0.374359, 0.471441 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bone03"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bone03"
+					float(3) m_vMinBounds = ( -16.936100, -4.120094, -1.230473 )
+					float(3) m_vMaxBounds = ( 28.304798, 3.671256, 1.189419 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Foot"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Foot"
+					float(3) m_vMinBounds = ( -1.894924, -3.451250, -3.032053 )
+					float(3) m_vMaxBounds = ( 4.567786, 6.908838, 2.417751 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Foot"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Foot"
+					float(3) m_vMinBounds = ( -2.370947, -3.451311, -2.417761 )
+					float(3) m_vMaxBounds = ( 4.567868, 6.735838, 3.032073 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bone02"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bone02"
+					float(3) m_vMinBounds = ( 2.218482, 0.021240, -1.682155 )
+					float(3) m_vMaxBounds = ( 2.433719, 0.100857, 1.682889 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger02"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger02"
+					float(3) m_vMinBounds = ( -0.165394, -0.262239, -0.557056 )
+					float(3) m_vMaxBounds = ( 1.338724, 0.501205, 0.372158 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger12"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger12"
+					float(3) m_vMinBounds = ( -0.223543, -0.280006, -0.422943 )
+					float(3) m_vMaxBounds = ( 1.172901, 0.304592, 0.357309 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger22"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger22"
+					float(3) m_vMinBounds = ( -0.254645, -0.201988, -0.479512 )
+					float(3) m_vMaxBounds = ( 1.204838, 0.490738, 0.393504 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger32"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger32"
+					float(3) m_vMinBounds = ( -0.126503, -0.249752, -0.371755 )
+					float(3) m_vMaxBounds = ( 1.208357, 0.323967, 0.383189 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Finger42"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Finger42"
+					float(3) m_vMinBounds = ( -0.113647, -0.292088, -0.392174 )
+					float(3) m_vMaxBounds = ( 1.099958, 0.248875, 0.404913 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bone04"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bone04"
+					float(3) m_vMinBounds = ( 0.047917, -0.003008, -0.031590 )
+					float(3) m_vMaxBounds = ( 0.652212, -0.002972, 0.002922 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-ForeTwist"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-ForeTwist"
+					float(3) m_vMinBounds = ( 5.590696, -1.687946, -2.208176 )
+					float(3) m_vMaxBounds = ( 11.028299, 2.496187, 2.127346 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger02"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger02"
+					float(3) m_vMinBounds = ( -0.214053, -0.292061, -0.372139 )
+					float(3) m_vMaxBounds = ( 1.338697, 0.478994, 0.557129 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger12"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger12"
+					float(3) m_vMinBounds = ( -0.164991, -0.280170, -0.357418 )
+					float(3) m_vMaxBounds = ( 1.172906, 0.296169, 0.422873 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger22"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger22"
+					float(3) m_vMinBounds = ( -0.349145, -0.249458, -0.393589 )
+					float(3) m_vMaxBounds = ( 1.204831, 0.444267, 0.479414 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger32"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger32"
+					float(3) m_vMinBounds = ( -0.140961, -0.249714, -0.383274 )
+					float(3) m_vMaxBounds = ( 1.208291, 0.323997, 0.371729 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Finger42"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Finger42"
+					float(3) m_vMinBounds = ( -0.055410, -0.309273, -0.404994 )
+					float(3) m_vMaxBounds = ( 1.099977, 0.274590, 0.392103 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-ForeTwist"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-ForeTwist"
+					float(3) m_vMinBounds = ( 5.590605, -1.681747, -2.154270 )
+					float(3) m_vMaxBounds = ( 11.028263, 2.548437, 2.184711 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bone01"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bone01"
+					float(3) m_vMinBounds = ( -2.930977, -1.515366, -1.492634 )
+					float(3) m_vMaxBounds = ( 42.360168, 1.494522, 1.492599 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-L-Toe0"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-L-Toe0"
+					float(3) m_vMinBounds = ( -0.183788, -0.373328, -3.032064 )
+					float(3) m_vMaxBounds = ( 3.582458, 2.388774, 2.417740 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				},
+				CVhitBox
+				{
+					string m_name = "Bip01-R-Toe0"
+					string m_sSurfaceProperty = ""
+					int m_nGroupId = 0
+					string m_sBoneName = "Bip01-R-Toe0"
+					float(3) m_vMinBounds = ( -0.221065, -0.350870, -2.417761 )
+					float(3) m_vMaxBounds = ( 3.582370, 2.246943, 3.032073 )
+					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+				}
+			]
+		}
+	]
+}
+
+CVattachmentList CVattachmentList_0
+{
+	string m_name = ""
+	CVattachment[] m_attachments = 
+	[
+		CVattachment
+		{
+			string m_name = "attach_attack1"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
+				{
+					string m_influenceName = "Bip01-L-Finger2"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
+				}
+			]
+		},
+		CVattachment
+		{
+			string m_name = "attach_overhead"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
+				{
+					string m_influenceName = "Bip01-Head"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
+				}
+			]
+		},
+		CVattachment
+		{
+			string m_name = "attach_cheast"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
+				{
+					string m_influenceName = "Bip01-Neck"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
+				}
+			]
+		},
+		CVattachment
+		{
+			string m_name = "attach_hitloc"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
+				{
+					string m_influenceName = "Bip01-Spine"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
+				}
+			]
+		}
+	]
+}
+
+CVanimGroup CVanimGroup_0
+{
+	string m_Name = ""
+	CVReferenceSkeletonReference m_pReferenceSkeleton = CVReferenceSkeletonReference
+	{
+		CVReferenceSkeleton* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVBoneFlagListReference m_pBoneFlagList = CVBoneFlagListReference
+	{
+		CVBoneFlagList* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVseqGroupReference m_pSeqGroup = CVseqGroupReference
+	{
+		CVseqGroup* m_pObject = NULL
+		string m_sFileName = ""
+	}
+	CVanimGroupReference[] m_pAnimGroups = 
+	[
+		
+	]
+	CVanim[] m_Vanim = 
+	[
+		CVanim
+		{
+			string m_Animationname = "gongjianbing_attack"
+			string m_Filepath = "models/gongjianbing/gongjianbing_attack.smd"
+			int m_nStartframe = 0
+			int m_nEndframe = 45
+			float m_flFps = 45.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_ATTACK"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "gongjianbing_dead"
+			string m_Filepath = "models/gongjianbing/gongjianbing_dead.smd"
+			int m_nStartframe = 0
+			int m_nEndframe = 35
+			float m_flFps = 30.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = false
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_DIE"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "gongjianbing_idle"
+			string m_Filepath = "models/gongjianbing/gongjianbing_idle.smd"
+			int m_nStartframe = 0
+			int m_nEndframe = 45
+			float m_flFps = 30.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = true
+					int m_nLoopRestart = 120
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_IDLE"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "gongjianbing_walk"
+			string m_Filepath = "models/gongjianbing/gongjianbing_walk.smd"
+			int m_nStartframe = 0
+			int m_nEndframe = 32
+			float m_flFps = 30.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = false
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		},
+		CVanim
+		{
+			string m_Animationname = "gongjianbing_run"
+			string m_Filepath = "models/gongjianbing/gongjianbing_run.smd"
+			int m_nStartframe = 0
+			int m_nEndframe = 20
+			float m_flFps = 60.000000
+			CAnimationLoop m_Loop = CAnimationLoop
+			{
+				bool m_bLoop = true
+				bool m_bSmoothLoop = false
+				int m_nSmoothLoopStart = 0
+				int m_nSmoothLoopEnd = 0
+				CVAnimCmdStartLoop m_StartLoop = CVAnimCmdStartLoop
+				{
+					bool m_bEnabled = true
+					int m_nLoopRestart = 0
+				}
+			}
+			bool m_bHidden = false
+			CActivity[] m_Activities = 
+			[
+				CActivity
+				{
+					string m_Name = "ACT_DOTA_RUN"
+					int m_nWeight = 1
+				}
+			]
+			CAnimationEvent[] m_AnimationEvents = 
+			[
+				
+			]
+			CMotionFrame[] m_MotionFrames = 
+			[
+				CMotionFrame
+				{
+					int m_nFrame = 0
+					bool m_bExtractTX = true
+					bool m_bExtractTY = true
+					bool m_bExtractTZ = false
+					bool m_bExtractRX = false
+					bool m_bExtractRY = false
+					bool m_bExtractRZ = false
+					bool m_bDiscardTX = false
+					bool m_bDiscardTY = false
+					bool m_bDiscardTZ = false
+					bool m_bDiscardRX = false
+					bool m_bDiscardRY = false
+					bool m_bDiscardRZ = false
+				}
+			]
+			CIKrule*[] m_pIkRules = 
+			[
+				
+			]
+			CAdjustAnimation m_adjustAnimation = CAdjustAnimation
+			{
+				float(3) m_translation = ( 0.000000, 0.000000, 0.000000 )
+				float(3) m_rotation = ( 0.000000, 0.000000, 0.000000 )
+			}
+			string[] m_Keywords = 
+			[
+				
+			]
+			CVAnimResourceSequenceParams m_sequenceParams = CVAnimResourceSequenceParams
+			{
+				float m_flFadeInTime = 0.200000
+				float m_flFadeOutTime = 0.200000
+			}
+		}
+	]
+	string[] m_sScripts = 
+	[
+		
+	]
+}

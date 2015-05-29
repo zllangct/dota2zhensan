@@ -112,37 +112,37 @@
 		 //援军
 		public function yuanjun_butten_RollOver(dd:MouseEvent):void
 		{
-			this.list_1.dialogString.text="用金钱和木材做交换，获得吴国的援军支援!";
+			this.list_1.dialogString.text="用800金钱和60木材做交换，获得吴国的援军支援!";
 	    }
 		//投石车 
 		public function toushi_butten_RollOver(dd:MouseEvent):void
 		{
-			this.list_1.dialogString.text="购买一辆投石车，出现在离你最近的据点或者温泉旁边.";
+			this.list_1.dialogString.text="用220金钱和12木材购买一辆投石车，出现在离你最近的据点或者温泉旁边.";
 	    }
 		//果酒 
 		public function guojiu_butten_RollOver(dd:MouseEvent):void
 		{
-			this.list_1.dialogString.text="获得一瓶果酒，恢复一定的魔法值！";
+			this.list_1.dialogString.text="消耗50金钱获得一瓶果酒，恢复一定的魔法值！";
 	    }
 		//包子 
 		public function baozi_butten_RollOver(dd:MouseEvent):void
 		{
-			this.list_1.dialogString.text="获得一个包子，恢复一定的血量！";
+			this.list_1.dialogString.text="消耗50金钱获得一个包子，恢复一定的血量！";
 	    }
 		//上路 
 		public function shanglu_butten_RollOver(dd:MouseEvent):void
 		{
-			this.list_1.dialogString.text="上路紧急征召一波士兵！";
+			this.list_1.dialogString.text="用240金钱和20木材在上路紧急征召一波士兵！";
 	    }
 		//中路 
 		public function zhonglu_butten_RollOver(dd:MouseEvent):void
 		{
-			this.list_1.dialogString.text="中路紧急征召一波士兵！";
+			this.list_1.dialogString.text="用240金钱和20木材在中路紧急征召一波士兵！";
 	    }
 		//下路
 		public function xialu_butten_RollOver(dd:MouseEvent):void
 		{
-			this.list_1.dialogString.text="下路紧急征召一波士兵！";
+			this.list_1.dialogString.text="用240金钱和20木材在下路紧急征召一波士兵！";
 	    }
 		/////////////////////
 		 //援军

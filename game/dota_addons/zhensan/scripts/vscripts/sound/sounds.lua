@@ -26,16 +26,15 @@ function SoundControllerStart()
 	local soundLength = SOUND_LENGTH[currentSound]
 	
 	-- 游戏开始10秒之后开始播放BGM，同样的，每个BGM之间间隔5秒
-	Timers:CreateTimer(5,
+	GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("123_1321"),
 		function()
 			-- print("Attemp to start sound :", currentSound, "Sound Length: " , soundLength)
 			EmitGlobalSound(currentSound)
-			Timers:CreateTimer(soundLength, function()
+			GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("123_1322"), function()
 				-- 如果游戏已经结束，那么不播放下一首
 				if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 					SoundControllerStart()
 				end
-			end)
-		end
-	)
+			end,soundLength)
+		end,5)
 end

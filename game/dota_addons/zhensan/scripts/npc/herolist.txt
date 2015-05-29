@@ -15,5 +15,7 @@
     "npc_dota_hero_storm_spirit"    "1"  //张宝  暴风
     "npc_dota_hero_dragon_knight"   "1"//张辽
     "npc_dota_hero_antimage"        "1" //曹丕
+    "npc_dota_hero_kunkka"          "1" //刘备
+    //"npc_dota_hero_bane"            "1" //ceshi
 }
 //-createhero npc_dota_hero_axe

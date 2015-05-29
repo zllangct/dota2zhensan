@@ -34,7 +34,7 @@ function TrueFormStart( event ) --鬼神开始变形调用
     end
     --设置为满血
     caster:SetHealth(caster:GetMaxHealth())
-    
+    caster:SetHullRadius(48)
     if caster.caster_model == nil then 
 		caster.caster_model = caster:GetModelName()
 	end
@@ -79,7 +79,7 @@ function TrueFormStart( event ) --鬼神开始变形调用
             caster:SetModelScale(model_size)
             local now_point = caster:GetAbsOrigin()
             caster:SetAbsOrigin(now_point-Vector(0,0,per_down))
-            model_size=model_size+0.22
+            model_size=model_size+0.18
             count = count + 1 
             return 0.02
         end 
@@ -87,6 +87,7 @@ function TrueFormStart( event ) --鬼神开始变形调用
     GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("caoren_03"),function()  --变身持续时间到时，变回原模型
         --设置为原有模型
         caster:SetModel(caster.caster_model)
+        caster:SetHullRadius(24)
 	    caster:SetOriginalModel(caster.caster_model)
         caster:SetModelScale(1)  
         --移除变身中的modifier  

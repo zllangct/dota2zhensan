@@ -7,9 +7,19 @@ CVModel CVModel_0
 		[
 			CVmesh
 			{
-				string m_meshName = "towernew"
-				string m_meshFile = "models/towernew.smd"
+				string m_meshName = "t1"
+				string m_meshFile = "models/t1.fbx"
 				string m_materialSearchPath = "materials/models/tower"
+				bool m_bSkinParentedObjects = true
+				bool m_bExpensiveTangents = false
+				bool m_bExpensiveVertices = false
+				CVmorphInfo* m_pMorphInfo = NULL
+			},
+			CVmesh
+			{
+				string m_meshName = "tower"
+				string m_meshFile = "models/tower.smd"
+				string m_materialSearchPath = ""
 				bool m_bSkinParentedObjects = true
 				bool m_bExpensiveTangents = false
 				bool m_bExpensiveVertices = false
@@ -59,7 +69,11 @@ CVModel CVModel_0
 	]
 	CVattachmentListReference[] m_pAttachmentLists = 
 	[
-		
+		CVattachmentListReference
+		{
+			CVattachmentList* m_pObject = &CVattachmentList_0
+			string m_sFileName = ""
+		}
 	]
 	CVanimGroupReference[] m_pAnimGroups = 
 	[
@@ -126,19 +140,32 @@ CVhitBoxSetList CVhitBoxSetList_0
 					string m_sSurfaceProperty = ""
 					int m_nGroupId = 0
 					string m_sBoneName = "Object01"
-					float(3) m_vMinBounds = ( -15.659397, -15.154556, -75.927689 )
-					float(3) m_vMaxBounds = ( 15.280300, 14.228245, 13.377874 )
+					float(3) m_vMinBounds = ( -15.659397, -15.154556, -38.067150 )
+					float(3) m_vMaxBounds = ( 15.280300, 14.228245, 49.231884 )
 					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
-				},
-				CVhitBox
+				}
+			]
+		}
+	]
+}
+
+CVattachmentList CVattachmentList_0
+{
+	string m_name = ""
+	CVattachment[] m_attachments = 
+	[
+		CVattachment
+		{
+			string m_name = "attach_attack1"
+			CVattachmentInfluence[] m_influences = 
+			[
+				CVattachmentInfluence
 				{
-					string m_name = "Object01"
-					string m_sSurfaceProperty = ""
-					int m_nGroupId = 0
-					string m_sBoneName = "Object01"
-					float(3) m_vMinBounds = ( -23.261293, -21.058386, -77.940269 )
-					float(3) m_vMaxBounds = ( 22.698164, 19.771208, 13.732473 )
-					uint(4) m_cRenderColor = ( 0, 0, 0, 0 )
+					string m_influenceName = "Object01"
+					float(3) m_vTranslationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float(3) m_vRotationOffset = ( 0.000000, 0.000000, 0.000000 )
+					float m_flWeight = 1.000000
+					bool m_bRoot = false
 				}
 			]
 		}

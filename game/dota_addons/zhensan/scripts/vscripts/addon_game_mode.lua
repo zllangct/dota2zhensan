@@ -98,6 +98,15 @@ function Precache(context)
     PrecacheResource("particle", "particles/units/heroes/hero_mirana/mirana_base_attack.vpcf",context)
     -- 自定义背景音乐
     PrecacheResource("soundfile", "soundevents/custom_sound_events.vsndevts", context)
+    --boss
+    PrecacheResource("model", "models/items/pudge/gladiators_revenge_armor/gladiators_revenge_armor.vmdl",context)
+    PrecacheResource("model", "models/items/pudge/gladiators_revenge_trident_2/gladiators_revenge_trident_2.vmdl",context)
+    PrecacheResource("model", "models/items/pudge/gladiators_revenge_axe/gladiators_revenge_axe.vmdl",context)
+    PrecacheResource("model", "models/items/pudge/gladiators_revenge_belt/gladiators_revenge_belt.vmdl" ,context)
+    PrecacheResource("model", "models/items/pudge/gladiators_revenge_arm/gladiators_revenge_arm.vmdl" ,context)
+    PrecacheResource("model", "models/items/pudge/gladiators_revenge_chain/gladiators_revenge_chain.vmdl",context)
+    PrecacheResource("model", "models/items/pudge/gladiators_revenge_head/gladiators_revenge_head.vmdl" ,context)
+    
 end
 
 -- 当游戏载入的时候执行
@@ -158,7 +167,36 @@ function ZhensanGameMode:InitGameMode()
              ability1:ApplyDataDrivenModifier(hero, hero, "guanyu_jianshengfengbao_damagebuff",nil)
            end
         end
+        if keys.abilityname=="liubei_zhanyi" then
+           local player_id = keys.PlayerID
+            -- 获取玩家实体
+           local player = PlayerResource:GetPlayer(player_id - 1)
+           if not player then print("INVALID PLAYER") return end
+           -- 获取玩家所使用的英雄
+            local hero = player:GetAssignedHero()
+            if not hero then print("INVALID HERO") return end
+            local ability=hero:FindAbilityByName("liubei_zhanyi")
+             local ability_level=ability:GetLevel()
+             local _damage=ability:GetLevelSpecialValueFor("damage",ability_level-1) 
+             EmitGlobalSound("Ability.Ghostship") 
+            for _,hero_one in pairs(ZSSpawner.hero) do
+
+                if hero:GetTeam() ~= hero_one:GetTeam() then 
+                    ApplyDamage({victim =hero_one, attacker = hero, damage = _damage, damage_type = DAMAGE_TYPE_MAGICAL})
+                    local p_end = 'particles/dire_fx/bad_column001_destroy.vpcf'
+                    local p_inde = ParticleManager:CreateParticle(p_end, PATTACH_CUSTOMORIGIN, hero_one)
+                    ParticleManager:SetParticleControl(p_inde, 0, hero_one:GetOrigin())
+                    --添加声音
+                    EmitSoundOn("Ability.Ghostship", hero_one)
+
+                end 
+            end
+             MSys:MoraleDown(player, MSys:__GetEnemyTeam(hero:GetTeam()))
+        end
+
+
     end
+
     ------------------------------------------------------------
     ------------------------------------------------------------
     ListenToGameEvent("dota_player_used_ability", Dynamic_Wrap(ZhensanGameMode, "guanyu_jianrenfengbao1"), self)
@@ -250,7 +288,7 @@ function ZhensanGameMode:OnPlayerPicked(event)
     print('on player picked')
     local unit = EntIndexToHScript(event.heroindex)
     local unit_name = unit:GetUnitName()
-    table.insert(ZSSpawner.hero,unit_name)
+    table.insert(ZSSpawner.hero,unit)
     ZSSpawner.hero[unit_name]=unit
     print("player picked:"..ZSSpawner.hero[unit_name]:GetUnitName())
     if self.__NpcSpawnedHandler[unit_name] then

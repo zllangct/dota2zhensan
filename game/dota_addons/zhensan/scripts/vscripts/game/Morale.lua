@@ -55,7 +55,6 @@ end
 --------------------------------------------
 function MSys:shibing_morale()
    local shibing=ZSSpawner.shibing
-   PrintTable(shibing)
    if shibing[1] then 
       self:shibing_morales_set(shibing)
    end 

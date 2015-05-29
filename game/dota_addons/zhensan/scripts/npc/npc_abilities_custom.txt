@@ -52,39 +52,13 @@
 
 		"Modifiers"
 		{
-			"hpmp"
+			"judian_granter_buff"
 			{
 				"IsHidden"              "1"
 				"Passive"               "1"
-				"Aura"					"modifier_get_hpmp"
-				"Aura_Radius"			"800"
-				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types"			"DOTA_UNIT_TARGET_MECHANICAL"
-				"States"
+				"Properties"
 				{
-					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"ThinkInterval"         "2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"Target" 			
-						{
-							
-							"Center"		"CASTER"
-							"radius"		"800"
-							"Types"			"DOTA_UNIT_TARGET_CREEP"
-						
-						}
-						
-						"ScriptFile"			"scripts/vscripts/items/judian.lua"
-			            "Function"				"ability_judian"
-						
-					}
-					
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"3"
 				}
 
 
@@ -189,6 +163,7 @@
 	{
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"   "shiqi"
 		"MaxLevel"   "11"
 		"Modifiers"
 		{
@@ -196,6 +171,7 @@
 			"creep_morale_aura"
 			{
 				"Passive"  "1"
+				"TextureName"   "shiqi"
 				"IsPurgable"		"0"
 				"Properties"
 				{
@@ -1429,6 +1405,7 @@
 			{
 				"Duration"	"%duration"
 				"isDebuff"	"1"
+				"TextureName"			"dianwei_yaohuo"
 				"StatusEffectName"		 "particles/dianweiyaohuo.vpcf" //particles/status_fx/status_effect_slardar_amp_damage.vpcf
 				"StatusEffectPriority"	"20"
 				"OnCreated"
@@ -1510,7 +1487,7 @@
 		{
 			"movementspeed_bonus"
 			{
-				"IsHidden"		"1"
+				"TextureName"		"dianwei_yexingzhanhun"	
 				"Passive"		 "1"
 				"Properties"
 				{
@@ -1774,6 +1751,7 @@
 		{
 			"zhangfei_health_bonus"
 			{
+				"TextureName"		"zhangfei_tianshenxiafan"
 				"Duration"	 "%duration"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
@@ -3277,8 +3255,9 @@
 			}
 			"guojia_hanbinbao_jiansu_buff"
 			{
-				"IsHidden"	"1"
+				
 				"IsPurgable"			"1"
+				"TextureName"		"guojia_shuangdong"
 				"Duration"	 "%movement_duration"
 				"Properties"
 				{
@@ -3350,7 +3329,9 @@
 		{
 			"guojia_shuangdonghujia_buff"
 			{
+				"IsHidden"   "1"
 				"Duration"	"%duration"
+				
 				"Properties"
 				{
 					 "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
@@ -3387,6 +3368,7 @@
 			{
 				"IsPurgable"			"1"
 				"Duration"	 "%movement_duration"
+				"TextureName"		"guojia_hujia"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed"
@@ -3450,7 +3432,7 @@
 			
 			"guojia_yaomufaguang_thinker"
 			{
-				"IsHidden"				"0"
+				"IsHidden"				"1"
 				"Passive"				"1"
 				
 				"Aura"					"guojia_yaomufaguang_aura"
@@ -3460,7 +3442,8 @@
 			}
 			"guojia_yaomufaguang_aura"
 			{
-				"IsHidden"	 "1"
+
+				"TextureName"		"guojia_guanghuan"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
@@ -3643,6 +3626,7 @@
 			{
 				//"Passive"   "1"
 				//"IsHidden"   "1"
+				"TextureName"			 "guanyu_xuanfengzhan"
 				"Duration"   "7"
 				"OnCreated"
 				{
@@ -3697,7 +3681,7 @@
 			"guanyu_jianshengfengbao_damagebuff"
 			{
 				//"Passive"   "1"
-				//"IsHidden"   "1"
+				"IsHidden"   "1"
 				"Duration"   "7"
 
 					"ThinkInterval" "0.3"
@@ -3754,6 +3738,7 @@
 		{
 			"guanyu_sanbi"
 			{
+				"TextureName"			 "guanyu_zuiquan"
 				"Passive"	 "1"
 				"Properties"
 				{
@@ -4086,6 +4071,7 @@
 		    "particle"         "particles/units/heroes/hero_clinkz/clinkz_strafe.vpcf"
 		    "particle"        "particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_3.vpcf"
 		    "particle"      "particles/units/heroes/hero_warlock/warlock_rain_of_chaos_start.vpcf"
+		    "particle"       "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
 		}
 	    "AbilityCastRange"               "600"
 	    "OnSpellStart"
@@ -4140,7 +4126,7 @@
 			       // }
                      "AttachEffect"
 			        {
-				        "EffectName"		"particles/econ/courier/courier_greevil_orange/courier_greevil_orange_ambient_3.vpcf"
+				        "EffectName"		"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
 				        "EffectAttachType"	"follow_origin"
 				        "Target"			 "CASTER"
 			        }
@@ -4158,7 +4144,7 @@
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"   "MODIFIER_STATE_VALUE_ENABLED"
-				}
+				}	
 			}
 			"caoren_damage_per"  
 			{
@@ -4206,6 +4192,8 @@
 				{
 					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"2.1"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"8"
+			   	    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"   "150"
+
 					//"MODIFIER_PROPERTY_HEALTH_BONUS"				"1000"
 					//"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"25"
 
@@ -4299,6 +4287,7 @@
 		{
 			"caoren_cuimianshu_debuff"
 			{
+				"TextureName"             "caoren_shuimian"
 				"IsPurgable"			"1"
 				"Duration"  "%duration"
 				"States"
@@ -4336,15 +4325,7 @@
 						"Target" 			"TARGET"
 						"ModifierName"		"caoren_cuimian"
 					}
-				}
-				//"OnAttacked"
-				//{
-					//"RemoveModifier"
-					//{
-					//	"Target" 			"TARGET"
-					//	"ModifierName"		"caoren_cuimianshu_debuff"
-					//}
-				//}
+				}			
 			}
 			"caoren_suimian"
 			{
@@ -4547,7 +4528,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"illusion_duration"			"34"
+				"illusion_duration"			"20 30 40"
 			}
 			"02"
 			{
@@ -4557,7 +4538,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"incoming_damage"			"50 50 50"
+				"incoming_damage"			"30 40 50"
 			}
 			"04"
 			{
@@ -4799,6 +4780,7 @@
 			}
 			"jiasuqiang_buff"
 			{
+				"TextureName"   "jiasuqiang"
 				"Duration"   "%duration"
         		"Properties"
         		{
@@ -4903,7 +4885,7 @@
 			}
 			"yinshenqiang_buff_01"
 			{
-				
+				"TextureName"   "yinshenqiang"
 				"Duration"   "%duration"
 				"OnCreated"
 				{
@@ -5018,6 +5000,7 @@
 			{
 				"Duration"    "%duration"
 				//"IsHidden"                  "1"
+				"TextureName"   "lianzhan"
 				"ThinkInterval"				"1"
 				"OnIntervalThink"
 				{
@@ -5229,7 +5212,7 @@
         {
         	"leidun_buff"
         	{
-        		"IsHidden"   "1"
+        		"TextureName"    "zhangbao_leidun"
         		"Passive"    "1"
         		"OnAttacked"        		
         		{
@@ -5279,7 +5262,7 @@
  		"MaxLevel"   "3"
  		"RequiredLevel"   "6 11 16"
  		"LevelsBetweenUpgrades"   "5"
-  		 "AbilityCastRange"				"600"
+  		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		"AbilityCastAnimation"    "ACT_DOTA_TELEPORT_END"
         "precache"
@@ -5670,7 +5653,7 @@
 		{
 			"zhangliao_buff"
 			{
-				"IsHidden"   "1"
+				"TextureName"			"zhangliao_cizhenkuijia"
 				"Passive"    "1"
 				"Properties"
 				{
@@ -5755,7 +5738,7 @@
 		}
 		"Modifiers"
 		{
-			"zhangliao_buff"
+			"zhangliao_buff_01"
 			{
 				"IsHidden"   "1"
 				"Passive"    "1"
@@ -6476,6 +6459,311 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// 刘备  
+	//=================================================================================================================
+	"liubei_shengguangshu"
+	{
+        "BaseClass"    "ability_datadriven"
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"   "4"
+		"LevelsBetweenUpgrades"  "2"
+		"AbilityTextureName"    "liubei_shengguangshu"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+        "precache"
+        {
+        	"particle" 			"particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf"
+        	"soundfile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+        }
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityChannelTime"			"12"
+		"AbilityCooldown"				"22.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 125 150 175"
+		"OnSpellStart"
+		{
+			"AttachEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_brewmaster/brewmaster_windwalk.vpcf"
+				"EffectAttachType" "follow_origin"
+				"Target" "TARGET"
+			}
+			"FireSound"
+			{
+				"EffectName"		"Ability.XMarksTheSpot.Target"
+				"Target" "TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/liubei.lua"
+				"Target"		"TARGET"
+				"Function"		"liubei_shengguangshu_01"
+			}
+			
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage"			"300 400 500 600"
+			}
+		}
+	}
+	"liubei_zhandoumingling"
+	{
+		"BaseClass"    "ability_datadriven"
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"   "4"
+		"LevelsBetweenUpgrades"  "2"
+		"AbilityTextureName"    "liubei_zhandoumingling"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"				"600"
+		//"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate"      "2"
+        "precache"
+        {
+        	"particle" 			"particles/jugg_ghost.vpcf"
+        	"particle" 			"particles/jugg_chop.vpcf"
+        	"particle"          "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+        	"soundfile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+        	
+        }
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityChannelTime"			"12"
+		"AbilityCooldown"				"15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 100 100 100"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"liubei_zhandoumingling_effect"
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
+				"Target" "CASTER"
+			}
+		    
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/liubei.lua"
+				"Function"		"liubei_zhandoumingling_01"
+			}
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"liubei_zhandoumingling_state"
+			}
+			"ApplyModifier"
+			{
+				"Target" 			"CASTER"
+				"ModifierName"		"liubei_zhandoumingling_aura"
+			}
+		    
+		}
+		"Modifiers"
+		{
+			"liubei_zhandoumingling_effect"
+			{
+               "IsHidden"   "1"
+               "OnCreated"
+               {
+               	   "AttachEffect"
+			       {
+				        "EffectName"		"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+				        "EffectAttachType" "follow_origin"
+				        "Target" "TARGET"
+			       }
+               }
+			}
+			"liubei_zhandoumingling_state"
+			{
+				"IsHidden"   "1"
+			    "States"
+			    {
+				    "MODIFIER_STATE_COMMAND_RESTRICTED"  "MODIFIER_STATE_VALUE_ENABLED"
+			    }
+			
+			}
+			"liubei_zhandoumingling_aura"
+			{
+				"IsHidden"          "1"
+                "ThinkInterval"    "0.01"
+                "OnIntervalThink"
+                {
+                	"ActOnTargets"
+				   {
+					  "Target"
+					  {
+						"Center"	"CASTER"
+						"Radius"	"200"
+						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					   }
+					   "Action"
+					   {
+						   "ApplyModifier"
+						   {
+							   "Target" 			"TARGET"
+							   "ModifierName"		"liubei_zhandoumingling_aura_01"
+						   }
+					  }
+				  }
+                }
+			}
+			"liubei_zhandoumingling_aura_01"
+			{
+                "IsHidden"   "1"
+                "Duration"   "3"
+                "Properties"
+	            {
+	                "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"        "%slow"
+	            }
+
+			}
+			
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"slow"			"-100 -150 -200 -250"
+			}
+		}
+	}
+	"liubei_hujia"
+	{
+		"BaseClass"    "ability_datadriven"
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"    "liubei_hujia"
+		"MaxLevel"   "4"
+		"LevelsBetweenUpgrades"  "2"
+		"AbilityCastPoint"				"2 2 2 2"
+		"AbilityCastAnimation"			"ACT_DOTA_FLAIL"
+        "precache"
+        {
+        	"particle" 			"particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf"
+        	"soundfile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+        	
+        }
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityChannelTime"			"12"
+		"AbilityCooldown"				"60 50 40 30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 100 100 100"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/liubei.lua"
+				"Target"		"TARGET"
+				"Function"		"liubei_hujia_01"
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Kunkka.InverseBayonet"
+				"Target" "CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_Kunkka.InverseBayonet"//Hero_Kunkka.InverseBayonet
+				"Target" "TARGET"
+			}
+			"AttachEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf"
+				"EffectAttachType" "follow_origin"
+				"Target" "TARGET"
+			}
+		}
+		
+	}
+	"liubei_zhanyi"
+	{
+		"BaseClass"    "ability_datadriven"
+        "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"   "3"
+		"LevelsBetweenUpgrades"  "5"
+		"AbilityTextureName"    "liubei_zhanyi"
+		"RequiredLevel"   "6"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.1 0.1 0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"precache"
+		{
+			"particle" 			"particles/dire_fx/bad_column001_destroy.vpcf"
+			"particle"          "particles/units/heroes/hero_dazzle/dazzle_weave.vpcf"
+        	"soundfile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+			
+		}
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityChannelTime"			"12"
+		"AbilityCooldown"				"160"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125 175 225 270"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Ability.Ghostship"
+				"Target" "CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/abilities/liubei.lua"
+				"Function"		"liubei_zhanyi_01"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage"			"150 225 300"
+			}
+		}
+	}
 	
 	//=================================================================================================================
 	//测试  particles/units/heroes/hero_slark/slark_dark_pact_pulses.vpcf
@@ -6483,16 +6771,39 @@
 	"zhensan_test"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/game/test.lua"
+				"Target"		"TARGET"
+				"Function"		"test_01"
+			}
+		}
 		"Modifiers"
 		{
 			"test_buff"
 			{
-				"Passive"  "1"
+				//"Passive"  "1"
 				"States"
                 {
                 	"MODIFIER_STATE_MAGIC_IMMUNE"				"MODIFIER_STATE_VALUE_ENABLED"
                 }
+			}
+		}
+	}
+	"zhensan_test_02"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile" 	"scripts/vscripts/game/test.lua"
+				"Target"		"TARGET"
+				"Function"		"test_02"
 			}
 		}
 	}
@@ -6507,18 +6818,30 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"viper_nethertoxin"
 		"MaxLevel"	 "1"
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_bane.vsndevts"
+		}
 		"Modifiers"
 		{
 			"toushiche_toushi_auto_attack"
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
+				"OnAttackStart"
+				{
+					"FireSound"
+					{
+						"Target"				"CASTER"
+						"EffectName"			"Hero_Bane.Attack"
+					}
+				}
 				"OnAttackLanded"
 				{
 					"FireSound"
 					{
 						"Target"				"CASTER"
-						"EffectName"			"Hero_SkywrathMage.ArcaneBolt.Cast"
+						"EffectName"			"Hero_Bane.ProjectileImpact"
 					}
 					"RunScript"
 					{
@@ -6536,11 +6859,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"toushi"
+		"AbilityTextureName"			"zhuge_bingxuebao"
 		"AbilityCooldown"				 "3.5"
 		"AOERadius"	 "200"
 		"MaxLevel"	 "1"
 		"AbilityCastRange"	 "1200"
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_SkywrathMage.vsndevts"
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -6564,7 +6891,7 @@
 		{
 			"aoe_spike_thinker001"
 			{
-				"Duration"					"%think_time + 0.5" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
+				"Duration"					"%think_time_01" // Should work without the added time but appears to have a off by one error so time added so it doesn't destroy itself before occuring
 				"ThinkInterval"				"%think_time"
 				"OnIntervalThink"
 				{
@@ -6590,6 +6917,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"think_time"			"1.0"
 			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"think_time_01"			"1.0"
+			}
 		}
 	}
 	"toushiche_dummy_01"
@@ -6600,15 +6932,24 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		//"AbilityTextureName"			"viper_nethertoxin"
 		"AbilityCooldown"	 "1"
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_SkywrathMage.vsndevts"
+		}
 		"OnSpellStart"
 		{
+			   "FireSound"
+			   {
+				    "Target"				"CASTER"
+				    "EffectName"			"Hero_SkywrathMage.ArcaneBolt.Cast"
+			   }
 				 "ActOnTargets"
 				{
 					"Target"
 					{
 						"Center"	"CASTER"
 						"Radius"	"100"
-						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+						"Types"		"DOTA_UNIT_TARGET_BUILDING"
 						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					}
 					"Action"
@@ -6617,6 +6958,26 @@
 						 {
 								"Target"	"TARGET"
 								"Damage"	"120"
+								 "Type"		"DAMAGE_TYPE_PHYSICAL"
+						 }
+					}
+				}
+				"ActOnTargets"
+				{
+					"Target"
+					{
+						"Center"	"CASTER"
+						"Radius"	"100"
+						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+						"ExcludeTypes"   "DOTA_UNIT_TARGET_BUILDING"
+						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					}
+					"Action"
+					{
+						"Damage"
+						 {
+								"Target"	"TARGET"
+								"Damage"	"80"
 								 "Type"		"DAMAGE_TYPE_PHYSICAL"
 						 }
 					}
@@ -6651,26 +7012,7 @@
 								 "Type"		"DAMAGE_TYPE_PHYSICAL"
 						 }
 					}
-				}
-				"ActOnTargets"
-				{
-					"Target"
-					{
-						"Center"	"CASTER"
-						"Radius"	"120"
-						//"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-						"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					}
-					"Action"
-					{
-						"Damage"
-						 {
-								"Target"	"TARGET"
-								"Damage"	"80"
-								 "Type"		"DAMAGE_TYPE_PHYSICAL"
-						 }
-					}
-				}
+			}
 		}
 	}
 
