@@ -193,13 +193,21 @@ end
 function GetWolongGuangxianPointMid3(keys)
     local caster = keys.caster
     local result = { }
-    table.insert(result, caster.__point_left)
+    local caster_fv = caster:GetForwardVector()
+    local caster_origin = caster:GetOrigin()
+    point_mid = caster_origin + caster_fv * 1200
+    --table.insert(result, caster.__point_left)
+    table.insert(result, point_mid)
     return result
 end
 function GetWolongGuangxianPointMid2(keys)
     local caster = keys.caster
     local result = { }
-    table.insert(result, caster.__point_right)
+    local caster_fv = caster:GetForwardVector()
+    local caster_origin = caster:GetOrigin()
+    point_mid = caster_origin + caster_fv * 1200
+   -- table.insert(result, caster.__point_right)
+   table.insert(result, point_mid)
     return result
 end
 function GetWolongGuangxianPointMid1(keys)

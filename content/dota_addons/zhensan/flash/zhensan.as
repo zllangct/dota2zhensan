@@ -197,9 +197,9 @@
 				correctedRatio =  re.ScreenHeight / originalHeight * divided;
                 this.scaleX = correctedRatio;
 			    this.scaleY = correctedRatio;  
-				this.function_butten_1.x=re.ScreenWidth*1.3;
+				this.function_butten_1.x=re.ScreenWidth*1.32;
 				this.function_butten_1.y=this.function_butten_1.y*1;
-				this.list_1.x=re.ScreenWidth*1.1;
+				this.list_1.x=re.ScreenWidth*1.12;
 				this.list_1.y=re.ScreenHeight*0.1+4;
             }
             else if(re.Is16by9()){
@@ -217,7 +217,7 @@
                 this.scaleX = correctedRatio;
 			    this.scaleY = correctedRatio; 
 				this.list_1.x=re.ScreenWidth*2.23;
-				this.function_butten_1.x=re.ScreenWidth*2.55;
+				this.function_butten_1.x=re.ScreenWidth*2.56;
             }           
         }
     }

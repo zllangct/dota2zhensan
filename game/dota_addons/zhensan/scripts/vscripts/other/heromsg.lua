@@ -52,7 +52,7 @@ HeroMSG['npc_dota_hero_antimage']={}
 HeroMSG['npc_dota_hero_antimage'].ModelScale=0.9
 --寻
 HeroMSG['npc_dota_hero_zuus']={}
-HeroMSG['npc_dota_hero_zuus'].ModelScale=0.86
+HeroMSG['npc_dota_hero_zuus'].ModelScale=1
 --刘备
 HeroMSG['npc_dota_hero_kunkka']={}
 HeroMSG['npc_dota_hero_kunkka'].ModelScale=1

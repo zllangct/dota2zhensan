@@ -632,8 +632,8 @@
 				}
 				"EffectName"				"particles/econ/items/windrunner/windrunner_weapon_rainmaker/windrunner_spell_powershot_rainmaker.vpcf"
 				"MoveSpeed"					"1200"
-				"StartRadius"				"110"
-				"EndRadius"			        "110"
+				"StartRadius"				"120"
+				"EndRadius"			        "120"
 				"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
 				"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 				"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -651,7 +651,7 @@
 		    }
 			"DelayedAction"
 			{
-				"Delay"			"0.5"
+				"Delay"			"0.6"  //0.5
 				"Action"
 				{
 					"LinearProjectile"
@@ -668,8 +668,8 @@
 						}
 						"EffectName"				"particles/econ/items/windrunner/windrunner_weapon_rainmaker/windrunner_spell_powershot_rainmaker.vpcf"
 						"MoveSpeed"					"1200"
-						"StartRadius"				"110"
-						"EndRadius"			        "110"
+						"StartRadius"				"120"
+						"EndRadius"			        "120"
 						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
 						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 						"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -689,7 +689,7 @@
 			}
 			"DelayedAction"
 			{
-				"Delay"			"0.85"
+				"Delay"			"1.05"  //0.85
 				"Action"
 				{
 					"LinearProjectile"
@@ -706,8 +706,8 @@
 						}
 						"EffectName"				"particles/econ/items/windrunner/windrunner_weapon_rainmaker/windrunner_spell_powershot_rainmaker.vpcf"
 						"MoveSpeed"					"1200"
-						"StartRadius"				"110"
-						"EndRadius"			        "110"
+						"StartRadius"				"120"
+						"EndRadius"			        "120"
 						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
 						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 						"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -727,7 +727,7 @@
 			}
 			"DelayedAction"
 			{
-				"Delay"			"1.05"
+				"Delay"			"1.25"  //1.05
 				"Action"
 				{
 					"LinearProjectile"
@@ -744,8 +744,8 @@
 						}
 						"EffectName"				"particles/econ/items/windrunner/windrunner_weapon_rainmaker/windrunner_spell_powershot_rainmaker.vpcf"
 						"MoveSpeed"					"1200"
-						"StartRadius"				"110"
-						"EndRadius"			        "110"
+						"StartRadius"				"120"
+						"EndRadius"			        "120"
 						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
 						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 						"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -765,7 +765,7 @@
 		    }
 			"DelayedAction"
 			{
-				"Delay"			"1.25"
+				"Delay"			"1.45"  //1.25
 				"Action"
 				{
 					"LinearProjectile"
@@ -782,8 +782,8 @@
 						}
 						"EffectName"				"particles/econ/items/windrunner/windrunner_weapon_rainmaker/windrunner_spell_powershot_rainmaker.vpcf"
 						"MoveSpeed"					"1200"
-						"StartRadius"				"110"
-						"EndRadius"			        "110"
+						"StartRadius"				"120"
+						"EndRadius"			        "120"
 						"TargetTypes"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"	// You can use the constant snippets here...
 						"TargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
 						"TargetTeams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
